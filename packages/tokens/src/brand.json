@@ -1,0 +1,499 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "$version": "3.3.0",
+  "name": "Solide Brand Tokens",
+  "description": "Identidade fundamental da marca Solide ? Tecnologia s?lida, engenharia inteligente.",
+  "color": {
+    "primary": {
+      "50": {
+        "$value": "#f9fcff",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#e7f1ff",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#d0e3ff",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#a8c4ea",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#7096d1",
+        "$type": "color",
+        "$description": "Azul t?til para a??es em tema escuro"
+      },
+      "500": {
+        "$value": "#4b6fbe",
+        "$type": "color"
+      },
+      "600": {
+        "$value": "#334eac",
+        "$type": "color",
+        "$description": "Azul Solide Prim?rio (7.4:1 sobre branco ? AAA)"
+      },
+      "700": {
+        "$value": "#263c86",
+        "$type": "color",
+        "$description": "Hover prim?rio claro (10.1:1 sobre branco)"
+      },
+      "800": {
+        "$value": "#142b6e",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#081f5c",
+        "$type": "color",
+        "$description": "Navy Solide institucional (15.4:1 sobre branco)"
+      },
+      "950": {
+        "$value": "#041033",
+        "$type": "color"
+      }
+    },
+    "neutral": {
+      "0": {
+        "$value": "#ffffff",
+        "$type": "color"
+      },
+      "50": {
+        "$value": "#f9fafc",
+        "$type": "color",
+        "$description": "Canvas off-white"
+      },
+      "100": {
+        "$value": "#f2f4f8",
+        "$type": "color",
+        "$description": "Superf?cie recuada (sunken)"
+      },
+      "200": {
+        "$value": "#e6e9f0",
+        "$type": "color",
+        "$description": "Bordas secund?rias e divisores"
+      },
+      "300": {
+        "$value": "#d5dae4",
+        "$type": "color",
+        "$description": "Bordas estruturais"
+      },
+      "400": {
+        "$value": "#aeb6c6",
+        "$type": "color",
+        "$description": "Bordas interativas e texto desabilitado"
+      },
+      "500": {
+        "$value": "#858d9e",
+        "$type": "color",
+        "$description": "Metadados e ?cones terci?rios"
+      },
+      "600": {
+        "$value": "#656d7e",
+        "$type": "color",
+        "$description": "Texto secund?rio (5.2:1 ? WCAG AA garantido)"
+      },
+      "700": {
+        "$value": "#464d5c",
+        "$type": "color",
+        "$description": "Texto intermedi?rio (8.4:1)"
+      },
+      "800": {
+        "$value": "#2a303c",
+        "$type": "color",
+        "$description": "Superf?cie elevada ard?sia"
+      },
+      "900": {
+        "$value": "#171b23",
+        "$type": "color",
+        "$description": "Card escuro e texto prim?rio claro (17.2:1)"
+      },
+      "950": {
+        "$value": "#0e1117",
+        "$type": "color",
+        "$description": "Superf?cie base escura"
+      },
+      "black": {
+        "$value": "#000000",
+        "$type": "color",
+        "$description": "Preto absoluto OLED"
+      }
+    },
+    "semantic": {
+      "success": {
+        "50": {
+          "$value": "#f0fdf4",
+          "$type": "color"
+        },
+        "100": {
+          "$value": "#dcfce7",
+          "$type": "color"
+        },
+        "200": {
+          "$value": "#bbf7d0",
+          "$type": "color"
+        },
+        "500": {
+          "$value": "#22c55e",
+          "$type": "color"
+        },
+        "600": {
+          "$value": "#16a34a",
+          "$type": "color"
+        },
+        "700": {
+          "$value": "#15803d",
+          "$type": "color"
+        }
+      },
+      "warning": {
+        "50": {
+          "$value": "#fffbeb",
+          "$type": "color"
+        },
+        "100": {
+          "$value": "#fef3c7",
+          "$type": "color"
+        },
+        "200": {
+          "$value": "#fde68a",
+          "$type": "color"
+        },
+        "500": {
+          "$value": "#f59e0b",
+          "$type": "color"
+        },
+        "600": {
+          "$value": "#d97706",
+          "$type": "color"
+        },
+        "700": {
+          "$value": "#b45309",
+          "$type": "color"
+        }
+      },
+      "error": {
+        "50": {
+          "$value": "#fef2f2",
+          "$type": "color"
+        },
+        "100": {
+          "$value": "#fee2e2",
+          "$type": "color"
+        },
+        "200": {
+          "$value": "#fecaca",
+          "$type": "color"
+        },
+        "500": {
+          "$value": "#ef4444",
+          "$type": "color"
+        },
+        "600": {
+          "$value": "#dc2626",
+          "$type": "color"
+        },
+        "700": {
+          "$value": "#b91c1c",
+          "$type": "color"
+        }
+      },
+      "info": {
+        "50": {
+          "$value": "#eff6ff",
+          "$type": "color"
+        },
+        "100": {
+          "$value": "#dbeafe",
+          "$type": "color"
+        },
+        "200": {
+          "$value": "#bfdbfe",
+          "$type": "color"
+        },
+        "500": {
+          "$value": "#3b82f6",
+          "$type": "color"
+        },
+        "600": {
+          "$value": "#2563eb",
+          "$type": "color"
+        },
+        "700": {
+          "$value": "#1d4ed8",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "0": {
+      "$value": "0px",
+      "$type": "spacing"
+    },
+    "1": {
+      "$value": "4px",
+      "$type": "spacing"
+    },
+    "2": {
+      "$value": "8px",
+      "$type": "spacing"
+    },
+    "3": {
+      "$value": "12px",
+      "$type": "spacing"
+    },
+    "4": {
+      "$value": "16px",
+      "$type": "spacing"
+    },
+    "5": {
+      "$value": "20px",
+      "$type": "spacing"
+    },
+    "6": {
+      "$value": "24px",
+      "$type": "spacing"
+    },
+    "8": {
+      "$value": "32px",
+      "$type": "spacing"
+    },
+    "10": {
+      "$value": "40px",
+      "$type": "spacing"
+    },
+    "12": {
+      "$value": "48px",
+      "$type": "spacing"
+    },
+    "16": {
+      "$value": "64px",
+      "$type": "spacing"
+    },
+    "20": {
+      "$value": "80px",
+      "$type": "spacing"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": {
+        "$value": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+        "$type": "fontFamily"
+      },
+      "ui": {
+        "$value": "'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+        "$type": "fontFamily"
+      },
+      "mono": {
+        "$value": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+        "$type": "fontFamily"
+      }
+    },
+    "fontWeight": {
+      "regular": {
+        "$value": "400",
+        "$type": "fontWeight"
+      },
+      "medium": {
+        "$value": "500",
+        "$type": "fontWeight"
+      },
+      "semibold": {
+        "$value": "600",
+        "$type": "fontWeight"
+      },
+      "bold": {
+        "$value": "700",
+        "$type": "fontWeight"
+      }
+    },
+    "fontSize": {
+      "display": {
+        "$value": "40px",
+        "$type": "fontSize"
+      },
+      "h1": {
+        "$value": "32px",
+        "$type": "fontSize"
+      },
+      "h2": {
+        "$value": "24px",
+        "$type": "fontSize"
+      },
+      "h3": {
+        "$value": "20px",
+        "$type": "fontSize"
+      },
+      "body": {
+        "$value": "16px",
+        "$type": "fontSize"
+      },
+      "bodySm": {
+        "$value": "14px",
+        "$type": "fontSize"
+      },
+      "caption": {
+        "$value": "12px",
+        "$type": "fontSize"
+      },
+      "mono": {
+        "$value": "14px",
+        "$type": "fontSize"
+      }
+    },
+    "lineHeight": {
+      "display": {
+        "$value": "1.1",
+        "$type": "lineHeight"
+      },
+      "h1": {
+        "$value": "1.2",
+        "$type": "lineHeight"
+      },
+      "h2": {
+        "$value": "1.3",
+        "$type": "lineHeight"
+      },
+      "h3": {
+        "$value": "1.4",
+        "$type": "lineHeight"
+      },
+      "body": {
+        "$value": "1.5",
+        "$type": "lineHeight"
+      },
+      "bodySm": {
+        "$value": "1.5",
+        "$type": "lineHeight"
+      },
+      "caption": {
+        "$value": "1.4",
+        "$type": "lineHeight"
+      },
+      "mono": {
+        "$value": "1.5",
+        "$type": "lineHeight"
+      }
+    },
+    "letterSpacing": {
+      "display": {
+        "$value": "-0.03em",
+        "$type": "letterSpacing"
+      },
+      "h1": {
+        "$value": "-0.025em",
+        "$type": "letterSpacing"
+      },
+      "h2": {
+        "$value": "-0.02em",
+        "$type": "letterSpacing"
+      },
+      "h3": {
+        "$value": "-0.015em",
+        "$type": "letterSpacing"
+      },
+      "body": {
+        "$value": "-0.01em",
+        "$type": "letterSpacing"
+      },
+      "bodySm": {
+        "$value": "0em",
+        "$type": "letterSpacing"
+      },
+      "caption": {
+        "$value": "0.02em",
+        "$type": "letterSpacing"
+      },
+      "mono": {
+        "$value": "0em",
+        "$type": "letterSpacing"
+      }
+    }
+  },
+  "borderRadius": {
+    "none": {
+      "$value": "0px",
+      "$type": "borderRadius"
+    },
+    "xs": {
+      "$value": "2px",
+      "$type": "borderRadius"
+    },
+    "sm": {
+      "$value": "4px",
+      "$type": "borderRadius"
+    },
+    "md": {
+      "$value": "8px",
+      "$type": "borderRadius",
+      "$description": "Padr?o Solide para cards e bot?es"
+    },
+    "lg": {
+      "$value": "12px",
+      "$type": "borderRadius"
+    },
+    "xl": {
+      "$value": "16px",
+      "$type": "borderRadius"
+    },
+    "2xl": {
+      "$value": "24px",
+      "$type": "borderRadius"
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "borderRadius"
+    }
+  },
+  "boxShadow": {
+    "none": {
+      "$value": "none",
+      "$type": "boxShadow"
+    },
+    "xs": {
+      "$value": "0 1px 2px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05)",
+      "$type": "boxShadow"
+    },
+    "sm": {
+      "$value": "0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.03), 0 0 0 1px rgba(15, 23, 42, 0.06)",
+      "$type": "boxShadow"
+    },
+    "md": {
+      "$value": "0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.07)",
+      "$type": "boxShadow"
+    },
+    "lg": {
+      "$value": "0 12px 28px rgba(15, 23, 42, 0.09), 0 3px 8px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08)",
+      "$type": "boxShadow"
+    },
+    "xl": {
+      "$value": "0 24px 48px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(15, 23, 42, 0.08)",
+      "$type": "boxShadow"
+    }
+  },
+  "motion": {
+    "durationFast": {
+      "$value": "100ms",
+      "$type": "duration"
+    },
+    "durationBase": {
+      "$value": "180ms",
+      "$type": "duration"
+    },
+    "durationSlow": {
+      "$value": "300ms",
+      "$type": "duration"
+    },
+    "easingSnappy": {
+      "$value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "$type": "cubicBezier"
+    },
+    "easingOut": {
+      "$value": "cubic-bezier(0, 0, 0.2, 1)",
+      "$type": "cubicBezier"
+    }
+  }
+}

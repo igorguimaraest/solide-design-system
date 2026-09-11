@@ -1,0 +1,15 @@
+{
+  "name": "@solide/tokens",
+  "version": "3.3.0",
+  "description": "Contrato CSS canônico da marca Solide, espelhado do solide-brand-guide.html",
+  "main": "dist/tokens.css",
+  "exports": {
+    ".": "./dist/tokens.css",
+    "./tailwind": "./dist/tailwind-theme.js",
+    "./preset": "./build/tailwind.preset.js",
+    "./theme": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "node build/build-tokens.js"
+  }
+}

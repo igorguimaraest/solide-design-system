@@ -1,0 +1,80 @@
+{
+  "theme": {
+    "light": {
+      "bg-canvas": {
+        "$value": "{color.neutral.0}",
+        "$type": "color"
+      },
+      "bg-surface": {
+        "$value": "{color.neutral.0}",
+        "$type": "color"
+      },
+      "bg-surface-elevated": {
+        "$value": "{color.neutral.100}",
+        "$type": "color"
+      },
+      "border-subtle": {
+        "$value": "{color.neutral.100}",
+        "$type": "color"
+      },
+      "border-strong": {
+        "$value": "{color.neutral.700}",
+        "$type": "color"
+      },
+      "text-primary": {
+        "$value": "{color.neutral.1000}",
+        "$type": "color"
+      },
+      "text-secondary": {
+        "$value": "{color.neutral.700}",
+        "$type": "color"
+      },
+      "text-muted": {
+        "$value": "{color.neutral.500}",
+        "$type": "color"
+      },
+      "ring-focus": {
+        "$value": "{color.primary.500}",
+        "$type": "color"
+      }
+    },
+    "dark": {
+      "bg-canvas": {
+        "$value": "{color.neutral.1000}",
+        "$type": "color"
+      },
+      "bg-surface": {
+        "$value": "{color.neutral.700}",
+        "$type": "color"
+      },
+      "bg-surface-elevated": {
+        "$value": "{color.neutral.500}",
+        "$type": "color"
+      },
+      "border-subtle": {
+        "$value": "{color.neutral.700}",
+        "$type": "color"
+      },
+      "border-strong": {
+        "$value": "{color.neutral.500}",
+        "$type": "color"
+      },
+      "text-primary": {
+        "$value": "{color.neutral.0}",
+        "$type": "color"
+      },
+      "text-secondary": {
+        "$value": "{color.neutral.100}",
+        "$type": "color"
+      },
+      "text-muted": {
+        "$value": "{color.neutral.500}",
+        "$type": "color"
+      },
+      "ring-focus": {
+        "$value": "{color.primary.500}",
+        "$type": "color"
+      }
+    }
+  }
+}

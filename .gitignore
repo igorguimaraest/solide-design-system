@@ -1,0 +1,20 @@
+# Dependências e saídas reproduzíveis
+node_modules/
+packages/*/node_modules/
+packages/*/dist/
+*.tsbuildinfo
+
+# Projeto independente: não faz parte do repositório Solide
+nemu/
+
+# Segredos e arquivos locais
+.env
+.env.*
+!.env.example
+.dev.vars
+*.local
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/

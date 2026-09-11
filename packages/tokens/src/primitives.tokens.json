@@ -1,0 +1,136 @@
+{
+  "color": {
+    "neutral": {
+      "0": {
+        "$value": "#FFFFFF",
+        "$type": "color",
+        "$description": "Branco puro para canvas claro"
+      },
+      "50": {
+        "$value": "#FAFAFA",
+        "$type": "color",
+        "$description": "Cinza ultraleve para superfícies sutis"
+      },
+      "100": {
+        "$value": "#F5F5F5",
+        "$type": "color",
+        "$description": "Cinza clara para superfícies elevadas e cards"
+      },
+      "200": {
+        "$value": "#E5E5E5",
+        "$type": "color",
+        "$description": "Cinza para borda sutil padrão"
+      },
+      "300": {
+        "$value": "#D4D4D4",
+        "$type": "color",
+        "$description": "Cinza intermediária para divisórias e hairlines"
+      },
+      "400": {
+        "$value": "#A3A3A3",
+        "$type": "color",
+        "$description": "Cinza para texto secundário em modo escuro"
+      },
+      "500": {
+        "$value": "#737373",
+        "$type": "color",
+        "$description": "Cinza neutra para texto muted e metadados"
+      },
+      "600": {
+        "$value": "#525252",
+        "$type": "color",
+        "$description": "Cinza profunda para texto secundário em modo claro"
+      },
+      "700": {
+        "$value": "#404040",
+        "$type": "color",
+        "$description": "Cinza escura para bordas fortes e ênfase estrutural"
+      },
+      "800": {
+        "$value": "#262626",
+        "$type": "color",
+        "$description": "Cinza muito escura para cards e bordas em modo escuro"
+      },
+      "900": {
+        "$value": "#171717",
+        "$type": "color",
+        "$description": "Superfície base de alta fidelidade para modo escuro"
+      },
+      "950": {
+        "$value": "#0A0A0A",
+        "$type": "color",
+        "$description": "Canvas escuro profundo e texto primário denso no modo claro"
+      },
+      "1000": {
+        "$value": "#000000",
+        "$type": "color",
+        "$description": "Preto absoluto para contrastes extremos OLED"
+      }
+    },
+    "functional": {
+      "success": {
+        "$value": "#10B981",
+        "$type": "color",
+        "$description": "Verde esmeralda para estados funcionais de sucesso"
+      },
+      "error": {
+        "$value": "#EF4444",
+        "$type": "color",
+        "$description": "Vermelho para estados funcionais de erro e perigo"
+      },
+      "warning": {
+        "$value": "#F59E0B",
+        "$type": "color",
+        "$description": "Âmbar para estados funcionais de alerta e advertência"
+      },
+      "info": {
+        "$value": "#3B82F6",
+        "$type": "color",
+        "$description": "Azul informativo para notificações e dicas de contexto"
+      }
+    }
+  },
+  "spacing": {
+    "1": { "$value": "4px", "$type": "dimension" },
+    "2": { "$value": "8px", "$type": "dimension" },
+    "3": { "$value": "12px", "$type": "dimension" },
+    "4": { "$value": "16px", "$type": "dimension" },
+    "6": { "$value": "24px", "$type": "dimension" },
+    "8": { "$value": "32px", "$type": "dimension" }
+  },
+  "opacity": {
+    "hover": { "$value": "0.08", "$type": "number" },
+    "active": { "$value": "0.16", "$type": "number" },
+    "focus-ring": { "$value": "0.40", "$type": "number" },
+    "disabled": { "$value": "0.45", "$type": "number" }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": { "$value": "Inter, -apple-system, sans-serif", "$type": "fontFamily" },
+      "sans": { "$value": "Inter, -apple-system, sans-serif", "$type": "fontFamily" },
+      "mono": { "$value": "JetBrains Mono, monospace", "$type": "fontFamily" }
+    },
+    "fontSize": {
+      "xs": { "$value": "12px", "$type": "dimension" },
+      "sm": { "$value": "14px", "$type": "dimension" },
+      "base": { "$value": "16px", "$type": "dimension" },
+      "lg": { "$value": "18px", "$type": "dimension" },
+      "xl": { "$value": "20px", "$type": "dimension" },
+      "2xl": { "$value": "24px", "$type": "dimension" },
+      "3xl": { "$value": "30px", "$type": "dimension" }
+    }
+  },
+  "borderRadius": {
+    "none": { "$value": "0px", "$type": "dimension" },
+    "sm": { "$value": "4px", "$type": "dimension" },
+    "md": { "$value": "8px", "$type": "dimension" },
+    "lg": { "$value": "12px", "$type": "dimension" },
+    "xl": { "$value": "16px", "$type": "dimension" },
+    "full": { "$value": "9999px", "$type": "dimension" }
+  },
+  "boxShadow": {
+    "subtle": { "$value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)", "$type": "shadow" },
+    "card": { "$value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)", "$type": "shadow" },
+    "elevated": { "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)", "$type": "shadow" }
+  }
+}

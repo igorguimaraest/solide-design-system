@@ -1,0 +1,366 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "$version": "3.3.0",
+  "name": "Solide Semantic Tokens",
+  "description": "Pap?is sem?nticos de interface para Modo Claro e Modo Escuro da Solide.",
+  "light": {
+    "surface": {
+      "base": {
+        "$value": "{brand.color.neutral.0}",
+        "$type": "color"
+      },
+      "canvas": {
+        "$value": "{brand.color.neutral.50}",
+        "$type": "color"
+      },
+      "sunken": {
+        "$value": "{brand.color.neutral.100}",
+        "$type": "color"
+      },
+      "card": {
+        "$value": "{brand.color.neutral.0}",
+        "$type": "color"
+      },
+      "raised": {
+        "$value": "{brand.color.neutral.0}",
+        "$type": "color"
+      },
+      "overlay": {
+        "$value": "rgba(15, 23, 42, 0.45)",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.600}",
+        "$type": "color"
+      },
+      "brandSubtle": {
+        "$value": "{brand.color.primary.50}",
+        "$type": "color"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{brand.color.neutral.900}",
+        "$type": "color",
+        "$description": "17.2:1 contraste sobre branco"
+      },
+      "secondary": {
+        "$value": "{brand.color.neutral.600}",
+        "$type": "color",
+        "$description": "5.2:1 contraste sobre branco (WCAG AA)"
+      },
+      "muted": {
+        "$value": "{brand.color.neutral.500}",
+        "$type": "color"
+      },
+      "inverse": {
+        "$value": "{brand.color.neutral.0}",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.600}",
+        "$type": "color",
+        "$description": "7.4:1 contraste sobre branco (AAA)"
+      },
+      "danger": {
+        "$value": "{brand.color.semantic.error.700}",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "{brand.color.semantic.success.700}",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "{brand.color.semantic.warning.700}",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{brand.color.neutral.200}",
+        "$type": "color"
+      },
+      "subtle": {
+        "$value": "rgba(15, 23, 42, 0.06)",
+        "$type": "color"
+      },
+      "strong": {
+        "$value": "{brand.color.neutral.300}",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.600}",
+        "$type": "color"
+      },
+      "danger": {
+        "$value": "{brand.color.semantic.error.200}",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "{brand.color.semantic.success.200}",
+        "$type": "color"
+      }
+    },
+    "action": {
+      "primary": {
+        "bg": {
+          "$value": "{brand.color.primary.600}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.primary.700}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{brand.color.primary.800}",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.0}",
+          "$type": "color",
+          "$description": "7.4:1 contraste sobre #334eac"
+        }
+      },
+      "secondary": {
+        "bg": {
+          "$value": "{brand.color.neutral.100}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.neutral.200}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{brand.color.neutral.300}",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.900}",
+          "$type": "color"
+        }
+      },
+      "ghost": {
+        "bg": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "rgba(15, 23, 42, 0.05)",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "rgba(15, 23, 42, 0.09)",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.900}",
+          "$type": "color"
+        }
+      },
+      "danger": {
+        "bg": {
+          "$value": "{brand.color.semantic.error.600}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.semantic.error.700}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "#991b1b",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.0}",
+          "$type": "color"
+        }
+      },
+      "focusRing": {
+        "$value": "{brand.color.primary.600}",
+        "$type": "color"
+      }
+    }
+  },
+  "dark": {
+    "surface": {
+      "base": {
+        "$value": "{brand.color.neutral.black}",
+        "$type": "color",
+        "$description": "Preto absoluto OLED"
+      },
+      "canvas": {
+        "$value": "{brand.color.neutral.black}",
+        "$type": "color"
+      },
+      "sunken": {
+        "$value": "{brand.color.neutral.950}",
+        "$type": "color"
+      },
+      "card": {
+        "$value": "{brand.color.neutral.900}",
+        "$type": "color",
+        "$description": "Ard?sia elevada 171b23"
+      },
+      "raised": {
+        "$value": "{brand.color.neutral.800}",
+        "$type": "color"
+      },
+      "overlay": {
+        "$value": "rgba(0, 0, 0, 0.75)",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.400}",
+        "$type": "color"
+      },
+      "brandSubtle": {
+        "$value": "rgba(112, 150, 209, 0.12)",
+        "$type": "color"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{brand.color.neutral.50}",
+        "$type": "color",
+        "$description": "19.3:1 sobre preto"
+      },
+      "secondary": {
+        "$value": "{brand.color.neutral.400}",
+        "$type": "color",
+        "$description": "10.3:1 sobre preto"
+      },
+      "muted": {
+        "$value": "{brand.color.neutral.500}",
+        "$type": "color"
+      },
+      "inverse": {
+        "$value": "{brand.color.neutral.900}",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.400}",
+        "$type": "color",
+        "$description": "7.0:1 sobre preto"
+      },
+      "danger": {
+        "$value": "#ff6e66",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "#4ade80",
+        "$type": "color"
+      },
+      "warning": {
+        "$value": "#fbbf24",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{brand.color.neutral.800}",
+        "$type": "color"
+      },
+      "subtle": {
+        "$value": "rgba(255, 255, 255, 0.08)",
+        "$type": "color",
+        "$description": "Hairline transl?cido de 1px"
+      },
+      "strong": {
+        "$value": "{brand.color.neutral.700}",
+        "$type": "color"
+      },
+      "brand": {
+        "$value": "{brand.color.primary.400}",
+        "$type": "color"
+      },
+      "danger": {
+        "$value": "rgba(239, 68, 68, 0.35)",
+        "$type": "color"
+      },
+      "success": {
+        "$value": "rgba(34, 197, 94, 0.35)",
+        "$type": "color"
+      }
+    },
+    "action": {
+      "primary": {
+        "bg": {
+          "$value": "{brand.color.primary.400}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.primary.300}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{brand.color.primary.200}",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.primary.900}",
+          "$type": "color",
+          "$description": "5.12:1 contraste sobre #7096d1"
+        }
+      },
+      "secondary": {
+        "bg": {
+          "$value": "{brand.color.neutral.800}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.neutral.700}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{brand.color.neutral.600}",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.50}",
+          "$type": "color"
+        }
+      },
+      "ghost": {
+        "bg": {
+          "$value": "transparent",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "rgba(255, 255, 255, 0.08)",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "rgba(255, 255, 255, 0.14)",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.50}",
+          "$type": "color"
+        }
+      },
+      "danger": {
+        "bg": {
+          "$value": "{brand.color.semantic.error.500}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{brand.color.semantic.error.600}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{brand.color.semantic.error.700}",
+          "$type": "color"
+        },
+        "text": {
+          "$value": "{brand.color.neutral.950}",
+          "$type": "color",
+          "$description": "Contraste seguro sobre vermelho claro"
+        }
+      },
+      "focusRing": {
+        "$value": "{brand.color.primary.400}",
+        "$type": "color"
+      }
+    }
+  }
+}

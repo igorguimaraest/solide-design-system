@@ -1,0 +1,130 @@
+{
+  "theme": {
+    "light": {
+      "bg-canvas": {
+        "$value": "{color.neutral.0}",
+        "$type": "color",
+        "$description": "Plano de fundo base da aplicação em modo claro"
+      },
+      "bg-surface": {
+        "$value": "{color.neutral.50}",
+        "$type": "color",
+        "$description": "Superfície sutil para cards e seções em modo claro"
+      },
+      "bg-surface-elevated": {
+        "$value": "{color.neutral.100}",
+        "$type": "color",
+        "$description": "Superfície elevada para modais, dropdowns e popovers em modo claro"
+      },
+      "border-subtle": {
+        "$value": "{color.neutral.200}",
+        "$type": "color",
+        "$description": "Borda estrutural padrão de baixa ênfase em modo claro"
+      },
+      "border-strong": {
+        "$value": "{color.neutral.700}",
+        "$type": "color",
+        "$description": "Borda de alta ênfase e contornos destacados em modo claro"
+      },
+      "text-primary": {
+        "$value": "{color.neutral.950}",
+        "$type": "color",
+        "$description": "Texto primário de alto contraste"
+      },
+      "text-secondary": {
+        "$value": "{color.neutral.600}",
+        "$type": "color",
+        "$description": "Texto secundário seguro"
+      },
+      "text-muted": {
+        "$value": "{color.neutral.500}",
+        "$type": "color",
+        "$description": "Texto atenuado para metadados e legendas"
+      },
+      "ring-focus": {
+        "$value": "{color.neutral.950}",
+        "$type": "color",
+        "$description": "Anel de foco exterior de alta visibilidade"
+      },
+      "feedback-success": {
+        "$value": "{color.functional.success}",
+        "$type": "color"
+      },
+      "feedback-error": {
+        "$value": "{color.functional.error}",
+        "$type": "color"
+      },
+      "feedback-warning": {
+        "$value": "{color.functional.warning}",
+        "$type": "color"
+      },
+      "feedback-info": {
+        "$value": "{color.functional.info}",
+        "$type": "color"
+      }
+    },
+    "dark": {
+      "bg-canvas": {
+        "$value": "{color.neutral.950}",
+        "$type": "color",
+        "$description": "Plano de fundo base profundo da aplicação em modo escuro"
+      },
+      "bg-surface": {
+        "$value": "{color.neutral.900}",
+        "$type": "color",
+        "$description": "Superfície base de componentes em modo escuro"
+      },
+      "bg-surface-elevated": {
+        "$value": "{color.neutral.800}",
+        "$type": "color",
+        "$description": "Superfície elevada para cards e menus em modo escuro"
+      },
+      "border-subtle": {
+        "$value": "{color.neutral.800}",
+        "$type": "color",
+        "$description": "Borda estrutural suave em modo escuro"
+      },
+      "border-strong": {
+        "$value": "{color.neutral.600}",
+        "$type": "color",
+        "$description": "Borda de alta ênfase para estados ativos em modo escuro"
+      },
+      "text-primary": {
+        "$value": "{color.neutral.50}",
+        "$type": "color",
+        "$description": "Texto primário em modo escuro"
+      },
+      "text-secondary": {
+        "$value": "{color.neutral.400}",
+        "$type": "color",
+        "$description": "Texto secundário em modo escuro"
+      },
+      "text-muted": {
+        "$value": "{color.neutral.500}",
+        "$type": "color",
+        "$description": "Texto atenuado e metadados no modo escuro"
+      },
+      "ring-focus": {
+        "$value": "{color.neutral.50}",
+        "$type": "color",
+        "$description": "Anel de foco luminoso no modo escuro"
+      },
+      "feedback-success": {
+        "$value": "{color.functional.success}",
+        "$type": "color"
+      },
+      "feedback-error": {
+        "$value": "{color.functional.error}",
+        "$type": "color"
+      },
+      "feedback-warning": {
+        "$value": "{color.functional.warning}",
+        "$type": "color"
+      },
+      "feedback-info": {
+        "$value": "{color.functional.info}",
+        "$type": "color"
+      }
+    }
+  }
+}

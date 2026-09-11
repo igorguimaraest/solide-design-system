@@ -1,0 +1,184 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "$version": "3.3.0",
+  "name": "Solide Component Tokens",
+  "description": "Tokens de geometria, espa?amento e comportamento de componentes individuais.",
+  "button": {
+    "height": {
+      "sm": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "48px",
+        "$type": "dimension"
+      }
+    },
+    "paddingX": {
+      "sm": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "20px",
+        "$type": "dimension"
+      }
+    },
+    "fontSize": {
+      "sm": {
+        "$value": "13px",
+        "$type": "fontSize"
+      },
+      "md": {
+        "$value": "14px",
+        "$type": "fontSize"
+      },
+      "lg": {
+        "$value": "16px",
+        "$type": "fontSize"
+      }
+    },
+    "iconSize": {
+      "sm": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "18px",
+        "$type": "dimension"
+      }
+    },
+    "radius": {
+      "$value": "{brand.borderRadius.md}",
+      "$type": "borderRadius"
+    },
+    "focusRingOffset": {
+      "$value": "2px",
+      "$type": "dimension"
+    },
+    "focusRingWidth": {
+      "$value": "2px",
+      "$type": "dimension"
+    }
+  },
+  "input": {
+    "height": {
+      "sm": {
+        "$value": "32px",
+        "$type": "dimension"
+      },
+      "md": {
+        "$value": "40px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "48px",
+        "$type": "dimension"
+      }
+    },
+    "paddingX": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "fontSize": {
+      "$value": "14px",
+      "$type": "fontSize"
+    },
+    "radius": {
+      "$value": "{brand.borderRadius.md}",
+      "$type": "borderRadius"
+    }
+  },
+  "badge": {
+    "height": {
+      "$value": "22px",
+      "$type": "dimension"
+    },
+    "paddingX": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "fontSize": {
+      "$value": "12px",
+      "$type": "fontSize"
+    },
+    "dotSize": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "radius": {
+      "$value": "{brand.borderRadius.full}",
+      "$type": "borderRadius"
+    }
+  },
+  "table": {
+    "rowHeight": {
+      "default": {
+        "$value": "48px",
+        "$type": "dimension"
+      },
+      "compact": {
+        "$value": "36px",
+        "$type": "dimension"
+      }
+    },
+    "paddingX": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "headerFontSize": {
+      "$value": "12px",
+      "$type": "fontSize"
+    },
+    "bodyFontSize": {
+      "$value": "13px",
+      "$type": "fontSize"
+    }
+  },
+  "sidebar": {
+    "width": {
+      "default": {
+        "$value": "256px",
+        "$type": "dimension"
+      },
+      "compact": {
+        "$value": "68px",
+        "$type": "dimension"
+      }
+    },
+    "navItemHeight": {
+      "$value": "40px",
+      "$type": "dimension"
+    },
+    "activeBarWidth": {
+      "$value": "3px",
+      "$type": "dimension"
+    },
+    "activeBarRadius": {
+      "$value": "4px",
+      "$type": "dimension"
+    }
+  },
+  "header": {
+    "height": {
+      "$value": "56px",
+      "$type": "dimension"
+    },
+    "paddingX": {
+      "$value": "24px",
+      "$type": "dimension"
+    }
+  }
+}

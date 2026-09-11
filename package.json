@@ -1,0 +1,25 @@
+{
+  "name": "solide-design-system-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ecossistema digital da marca Solide — Design Tokens, UI Kit e Documentação Técnica",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npx http-server . -p 8080 -c-1 -o /solide-brand-guide.html",
+    "serve": "npx http-server . -p 8080 -c-1",
+    "build:tokens": "npm run build --workspace=@solide/tokens",
+    "build:ui": "npm run build --workspace=@solide/ui-kit",
+    "build": "npm run build:tokens && npm run build:ui",
+    "typecheck": "npm run typecheck --workspace=@solide/ui-kit",
+    "test:tokens": "node packages/tokens/build/verify-tokens.js"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "typescript": "^5.4.5"
+  }
+}

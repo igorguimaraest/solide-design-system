@@ -1,0 +1,402 @@
+/**
+ * SOLIDE DESIGN SYSTEM TOKENS v3.3.0
+ * Contrato CSS canônico carregado por solide-brand-guide.html.
+ * A distribuição @solide/tokens publica uma cópia exata deste arquivo.
+ */
+
+:root {
+  /* =========================================================================
+     SOLIDE — TOKENS SEMÂNTICOS CANÔNICOS
+     ========================================================================= */
+  /* Cores de Ação */
+  /* Acento provisório: reservado a ação, seleção e foco. */
+  --color-accent: #0040dd;
+  --color-accent-fg: #ffffff;
+  --color-destructive: #FF3B30;
+  --color-success: #34C759;
+  --color-warning: #FF9500;
+  --color-caution: #FFCC00;
+
+  /* Superfícies */
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #E9E9E6;
+  --surface-hover: #E0E0DD;
+  --surface-elevated: #FFFFFF;
+
+  /* Textos */
+  --text-primary: #000000;
+  --text-secondary: #6A6A70;
+  --text-tertiary: #6A6A70;
+
+  /* Bordas e Divisores */
+  --border-subtle: #C6C6C8;
+
+  /* Efeito Translúcido / Blur */
+  --nav-background: rgba(255, 255, 255, 0.80);
+
+  /* API pública usada pelo UI Kit. São aliases do contrato do guia. */
+  --solide-bg-canvas: var(--surface-primary);
+  --solide-bg-surface: var(--surface-secondary);
+  --solide-bg-surface-elevated: var(--surface-elevated);
+  --solide-border-subtle: var(--border-subtle);
+  --solide-border-strong: var(--border-subtle);
+  --solide-text-primary: var(--text-primary);
+  --solide-text-secondary: var(--text-secondary);
+  --solide-text-muted: var(--text-tertiary);
+  --solide-ring-focus: var(--color-accent);
+  --solide-feedback-success: var(--color-success);
+  --solide-feedback-error: var(--color-destructive);
+  --solide-feedback-warning: var(--color-warning);
+  --solide-feedback-info: var(--color-accent);
+  --solide-opacity-disabled: 0.35;
+
+  /* --- 1. PRIMITIVOS: CORES DA MARCA (Azul Solide) --- */
+  --sld-color-primary-50: #f9fcff;
+  --sld-color-primary-100: #e7f1ff;
+  --sld-color-primary-200: #d0e3ff;
+  --sld-color-primary-300: #a8c4ea;
+  --sld-color-primary-400: #7096d1;
+  --sld-color-primary-500: #4b6fbe;
+  --sld-color-primary-600: #334eac;
+  --sld-color-primary-700: #263c86;
+  --sld-color-primary-800: #142b6e;
+  --sld-color-primary-900: #081f5c;
+  --sld-color-primary-950: #041033;
+
+  /* --- 2. PRIMITIVOS: NEUTROS ARDÓSIA (Slate Solide) --- */
+  --sld-color-neutral-0: #ffffff;
+  --sld-color-neutral-50: #f9fafc;
+  --sld-color-neutral-100: #f2f4f8;
+  --sld-color-neutral-200: #e6e9f0;
+  --sld-color-neutral-300: #d5dae4;
+  --sld-color-neutral-400: #aeb6c6;
+  --sld-color-neutral-500: #858d9e;
+  --sld-color-neutral-600: #656d7e;
+  --sld-color-neutral-700: #464d5c;
+  --sld-color-neutral-800: #2a303c;
+  --sld-color-neutral-900: #171b23;
+  --sld-color-neutral-950: #0e1117;
+  --sld-color-neutral-black: #000000;
+
+  /* --- 3. PRIMITIVOS: CORES SEMÂNTICAS --- */
+  --sld-color-success-50: #f0fdf4;
+  --sld-color-success-100: #dcfce7;
+  --sld-color-success-200: #bbf7d0;
+  --sld-color-success-500: #22c55e;
+  --sld-color-success-600: #16a34a;
+  --sld-color-success-700: #15803d;
+  --sld-color-warning-50: #fffbeb;
+  --sld-color-warning-100: #fef3c7;
+  --sld-color-warning-200: #fde68a;
+  --sld-color-warning-500: #f59e0b;
+  --sld-color-warning-600: #d97706;
+  --sld-color-warning-700: #b45309;
+  --sld-color-error-50: #fef2f2;
+  --sld-color-error-100: #fee2e2;
+  --sld-color-error-200: #fecaca;
+  --sld-color-error-500: #ef4444;
+  --sld-color-error-600: #dc2626;
+  --sld-color-error-700: #b91c1c;
+  --sld-color-info-50: #eff6ff;
+  --sld-color-info-100: #dbeafe;
+  --sld-color-info-200: #bfdbfe;
+  --sld-color-info-500: #3b82f6;
+  --sld-color-info-600: #2563eb;
+  --sld-color-info-700: #1d4ed8;
+
+  /* --- 4. ESPAÇAMENTO BASE-8 (Subgrid 4pt) --- */
+  --sld-space-0: 0px;
+  --sld-space-1: 4px;
+  --sld-space-2: 8px;
+  --sld-space-3: 12px;
+  --sld-space-4: 16px;
+  --sld-space-5: 20px;
+  --sld-space-6: 24px;
+  --sld-space-8: 32px;
+  --sld-space-10: 40px;
+  --sld-space-12: 48px;
+  --sld-space-16: 64px;
+  --sld-space-20: 80px;
+
+  /* --- 5. TIPOGRAFIA --- */
+  --sld-font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sld-font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --sld-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --sld-weight-regular: 400;
+  --sld-weight-medium: 500;
+  --sld-weight-semibold: 600;
+  --sld-weight-bold: 700;
+  --sld-font-size-display: 40px;
+  --sld-font-size-h1: 32px;
+  --sld-font-size-h2: 24px;
+  --sld-font-size-h3: 20px;
+  --sld-font-size-body: 16px;
+  --sld-font-size-bodySm: 14px;
+  --sld-font-size-caption: 12px;
+  --sld-font-size-mono: 14px;
+  --sld-line-height-display: 1.1;
+  --sld-line-height-h1: 1.2;
+  --sld-line-height-h2: 1.3;
+  --sld-line-height-h3: 1.4;
+  --sld-line-height-body: 1.5;
+  --sld-line-height-bodySm: 1.5;
+  --sld-line-height-caption: 1.4;
+  --sld-line-height-mono: 1.5;
+  --sld-letter-spacing-display: -0.03em;
+  --sld-letter-spacing-h1: -0.025em;
+  --sld-letter-spacing-h2: -0.02em;
+  --sld-letter-spacing-h3: -0.015em;
+  --sld-letter-spacing-body: -0.01em;
+  --sld-letter-spacing-bodySm: 0em;
+  --sld-letter-spacing-caption: 0.02em;
+  --sld-letter-spacing-mono: 0em;
+
+  /* --- 6. RAIOS DE CURVATURA --- */
+  --sld-radius-none: 0px;
+  --sld-radius-xs: 2px;
+  --sld-radius-sm: 4px;
+  --sld-radius-md: 8px;
+  --sld-radius-lg: 12px;
+  --sld-radius-xl: 16px;
+  --sld-radius-2xl: 24px;
+  --sld-radius-full: 9999px;
+
+  /* --- 7. SOMBRAS MULTI-CAMADA --- */
+  --sld-shadow-none: none;
+  --sld-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05);
+  --sld-shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.03), 0 0 0 1px rgba(15, 23, 42, 0.06);
+  --sld-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.07);
+  --sld-shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.09), 0 3px 8px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08);
+  --sld-shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(15, 23, 42, 0.08);
+
+  /* --- 8. MOTION & TIMING --- */
+  --sld-durationFast: 100ms;
+  --sld-durationBase: 180ms;
+  --sld-durationSlow: 300ms;
+  --sld-easingSnappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --sld-easingOut: cubic-bezier(0, 0, 0.2, 1);
+
+  /* --- 9. PAPÉIS SEMÂNTICOS: MODO CLARO --- */
+  --sld-surface-base: var(--surface-primary);
+  --sld-surface-canvas: var(--surface-secondary);
+  --sld-surface-sunken: var(--surface-secondary);
+  --sld-surface-card: var(--surface-primary);
+  --sld-surface-raised: var(--surface-elevated);
+  --sld-surface-overlay: rgba(0, 0, 0, 0.45);
+  --sld-surface-brand: var(--color-accent);
+  --sld-surface-brandSubtle: var(--surface-secondary);
+  --sld-text-primary: var(--text-primary);
+  --sld-text-secondary: var(--text-secondary);
+  --sld-text-muted: var(--text-tertiary);
+  --sld-text-inverse: #ffffff;
+  --sld-text-brand: var(--color-accent);
+  --sld-text-danger: var(--color-destructive);
+  --sld-text-success: var(--color-success);
+  --sld-text-warning: var(--color-warning);
+  --sld-border-default: var(--border-subtle);
+  --sld-border-subtle: var(--border-subtle);
+  --sld-border-strong: rgba(60, 60, 67, 0.25);
+  --sld-border-brand: var(--color-accent);
+  --sld-border-danger: var(--color-destructive);
+  --sld-border-success: var(--color-success);
+  --sld-action-primary-bg: var(--color-accent);
+  --sld-action-primary-hover: #0062cc;
+  --sld-action-primary-active: #004fb0;
+  --sld-action-primary-text: #ffffff;
+  --sld-action-secondary-bg: var(--surface-secondary);
+  --sld-action-secondary-hover: rgba(60, 60, 67, 0.08);
+  --sld-action-secondary-active: rgba(60, 60, 67, 0.14);
+  --sld-action-secondary-text: var(--text-primary);
+  --sld-action-ghost-bg: transparent;
+  --sld-action-ghost-hover: rgba(60, 60, 67, 0.06);
+  --sld-action-ghost-active: rgba(60, 60, 67, 0.10);
+  --sld-action-ghost-text: var(--text-primary);
+  --sld-action-danger-bg: var(--color-destructive);
+  --sld-action-danger-hover: #e03227;
+  --sld-action-danger-active: #c5271e;
+  --sld-action-danger-text: #ffffff;
+  --sld-action-focusRing: var(--color-accent);
+
+  /* --- 10. COMPONENTES (GEOMETRIA) --- */
+  --sld-btn-h-sm: 32px;
+  --sld-btn-h-md: 40px;
+  --sld-btn-h-lg: 48px;
+  --sld-btn-px-sm: 12px;
+  --sld-btn-px-md: 16px;
+  --sld-btn-px-lg: 20px;
+  --sld-input-h-sm: 32px;
+  --sld-input-h-md: 40px;
+  --sld-input-h-lg: 48px;
+  --sld-badge-h: 22px;
+  --sld-sidebar-w: 256px;
+  --sld-sidebar-w-compact: 68px;
+  --sld-header-h: 56px;
+}
+
+/* =========================================================================
+   MODO ESCURO AUTOMÁTICO (prefers-color-scheme: dark)
+   ========================================================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-accent: #0f5fe8;
+    --color-accent-fg: #ffffff;
+    --color-destructive: #FF453A;
+    --color-success: #30D158;
+    --color-warning: #FF9F0A;
+    --color-caution: #FFD60A;
+
+    --surface-primary: #000000;
+    --surface-secondary: #1C1C1E;
+    --surface-hover: #2A2A2C;
+    --surface-elevated: #2C2C2E;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #8E8E93;
+    --text-tertiary: #8E8E93;
+
+    --border-subtle: #38383A;
+
+    --nav-background: rgba(28, 28, 30, 0.80);
+
+    /* Mapeamento retrocompatível para tokens --sld-* */
+    --sld-surface-base: var(--surface-primary);
+    --sld-surface-canvas: var(--surface-primary);
+    --sld-surface-sunken: var(--surface-secondary);
+    --sld-surface-card: var(--surface-secondary);
+    --sld-surface-raised: var(--surface-elevated);
+    --sld-surface-overlay: rgba(0, 0, 0, 0.75);
+    --sld-surface-brand: var(--color-accent);
+    --sld-surface-brandSubtle: var(--surface-secondary);
+    --sld-text-primary: var(--text-primary);
+    --sld-text-secondary: var(--text-secondary);
+    --sld-text-muted: var(--text-tertiary);
+    --sld-text-inverse: #000000;
+    --sld-text-brand: var(--color-accent);
+    --sld-text-danger: var(--color-destructive);
+    --sld-text-success: var(--color-success);
+    --sld-text-warning: var(--color-warning);
+    --sld-border-default: var(--border-subtle);
+    --sld-border-subtle: var(--border-subtle);
+    --sld-border-strong: rgba(235, 235, 245, 0.30);
+    --sld-border-brand: var(--color-accent);
+    --sld-border-danger: var(--color-destructive);
+    --sld-border-success: var(--color-success);
+    --sld-action-primary-bg: var(--color-accent);
+    --sld-action-primary-hover: #339aff;
+    --sld-action-primary-active: #5cb0ff;
+    --sld-action-primary-text: #000000;
+    --sld-action-secondary-bg: var(--surface-elevated);
+    --sld-action-secondary-hover: #3a3a3c;
+    --sld-action-secondary-active: #48484a;
+    --sld-action-secondary-text: var(--text-primary);
+    --sld-action-ghost-bg: transparent;
+    --sld-action-ghost-hover: rgba(255, 255, 255, 0.08);
+    --sld-action-ghost-active: rgba(255, 255, 255, 0.14);
+    --sld-action-ghost-text: var(--text-primary);
+    --sld-action-danger-bg: var(--color-destructive);
+    --sld-action-danger-hover: #ff6057;
+    --sld-action-danger-active: #ff7b73;
+    --sld-action-danger-text: #000000;
+    --sld-action-focusRing: var(--color-accent);
+  }
+}
+
+/* =========================================================================
+   MODO ESCURO EXPLÍCITO ([data-theme="dark"])
+   Superfície Base OLED (#000000) + Elevada Estrita (#2C2C2E)
+   ========================================================================= */
+[data-theme="dark"] {
+  --color-accent: #0F5FE8;
+  --color-destructive: #FF453A;
+  --color-success: #30D158;
+  --color-warning: #FF9F0A;
+  --color-caution: #FFD60A;
+
+  --surface-primary: #000000;
+  --surface-secondary: #1C1C1E;
+  --surface-elevated: #2C2C2E;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #8E8E93;
+
+  --border-subtle: #38383A;
+
+  --nav-background: rgba(28, 28, 30, 0.80);
+
+  /* Mapeamento retrocompatível para tokens --sld-* */
+  --sld-surface-base: var(--surface-primary);
+  --sld-surface-canvas: var(--surface-primary);
+  --sld-surface-sunken: var(--surface-secondary);
+  --sld-surface-card: var(--surface-secondary);
+  --sld-surface-raised: var(--surface-elevated);
+  --sld-surface-overlay: rgba(0, 0, 0, 0.75);
+  --sld-surface-brand: var(--color-accent);
+  --sld-surface-brandSubtle: rgba(10, 132, 255, 0.15);
+  --sld-text-primary: var(--text-primary);
+  --sld-text-secondary: var(--text-secondary);
+  --sld-text-muted: var(--text-tertiary);
+  --sld-text-inverse: #000000;
+  --sld-text-brand: var(--color-accent);
+  --sld-text-danger: var(--color-destructive);
+  --sld-text-success: var(--color-success);
+  --sld-text-warning: var(--color-warning);
+  --sld-border-default: var(--border-subtle);
+  --sld-border-subtle: var(--border-subtle);
+  --sld-border-strong: rgba(235, 235, 245, 0.30);
+  --sld-border-brand: var(--color-accent);
+  --sld-border-danger: var(--color-destructive);
+  --sld-border-success: var(--color-success);
+  --sld-action-primary-bg: var(--color-accent);
+  --sld-action-primary-hover: #339aff;
+  --sld-action-primary-active: #5cb0ff;
+  --sld-action-primary-text: #000000;
+  --sld-action-secondary-bg: var(--surface-elevated);
+  --sld-action-secondary-hover: #3a3a3c;
+  --sld-action-secondary-active: #48484a;
+  --sld-action-secondary-text: var(--text-primary);
+  --sld-action-ghost-bg: transparent;
+  --sld-action-ghost-hover: rgba(255, 255, 255, 0.08);
+  --sld-action-ghost-active: rgba(255, 255, 255, 0.14);
+  --sld-action-ghost-text: var(--text-primary);
+  --sld-action-danger-bg: var(--color-destructive);
+  --sld-action-danger-hover: #ff6057;
+  --sld-action-danger-active: #ff7b73;
+  --sld-action-danger-text: #000000;
+  --sld-action-focusRing: var(--color-accent);
+}
+
+/* =========================================================================
+   CLASSES UTILITÁRIAS PRONTAS DA SOLIDE
+   ========================================================================= */
+.app-header {
+  background-color: var(--nav-background);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* =========================================================================
+   CLASSES UTILITÁRIAS ESSENCIAIS
+   ========================================================================= */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.font-display {
+  font-family: var(--sld-font-display);
+}
+
+.font-ui {
+  font-family: var(--sld-font-ui);
+}
+
+.font-mono {
+  font-family: var(--sld-font-mono);
+}
+
+.sld-focus-ring:focus-visible {
+  outline: 2px solid var(--sld-action-focusRing);
+  outline-offset: 2px;
+}
