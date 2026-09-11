@@ -202,6 +202,27 @@ if (presetOk) {
   failed = true;
 }
 
+
+// TESTE 7: geometria do App Shell deve usar o contrato canônico.
+console.log('\n--- TESTE 7: Geometria do App Shell ---');
+const requiredAppShellTokens = [
+  '--sld-app-shell-main-padding-inline: 28px',
+  '--sld-app-shell-main-shadow:',
+  '--sld-app-shell-sidebar-gap: 2px',
+  '--sld-header-h: 56px'
+];
+const requiredAppShellMarkup = [
+  'height:var(--sld-header-h)',
+  'padding:var(--sld-app-shell-main-padding-block) var(--sld-app-shell-main-padding-inline)',
+  'box-shadow:var(--sld-app-shell-main-shadow)'
+];
+const guideForGeometry = fs.readFileSync(guideFile, 'utf8');
+if (requiredAppShellTokens.every(token => canonicalCss.includes(token)) && requiredAppShellMarkup.every(value => guideForGeometry.includes(value))) {
+  console.log('  APROVADO: demonstração do App Shell usa a geometria canônica.');
+} else {
+  console.error('  FALHA: App Shell diverge do contrato canônico.');
+  failed = true;
+}
 console.log('\n===============================================================');
 if (failed) {
   console.error('RESULTADO FINAL: FALHA EM UMA OU MAIS VERIFICAÇÕES.');

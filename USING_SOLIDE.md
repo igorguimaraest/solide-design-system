@@ -35,10 +35,10 @@ interpretar livremente o brand guide.
 3. Substitua primeiro tokens globais; depois primitivas; depois composições.
 4. Não empilhe CSS corretivo sobre estilos antigos. Remova a camada visual
    substituída ou isole a nova interface em componentes próprios.
-5. Migrações de tecnologia são decisões explícitas. Se o app não puder usar o
-   UI Kit React, registre se haverá migração ou implementação equivalente.
+5. Apps sem React/Tailwind devem migrar a camada de interface para React e o UI Kit; até existir um pacote HTML/CSS oficial, adaptação manual não é equivalente.
 6. Compare screenshots lado a lado com as referências do guia antes de chamar
-   o trabalho de concluído.
+   o trabalho de concluído, registrando no brief os viewports, temas e estados
+   avaliados e mantendo as capturas junto ao trabalho revisado.
 
 ## Modelo obrigatório de brief
 

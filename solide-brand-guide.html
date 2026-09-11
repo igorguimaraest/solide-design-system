@@ -35,7 +35,7 @@ svg {
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-mono: var(--font-family-mono);
-  --bg-card: var(--app-surface-card);
+  --bg-card: var(--sld-surface-card);
 
   /* Papéis Semânticos Oficiais */
   --text-large-title: 34px;
@@ -101,7 +101,7 @@ svg {
   --solide-neutral-600: #6e6e73;
   --solide-neutral-900: #1d1d1f;
 
-  --bg-primary: #ffffff;
+  --bg-primary: var(--surface-primary);
   /* Paleta de superfície — neutra e sem subtom azulado. */
   --color-canvas-light: #ffffff;
   --color-shell-light: #e9e9e6;
@@ -109,12 +109,12 @@ svg {
   --color-surface-dark: #1c1c1e;
   --color-hover-light: #e0e0dd;
   --color-hover-dark: #2a2a2c;
-  --bg-secondary: var(--color-shell-light);
-  --bg-hover: var(--color-hover-light);
-  --bg-tertiary: #ffffff;
-  --bg-elevated: #ffffff;
-  --bg-overlay: rgba(0,0,0,0.4);
-  --bg-dark: #000000;
+  --bg-secondary: var(--surface-secondary);
+  --bg-hover: var(--surface-hover);
+  --bg-tertiary: var(--surface-primary);
+  --bg-elevated: var(--surface-elevated);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-color-neutral-black);
   --color-separator: #c6c6c8;
 
   --text-primary: #000000;
@@ -123,8 +123,8 @@ svg {
   --text-quaternary: #6a6a70;
   --text-inverse: #ffffff;
 
-  --border-primary: #c6c6c8;
-  --border-secondary: #c6c6c8;
+  --border-primary: var(--border-subtle);
+  --border-secondary: var(--border-subtle);
   --border-subtle: #c6c6c8;
 
   --solide-success: #34c759;
@@ -152,24 +152,24 @@ svg {
   --solide-waiting-border: var(--color-separator);
   --solide-waiting-text: var(--text-secondary);
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.09), 0 3px 8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-xs: var(--sld-shadow-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --shadow-lg: var(--sld-shadow-lg);
 
-  --r-xs: 2px;
-  --r-sm: 4px;
-  --r-md: 6px;
-  --r: 8px;
-  --r-lg: 12px;
-  --r-xl: 16px;
-  --r-pill: 9999px;
-  --r-full: 9999px;
+  --r-xs: var(--sld-radius-xs);
+  --r-sm: var(--sld-radius-sm);
+  --r-md: var(--sld-radius-md);
+  --r: var(--sld-radius-md);
+  --r-lg: var(--sld-radius-lg);
+  --r-xl: var(--sld-radius-xl);
+  --r-pill: var(--sld-radius-full);
+  --r-full: var(--sld-radius-full);
   --r-circle: 50%;
 
   /* SOLIDE APP SHELL & SURFACE HIERARCHY (GMAIL-STYLE CANVAS) */
-  --app-shell-bg: var(--color-shell-light);
-  --app-surface-card: #ffffff;
+  --app-shell-bg: var(--surface-secondary);
+  --app-surface-card: var(--sld-surface-card);
 
   --dot-color: rgba(0, 0, 0, 0.06);
 }
@@ -182,13 +182,13 @@ svg {
   --solide-accent-border: var(--color-separator);
   --solide-accent-text: var(--text-primary);
   --solide-accent-ring: #0f5fe8;
-  --bg-primary: #000000;
-  --bg-secondary: var(--color-surface-dark);
-  --bg-hover: var(--color-hover-dark);
-  --bg-tertiary: #000000;
-  --bg-elevated: var(--color-surface-dark);
-  --bg-overlay: rgba(0, 0, 0, 0.7);
-  --bg-dark: #000000;
+  --bg-primary: var(--surface-primary);
+  --bg-secondary: var(--surface-secondary);
+  --bg-hover: var(--surface-hover);
+  --bg-tertiary: var(--surface-primary);
+  --bg-elevated: var(--surface-elevated);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-color-neutral-black);
   --color-separator: #38383a;
 
   --text-primary: #ffffff;
@@ -197,8 +197,8 @@ svg {
   --text-quaternary: #8e8e93;
   --text-inverse: #000000;
 
-  --border-primary: #38383a;
-  --border-secondary: #38383a;
+  --border-primary: var(--border-subtle);
+  --border-secondary: var(--border-subtle);
   --border-subtle: #38383a;
 
   --solide-success: #30d158;
@@ -225,13 +225,13 @@ svg {
   --solide-waiting-border: var(--color-separator);
   --solide-waiting-text: var(--text-secondary);
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
-  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --shadow-xs: var(--sld-shadow-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --shadow-lg: var(--sld-shadow-lg);
 
-  --app-shell-bg: var(--color-shell-dark);
-  --app-surface-card: var(--color-surface-dark);
+  --app-shell-bg: var(--surface-primary);
+  --app-surface-card: var(--surface-secondary);
 
   --dot-color: rgba(255, 255, 255, 0.08);
 }
@@ -8657,13 +8657,13 @@ select:focus-visible {
         </div>
       </div>
 
-      <!-- Preview Interativo do App Shell (Réplica 1:1 do Header 57px + Sidebar 256/68px + Área de Trabalho) -->
+      <!-- Preview interativo do App Shell: Header + Sidebar expandida/compacta + Área de trabalho. -->
       <div style="display:flex;flex-direction:column;border:1px solid var(--border-primary);border-radius:var(--r-xl);background:var(--app-shell-bg);min-height:560px;overflow:hidden;box-shadow:var(--shadow-md)">
         
         <!-- 1. HEADER DO APP SHELL (RÉPLICA CANÔNICA DO .TOP-NAV 57px) -->
-        <header class="app-shell-topbar" style="height:57px;min-height:57px;max-height:57px;background:var(--app-shell-bg);display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 12px;box-sizing:border-box;position:relative;z-index:10">
+        <header class="app-shell-topbar" style="height:var(--sld-header-h);min-height:var(--sld-header-h);max-height:var(--sld-header-h);background:var(--app-shell-bg);display:flex;align-items:center;justify-content:space-between;padding:0 var(--sld-app-shell-header-padding-inline-end) 0 var(--sld-app-shell-header-padding-inline-start);box-sizing:border-box;position:relative;z-index:10">
           <!-- Esquerda: Toggle da Sidebar + Brand Badge -->
-          <div style="display:flex;align-items:center;gap:12px;width:244px">
+          <div style="display:flex;align-items:center;gap:var(--sld-app-shell-control-gap);width:var(--sld-app-shell-header-left-w)">
             <button type="button" class="sidebar-toggle-btn" onclick="toggleAppSidebarDemo()" title="Recolher / Expandir Menu Lateral" aria-label="Menu Lateral">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
@@ -8706,7 +8706,7 @@ select:focus-visible {
         <div style="display:flex;flex:1;min-height:480px;position:relative;overflow:hidden">
           
           <!-- SIDEBAR INTERATIVA CANÔNICA -->
-          <aside class="app-sidebar-demo" id="app-sidebar-demo" style="width:256px;background:var(--app-shell-bg);border-right:none;display:flex;flex-direction:column;gap:2px;padding:8px 10px 16px 10px;box-sizing:border-box;transition:width 0.2s cubic-bezier(0.16, 1, 0.3, 1)">
+          <aside class="app-sidebar-demo" id="app-sidebar-demo" style="width:var(--sld-sidebar-w);background:var(--app-shell-bg);border-right:none;display:flex;flex-direction:column;gap:var(--sld-app-shell-sidebar-gap);padding:var(--sld-app-shell-sidebar-padding-block-start) var(--sld-app-shell-sidebar-padding-inline) var(--sld-app-shell-sidebar-padding-block-end);box-sizing:border-box;transition:width var(--sld-durationBase) var(--sld-easingSnappy)">
             
             <a class="app-nav-item active" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Visão geral')" title="Visão geral" data-tooltip="Visão geral">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
@@ -8750,7 +8750,7 @@ select:focus-visible {
           </aside>
 
           <!-- 3. ÁREA DE TRABALHO DA APLICAÇÃO (CARTÃO FLUTUANTE TONAL CANÔNICO) -->
-          <div class="app-shell-main" style="flex:1;background:var(--app-surface-card);border-radius:16px;margin:0 16px 16px 0;padding:24px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);min-width:0">
+          <div class="app-shell-main" style="flex:1;background:var(--app-surface-card);border-radius:var(--sld-radius-xl);margin:0 var(--sld-app-shell-main-offset) var(--sld-app-shell-main-offset) 0;padding:var(--sld-app-shell-main-padding-block) var(--sld-app-shell-main-padding-inline);display:flex;flex-direction:column;gap:var(--sld-app-shell-main-gap);box-shadow:var(--sld-app-shell-main-shadow);min-width:0">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
               <div>
                 <span class="chip" style="margin-bottom:4px;display:inline-block">Módulo Selecionado</span>

@@ -32,6 +32,8 @@ O procedimento completo para projetos existentes e novos está em
 
 ## Geometria de composição — ampliação obrigatória do guia
 
+
+O padrão já formalizado está em [`docs/geometry/app-shell-sidebar.md`](docs/geometry/app-shell-sidebar.md). Documentos de geometria vinculados nesta seção são normativos junto à demonstração correspondente do guia.
 O sistema não está completo apenas por ter cores, tipografia, raios e uma
 escala de espaçamento. Antes da próxima adoção visual, o brand guide deve
 passar a declarar, por padrão de tela, a sua geometria de composição:
@@ -53,6 +55,8 @@ formalmente definidos nele como tokens e exemplos antes de chegarem a um app.
 Sem esse mapa, uma implementação pode usar os tokens corretos e ainda assim
 parecer desalinhada — exatamente o problema encontrado no Nemu.
 
+
+Uma lacuna de responsividade permanece uma lacuna mesmo quando a geometria desktop estiver documentada; não se pode deduzir o comportamento mobile a partir dela.
 ## Critério de conformidade
 
 Uma interface só pode ser apresentada como Solide quando:

@@ -231,6 +231,49 @@
   --sld-sidebar-w: 256px;
   --sld-sidebar-w-compact: 68px;
   --sld-header-h: 56px;
+
+/* --- 11. APP SHELL --- */
+  --sld-app-shell-header-left-w: 244px;
+  --sld-app-shell-search-max-w: 540px;
+  --sld-app-shell-header-padding-inline-start: var(--sld-space-3);
+  --sld-app-shell-header-padding-inline-end: var(--sld-space-4);
+  --sld-app-shell-control-gap: var(--sld-space-3);
+  --sld-app-shell-sidebar-gap: 2px;
+  --sld-app-shell-sidebar-padding-block-start: var(--sld-space-2);
+  --sld-app-shell-sidebar-padding-inline: 10px;
+  --sld-app-shell-sidebar-padding-block-end: var(--sld-space-4);
+  --sld-app-shell-main-offset: var(--sld-space-4);
+  --sld-app-shell-main-padding-block: var(--sld-space-6);
+  --sld-app-shell-main-padding-inline: 28px;
+  --sld-app-shell-main-gap: var(--sld-space-4);
+  --sld-app-shell-main-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
+
+  /* --- 12. ALIASES DE COMPATIBILIDADE DO GUIA ---
+     Estes nomes existem para o guia histórico e apontam para o mesmo
+     contrato canônico; componentes novos devem preferir --sld-*. */
+  --bg-primary: var(--surface-primary);
+  --bg-secondary: var(--surface-secondary);
+  --bg-hover: var(--surface-hover);
+  --bg-tertiary: var(--surface-primary);
+  --bg-elevated: var(--surface-elevated);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-color-neutral-black);
+  --bg-card: var(--sld-surface-card);
+  --border-primary: var(--border-subtle);
+  --border-secondary: var(--border-subtle);
+  --r-xs: var(--sld-radius-xs);
+  --r-sm: var(--sld-radius-sm);
+  --r-md: var(--sld-radius-md);
+  --r: var(--sld-radius-md);
+  --r-lg: var(--sld-radius-lg);
+  --r-xl: var(--sld-radius-xl);
+  --r-pill: var(--sld-radius-full);
+  --r-full: var(--sld-radius-full);
+  --shadow-xs: var(--sld-shadow-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --shadow-lg: var(--sld-shadow-lg);
+  --app-shell-bg: var(--surface-secondary);
 }
 
 /* =========================================================================
