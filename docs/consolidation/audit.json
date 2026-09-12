@@ -1,9 +1,27 @@
 {
   "files": [
     {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 1054,
+      "sha256": "b822868aed5665aba2969451ab924d70c2ab5fd34bf07693450c9fe89129fa57",
+      "colorLiterals": 0
+    },
+    {
       "path": ".gitignore",
-      "bytes": 384,
-      "sha256": "42c979d85f6e71adf4311c1fe5b898ea13435910341c0793bd121a3b94d77a16",
+      "bytes": 417,
+      "sha256": "e0777311bdf8568db2a914336c20499696eb7572ff57d73fcf3b0ecb5f04cdbc",
+      "colorLiterals": 0
+    },
+    {
+      "path": ".storybook/main.ts",
+      "bytes": 211,
+      "sha256": "6f565d6b10547a515dc66150a5eaf75e81e12046c5ebfddd9e37e9f2b234e8ce",
+      "colorLiterals": 0
+    },
+    {
+      "path": ".storybook/preview.tsx",
+      "bytes": 416,
+      "sha256": "eb3107b058151479e48ce99147d410977b7efa2011aad24ff302f33aca779840",
       "colorLiterals": 0
     },
     {
@@ -31,9 +49,39 @@
       "colorLiterals": 0
     },
     {
+      "path": "docs/consolidation/README.md",
+      "bytes": 2284,
+      "sha256": "c74454b773273a3cdc3c73e578d6d9a8b697c2e9fd0d085fb8cecb8cb975d3ae",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/consolidation/audit.json",
+      "bytes": 409302,
+      "sha256": "3079967e387bb14c36acd9cfe375a63e6bb0a9c0ec0d5a9b1786056f4522283d",
+      "colorLiterals": 9
+    },
+    {
+      "path": "docs/consolidation/contrast.json",
+      "bytes": 13905,
+      "sha256": "e168faafd2f36214cbdc2a82a22b0173546cead3cacb2879c2eadc434e1fc5e0",
+      "colorLiterals": 172
+    },
+    {
+      "path": "docs/consolidation/palette-mapping.json",
+      "bytes": 617,
+      "sha256": "3237191a3802f680c7cbe11b17eb23e0735b792d6f8264f85782b1691e31efa9",
+      "colorLiterals": 0
+    },
+    {
       "path": "docs/geometry/app-shell-sidebar.md",
       "bytes": 2482,
       "sha256": "108a35e6485d0f521ccaaa78cf756ffd96872cfdd29580e29134b0b1dc6e00c4",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/migration/solide-design-system-migration.md",
+      "bytes": 4196,
+      "sha256": "b4140220915f4db01d52b350ce1d8cb4abf2642bf76347768a2aaaa6907e7a87",
       "colorLiterals": 0
     },
     {
@@ -12487,6 +12535,12 @@
       "colorLiterals": 0
     },
     {
+      "path": "packages/tokens/build/contract.js",
+      "bytes": 1153,
+      "sha256": "9aad145230aaa2acae8457d91b393749907941c55447025def7c338db93c0088",
+      "colorLiterals": 0
+    },
+    {
       "path": "packages/tokens/build/tailwind.colors.js",
       "bytes": 67,
       "sha256": "4389baef6078798cd11433af7a7aafa19086a960d825a793761012b47cdf03b9",
@@ -12562,6 +12616,12 @@
       "path": "packages/ui-kit/src/assets/logo-light.svg",
       "bytes": 268049,
       "sha256": "23bfc8128447bc0c9b9f9d6f1a8db4d56535be43de89a53f2d7cd4b201c462a8",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/assets/logos.ts",
+      "bytes": 584833,
+      "sha256": "ff85cac13137217c50aee7ed4a6926285b842bc320ccc4f0b9eff02bc45b1896",
       "colorLiterals": 0
     },
     {
@@ -12763,6 +12823,12 @@
       "colorLiterals": 0
     },
     {
+      "path": "packages/ui-kit/src/molecules/SegmentedTabs/SegmentedTabs.stories.tsx",
+      "bytes": 529,
+      "sha256": "5fb881f3e170866beffc70647a482930994b9cac3ef2dd6fe8c5ab2ba87f8409",
+      "colorLiterals": 0
+    },
+    {
       "path": "packages/ui-kit/src/molecules/SegmentedTabs/SegmentedTabs.tsx",
       "bytes": 4929,
       "sha256": "96776bd23fabe612e06f0369fd9bd08f68c7065671804a9217520ad62fbf82ea",
@@ -12931,6 +12997,42 @@
       "colorLiterals": 0
     },
     {
+      "path": "playwright.config.ts",
+      "bytes": 537,
+      "sha256": "97aa4e0bd19d58bd5263b6c3b1a2d6f5629dc3a370b30fa05a301f00475be9b7",
+      "colorLiterals": 0
+    },
+    {
+      "path": "postcss.config.cjs",
+      "bytes": 59,
+      "sha256": "383c4a251d833e238c2706dfdac53ef829d576cb5a66a21649b37ad213705883",
+      "colorLiterals": 0
+    },
+    {
+      "path": "preview/index.html",
+      "bytes": 234,
+      "sha256": "09cafa6354b7b9abf4f4d3c5e18eb35b95da72b5ec329aadf60f01f151920be2",
+      "colorLiterals": 0
+    },
+    {
+      "path": "preview/main.tsx",
+      "bytes": 3145,
+      "sha256": "d0ad43990a5097adaac775466a4c89666555e4b3581ce8e791960ea4d3480f4f",
+      "colorLiterals": 0
+    },
+    {
+      "path": "preview/style.css",
+      "bytes": 142,
+      "sha256": "acf1cb7fa59515f7904aac3b439c07054633ac9d1ba5d6b858a892cf67329559",
+      "colorLiterals": 0
+    },
+    {
+      "path": "scripts/audit-system.js",
+      "bytes": 1795,
+      "sha256": "34b3151e20a5aca43bc9c42ce18ff9a43947e8fbbae221fa47748312c458cbbd",
+      "colorLiterals": 0
+    },
+    {
       "path": "solide-brand-guide.html",
       "bytes": 568599,
       "sha256": "01ffc7f071d99d2133a6f5393937c34cc4a1124f523605421edca83c5d22843c",
@@ -13021,13 +13123,39 @@
       "colorLiterals": 0
     },
     {
+      "path": "tailwind.config.cjs",
+      "bytes": 138,
+      "sha256": "b6a9dbf3efb5ec26aa3d24efe35c1f9ac9b6925d6f76b6ed85d79852ffe9b507",
+      "colorLiterals": 0
+    },
+    {
+      "path": "tests/system.spec.ts",
+      "bytes": 3585,
+      "sha256": "9a96a991cda20de71e3440dc7962c7ea526434a9138a7d101d6c558e5c77ae32",
+      "colorLiterals": 9
+    },
+    {
       "path": "tsconfig.base.json",
       "bytes": 422,
       "sha256": "c9957d3b457ba15da90ef1f12a986254847e3d7aca13ce1072ace449df835725",
       "colorLiterals": 0
+    },
+    {
+      "path": "vite.config.mjs",
+      "bytes": 210,
+      "sha256": "7145cced38d0849fcb562fffb016a73e2c010a18b4d3689c9baf7f5017f99b0a",
+      "colorLiterals": 0
     }
   ],
   "components": [
+    {
+      "path": ".storybook/preview.tsx",
+      "tokens": [
+        "--sld-surface-canvas"
+      ],
+      "hardcodedColors": 0,
+      "arbitraryDimensions": []
+    },
     {
       "path": "packages/ui-kit/src/atoms/Badge/Badge.tsx",
       "tokens": [
@@ -13324,6 +13452,12 @@
         "--sld-sidebar-w",
         "--sld-surface-overlay"
       ],
+      "hardcodedColors": 0,
+      "arbitraryDimensions": []
+    },
+    {
+      "path": "preview/main.tsx",
+      "tokens": [],
       "hardcodedColors": 0,
       "arbitraryDimensions": []
     }

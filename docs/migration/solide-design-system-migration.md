@@ -23,13 +23,13 @@ Consolidar Brand Guide, tokens, pacote `@solide/tokens`, UI Kit, Storybook e tem
 
 - Fonte normativa e contrato: `solide-brand-guide.html`, `solide-tokens.css`, `solide-tailwind.config.js`.
 - Tokens: `packages/tokens/build/{contract,build-tokens,verify-tokens,tailwind.preset,tailwind.colors}.js`, arquivos gerados em `packages/tokens/src/` e remoção das fontes JSON concorrentes antigas.
-- UI Kit: todos os 15 componentes em `packages/ui-kit/src`, stories afetados, novo story de `SegmentedTabs` e assets portáveis em `packages/ui-kit/src/assets/logos.ts`.
+- UI Kit: os 15 componentes em `packages/ui-kit/src` foram auditados; os 13 que necessitavam de mudança foram migrados. `Icon` já era compatível por usar `currentColor`, sem cor fixa, e `FormField` já consumia aliases semânticos suportados pelo contrato. Também foram ajustados os stories afetados, criado o story de `SegmentedTabs` e adicionados assets portáveis em `packages/ui-kit/src/assets/logos.ts`.
 - Validação/documentação: `.storybook/`, `preview/`, `tests/`, `scripts/audit-system.js`, configurações de Vite, Tailwind, PostCSS e Playwright, `docs/consolidation/` e este checkpoint.
 - Scripts/dependências: `package.json`, `package-lock.json`, `.gitignore`.
 
 ## Etapa atual
 
-Implementação e validação concluídas. Branch publicada e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto e apto para merge contra `main`. O GitHub não possui checks ou workflows automatizados associados ao PR; a validação disponível foi executada localmente.
+Implementação concluída. Branch publicada e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto contra `main`. O workflow `.github/workflows/ci.yml` valida pull requests com instalação reproduzível, build, typecheck, tokens, auditoria, Storybook e testes de UI em Chromium.
 
 ## Testes executados
 
@@ -39,15 +39,17 @@ Implementação e validação concluídas. Branch publicada e PR [#1](https://gi
 - `npm run build:storybook`
 - `npm run test:ui` — light/dark em 1440 px e 390 px; estados de Button, foco, tabs, tabela, busca, troca de tema e drawer móvel.
 - Inspeção visual das capturas geradas localmente em `docs/consolidation/screenshots/` (ignoradas no Git).
-- `npm run lint` — 2.171 arquivos rastreados, 15 componentes e 2.066 ícones auditados.
+- `npm run lint` — 2.191 arquivos rastreados, 15 componentes do UI Kit, 2 arquivos TSX de configuração/preview e 2.066 ícones auditados.
 - `git diff --check`
+
+O workflow de CI repete essas validações em `ubuntu-latest`, com Node.js 22 e Chromium instalado pelo Playwright. Nesta etapa, `npm ci`, build, typecheck, tokens, lint e Storybook passaram localmente. A reinstalação local do Chromium foi bloqueada pelo proxy do ambiente; o teste de UI já havia passado com o navegador disponível na validação anterior e será repetido no runner pela instalação oficial do Playwright.
 
 ## Pendências
 
-- Fazer a revisão humana e aprovar o PR #1 antes do merge em `main`.
+- Aguardar e revisar os checks do PR #1 antes do merge em `main`.
 - Compatibilidade: remover aliases legados somente após inventariar e migrar consumidores externos.
 - Reduzir posteriormente o peso dos SVGs oficiais embutidos no bundle do Storybook; o build informa chunks acima de 500 kB, sem falha funcional.
 
 ## Próximo passo exato
 
-Revisar o PR #1 e, se aprovado, fazer o merge em `main`. Se houver comentários, corrigir apenas os bloqueios confirmados nesta mesma branch. Na próxima sessão, começar lendo este checkpoint e `git status`; não repetir a auditoria integral.
+Revisar os checks do PR #1 e, se todos estiverem aprovados, fazer merge em main.
