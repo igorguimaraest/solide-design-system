@@ -29,7 +29,7 @@ Consolidar Brand Guide, tokens, pacote `@solide/tokens`, UI Kit, Storybook e tem
 
 ## Etapa atual
 
-Implementação e validação concluídas. Branch publicada no commit remoto `31031bf` e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto para revisão contra `main`.
+Implementação e validação concluídas. Branch publicada e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto e apto para merge contra `main`. O GitHub não possui checks ou workflows automatizados associados ao PR; a validação disponível foi executada localmente.
 
 ## Testes executados
 
@@ -44,10 +44,10 @@ Implementação e validação concluídas. Branch publicada no commit remoto `31
 
 ## Pendências
 
-- Revisar e aprovar o PR #1 antes do merge em `main`.
+- Fazer a revisão humana e aprovar o PR #1 antes do merge em `main`.
 - Compatibilidade: remover aliases legados somente após inventariar e migrar consumidores externos.
 - Reduzir posteriormente o peso dos SVGs oficiais embutidos no bundle do Storybook; o build informa chunks acima de 500 kB, sem falha funcional.
 
 ## Próximo passo exato
 
-Verificar os checks e comentários do PR #1, corrigir somente bloqueios confirmados e, após aprovação, fazer o merge em `main`. Na próxima sessão, começar lendo este checkpoint e `git status`; não repetir a auditoria integral.
+Revisar o PR #1 e, se aprovado, fazer o merge em `main`. Se houver comentários, corrigir apenas os bloqueios confirmados nesta mesma branch. Na próxima sessão, começar lendo este checkpoint e `git status`; não repetir a auditoria integral.
