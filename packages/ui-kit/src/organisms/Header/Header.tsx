@@ -1,3 +1,4 @@
+import { logoLight, logoDark } from '../../assets/logos';
 import React from 'react';
 import { HeaderProps } from './Header.types';
 import { Typography } from '../../atoms/Typography';
@@ -6,7 +7,7 @@ import { Button } from '../../atoms/Button';
 
 export const Header: React.FC<HeaderProps> = ({
   brandTitle = 'Solide',
-  user = { name: 'Igor Guimar?es', role: 'Fundador / Engenharia' },
+  user = { name: 'Igor Guimarães', role: 'Fundador / Engenharia' },
   onSearchClick,
   onThemeToggle,
   currentTheme = 'light',
@@ -14,14 +15,14 @@ export const Header: React.FC<HeaderProps> = ({
   className = '',
 }) => {
   return (
-    <header className={`h-[var(--sld-header-h,56px)] px-6 bg-solide-surface border-b border-solide-subtle flex items-center justify-between sticky top-0 z-40 backdrop-blur-md bg-opacity-95 font-ui ${className}`}>
-      <div className="flex items-center gap-4">
+    <header className={`h-[var(--sld-header-h)] pl-[var(--sld-app-shell-header-padding-inline-start)] pr-[var(--sld-app-shell-header-padding-inline-end)] bg-[var(--sld-surface-shell)] flex items-center justify-between sticky top-0 z-40  font-ui ${className}`}>
+      <div className="flex items-center gap-4 shrink-0">
         {onMenuToggle && (
           <button
             type="button"
             onClick={onMenuToggle}
-            className="p-1.5 rounded-[var(--sld-radius-md,8px)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover,rgba(15,23,42,0.05))] sld-focus-ring lg:hidden"
-            aria-label="Alternar navega??o"
+            className="p-1.5 rounded-[var(--sld-radius-md)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring"
+            aria-label="Alternar navegação"
           >
             <Icon name="menu" size="md" />
           </button>
@@ -29,8 +30,8 @@ export const Header: React.FC<HeaderProps> = ({
 
         <div className="flex items-center gap-2.5 select-none">
           <div className="w-7 h-7 flex items-center justify-center shrink-0">
-            <img src="/assets/logo-light.svg" alt="Solide" className="w-full h-full object-contain dark:hidden block" />
-            <img src="/assets/logo-dark.svg" alt="Solide" className="w-full h-full object-contain hidden dark:block" />
+            <img src={logoLight} alt="Solide" className="w-full h-full object-contain sld-logo-light" />
+            <img src={logoDark} alt="Solide" className="w-full h-full object-contain sld-logo-dark" />
           </div>
           <Typography variant="h3" tone="primary" className="tracking-tight text-base">
             {brandTitle}
@@ -43,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onSearchClick}
-            className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs text-solide-tertiary bg-solide-surface-sunken border border-solide-subtle rounded-[var(--sld-radius-md,8px)] hover:border-solide-strong transition-colors sld-focus-ring"
+            className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs text-solide-tertiary bg-solide-surface-sunken border border-solide-subtle rounded-[var(--sld-radius-md)] hover:border-solide-strong transition-colors sld-focus-ring"
           >
             <Icon name="search" size="sm" />
             <span>Buscar no sistema...</span>
@@ -58,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
             type="button"
             onClick={onThemeToggle}
             aria-label={`Mudar para modo ${currentTheme === 'light' ? 'escuro' : 'claro'}`}
-            className="p-2 rounded-[var(--sld-radius-md,8px)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover,rgba(15,23,42,0.05))] sld-focus-ring transition-colors"
+            className="p-2 rounded-[var(--sld-radius-md)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
           >
             <Icon name={currentTheme === 'light' ? 'moon' : 'sun'} size="md" />
           </button>

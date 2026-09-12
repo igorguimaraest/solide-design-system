@@ -7,7 +7,7 @@ export default {
 };
 
 export const NoResults = () => (
-  <div className="p-8 bg-[var(--solide-surface-base)] border border-dashed rounded-xl">
+  <div className="p-8 bg-[var(--sld-surface-base)] border border-dashed rounded-xl">
     <EmptyState
       icon="search"
       title="Nenhum registro encontrado"
@@ -21,7 +21,7 @@ export const NoResults = () => (
 );
 
 export const FirstProject = () => (
-  <div className="p-8 bg-[var(--solide-surface-base)] border rounded-xl">
+  <div className="p-8 bg-[var(--sld-surface-base)] border rounded-xl">
     <EmptyState
       icon="activity"
       title="Crie seu primeiro projeto Solide"

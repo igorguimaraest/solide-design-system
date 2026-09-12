@@ -43,7 +43,7 @@ export const Default = () => {
   ];
 
   return (
-    <div className="p-6 bg-[var(--solide-surface-canvas)] rounded-xl">
+    <div className="p-6 bg-[var(--sld-surface-canvas)] rounded-xl">
       <DataTable
         columns={columns}
         data={SAMPLE_DATA}

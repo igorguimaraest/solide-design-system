@@ -1,129 +1,1551 @@
 {
   "theme": {
     "light": {
-      "bg-canvas": {
-        "$value": "{color.neutral.0}",
+      "--sld-surface-base": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-50)"
+      },
+      "--sld-surface-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-50)"
+      },
+      "--sld-surface-shell": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-150)"
+      },
+      "--sld-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-surface-raised": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-surface-sunken": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-100)"
+      },
+      "--sld-surface-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-200)"
+      },
+      "--sld-surface-overlay": {
         "$type": "color",
-        "$description": "Plano de fundo base da aplicação em modo claro"
+        "$value": "rgba(18,17,16,0.45)"
       },
-      "bg-surface": {
-        "$value": "{color.neutral.50}",
-        "$type": "color",
-        "$description": "Superfície sutil para cards e seções em modo claro"
+      "--sld-text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-850)"
       },
-      "bg-surface-elevated": {
-        "$value": "{color.neutral.100}",
-        "$type": "color",
-        "$description": "Superfície elevada para modais, dropdowns e popovers em modo claro"
+      "--sld-text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-600)"
       },
-      "border-subtle": {
-        "$value": "{color.neutral.200}",
-        "$type": "color",
-        "$description": "Borda estrutural padrão de baixa ênfase em modo claro"
+      "--sld-text-muted": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-600)"
       },
-      "border-strong": {
-        "$value": "{color.neutral.700}",
-        "$type": "color",
-        "$description": "Borda de alta ênfase e contornos destacados em modo claro"
+      "--sld-text-inverse": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
       },
-      "text-primary": {
-        "$value": "{color.neutral.950}",
-        "$type": "color",
-        "$description": "Texto primário de alto contraste"
+      "--sld-brand-accent": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-500)"
       },
-      "text-secondary": {
-        "$value": "{color.neutral.600}",
-        "$type": "color",
-        "$description": "Texto secundário seguro"
+      "--sld-text-brand": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
       },
-      "text-muted": {
-        "$value": "{color.neutral.500}",
-        "$type": "color",
-        "$description": "Texto atenuado para metadados e legendas"
+      "--sld-border-default": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-200)"
       },
-      "ring-focus": {
-        "$value": "{color.neutral.950}",
-        "$type": "color",
-        "$description": "Anel de foco exterior de alta visibilidade"
+      "--sld-border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-200)"
       },
-      "feedback-success": {
-        "$value": "{color.functional.success}",
-        "$type": "color"
+      "--sld-border-strong": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-550)"
       },
-      "feedback-error": {
-        "$value": "{color.functional.error}",
-        "$type": "color"
+      "--sld-action-focusRing": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
       },
-      "feedback-warning": {
-        "$value": "{color.functional.warning}",
-        "$type": "color"
+      "--sld-selection-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-100)"
       },
-      "feedback-info": {
-        "$value": "{color.functional.info}",
-        "$type": "color"
+      "--sld-selection-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-selection-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-600)"
+      },
+      "--sld-disabled-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-150)"
+      },
+      "--sld-disabled-fg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-600)"
+      },
+      "--sld-chart-grid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-200)"
+      },
+      "--sld-chart-axis-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-600)"
+      },
+      "--sld-chart-1": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-600)"
+      },
+      "--sld-chart-2": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-700)"
+      },
+      "--sld-chart-3": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-700)"
+      },
+      "--sld-chart-4": {
+        "$type": "string",
+        "$value": "var(--sld-palette-teal-700)"
+      },
+      "--sld-action-primary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-600)"
+      },
+      "--sld-action-primary-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-action-primary-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-800)"
+      },
+      "--sld-action-primary-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-action-danger-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-700)"
+      },
+      "--sld-action-danger-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-800)"
+      },
+      "--sld-action-danger-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-900)"
+      },
+      "--sld-action-danger-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-action-secondary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--sld-action-secondary-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-action-secondary-active": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--sld-action-secondary-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-action-ghost-bg": {
+        "$type": "string",
+        "$value": "transparent"
+      },
+      "--sld-action-ghost-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-action-ghost-active": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--sld-action-ghost-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-status-success-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-100)"
+      },
+      "--sld-status-success-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-700)"
+      },
+      "--sld-status-success-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-700)"
+      },
+      "--sld-status-success-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-700)"
+      },
+      "--sld-status-success-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-700)"
+      },
+      "--sld-status-success-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-status-success-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-800)"
+      },
+      "--sld-status-warning-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-100)"
+      },
+      "--sld-status-warning-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-700)"
+      },
+      "--sld-status-warning-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-700)"
+      },
+      "--sld-status-warning-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-700)"
+      },
+      "--sld-status-warning-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-700)"
+      },
+      "--sld-status-warning-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-status-warning-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-800)"
+      },
+      "--sld-status-danger-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-100)"
+      },
+      "--sld-status-danger-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-700)"
+      },
+      "--sld-status-danger-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-700)"
+      },
+      "--sld-status-danger-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-700)"
+      },
+      "--sld-status-danger-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-700)"
+      },
+      "--sld-status-danger-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-status-danger-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-800)"
+      },
+      "--sld-status-info-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-100)"
+      },
+      "--sld-status-info-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-info-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-info-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-info-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-info-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-status-info-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-800)"
+      },
+      "--sld-status-brand-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-100)"
+      },
+      "--sld-status-brand-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-brand-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-brand-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-brand-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-status-brand-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-status-brand-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-800)"
+      },
+      "--sld-status-neutral-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-status-neutral-border": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--sld-status-neutral-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--sld-status-neutral-icon": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--sld-status-neutral-solid": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-status-neutral-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-text-inverse)"
+      },
+      "--sld-status-neutral-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--surface-primary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--surface-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--surface-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--surface-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--text-tertiary": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--text-quaternary": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--text-inverse": {
+        "$type": "string",
+        "$value": "var(--sld-text-inverse)"
+      },
+      "--border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--color-accent": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--color-accent-fg": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-text)"
+      },
+      "--color-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-icon)"
+      },
+      "--color-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--color-caution": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--color-destructive": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-icon)"
+      },
+      "--nav-background": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--solide-bg-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-surface-canvas)"
+      },
+      "--solide-bg-surface": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--solide-bg-surface-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--solide-border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--solide-border-strong": {
+        "$type": "string",
+        "$value": "var(--sld-border-strong)"
+      },
+      "--solide-text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--solide-text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--solide-text-muted": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--solide-ring-focus": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-focus-ring": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-accent": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--solide-accent-hover": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-hover)"
+      },
+      "--solide-accent-ring": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-accent-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-brand)"
+      },
+      "--solide-accent-surface": {
+        "$type": "string",
+        "$value": "var(--sld-selection-bg)"
+      },
+      "--solide-accent-border": {
+        "$type": "string",
+        "$value": "var(--sld-selection-border)"
+      },
+      "--bg-primary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--bg-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--bg-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--bg-tertiary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--bg-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--bg-overlay": {
+        "$type": "string",
+        "$value": "var(--sld-surface-overlay)"
+      },
+      "--bg-dark": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--bg-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--border-primary": {
+        "$type": "string",
+        "$value": "var(--sld-border-default)"
+      },
+      "--border-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--app-shell-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--app-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--color-separator": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--sld-surface-brand": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--sld-surface-brandSubtle": {
+        "$type": "string",
+        "$value": "var(--sld-selection-bg)"
+      },
+      "--sld-border-brand": {
+        "$type": "string",
+        "$value": "var(--sld-selection-border)"
+      },
+      "--solide-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-icon)"
+      },
+      "--solide-success-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-bg)"
+      },
+      "--solide-success-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-border)"
+      },
+      "--solide-success-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--solide-feedback-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--sld-text-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--sld-border-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-border)"
+      },
+      "--solide-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--solide-warning-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-bg)"
+      },
+      "--solide-warning-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-border)"
+      },
+      "--solide-warning-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--solide-feedback-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--sld-text-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--sld-border-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-border)"
+      },
+      "--solide-error": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-icon)"
+      },
+      "--solide-error-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-bg)"
+      },
+      "--solide-error-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-border)"
+      },
+      "--solide-error-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--solide-feedback-error": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--sld-text-danger": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--sld-border-danger": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-border)"
+      },
+      "--solide-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-icon)"
+      },
+      "--solide-info-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-bg)"
+      },
+      "--solide-info-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-border)"
+      },
+      "--solide-info-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--solide-feedback-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--sld-text-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--sld-border-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-border)"
+      },
+      "--solide-waiting": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-icon)"
+      },
+      "--solide-waiting-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-bg)"
+      },
+      "--solide-waiting-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-border)"
+      },
+      "--solide-waiting-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--solide-feedback-waiting": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--sld-text-neutral": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--sld-border-neutral": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-border)"
+      },
+      "--solide-surface-base": {
+        "$type": "string",
+        "$value": "var(--sld-surface-base)"
+      },
+      "--solide-surface-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-surface-canvas)"
+      },
+      "--solide-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--solide-surface-raised": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--solide-surface-sunken": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--solide-border-default": {
+        "$type": "string",
+        "$value": "var(--sld-border-default)"
+      },
+      "--solide-border-danger": {
+        "$type": "string",
+        "$value": "var(--sld-border-danger)"
+      },
+      "--solide-action-primary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-bg)"
+      },
+      "--solide-action-focusRing": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--shadow-xs": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-xs)"
+      },
+      "--r-xs": {
+        "$type": "string",
+        "$value": "var(--sld-radius-xs)"
+      },
+      "--shadow-sm": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-sm)"
+      },
+      "--r-sm": {
+        "$type": "string",
+        "$value": "var(--sld-radius-sm)"
+      },
+      "--shadow-md": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-md)"
+      },
+      "--r-md": {
+        "$type": "string",
+        "$value": "var(--sld-radius-md)"
+      },
+      "--shadow-lg": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-lg)"
+      },
+      "--r-lg": {
+        "$type": "string",
+        "$value": "var(--sld-radius-lg)"
+      },
+      "--shadow-xl": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-xl)"
+      },
+      "--r-xl": {
+        "$type": "string",
+        "$value": "var(--sld-radius-xl)"
+      },
+      "--r": {
+        "$type": "string",
+        "$value": "var(--sld-radius-md)"
+      },
+      "--r-full": {
+        "$type": "string",
+        "$value": "var(--sld-radius-full)"
+      },
+      "--r-pill": {
+        "$type": "string",
+        "$value": "var(--sld-radius-full)"
       }
     },
     "dark": {
-      "bg-canvas": {
-        "$value": "{color.neutral.950}",
+      "--sld-surface-base": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-900)"
+      },
+      "--sld-surface-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-900)"
+      },
+      "--sld-surface-shell": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-850)"
+      },
+      "--sld-surface-raised": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-800)"
+      },
+      "--sld-surface-sunken": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-900)"
+      },
+      "--sld-surface-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-750)"
+      },
+      "--sld-surface-overlay": {
         "$type": "color",
-        "$description": "Plano de fundo base profundo da aplicação em modo escuro"
+        "$value": "rgba(0,0,0,0.6)"
       },
-      "bg-surface": {
-        "$value": "{color.neutral.900}",
-        "$type": "color",
-        "$description": "Superfície base de componentes em modo escuro"
+      "--sld-text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-50)"
       },
-      "bg-surface-elevated": {
-        "$value": "{color.neutral.800}",
-        "$type": "color",
-        "$description": "Superfície elevada para cards e menus em modo escuro"
+      "--sld-text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-300)"
       },
-      "border-subtle": {
-        "$value": "{color.neutral.800}",
-        "$type": "color",
-        "$description": "Borda estrutural suave em modo escuro"
+      "--sld-text-muted": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-400)"
       },
-      "border-strong": {
-        "$value": "{color.neutral.600}",
-        "$type": "color",
-        "$description": "Borda de alta ênfase para estados ativos em modo escuro"
+      "--sld-text-inverse": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
       },
-      "text-primary": {
-        "$value": "{color.neutral.50}",
-        "$type": "color",
-        "$description": "Texto primário em modo escuro"
+      "--sld-brand-accent": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
       },
-      "text-secondary": {
-        "$value": "{color.neutral.400}",
-        "$type": "color",
-        "$description": "Texto secundário em modo escuro"
+      "--sld-text-brand": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-300)"
       },
-      "text-muted": {
-        "$value": "{color.neutral.500}",
-        "$type": "color",
-        "$description": "Texto atenuado e metadados no modo escuro"
+      "--sld-border-default": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-750)"
       },
-      "ring-focus": {
-        "$value": "{color.neutral.50}",
-        "$type": "color",
-        "$description": "Anel de foco luminoso no modo escuro"
+      "--sld-border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-750)"
       },
-      "feedback-success": {
-        "$value": "{color.functional.success}",
-        "$type": "color"
+      "--sld-border-strong": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-500)"
       },
-      "feedback-error": {
-        "$value": "{color.functional.error}",
-        "$type": "color"
+      "--sld-action-focusRing": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
       },
-      "feedback-warning": {
-        "$value": "{color.functional.warning}",
-        "$type": "color"
+      "--sld-selection-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-subtle-dark)"
       },
-      "feedback-info": {
-        "$value": "{color.functional.info}",
-        "$type": "color"
+      "--sld-selection-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-300)"
+      },
+      "--sld-selection-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-disabled-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-800)"
+      },
+      "--sld-disabled-fg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-500)"
+      },
+      "--sld-chart-grid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-750)"
+      },
+      "--sld-chart-axis-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-400)"
+      },
+      "--sld-chart-1": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-chart-2": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
+      },
+      "--sld-chart-3": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-chart-4": {
+        "$type": "string",
+        "$value": "var(--sld-palette-teal-400)"
+      },
+      "--sld-action-primary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-action-primary-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-300)"
+      },
+      "--sld-action-primary-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-500)"
+      },
+      "--sld-action-primary-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-action-danger-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-400)"
+      },
+      "--sld-action-danger-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-300)"
+      },
+      "--sld-action-danger-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-450)"
+      },
+      "--sld-action-danger-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-action-secondary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--sld-action-secondary-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-action-secondary-active": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--sld-action-secondary-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-action-ghost-bg": {
+        "$type": "string",
+        "$value": "transparent"
+      },
+      "--sld-action-ghost-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-action-ghost-active": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--sld-action-ghost-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-status-success-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-subtle-dark)"
+      },
+      "--sld-status-success-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
+      },
+      "--sld-status-success-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
+      },
+      "--sld-status-success-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
+      },
+      "--sld-status-success-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
+      },
+      "--sld-status-success-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-status-success-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-500)"
+      },
+      "--sld-status-warning-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-subtle-dark)"
+      },
+      "--sld-status-warning-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-status-warning-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-status-warning-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-status-warning-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-status-warning-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-status-warning-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-500)"
+      },
+      "--sld-status-danger-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-subtle-dark)"
+      },
+      "--sld-status-danger-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-400)"
+      },
+      "--sld-status-danger-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-400)"
+      },
+      "--sld-status-danger-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-400)"
+      },
+      "--sld-status-danger-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-400)"
+      },
+      "--sld-status-danger-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-status-danger-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-danger-500)"
+      },
+      "--sld-status-info-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-subtle-dark)"
+      },
+      "--sld-status-info-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-info-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-info-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-info-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-info-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-status-info-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-500)"
+      },
+      "--sld-status-brand-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-subtle-dark)"
+      },
+      "--sld-status-brand-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-brand-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-brand-icon": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-brand-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-status-brand-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-status-brand-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-500)"
+      },
+      "--sld-status-neutral-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--sld-status-neutral-border": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--sld-status-neutral-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--sld-status-neutral-icon": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--sld-status-neutral-solid": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--sld-status-neutral-on-solid": {
+        "$type": "string",
+        "$value": "var(--sld-text-inverse)"
+      },
+      "--sld-status-neutral-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--surface-primary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--surface-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--surface-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--surface-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--text-tertiary": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--text-quaternary": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--text-inverse": {
+        "$type": "string",
+        "$value": "var(--sld-text-inverse)"
+      },
+      "--border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--color-accent": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--color-accent-fg": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-text)"
+      },
+      "--color-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-icon)"
+      },
+      "--color-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--color-caution": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--color-destructive": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-icon)"
+      },
+      "--nav-background": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--solide-bg-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-surface-canvas)"
+      },
+      "--solide-bg-surface": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--solide-bg-surface-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--solide-border-subtle": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--solide-border-strong": {
+        "$type": "string",
+        "$value": "var(--sld-border-strong)"
+      },
+      "--solide-text-primary": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
+      "--solide-text-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-text-secondary)"
+      },
+      "--solide-text-muted": {
+        "$type": "string",
+        "$value": "var(--sld-text-muted)"
+      },
+      "--solide-ring-focus": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-focus-ring": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-accent": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--solide-accent-hover": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-hover)"
+      },
+      "--solide-accent-ring": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--solide-accent-text": {
+        "$type": "string",
+        "$value": "var(--sld-text-brand)"
+      },
+      "--solide-accent-surface": {
+        "$type": "string",
+        "$value": "var(--sld-selection-bg)"
+      },
+      "--solide-accent-border": {
+        "$type": "string",
+        "$value": "var(--sld-selection-border)"
+      },
+      "--bg-primary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--bg-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--bg-hover": {
+        "$type": "string",
+        "$value": "var(--sld-surface-hover)"
+      },
+      "--bg-tertiary": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--bg-elevated": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--bg-overlay": {
+        "$type": "string",
+        "$value": "var(--sld-surface-overlay)"
+      },
+      "--bg-dark": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--bg-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--border-primary": {
+        "$type": "string",
+        "$value": "var(--sld-border-default)"
+      },
+      "--border-secondary": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--app-shell-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-shell)"
+      },
+      "--app-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--color-separator": {
+        "$type": "string",
+        "$value": "var(--sld-border-subtle)"
+      },
+      "--sld-surface-brand": {
+        "$type": "string",
+        "$value": "var(--sld-brand-accent)"
+      },
+      "--sld-surface-brandSubtle": {
+        "$type": "string",
+        "$value": "var(--sld-selection-bg)"
+      },
+      "--sld-border-brand": {
+        "$type": "string",
+        "$value": "var(--sld-selection-border)"
+      },
+      "--solide-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-icon)"
+      },
+      "--solide-success-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-bg)"
+      },
+      "--solide-success-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-border)"
+      },
+      "--solide-success-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--solide-feedback-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--sld-text-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-text)"
+      },
+      "--sld-border-success": {
+        "$type": "string",
+        "$value": "var(--sld-status-success-border)"
+      },
+      "--solide-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-icon)"
+      },
+      "--solide-warning-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-bg)"
+      },
+      "--solide-warning-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-border)"
+      },
+      "--solide-warning-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--solide-feedback-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--sld-text-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-text)"
+      },
+      "--sld-border-warning": {
+        "$type": "string",
+        "$value": "var(--sld-status-warning-border)"
+      },
+      "--solide-error": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-icon)"
+      },
+      "--solide-error-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-bg)"
+      },
+      "--solide-error-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-border)"
+      },
+      "--solide-error-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--solide-feedback-error": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--sld-text-danger": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-text)"
+      },
+      "--sld-border-danger": {
+        "$type": "string",
+        "$value": "var(--sld-status-danger-border)"
+      },
+      "--solide-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-icon)"
+      },
+      "--solide-info-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-bg)"
+      },
+      "--solide-info-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-border)"
+      },
+      "--solide-info-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--solide-feedback-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--sld-text-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-text)"
+      },
+      "--sld-border-info": {
+        "$type": "string",
+        "$value": "var(--sld-status-info-border)"
+      },
+      "--solide-waiting": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-icon)"
+      },
+      "--solide-waiting-surface": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-bg)"
+      },
+      "--solide-waiting-border": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-border)"
+      },
+      "--solide-waiting-text": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--solide-feedback-waiting": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--sld-text-neutral": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-text)"
+      },
+      "--sld-border-neutral": {
+        "$type": "string",
+        "$value": "var(--sld-status-neutral-border)"
+      },
+      "--solide-surface-base": {
+        "$type": "string",
+        "$value": "var(--sld-surface-base)"
+      },
+      "--solide-surface-canvas": {
+        "$type": "string",
+        "$value": "var(--sld-surface-canvas)"
+      },
+      "--solide-surface-card": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--solide-surface-raised": {
+        "$type": "string",
+        "$value": "var(--sld-surface-raised)"
+      },
+      "--solide-surface-sunken": {
+        "$type": "string",
+        "$value": "var(--sld-surface-sunken)"
+      },
+      "--solide-border-default": {
+        "$type": "string",
+        "$value": "var(--sld-border-default)"
+      },
+      "--solide-border-danger": {
+        "$type": "string",
+        "$value": "var(--sld-border-danger)"
+      },
+      "--solide-action-primary-bg": {
+        "$type": "string",
+        "$value": "var(--sld-action-primary-bg)"
+      },
+      "--solide-action-focusRing": {
+        "$type": "string",
+        "$value": "var(--sld-action-focusRing)"
+      },
+      "--shadow-xs": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-xs)"
+      },
+      "--r-xs": {
+        "$type": "string",
+        "$value": "var(--sld-radius-xs)"
+      },
+      "--shadow-sm": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-sm)"
+      },
+      "--r-sm": {
+        "$type": "string",
+        "$value": "var(--sld-radius-sm)"
+      },
+      "--shadow-md": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-md)"
+      },
+      "--r-md": {
+        "$type": "string",
+        "$value": "var(--sld-radius-md)"
+      },
+      "--shadow-lg": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-lg)"
+      },
+      "--r-lg": {
+        "$type": "string",
+        "$value": "var(--sld-radius-lg)"
+      },
+      "--shadow-xl": {
+        "$type": "string",
+        "$value": "var(--sld-shadow-xl)"
+      },
+      "--r-xl": {
+        "$type": "string",
+        "$value": "var(--sld-radius-xl)"
+      },
+      "--r": {
+        "$type": "string",
+        "$value": "var(--sld-radius-md)"
+      },
+      "--r-full": {
+        "$type": "string",
+        "$value": "var(--sld-radius-full)"
+      },
+      "--r-pill": {
+        "$type": "string",
+        "$value": "var(--sld-radius-full)"
       }
     }
   }

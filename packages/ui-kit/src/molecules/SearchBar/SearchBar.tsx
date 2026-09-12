@@ -6,7 +6,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   value: controlledValue,
   defaultValue = '',
   placeholder = 'Buscar...',
-  shortcutKey = 'Ctrl+K',
+  shortcutKey = '',
   onChange,
   onClear,
   onSearch,
@@ -50,7 +50,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         placeholder={placeholder}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="w-full h-9 pl-9 pr-16 bg-[var(--solide-surface-base)] text-sm text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-[var(--sld-radius-md,8px)] border border-[var(--solide-border-strong)] outline-none focus:border-[var(--solide-action-focusRing)] focus:ring-2 focus:ring-[rgba(51,78,172,0.15)] transition-colors disabled:bg-[var(--solide-surface-sunken)]"
+        className="w-full h-9 pl-9 pr-16 bg-[var(--sld-surface-base)] text-sm text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-[var(--sld-radius-md)] border border-[var(--solide-border-strong)] outline-none focus:border-[var(--sld-action-focusRing)] focus:ring-2 focus:ring-[var(--sld-action-focusRing)] transition-colors disabled:bg-[var(--sld-surface-sunken)]"
         aria-label={placeholder}
       />
 
@@ -59,14 +59,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           <button
             type="button"
             onClick={handleClear}
-            className="p-1 rounded text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover,rgba(15,23,42,0.05))] transition-colors"
+            disabled={disabled}
+            className="sld-focus-ring disabled:cursor-not-allowed p-1 rounded text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover)] transition-colors"
             aria-label="Limpar busca"
           >
             <Icon name="x" size="sm" />
           </button>
         )}
         {shortcutKey && (
-          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono font-medium text-[var(--solide-text-muted)] bg-[var(--solide-surface-sunken)] border border-[var(--solide-border-default)] rounded shadow-xs select-none pointer-events-none">
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono font-medium text-[var(--solide-text-muted)] bg-[var(--sld-surface-sunken)] border border-[var(--sld-border-default)] rounded shadow-xs select-none pointer-events-none">
             {shortcutKey}
           </kbd>
         )}
