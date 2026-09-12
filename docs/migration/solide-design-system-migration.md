@@ -29,7 +29,7 @@ Consolidar Brand Guide, tokens, pacote `@solide/tokens`, UI Kit, Storybook e tem
 
 ## Etapa atual
 
-Implementação e validação concluídas. Preparação do commit/PR.
+Implementação e validação concluídas. Branch publicada no commit remoto `31031bf` e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto para revisão contra `main`.
 
 ## Testes executados
 
@@ -39,14 +39,15 @@ Implementação e validação concluídas. Preparação do commit/PR.
 - `npm run build:storybook`
 - `npm run test:ui` — light/dark em 1440 px e 390 px; estados de Button, foco, tabs, tabela, busca, troca de tema e drawer móvel.
 - Inspeção visual das capturas geradas localmente em `docs/consolidation/screenshots/` (ignoradas no Git).
-- `npm run lint` e `git diff --check` fazem parte do gate final.
+- `npm run lint` — 2.171 arquivos rastreados, 15 componentes e 2.066 ícones auditados.
+- `git diff --check`
 
 ## Pendências
 
-- Commitar a branch, publicar no remoto e abrir PR para revisão.
+- Revisar e aprovar o PR #1 antes do merge em `main`.
 - Compatibilidade: remover aliases legados somente após inventariar e migrar consumidores externos.
 - Reduzir posteriormente o peso dos SVGs oficiais embutidos no bundle do Storybook; o build informa chunks acima de 500 kB, sem falha funcional.
 
 ## Próximo passo exato
 
-Commitar o estado validado, publicar `consolidate/solide-semantic-system` e abrir o PR para `main`. Na próxima sessão, começar lendo este checkpoint e `git status`; não repetir a auditoria integral.
+Verificar os checks e comentários do PR #1, corrigir somente bloqueios confirmados e, após aprovação, fazer o merge em `main`. Na próxima sessão, começar lendo este checkpoint e `git status`; não repetir a auditoria integral.
