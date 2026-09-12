@@ -29,7 +29,7 @@ export const Default = () => {
   ];
 
   return (
-    <div className="h-[600px] flex bg-[var(--solide-surface-canvas)] border rounded-xl overflow-hidden">
+    <div className="h-[600px] flex bg-[var(--sld-surface-canvas)] border rounded-xl overflow-hidden">
       <Sidebar
         sections={sections}
         isCompact={isCompact}

@@ -1,56 +1,23 @@
-/**
- * SOLIDE DESIGN SYSTEM TOKENS v3.3.0
- * Contrato CSS canônico carregado por solide-brand-guide.html.
- * A distribuição @solide/tokens publica uma cópia exata deste arquivo.
- */
-
+/** Canonical Solide tokens. Edit here; derived exports are generated.
+ * Legacy fixed palettes retain their values. New palettes: low = light, high = dark. */
 :root {
-  /* =========================================================================
-     SOLIDE — TOKENS SEMÂNTICOS CANÔNICOS
-     ========================================================================= */
-  /* Cores de Ação */
-  /* Acento provisório: reservado a ação, seleção e foco. */
-  --color-accent: #0040dd;
-  --color-accent-fg: #ffffff;
-  --color-destructive: #FF3B30;
-  --color-success: #34C759;
-  --color-warning: #FF9500;
-  --color-caution: #FFCC00;
-
-  /* Superfícies */
-  --surface-primary: #FFFFFF;
-  --surface-secondary: #E9E9E6;
-  --surface-hover: #E0E0DD;
-  --surface-elevated: #FFFFFF;
-
-  /* Textos */
-  --text-primary: #000000;
-  --text-secondary: #6A6A70;
-  --text-tertiary: #6A6A70;
-
-  /* Bordas e Divisores */
-  --border-subtle: #C6C6C8;
-
-  /* Efeito Translúcido / Blur */
-  --nav-background: rgba(255, 255, 255, 0.80);
-
-  /* API pública usada pelo UI Kit. São aliases do contrato do guia. */
-  --solide-bg-canvas: var(--surface-primary);
-  --solide-bg-surface: var(--surface-secondary);
-  --solide-bg-surface-elevated: var(--surface-elevated);
-  --solide-border-subtle: var(--border-subtle);
-  --solide-border-strong: var(--border-subtle);
-  --solide-text-primary: var(--text-primary);
-  --solide-text-secondary: var(--text-secondary);
-  --solide-text-muted: var(--text-tertiary);
-  --solide-ring-focus: var(--color-accent);
-  --solide-feedback-success: var(--color-success);
-  --solide-feedback-error: var(--color-destructive);
-  --solide-feedback-warning: var(--color-warning);
-  --solide-feedback-info: var(--color-accent);
-  --solide-opacity-disabled: 0.35;
-
-  /* --- 1. PRIMITIVOS: CORES DA MARCA (Azul Solide) --- */
+  --solide-neutral-800: var(--sld-color-neutral-800);
+  --border-strong: var(--sld-border-strong);
+  --motion-base: var(--sld-durationBase);
+  --motion-fast: var(--sld-durationFast);
+  --sld-print-ink: var(--sld-palette-warm-950);
+  --sld-print-paper: var(--sld-palette-warm-0);
+  --sld-border-on-inverse: var(--sld-palette-warm-600);
+  --sld-text-muted-on-inverse: var(--sld-palette-warm-400);
+  --sld-text-on-inverse: var(--sld-palette-warm-50);
+  --sld-surface-inverse: var(--sld-palette-warm-950);
+  --sld-palette-danger-subtle-dark: #3D2926;
+  --sld-palette-warning-subtle-dark: #3C3020;
+  --sld-palette-success-subtle-dark: #20372C;
+  --sld-palette-cobalt-subtle-dark: #203047;
+  --sld-palette-danger-300: #F5988F;
+  --sld-palette-danger-450: #E85B50;
+  --tracking-dados: 0em;
   --sld-color-primary-50: #f9fcff;
   --sld-color-primary-100: #e7f1ff;
   --sld-color-primary-200: #d0e3ff;
@@ -62,8 +29,6 @@
   --sld-color-primary-800: #142b6e;
   --sld-color-primary-900: #081f5c;
   --sld-color-primary-950: #041033;
-
-  /* --- 2. PRIMITIVOS: NEUTROS ARDÓSIA (Slate Solide) --- */
   --sld-color-neutral-0: #ffffff;
   --sld-color-neutral-50: #f9fafc;
   --sld-color-neutral-100: #f2f4f8;
@@ -77,8 +42,6 @@
   --sld-color-neutral-900: #171b23;
   --sld-color-neutral-950: #0e1117;
   --sld-color-neutral-black: #000000;
-
-  /* --- 3. PRIMITIVOS: CORES SEMÂNTICAS --- */
   --sld-color-success-50: #f0fdf4;
   --sld-color-success-100: #dcfce7;
   --sld-color-success-200: #bbf7d0;
@@ -103,8 +66,6 @@
   --sld-color-info-500: #3b82f6;
   --sld-color-info-600: #2563eb;
   --sld-color-info-700: #1d4ed8;
-
-  /* --- 4. ESPAÇAMENTO BASE-8 (Subgrid 4pt) --- */
   --sld-space-0: 0px;
   --sld-space-1: 4px;
   --sld-space-2: 8px;
@@ -117,8 +78,6 @@
   --sld-space-12: 48px;
   --sld-space-16: 64px;
   --sld-space-20: 80px;
-
-  /* --- 5. TIPOGRAFIA --- */
   --sld-font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --sld-font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   --sld-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -150,8 +109,6 @@
   --sld-letter-spacing-bodySm: 0em;
   --sld-letter-spacing-caption: 0.02em;
   --sld-letter-spacing-mono: 0em;
-
-  /* --- 6. RAIOS DE CURVATURA --- */
   --sld-radius-none: 0px;
   --sld-radius-xs: 2px;
   --sld-radius-sm: 4px;
@@ -160,64 +117,17 @@
   --sld-radius-xl: 16px;
   --sld-radius-2xl: 24px;
   --sld-radius-full: 9999px;
-
-  /* --- 7. SOMBRAS MULTI-CAMADA --- */
   --sld-shadow-none: none;
   --sld-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.05);
   --sld-shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.03), 0 0 0 1px rgba(15, 23, 42, 0.06);
   --sld-shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.07);
   --sld-shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.09), 0 3px 8px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08);
   --sld-shadow-xl: 0 24px 48px rgba(15, 23, 42, 0.14), 0 6px 16px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(15, 23, 42, 0.08);
-
-  /* --- 8. MOTION & TIMING --- */
   --sld-durationFast: 100ms;
   --sld-durationBase: 180ms;
   --sld-durationSlow: 300ms;
   --sld-easingSnappy: cubic-bezier(0.16, 1, 0.3, 1);
   --sld-easingOut: cubic-bezier(0, 0, 0.2, 1);
-
-  /* --- 9. PAPÉIS SEMÂNTICOS: MODO CLARO --- */
-  --sld-surface-base: var(--surface-primary);
-  --sld-surface-canvas: var(--surface-secondary);
-  --sld-surface-sunken: var(--surface-secondary);
-  --sld-surface-card: var(--surface-primary);
-  --sld-surface-raised: var(--surface-elevated);
-  --sld-surface-overlay: rgba(0, 0, 0, 0.45);
-  --sld-surface-brand: var(--color-accent);
-  --sld-surface-brandSubtle: var(--surface-secondary);
-  --sld-text-primary: var(--text-primary);
-  --sld-text-secondary: var(--text-secondary);
-  --sld-text-muted: var(--text-tertiary);
-  --sld-text-inverse: #ffffff;
-  --sld-text-brand: var(--color-accent);
-  --sld-text-danger: var(--color-destructive);
-  --sld-text-success: var(--color-success);
-  --sld-text-warning: var(--color-warning);
-  --sld-border-default: var(--border-subtle);
-  --sld-border-subtle: var(--border-subtle);
-  --sld-border-strong: rgba(60, 60, 67, 0.25);
-  --sld-border-brand: var(--color-accent);
-  --sld-border-danger: var(--color-destructive);
-  --sld-border-success: var(--color-success);
-  --sld-action-primary-bg: var(--color-accent);
-  --sld-action-primary-hover: #0062cc;
-  --sld-action-primary-active: #004fb0;
-  --sld-action-primary-text: #ffffff;
-  --sld-action-secondary-bg: var(--surface-secondary);
-  --sld-action-secondary-hover: rgba(60, 60, 67, 0.08);
-  --sld-action-secondary-active: rgba(60, 60, 67, 0.14);
-  --sld-action-secondary-text: var(--text-primary);
-  --sld-action-ghost-bg: transparent;
-  --sld-action-ghost-hover: rgba(60, 60, 67, 0.06);
-  --sld-action-ghost-active: rgba(60, 60, 67, 0.10);
-  --sld-action-ghost-text: var(--text-primary);
-  --sld-action-danger-bg: var(--color-destructive);
-  --sld-action-danger-hover: #e03227;
-  --sld-action-danger-active: #c5271e;
-  --sld-action-danger-text: #ffffff;
-  --sld-action-focusRing: var(--color-accent);
-
-  /* --- 10. COMPONENTES (GEOMETRIA) --- */
   --sld-btn-h-sm: 32px;
   --sld-btn-h-md: 40px;
   --sld-btn-h-lg: 48px;
@@ -231,8 +141,6 @@
   --sld-sidebar-w: 256px;
   --sld-sidebar-w-compact: 68px;
   --sld-header-h: 56px;
-
-/* --- 11. APP SHELL --- */
   --sld-app-shell-header-left-w: 244px;
   --sld-app-shell-search-max-w: 540px;
   --sld-app-shell-header-padding-inline-start: var(--sld-space-3);
@@ -247,199 +155,709 @@
   --sld-app-shell-main-padding-inline: 28px;
   --sld-app-shell-main-gap: var(--sld-space-4);
   --sld-app-shell-main-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 0 0 1px rgba(0,0,0,0.02);
-
-  /* --- 12. ALIASES DE COMPATIBILIDADE DO GUIA ---
-     Estes nomes existem para o guia histórico e apontam para o mesmo
-     contrato canônico; componentes novos devem preferir --sld-*. */
-  --bg-primary: var(--surface-primary);
-  --bg-secondary: var(--surface-secondary);
-  --bg-hover: var(--surface-hover);
-  --bg-tertiary: var(--surface-primary);
-  --bg-elevated: var(--surface-elevated);
-  --bg-overlay: var(--sld-surface-overlay);
-  --bg-dark: var(--sld-color-neutral-black);
-  --bg-card: var(--sld-surface-card);
-  --border-primary: var(--border-subtle);
-  --border-secondary: var(--border-subtle);
-  --r-xs: var(--sld-radius-xs);
-  --r-sm: var(--sld-radius-sm);
-  --r-md: var(--sld-radius-md);
-  --r: var(--sld-radius-md);
-  --r-lg: var(--sld-radius-lg);
-  --r-xl: var(--sld-radius-xl);
-  --r-pill: var(--sld-radius-full);
-  --r-full: var(--sld-radius-full);
-  --shadow-xs: var(--sld-shadow-xs);
-  --shadow-sm: var(--sld-shadow-sm);
-  --shadow-md: var(--sld-shadow-md);
-  --shadow-lg: var(--sld-shadow-lg);
-  --app-shell-bg: var(--surface-secondary);
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: var(--font-family-mono);
+  --text-large-title: 34px;
+  --lh-large-title: 41px;
+  --tracking-large-title: -0.02em;
+  --weight-large-title: 700;
+  --text-title1: 28px;
+  --lh-title1: 34px;
+  --tracking-title1: -0.02em;
+  --weight-title1: 700;
+  --text-title2: 22px;
+  --lh-title2: 28px;
+  --tracking-title2: -0.01em;
+  --weight-title2: 600;
+  --text-headline: 17px;
+  --lh-headline: 22px;
+  --tracking-headline: -0.01em;
+  --weight-headline: 600;
+  --text-body: 17px;
+  --lh-body: 24px;
+  --tracking-body: -0.01em;
+  --weight-body: 400;
+  --text-body-ui: 14px;
+  --lh-body-ui: 20px;
+  --tracking-body-ui: 0em;
+  --weight-body-ui: 400;
+  --text-footnote: 13px;
+  --lh-footnote: 18px;
+  --tracking-footnote: 0.01em;
+  --weight-footnote: 500;
+  --text-caption: 11px;
+  --lh-caption: 14px;
+  --tracking-caption: 0.06em;
+  --weight-caption: 700;
+  --text-dados: 13px;
+  --lh-dados: 18px;
+  --weight-dados: 500;
+  --sld-palette-warm-0: #FFFFFF;
+  --sld-palette-warm-50: #FAF9F6;
+  --sld-palette-warm-100: #F2F0EA;
+  --sld-palette-warm-150: #E9E6DE;
+  --sld-palette-warm-200: #DEDAD0;
+  --sld-palette-warm-300: #C4BFB4;
+  --sld-palette-warm-400: #A8A399;
+  --sld-palette-warm-500: #8C877D;
+  --sld-palette-warm-550: #757067;
+  --sld-palette-warm-600: #6B675F;
+  --sld-palette-warm-700: #4D4A45;
+  --sld-palette-warm-750: #3A3733;
+  --sld-palette-warm-800: #2E2C29;
+  --sld-palette-warm-850: #242220;
+  --sld-palette-warm-900: #1A1917;
+  --sld-palette-warm-950: #121110;
+  --sld-palette-cobalt-100: #E3EEFF;
+  --sld-palette-cobalt-200: #C3DBFF;
+  --sld-palette-cobalt-300: #93BFFF;
+  --sld-palette-cobalt-400: #5C9EFF;
+  --sld-palette-cobalt-500: #2D7CF6;
+  --sld-palette-cobalt-600: #1D63D6;
+  --sld-palette-cobalt-700: #154FAF;
+  --sld-palette-cobalt-800: #123F87;
+  --sld-palette-cobalt-900: #102F63;
+  --sld-palette-success-100: #E1F6EA;
+  --sld-palette-success-400: #4CC685;
+  --sld-palette-success-500: #2FA968;
+  --sld-palette-success-700: #197A49;
+  --sld-palette-success-800: #14643C;
+  --sld-palette-success-900: #104F30;
+  --sld-palette-warning-100: #FBEED9;
+  --sld-palette-warning-400: #E8A542;
+  --sld-palette-warning-500: #D98C1D;
+  --sld-palette-warning-700: #8A4F05;
+  --sld-palette-warning-800: #714104;
+  --sld-palette-warning-900: #593303;
+  --sld-palette-danger-100: #FBE3E1;
+  --sld-palette-danger-400: #EE6E62;
+  --sld-palette-danger-500: #D9483C;
+  --sld-palette-danger-700: #A92F27;
+  --sld-palette-danger-800: #8B2720;
+  --sld-palette-danger-900: #6E1F19;
+  --sld-palette-teal-400: #4CC2B0;
+  --sld-palette-teal-500: #2E9E8F;
+  --sld-palette-teal-700: #1D7368;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --solide-opacity-disabled: 1;
+  --opacity-hover: 1;
+  --sld-badge-px: 8px;
+  --sld-table-row-h: 48px;
+  --sld-sidebar-nav-h: 40px;
+  --sld-touch-target: 44px;
+  --solide-neutral-0: #ffffff;
+  --solide-neutral-50: #fcfcfd;
+  --solide-neutral-100: #f3f3f3;
+  --solide-neutral-200: #eef0f3;
+  --solide-neutral-300: #e2e4e8;
+  --solide-neutral-600: #6e6e73;
+  --solide-neutral-900: #1d1d1f;
+  --color-canvas-light: var(--sld-palette-warm-50);
+  --color-shell-light: var(--sld-palette-warm-150);
+  --color-shell-dark: var(--sld-palette-warm-950);
+  --color-surface-dark: var(--sld-palette-warm-850);
+  --color-hover-light: var(--sld-palette-warm-200);
+  --color-hover-dark: var(--sld-palette-warm-750);
+  --dot-color: rgba(128,128,128,0.08);
 }
-
-/* =========================================================================
-   MODO ESCURO AUTOMÁTICO (prefers-color-scheme: dark)
-   ========================================================================= */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-accent: #0f5fe8;
-    --color-accent-fg: #ffffff;
-    --color-destructive: #FF453A;
-    --color-success: #30D158;
-    --color-warning: #FF9F0A;
-    --color-caution: #FFD60A;
-
-    --surface-primary: #000000;
-    --surface-secondary: #1C1C1E;
-    --surface-hover: #2A2A2C;
-    --surface-elevated: #2C2C2E;
-
-    --text-primary: #FFFFFF;
-    --text-secondary: #8E8E93;
-    --text-tertiary: #8E8E93;
-
-    --border-subtle: #38383A;
-
-    --nav-background: rgba(28, 28, 30, 0.80);
-
-    /* Mapeamento retrocompatível para tokens --sld-* */
-    --sld-surface-base: var(--surface-primary);
-    --sld-surface-canvas: var(--surface-primary);
-    --sld-surface-sunken: var(--surface-secondary);
-    --sld-surface-card: var(--surface-secondary);
-    --sld-surface-raised: var(--surface-elevated);
-    --sld-surface-overlay: rgba(0, 0, 0, 0.75);
-    --sld-surface-brand: var(--color-accent);
-    --sld-surface-brandSubtle: var(--surface-secondary);
-    --sld-text-primary: var(--text-primary);
-    --sld-text-secondary: var(--text-secondary);
-    --sld-text-muted: var(--text-tertiary);
-    --sld-text-inverse: #000000;
-    --sld-text-brand: var(--color-accent);
-    --sld-text-danger: var(--color-destructive);
-    --sld-text-success: var(--color-success);
-    --sld-text-warning: var(--color-warning);
-    --sld-border-default: var(--border-subtle);
-    --sld-border-subtle: var(--border-subtle);
-    --sld-border-strong: rgba(235, 235, 245, 0.30);
-    --sld-border-brand: var(--color-accent);
-    --sld-border-danger: var(--color-destructive);
-    --sld-border-success: var(--color-success);
-    --sld-action-primary-bg: var(--color-accent);
-    --sld-action-primary-hover: #339aff;
-    --sld-action-primary-active: #5cb0ff;
-    --sld-action-primary-text: #000000;
-    --sld-action-secondary-bg: var(--surface-elevated);
-    --sld-action-secondary-hover: #3a3a3c;
-    --sld-action-secondary-active: #48484a;
-    --sld-action-secondary-text: var(--text-primary);
-    --sld-action-ghost-bg: transparent;
-    --sld-action-ghost-hover: rgba(255, 255, 255, 0.08);
-    --sld-action-ghost-active: rgba(255, 255, 255, 0.14);
-    --sld-action-ghost-text: var(--text-primary);
-    --sld-action-danger-bg: var(--color-destructive);
-    --sld-action-danger-hover: #ff6057;
-    --sld-action-danger-active: #ff7b73;
-    --sld-action-danger-text: #000000;
-    --sld-action-focusRing: var(--color-accent);
-  }
-}
-
-/* =========================================================================
-   MODO ESCURO EXPLÍCITO ([data-theme="dark"])
-   Superfície Base OLED (#000000) + Elevada Estrita (#2C2C2E)
-   ========================================================================= */
-[data-theme="dark"] {
-  --color-accent: #0F5FE8;
-  --color-destructive: #FF453A;
-  --color-success: #30D158;
-  --color-warning: #FF9F0A;
-  --color-caution: #FFD60A;
-
-  --surface-primary: #000000;
-  --surface-secondary: #1C1C1E;
-  --surface-elevated: #2C2C2E;
-
-  --text-primary: #FFFFFF;
-  --text-secondary: #8E8E93;
-  --text-tertiary: #8E8E93;
-
-  --border-subtle: #38383A;
-
-  --nav-background: rgba(28, 28, 30, 0.80);
-
-  /* Mapeamento retrocompatível para tokens --sld-* */
-  --sld-surface-base: var(--surface-primary);
-  --sld-surface-canvas: var(--surface-primary);
-  --sld-surface-sunken: var(--surface-secondary);
-  --sld-surface-card: var(--surface-secondary);
-  --sld-surface-raised: var(--surface-elevated);
-  --sld-surface-overlay: rgba(0, 0, 0, 0.75);
-  --sld-surface-brand: var(--color-accent);
-  --sld-surface-brandSubtle: rgba(10, 132, 255, 0.15);
-  --sld-text-primary: var(--text-primary);
-  --sld-text-secondary: var(--text-secondary);
-  --sld-text-muted: var(--text-tertiary);
-  --sld-text-inverse: #000000;
-  --sld-text-brand: var(--color-accent);
-  --sld-text-danger: var(--color-destructive);
-  --sld-text-success: var(--color-success);
-  --sld-text-warning: var(--color-warning);
-  --sld-border-default: var(--border-subtle);
-  --sld-border-subtle: var(--border-subtle);
-  --sld-border-strong: rgba(235, 235, 245, 0.30);
-  --sld-border-brand: var(--color-accent);
-  --sld-border-danger: var(--color-destructive);
-  --sld-border-success: var(--color-success);
-  --sld-action-primary-bg: var(--color-accent);
-  --sld-action-primary-hover: #339aff;
-  --sld-action-primary-active: #5cb0ff;
-  --sld-action-primary-text: #000000;
-  --sld-action-secondary-bg: var(--surface-elevated);
-  --sld-action-secondary-hover: #3a3a3c;
-  --sld-action-secondary-active: #48484a;
-  --sld-action-secondary-text: var(--text-primary);
+:root, [data-theme="light"] {
+  color-scheme: light;
+  --sld-surface-base: var(--sld-palette-warm-50);
+  --sld-surface-canvas: var(--sld-palette-warm-50);
+  --sld-surface-shell: var(--sld-palette-warm-150);
+  --sld-surface-card: var(--sld-palette-warm-0);
+  --sld-surface-raised: var(--sld-palette-warm-0);
+  --sld-surface-sunken: var(--sld-palette-warm-100);
+  --sld-surface-hover: var(--sld-palette-warm-200);
+  --sld-surface-overlay: rgba(18,17,16,0.45);
+  --sld-text-primary: var(--sld-palette-warm-850);
+  --sld-text-secondary: var(--sld-palette-warm-600);
+  --sld-text-muted: var(--sld-palette-warm-600);
+  --sld-text-inverse: var(--sld-palette-warm-0);
+  --sld-brand-accent: var(--sld-palette-cobalt-500);
+  --sld-text-brand: var(--sld-palette-cobalt-700);
+  --sld-border-default: var(--sld-palette-warm-200);
+  --sld-border-subtle: var(--sld-palette-warm-200);
+  --sld-border-strong: var(--sld-palette-warm-550);
+  --sld-action-focusRing: var(--sld-palette-cobalt-700);
+  --sld-selection-bg: var(--sld-palette-cobalt-100);
+  --sld-selection-text: var(--sld-palette-cobalt-700);
+  --sld-selection-border: var(--sld-palette-cobalt-600);
+  --sld-disabled-bg: var(--sld-palette-warm-150);
+  --sld-disabled-fg: var(--sld-palette-warm-600);
+  --sld-chart-grid: var(--sld-palette-warm-200);
+  --sld-chart-axis-text: var(--sld-palette-warm-600);
+  --sld-chart-1: var(--sld-palette-cobalt-600);
+  --sld-chart-2: var(--sld-palette-success-700);
+  --sld-chart-3: var(--sld-palette-warning-700);
+  --sld-chart-4: var(--sld-palette-teal-700);
+  --sld-action-primary-bg: var(--sld-palette-cobalt-600);
+  --sld-action-primary-hover: var(--sld-palette-cobalt-700);
+  --sld-action-primary-active: var(--sld-palette-cobalt-800);
+  --sld-action-primary-text: var(--sld-palette-warm-0);
+  --sld-action-danger-bg: var(--sld-palette-danger-700);
+  --sld-action-danger-hover: var(--sld-palette-danger-800);
+  --sld-action-danger-active: var(--sld-palette-danger-900);
+  --sld-action-danger-text: var(--sld-palette-warm-0);
+  --sld-action-secondary-bg: var(--sld-surface-card);
+  --sld-action-secondary-hover: var(--sld-surface-sunken);
+  --sld-action-secondary-active: var(--sld-surface-hover);
+  --sld-action-secondary-text: var(--sld-text-primary);
   --sld-action-ghost-bg: transparent;
-  --sld-action-ghost-hover: rgba(255, 255, 255, 0.08);
-  --sld-action-ghost-active: rgba(255, 255, 255, 0.14);
-  --sld-action-ghost-text: var(--text-primary);
-  --sld-action-danger-bg: var(--color-destructive);
-  --sld-action-danger-hover: #ff6057;
-  --sld-action-danger-active: #ff7b73;
-  --sld-action-danger-text: #000000;
-  --sld-action-focusRing: var(--color-accent);
+  --sld-action-ghost-hover: var(--sld-surface-sunken);
+  --sld-action-ghost-active: var(--sld-surface-hover);
+  --sld-action-ghost-text: var(--sld-text-primary);
+  --sld-status-success-bg: var(--sld-palette-success-100);
+  --sld-status-success-border: var(--sld-palette-success-700);
+  --sld-status-success-text: var(--sld-palette-success-700);
+  --sld-status-success-icon: var(--sld-palette-success-700);
+  --sld-status-success-solid: var(--sld-palette-success-700);
+  --sld-status-success-on-solid: var(--sld-palette-warm-0);
+  --sld-status-success-hover: var(--sld-palette-success-800);
+  --sld-status-warning-bg: var(--sld-palette-warning-100);
+  --sld-status-warning-border: var(--sld-palette-warning-700);
+  --sld-status-warning-text: var(--sld-palette-warning-700);
+  --sld-status-warning-icon: var(--sld-palette-warning-700);
+  --sld-status-warning-solid: var(--sld-palette-warning-700);
+  --sld-status-warning-on-solid: var(--sld-palette-warm-0);
+  --sld-status-warning-hover: var(--sld-palette-warning-800);
+  --sld-status-danger-bg: var(--sld-palette-danger-100);
+  --sld-status-danger-border: var(--sld-palette-danger-700);
+  --sld-status-danger-text: var(--sld-palette-danger-700);
+  --sld-status-danger-icon: var(--sld-palette-danger-700);
+  --sld-status-danger-solid: var(--sld-palette-danger-700);
+  --sld-status-danger-on-solid: var(--sld-palette-warm-0);
+  --sld-status-danger-hover: var(--sld-palette-danger-800);
+  --sld-status-info-bg: var(--sld-palette-cobalt-100);
+  --sld-status-info-border: var(--sld-palette-cobalt-700);
+  --sld-status-info-text: var(--sld-palette-cobalt-700);
+  --sld-status-info-icon: var(--sld-palette-cobalt-700);
+  --sld-status-info-solid: var(--sld-palette-cobalt-700);
+  --sld-status-info-on-solid: var(--sld-palette-warm-0);
+  --sld-status-info-hover: var(--sld-palette-cobalt-800);
+  --sld-status-brand-bg: var(--sld-palette-cobalt-100);
+  --sld-status-brand-border: var(--sld-palette-cobalt-700);
+  --sld-status-brand-text: var(--sld-palette-cobalt-700);
+  --sld-status-brand-icon: var(--sld-palette-cobalt-700);
+  --sld-status-brand-solid: var(--sld-palette-cobalt-700);
+  --sld-status-brand-on-solid: var(--sld-palette-warm-0);
+  --sld-status-brand-hover: var(--sld-palette-cobalt-800);
+  --sld-status-neutral-bg: var(--sld-surface-sunken);
+  --sld-status-neutral-border: var(--sld-border-subtle);
+  --sld-status-neutral-text: var(--sld-text-secondary);
+  --sld-status-neutral-icon: var(--sld-text-secondary);
+  --sld-status-neutral-solid: var(--sld-text-primary);
+  --sld-status-neutral-on-solid: var(--sld-text-inverse);
+  --sld-status-neutral-hover: var(--sld-surface-hover);
+  --surface-primary: var(--sld-surface-card);
+  --surface-secondary: var(--sld-surface-shell);
+  --surface-hover: var(--sld-surface-hover);
+  --surface-elevated: var(--sld-surface-raised);
+  --text-primary: var(--sld-text-primary);
+  --text-secondary: var(--sld-text-secondary);
+  --text-tertiary: var(--sld-text-muted);
+  --text-quaternary: var(--sld-text-muted);
+  --text-inverse: var(--sld-text-inverse);
+  --border-subtle: var(--sld-border-subtle);
+  --color-accent: var(--sld-brand-accent);
+  --color-accent-fg: var(--sld-action-primary-text);
+  --color-success: var(--sld-status-success-icon);
+  --color-warning: var(--sld-status-warning-icon);
+  --color-caution: var(--sld-status-warning-icon);
+  --color-destructive: var(--sld-status-danger-icon);
+  --nav-background: var(--sld-surface-shell);
+  --solide-bg-canvas: var(--sld-surface-canvas);
+  --solide-bg-surface: var(--sld-surface-card);
+  --solide-bg-surface-elevated: var(--sld-surface-raised);
+  --solide-border-subtle: var(--sld-border-subtle);
+  --solide-border-strong: var(--sld-border-strong);
+  --solide-text-primary: var(--sld-text-primary);
+  --solide-text-secondary: var(--sld-text-secondary);
+  --solide-text-muted: var(--sld-text-muted);
+  --solide-ring-focus: var(--sld-action-focusRing);
+  --solide-focus-ring: var(--sld-action-focusRing);
+  --solide-accent: var(--sld-brand-accent);
+  --solide-accent-hover: var(--sld-action-primary-hover);
+  --solide-accent-ring: var(--sld-action-focusRing);
+  --solide-accent-text: var(--sld-text-brand);
+  --solide-accent-surface: var(--sld-selection-bg);
+  --solide-accent-border: var(--sld-selection-border);
+  --bg-primary: var(--sld-surface-card);
+  --bg-secondary: var(--sld-surface-shell);
+  --bg-hover: var(--sld-surface-hover);
+  --bg-tertiary: var(--sld-surface-sunken);
+  --bg-elevated: var(--sld-surface-raised);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-palette-warm-950);
+  --bg-card: var(--sld-surface-card);
+  --border-primary: var(--sld-border-default);
+  --border-secondary: var(--sld-border-subtle);
+  --app-shell-bg: var(--sld-surface-shell);
+  --app-surface-card: var(--sld-surface-card);
+  --color-separator: var(--sld-border-subtle);
+  --sld-surface-brand: var(--sld-brand-accent);
+  --sld-surface-brandSubtle: var(--sld-selection-bg);
+  --sld-border-brand: var(--sld-selection-border);
+  --solide-success: var(--sld-status-success-icon);
+  --solide-success-surface: var(--sld-status-success-bg);
+  --solide-success-border: var(--sld-status-success-border);
+  --solide-success-text: var(--sld-status-success-text);
+  --solide-feedback-success: var(--sld-status-success-text);
+  --sld-text-success: var(--sld-status-success-text);
+  --sld-border-success: var(--sld-status-success-border);
+  --solide-warning: var(--sld-status-warning-icon);
+  --solide-warning-surface: var(--sld-status-warning-bg);
+  --solide-warning-border: var(--sld-status-warning-border);
+  --solide-warning-text: var(--sld-status-warning-text);
+  --solide-feedback-warning: var(--sld-status-warning-text);
+  --sld-text-warning: var(--sld-status-warning-text);
+  --sld-border-warning: var(--sld-status-warning-border);
+  --solide-error: var(--sld-status-danger-icon);
+  --solide-error-surface: var(--sld-status-danger-bg);
+  --solide-error-border: var(--sld-status-danger-border);
+  --solide-error-text: var(--sld-status-danger-text);
+  --solide-feedback-error: var(--sld-status-danger-text);
+  --sld-text-danger: var(--sld-status-danger-text);
+  --sld-border-danger: var(--sld-status-danger-border);
+  --solide-info: var(--sld-status-info-icon);
+  --solide-info-surface: var(--sld-status-info-bg);
+  --solide-info-border: var(--sld-status-info-border);
+  --solide-info-text: var(--sld-status-info-text);
+  --solide-feedback-info: var(--sld-status-info-text);
+  --sld-text-info: var(--sld-status-info-text);
+  --sld-border-info: var(--sld-status-info-border);
+  --solide-waiting: var(--sld-status-neutral-icon);
+  --solide-waiting-surface: var(--sld-status-neutral-bg);
+  --solide-waiting-border: var(--sld-status-neutral-border);
+  --solide-waiting-text: var(--sld-status-neutral-text);
+  --solide-feedback-waiting: var(--sld-status-neutral-text);
+  --sld-text-neutral: var(--sld-status-neutral-text);
+  --sld-border-neutral: var(--sld-status-neutral-border);
+  --solide-surface-base: var(--sld-surface-base);
+  --solide-surface-canvas: var(--sld-surface-canvas);
+  --solide-surface-card: var(--sld-surface-card);
+  --solide-surface-raised: var(--sld-surface-raised);
+  --solide-surface-sunken: var(--sld-surface-sunken);
+  --solide-border-default: var(--sld-border-default);
+  --solide-border-danger: var(--sld-border-danger);
+  --solide-action-primary-bg: var(--sld-action-primary-bg);
+  --solide-action-focusRing: var(--sld-action-focusRing);
+  --shadow-xs: var(--sld-shadow-xs);
+  --r-xs: var(--sld-radius-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --r-sm: var(--sld-radius-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --r-md: var(--sld-radius-md);
+  --shadow-lg: var(--sld-shadow-lg);
+  --r-lg: var(--sld-radius-lg);
+  --shadow-xl: var(--sld-shadow-xl);
+  --r-xl: var(--sld-radius-xl);
+  --r: var(--sld-radius-md);
+  --r-full: var(--sld-radius-full);
+  --r-pill: var(--sld-radius-full);
 }
-
-/* =========================================================================
-   CLASSES UTILITÁRIAS PRONTAS DA SOLIDE
-   ========================================================================= */
-.app-header {
-  background-color: var(--nav-background);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
+@media (prefers-color-scheme: dark) {
+ :root:not([data-theme]) {
+ color-scheme: dark;
+  --sld-surface-base: var(--sld-palette-warm-900);
+  --sld-surface-canvas: var(--sld-palette-warm-900);
+  --sld-surface-shell: var(--sld-palette-warm-950);
+  --sld-surface-card: var(--sld-palette-warm-850);
+  --sld-surface-raised: var(--sld-palette-warm-800);
+  --sld-surface-sunken: var(--sld-palette-warm-900);
+  --sld-surface-hover: var(--sld-palette-warm-750);
+  --sld-surface-overlay: rgba(0,0,0,0.6);
+  --sld-text-primary: var(--sld-palette-warm-50);
+  --sld-text-secondary: var(--sld-palette-warm-300);
+  --sld-text-muted: var(--sld-palette-warm-400);
+  --sld-text-inverse: var(--sld-palette-warm-950);
+  --sld-brand-accent: var(--sld-palette-cobalt-400);
+  --sld-text-brand: var(--sld-palette-cobalt-300);
+  --sld-border-default: var(--sld-palette-warm-750);
+  --sld-border-subtle: var(--sld-palette-warm-750);
+  --sld-border-strong: var(--sld-palette-warm-500);
+  --sld-action-focusRing: var(--sld-palette-cobalt-400);
+  --sld-selection-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-selection-text: var(--sld-palette-cobalt-300);
+  --sld-selection-border: var(--sld-palette-cobalt-400);
+  --sld-disabled-bg: var(--sld-palette-warm-800);
+  --sld-disabled-fg: var(--sld-palette-warm-500);
+  --sld-chart-grid: var(--sld-palette-warm-750);
+  --sld-chart-axis-text: var(--sld-palette-warm-400);
+  --sld-chart-1: var(--sld-palette-cobalt-400);
+  --sld-chart-2: var(--sld-palette-success-400);
+  --sld-chart-3: var(--sld-palette-warning-400);
+  --sld-chart-4: var(--sld-palette-teal-400);
+  --sld-action-primary-bg: var(--sld-palette-cobalt-400);
+  --sld-action-primary-hover: var(--sld-palette-cobalt-300);
+  --sld-action-primary-active: var(--sld-palette-cobalt-500);
+  --sld-action-primary-text: var(--sld-palette-warm-950);
+  --sld-action-danger-bg: var(--sld-palette-danger-400);
+  --sld-action-danger-hover: var(--sld-palette-danger-300);
+  --sld-action-danger-active: var(--sld-palette-danger-450);
+  --sld-action-danger-text: var(--sld-palette-warm-950);
+  --sld-action-secondary-bg: var(--sld-surface-card);
+  --sld-action-secondary-hover: var(--sld-surface-sunken);
+  --sld-action-secondary-active: var(--sld-surface-hover);
+  --sld-action-secondary-text: var(--sld-text-primary);
+  --sld-action-ghost-bg: transparent;
+  --sld-action-ghost-hover: var(--sld-surface-sunken);
+  --sld-action-ghost-active: var(--sld-surface-hover);
+  --sld-action-ghost-text: var(--sld-text-primary);
+  --sld-status-success-bg: var(--sld-palette-success-subtle-dark);
+  --sld-status-success-border: var(--sld-palette-success-400);
+  --sld-status-success-text: var(--sld-palette-success-400);
+  --sld-status-success-icon: var(--sld-palette-success-400);
+  --sld-status-success-solid: var(--sld-palette-success-400);
+  --sld-status-success-on-solid: var(--sld-palette-warm-950);
+  --sld-status-success-hover: var(--sld-palette-success-500);
+  --sld-status-warning-bg: var(--sld-palette-warning-subtle-dark);
+  --sld-status-warning-border: var(--sld-palette-warning-400);
+  --sld-status-warning-text: var(--sld-palette-warning-400);
+  --sld-status-warning-icon: var(--sld-palette-warning-400);
+  --sld-status-warning-solid: var(--sld-palette-warning-400);
+  --sld-status-warning-on-solid: var(--sld-palette-warm-950);
+  --sld-status-warning-hover: var(--sld-palette-warning-500);
+  --sld-status-danger-bg: var(--sld-palette-danger-subtle-dark);
+  --sld-status-danger-border: var(--sld-palette-danger-400);
+  --sld-status-danger-text: var(--sld-palette-danger-400);
+  --sld-status-danger-icon: var(--sld-palette-danger-400);
+  --sld-status-danger-solid: var(--sld-palette-danger-400);
+  --sld-status-danger-on-solid: var(--sld-palette-warm-950);
+  --sld-status-danger-hover: var(--sld-palette-danger-500);
+  --sld-status-info-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-status-info-border: var(--sld-palette-cobalt-400);
+  --sld-status-info-text: var(--sld-palette-cobalt-400);
+  --sld-status-info-icon: var(--sld-palette-cobalt-400);
+  --sld-status-info-solid: var(--sld-palette-cobalt-400);
+  --sld-status-info-on-solid: var(--sld-palette-warm-950);
+  --sld-status-info-hover: var(--sld-palette-cobalt-500);
+  --sld-status-brand-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-status-brand-border: var(--sld-palette-cobalt-400);
+  --sld-status-brand-text: var(--sld-palette-cobalt-400);
+  --sld-status-brand-icon: var(--sld-palette-cobalt-400);
+  --sld-status-brand-solid: var(--sld-palette-cobalt-400);
+  --sld-status-brand-on-solid: var(--sld-palette-warm-950);
+  --sld-status-brand-hover: var(--sld-palette-cobalt-500);
+  --sld-status-neutral-bg: var(--sld-surface-sunken);
+  --sld-status-neutral-border: var(--sld-border-subtle);
+  --sld-status-neutral-text: var(--sld-text-secondary);
+  --sld-status-neutral-icon: var(--sld-text-secondary);
+  --sld-status-neutral-solid: var(--sld-text-primary);
+  --sld-status-neutral-on-solid: var(--sld-text-inverse);
+  --sld-status-neutral-hover: var(--sld-surface-hover);
+  --surface-primary: var(--sld-surface-card);
+  --surface-secondary: var(--sld-surface-shell);
+  --surface-hover: var(--sld-surface-hover);
+  --surface-elevated: var(--sld-surface-raised);
+  --text-primary: var(--sld-text-primary);
+  --text-secondary: var(--sld-text-secondary);
+  --text-tertiary: var(--sld-text-muted);
+  --text-quaternary: var(--sld-text-muted);
+  --text-inverse: var(--sld-text-inverse);
+  --border-subtle: var(--sld-border-subtle);
+  --color-accent: var(--sld-brand-accent);
+  --color-accent-fg: var(--sld-action-primary-text);
+  --color-success: var(--sld-status-success-icon);
+  --color-warning: var(--sld-status-warning-icon);
+  --color-caution: var(--sld-status-warning-icon);
+  --color-destructive: var(--sld-status-danger-icon);
+  --nav-background: var(--sld-surface-shell);
+  --solide-bg-canvas: var(--sld-surface-canvas);
+  --solide-bg-surface: var(--sld-surface-card);
+  --solide-bg-surface-elevated: var(--sld-surface-raised);
+  --solide-border-subtle: var(--sld-border-subtle);
+  --solide-border-strong: var(--sld-border-strong);
+  --solide-text-primary: var(--sld-text-primary);
+  --solide-text-secondary: var(--sld-text-secondary);
+  --solide-text-muted: var(--sld-text-muted);
+  --solide-ring-focus: var(--sld-action-focusRing);
+  --solide-focus-ring: var(--sld-action-focusRing);
+  --solide-accent: var(--sld-brand-accent);
+  --solide-accent-hover: var(--sld-action-primary-hover);
+  --solide-accent-ring: var(--sld-action-focusRing);
+  --solide-accent-text: var(--sld-text-brand);
+  --solide-accent-surface: var(--sld-selection-bg);
+  --solide-accent-border: var(--sld-selection-border);
+  --bg-primary: var(--sld-surface-card);
+  --bg-secondary: var(--sld-surface-shell);
+  --bg-hover: var(--sld-surface-hover);
+  --bg-tertiary: var(--sld-surface-sunken);
+  --bg-elevated: var(--sld-surface-raised);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-palette-warm-950);
+  --bg-card: var(--sld-surface-card);
+  --border-primary: var(--sld-border-default);
+  --border-secondary: var(--sld-border-subtle);
+  --app-shell-bg: var(--sld-surface-shell);
+  --app-surface-card: var(--sld-surface-card);
+  --color-separator: var(--sld-border-subtle);
+  --sld-surface-brand: var(--sld-brand-accent);
+  --sld-surface-brandSubtle: var(--sld-selection-bg);
+  --sld-border-brand: var(--sld-selection-border);
+  --solide-success: var(--sld-status-success-icon);
+  --solide-success-surface: var(--sld-status-success-bg);
+  --solide-success-border: var(--sld-status-success-border);
+  --solide-success-text: var(--sld-status-success-text);
+  --solide-feedback-success: var(--sld-status-success-text);
+  --sld-text-success: var(--sld-status-success-text);
+  --sld-border-success: var(--sld-status-success-border);
+  --solide-warning: var(--sld-status-warning-icon);
+  --solide-warning-surface: var(--sld-status-warning-bg);
+  --solide-warning-border: var(--sld-status-warning-border);
+  --solide-warning-text: var(--sld-status-warning-text);
+  --solide-feedback-warning: var(--sld-status-warning-text);
+  --sld-text-warning: var(--sld-status-warning-text);
+  --sld-border-warning: var(--sld-status-warning-border);
+  --solide-error: var(--sld-status-danger-icon);
+  --solide-error-surface: var(--sld-status-danger-bg);
+  --solide-error-border: var(--sld-status-danger-border);
+  --solide-error-text: var(--sld-status-danger-text);
+  --solide-feedback-error: var(--sld-status-danger-text);
+  --sld-text-danger: var(--sld-status-danger-text);
+  --sld-border-danger: var(--sld-status-danger-border);
+  --solide-info: var(--sld-status-info-icon);
+  --solide-info-surface: var(--sld-status-info-bg);
+  --solide-info-border: var(--sld-status-info-border);
+  --solide-info-text: var(--sld-status-info-text);
+  --solide-feedback-info: var(--sld-status-info-text);
+  --sld-text-info: var(--sld-status-info-text);
+  --sld-border-info: var(--sld-status-info-border);
+  --solide-waiting: var(--sld-status-neutral-icon);
+  --solide-waiting-surface: var(--sld-status-neutral-bg);
+  --solide-waiting-border: var(--sld-status-neutral-border);
+  --solide-waiting-text: var(--sld-status-neutral-text);
+  --solide-feedback-waiting: var(--sld-status-neutral-text);
+  --sld-text-neutral: var(--sld-status-neutral-text);
+  --sld-border-neutral: var(--sld-status-neutral-border);
+  --solide-surface-base: var(--sld-surface-base);
+  --solide-surface-canvas: var(--sld-surface-canvas);
+  --solide-surface-card: var(--sld-surface-card);
+  --solide-surface-raised: var(--sld-surface-raised);
+  --solide-surface-sunken: var(--sld-surface-sunken);
+  --solide-border-default: var(--sld-border-default);
+  --solide-border-danger: var(--sld-border-danger);
+  --solide-action-primary-bg: var(--sld-action-primary-bg);
+  --solide-action-focusRing: var(--sld-action-focusRing);
+  --shadow-xs: var(--sld-shadow-xs);
+  --r-xs: var(--sld-radius-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --r-sm: var(--sld-radius-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --r-md: var(--sld-radius-md);
+  --shadow-lg: var(--sld-shadow-lg);
+  --r-lg: var(--sld-radius-lg);
+  --shadow-xl: var(--sld-shadow-xl);
+  --r-xl: var(--sld-radius-xl);
+  --r: var(--sld-radius-md);
+  --r-full: var(--sld-radius-full);
+  --r-pill: var(--sld-radius-full);
+ }
 }
-
-/* =========================================================================
-   CLASSES UTILITÁRIAS ESSENCIAIS
-   ========================================================================= */
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
+[data-theme="dark"], .dark:not([data-theme="light"]) {
+ color-scheme: dark;
+  --sld-surface-base: var(--sld-palette-warm-900);
+  --sld-surface-canvas: var(--sld-palette-warm-900);
+  --sld-surface-shell: var(--sld-palette-warm-950);
+  --sld-surface-card: var(--sld-palette-warm-850);
+  --sld-surface-raised: var(--sld-palette-warm-800);
+  --sld-surface-sunken: var(--sld-palette-warm-900);
+  --sld-surface-hover: var(--sld-palette-warm-750);
+  --sld-surface-overlay: rgba(0,0,0,0.6);
+  --sld-text-primary: var(--sld-palette-warm-50);
+  --sld-text-secondary: var(--sld-palette-warm-300);
+  --sld-text-muted: var(--sld-palette-warm-400);
+  --sld-text-inverse: var(--sld-palette-warm-950);
+  --sld-brand-accent: var(--sld-palette-cobalt-400);
+  --sld-text-brand: var(--sld-palette-cobalt-300);
+  --sld-border-default: var(--sld-palette-warm-750);
+  --sld-border-subtle: var(--sld-palette-warm-750);
+  --sld-border-strong: var(--sld-palette-warm-500);
+  --sld-action-focusRing: var(--sld-palette-cobalt-400);
+  --sld-selection-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-selection-text: var(--sld-palette-cobalt-300);
+  --sld-selection-border: var(--sld-palette-cobalt-400);
+  --sld-disabled-bg: var(--sld-palette-warm-800);
+  --sld-disabled-fg: var(--sld-palette-warm-500);
+  --sld-chart-grid: var(--sld-palette-warm-750);
+  --sld-chart-axis-text: var(--sld-palette-warm-400);
+  --sld-chart-1: var(--sld-palette-cobalt-400);
+  --sld-chart-2: var(--sld-palette-success-400);
+  --sld-chart-3: var(--sld-palette-warning-400);
+  --sld-chart-4: var(--sld-palette-teal-400);
+  --sld-action-primary-bg: var(--sld-palette-cobalt-400);
+  --sld-action-primary-hover: var(--sld-palette-cobalt-300);
+  --sld-action-primary-active: var(--sld-palette-cobalt-500);
+  --sld-action-primary-text: var(--sld-palette-warm-950);
+  --sld-action-danger-bg: var(--sld-palette-danger-400);
+  --sld-action-danger-hover: var(--sld-palette-danger-300);
+  --sld-action-danger-active: var(--sld-palette-danger-450);
+  --sld-action-danger-text: var(--sld-palette-warm-950);
+  --sld-action-secondary-bg: var(--sld-surface-card);
+  --sld-action-secondary-hover: var(--sld-surface-sunken);
+  --sld-action-secondary-active: var(--sld-surface-hover);
+  --sld-action-secondary-text: var(--sld-text-primary);
+  --sld-action-ghost-bg: transparent;
+  --sld-action-ghost-hover: var(--sld-surface-sunken);
+  --sld-action-ghost-active: var(--sld-surface-hover);
+  --sld-action-ghost-text: var(--sld-text-primary);
+  --sld-status-success-bg: var(--sld-palette-success-subtle-dark);
+  --sld-status-success-border: var(--sld-palette-success-400);
+  --sld-status-success-text: var(--sld-palette-success-400);
+  --sld-status-success-icon: var(--sld-palette-success-400);
+  --sld-status-success-solid: var(--sld-palette-success-400);
+  --sld-status-success-on-solid: var(--sld-palette-warm-950);
+  --sld-status-success-hover: var(--sld-palette-success-500);
+  --sld-status-warning-bg: var(--sld-palette-warning-subtle-dark);
+  --sld-status-warning-border: var(--sld-palette-warning-400);
+  --sld-status-warning-text: var(--sld-palette-warning-400);
+  --sld-status-warning-icon: var(--sld-palette-warning-400);
+  --sld-status-warning-solid: var(--sld-palette-warning-400);
+  --sld-status-warning-on-solid: var(--sld-palette-warm-950);
+  --sld-status-warning-hover: var(--sld-palette-warning-500);
+  --sld-status-danger-bg: var(--sld-palette-danger-subtle-dark);
+  --sld-status-danger-border: var(--sld-palette-danger-400);
+  --sld-status-danger-text: var(--sld-palette-danger-400);
+  --sld-status-danger-icon: var(--sld-palette-danger-400);
+  --sld-status-danger-solid: var(--sld-palette-danger-400);
+  --sld-status-danger-on-solid: var(--sld-palette-warm-950);
+  --sld-status-danger-hover: var(--sld-palette-danger-500);
+  --sld-status-info-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-status-info-border: var(--sld-palette-cobalt-400);
+  --sld-status-info-text: var(--sld-palette-cobalt-400);
+  --sld-status-info-icon: var(--sld-palette-cobalt-400);
+  --sld-status-info-solid: var(--sld-palette-cobalt-400);
+  --sld-status-info-on-solid: var(--sld-palette-warm-950);
+  --sld-status-info-hover: var(--sld-palette-cobalt-500);
+  --sld-status-brand-bg: var(--sld-palette-cobalt-subtle-dark);
+  --sld-status-brand-border: var(--sld-palette-cobalt-400);
+  --sld-status-brand-text: var(--sld-palette-cobalt-400);
+  --sld-status-brand-icon: var(--sld-palette-cobalt-400);
+  --sld-status-brand-solid: var(--sld-palette-cobalt-400);
+  --sld-status-brand-on-solid: var(--sld-palette-warm-950);
+  --sld-status-brand-hover: var(--sld-palette-cobalt-500);
+  --sld-status-neutral-bg: var(--sld-surface-sunken);
+  --sld-status-neutral-border: var(--sld-border-subtle);
+  --sld-status-neutral-text: var(--sld-text-secondary);
+  --sld-status-neutral-icon: var(--sld-text-secondary);
+  --sld-status-neutral-solid: var(--sld-text-primary);
+  --sld-status-neutral-on-solid: var(--sld-text-inverse);
+  --sld-status-neutral-hover: var(--sld-surface-hover);
+  --surface-primary: var(--sld-surface-card);
+  --surface-secondary: var(--sld-surface-shell);
+  --surface-hover: var(--sld-surface-hover);
+  --surface-elevated: var(--sld-surface-raised);
+  --text-primary: var(--sld-text-primary);
+  --text-secondary: var(--sld-text-secondary);
+  --text-tertiary: var(--sld-text-muted);
+  --text-quaternary: var(--sld-text-muted);
+  --text-inverse: var(--sld-text-inverse);
+  --border-subtle: var(--sld-border-subtle);
+  --color-accent: var(--sld-brand-accent);
+  --color-accent-fg: var(--sld-action-primary-text);
+  --color-success: var(--sld-status-success-icon);
+  --color-warning: var(--sld-status-warning-icon);
+  --color-caution: var(--sld-status-warning-icon);
+  --color-destructive: var(--sld-status-danger-icon);
+  --nav-background: var(--sld-surface-shell);
+  --solide-bg-canvas: var(--sld-surface-canvas);
+  --solide-bg-surface: var(--sld-surface-card);
+  --solide-bg-surface-elevated: var(--sld-surface-raised);
+  --solide-border-subtle: var(--sld-border-subtle);
+  --solide-border-strong: var(--sld-border-strong);
+  --solide-text-primary: var(--sld-text-primary);
+  --solide-text-secondary: var(--sld-text-secondary);
+  --solide-text-muted: var(--sld-text-muted);
+  --solide-ring-focus: var(--sld-action-focusRing);
+  --solide-focus-ring: var(--sld-action-focusRing);
+  --solide-accent: var(--sld-brand-accent);
+  --solide-accent-hover: var(--sld-action-primary-hover);
+  --solide-accent-ring: var(--sld-action-focusRing);
+  --solide-accent-text: var(--sld-text-brand);
+  --solide-accent-surface: var(--sld-selection-bg);
+  --solide-accent-border: var(--sld-selection-border);
+  --bg-primary: var(--sld-surface-card);
+  --bg-secondary: var(--sld-surface-shell);
+  --bg-hover: var(--sld-surface-hover);
+  --bg-tertiary: var(--sld-surface-sunken);
+  --bg-elevated: var(--sld-surface-raised);
+  --bg-overlay: var(--sld-surface-overlay);
+  --bg-dark: var(--sld-palette-warm-950);
+  --bg-card: var(--sld-surface-card);
+  --border-primary: var(--sld-border-default);
+  --border-secondary: var(--sld-border-subtle);
+  --app-shell-bg: var(--sld-surface-shell);
+  --app-surface-card: var(--sld-surface-card);
+  --color-separator: var(--sld-border-subtle);
+  --sld-surface-brand: var(--sld-brand-accent);
+  --sld-surface-brandSubtle: var(--sld-selection-bg);
+  --sld-border-brand: var(--sld-selection-border);
+  --solide-success: var(--sld-status-success-icon);
+  --solide-success-surface: var(--sld-status-success-bg);
+  --solide-success-border: var(--sld-status-success-border);
+  --solide-success-text: var(--sld-status-success-text);
+  --solide-feedback-success: var(--sld-status-success-text);
+  --sld-text-success: var(--sld-status-success-text);
+  --sld-border-success: var(--sld-status-success-border);
+  --solide-warning: var(--sld-status-warning-icon);
+  --solide-warning-surface: var(--sld-status-warning-bg);
+  --solide-warning-border: var(--sld-status-warning-border);
+  --solide-warning-text: var(--sld-status-warning-text);
+  --solide-feedback-warning: var(--sld-status-warning-text);
+  --sld-text-warning: var(--sld-status-warning-text);
+  --sld-border-warning: var(--sld-status-warning-border);
+  --solide-error: var(--sld-status-danger-icon);
+  --solide-error-surface: var(--sld-status-danger-bg);
+  --solide-error-border: var(--sld-status-danger-border);
+  --solide-error-text: var(--sld-status-danger-text);
+  --solide-feedback-error: var(--sld-status-danger-text);
+  --sld-text-danger: var(--sld-status-danger-text);
+  --sld-border-danger: var(--sld-status-danger-border);
+  --solide-info: var(--sld-status-info-icon);
+  --solide-info-surface: var(--sld-status-info-bg);
+  --solide-info-border: var(--sld-status-info-border);
+  --solide-info-text: var(--sld-status-info-text);
+  --solide-feedback-info: var(--sld-status-info-text);
+  --sld-text-info: var(--sld-status-info-text);
+  --sld-border-info: var(--sld-status-info-border);
+  --solide-waiting: var(--sld-status-neutral-icon);
+  --solide-waiting-surface: var(--sld-status-neutral-bg);
+  --solide-waiting-border: var(--sld-status-neutral-border);
+  --solide-waiting-text: var(--sld-status-neutral-text);
+  --solide-feedback-waiting: var(--sld-status-neutral-text);
+  --sld-text-neutral: var(--sld-status-neutral-text);
+  --sld-border-neutral: var(--sld-status-neutral-border);
+  --solide-surface-base: var(--sld-surface-base);
+  --solide-surface-canvas: var(--sld-surface-canvas);
+  --solide-surface-card: var(--sld-surface-card);
+  --solide-surface-raised: var(--sld-surface-raised);
+  --solide-surface-sunken: var(--sld-surface-sunken);
+  --solide-border-default: var(--sld-border-default);
+  --solide-border-danger: var(--sld-border-danger);
+  --solide-action-primary-bg: var(--sld-action-primary-bg);
+  --solide-action-focusRing: var(--sld-action-focusRing);
+  --shadow-xs: var(--sld-shadow-xs);
+  --r-xs: var(--sld-radius-xs);
+  --shadow-sm: var(--sld-shadow-sm);
+  --r-sm: var(--sld-radius-sm);
+  --shadow-md: var(--sld-shadow-md);
+  --r-md: var(--sld-radius-md);
+  --shadow-lg: var(--sld-shadow-lg);
+  --r-lg: var(--sld-radius-lg);
+  --shadow-xl: var(--sld-shadow-xl);
+  --r-xl: var(--sld-radius-xl);
+  --r: var(--sld-radius-md);
+  --r-full: var(--sld-radius-full);
+  --r-pill: var(--sld-radius-full);
 }
-
-.font-display {
-  font-family: var(--sld-font-display);
-}
-
-.font-ui {
-  font-family: var(--sld-font-ui);
-}
-
-.font-mono {
-  font-family: var(--sld-font-mono);
-}
-
-.sld-focus-ring:focus-visible {
-  outline: 2px solid var(--sld-action-focusRing);
-  outline-offset: 2px;
-}
+@media(max-width:768px) { :root { --text-large-title:28px; --lh-large-title:34px; --text-title1:22px; --lh-title1:28px; --text-title2:20px; --lh-title2:25px; } }
+.sld-focus-ring:focus-visible { outline:var(--focus-ring-width) solid var(--sld-action-focusRing); outline-offset:var(--focus-ring-offset); }
+.tabular-nums { font-variant-numeric:tabular-nums; }
+.font-ui,.font-display { font-family:var(--sld-font-ui); } .font-mono {font-family:var(--sld-font-mono);}
+::selection {background:var(--sld-selection-bg);color:var(--sld-selection-text);}
+.app-header {background:var(--sld-surface-shell);}
+.sld-logo-light {display:block;} .sld-logo-dark {display:none;}
+[data-theme="dark"] .sld-logo-light {display:none;} [data-theme="dark"] .sld-logo-dark {display:block;}
+@media(prefers-reduced-motion:reduce) { .sld-ui *, .sld-ui {animation-duration:0.01ms!important;transition-duration:0.01ms!important;} }

@@ -57,7 +57,7 @@ export function SegmentedTabs<T extends string = string>({
         flex items-center
         ${size === 'sm' ? 'p-[2px] gap-[2px]' : 'p-[3px] gap-[3px]'}
         bg-[var(--solide-bg-surface)] border border-[var(--solide-border-subtle)]
-        rounded-[var(--r-sm,8px)]
+        rounded-[var(--r-sm)]
         overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
         ${fullWidth ? 'w-full' : 'inline-flex'}
         ${className}
@@ -71,11 +71,12 @@ export function SegmentedTabs<T extends string = string>({
         return (
           <button
             key={option.id}
+            type="button"
             role="tab"
             id={tabId}
             aria-selected={isSelected}
             aria-controls={panelId}
-            tabIndex={isSelected ? 0 : -1}
+            tabIndex={(isSelected || (!options.some(opt => opt.id === value && !opt.disabled) && index === options.findIndex(opt => !opt.disabled))) && !option.disabled ? 0 : -1}
             disabled={option.disabled}
             onClick={() => !option.disabled && onChange(option.id)}
             onKeyDown={(e) => handleKeyDown(e, index)}
@@ -83,11 +84,11 @@ export function SegmentedTabs<T extends string = string>({
               inline-flex items-center justify-center gap-1.5
               ${size === 'sm' ? 'px-2.5 py-1 text-xs' : 'px-3.5 py-1.5 text-xs'}
               font-sans whitespace-nowrap select-none
-              rounded-[var(--r-xs,6px)]
+              rounded-[var(--r-xs)]
               transition-all duration-150 ease-out
               motion-reduce:transition-none
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--solide-ring-focus)] focus-visible:ring-offset-1
-              disabled:opacity-[var(--solide-opacity-disabled,0.45)] disabled:cursor-not-allowed
+              disabled:opacity-[var(--solide-opacity-disabled)] disabled:cursor-not-allowed
               ${fullWidth ? 'flex-1 min-w-max text-center' : ''}
               ${
                 isSelected
@@ -101,7 +102,7 @@ export function SegmentedTabs<T extends string = string>({
             {option.badge !== undefined && (
               <span
                 className={`
-                  inline-flex items-center justify-center px-1.5 py-0.2
+                  inline-flex items-center justify-center px-1.5 py-0.5
                   text-[10px] font-mono tabular-nums rounded-full
                   ${
                     isSelected

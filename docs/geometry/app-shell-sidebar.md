@@ -36,7 +36,9 @@ A sidebar alterna somente entre `--sld-sidebar-w` e `--sld-sidebar-w-compact`, p
 
 ## Responsividade
 
-**Lacuna documentada:** o guia não demonstra uma variante do App Shell em viewport estreito. Antes de adotar este padrão em mobile, deve existir uma demonstração aprovada no guia com a geometria, a navegação e os estados correspondentes.
+Abaixo de `1024px`, a sidebar deixa o fluxo e abre como drawer modal a partir da esquerda. O botão de menu permanece no header, abre o drawer com foco no controle de fechamento, `Escape` fecha e o navegador restaura o foco ao acionador. O backdrop usa `--sld-surface-overlay`.
+
+A área de trabalho usa `--sld-space-4` (16px) de padding. Tabelas preservam a largura mínima e rolam horizontalmente dentro da área de trabalho. A navegação fecha após selecionar um destino. Não existe bottom navigation no padrão atual.
 
 ## Conteúdo de tamanhos reais
 

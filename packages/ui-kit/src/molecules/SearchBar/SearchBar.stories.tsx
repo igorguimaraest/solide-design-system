@@ -7,7 +7,7 @@ export default {
 };
 
 export const Default = () => (
-  <div className="p-4 bg-[var(--solide-surface-canvas)] rounded-lg">
+  <div className="p-4 bg-[var(--sld-surface-canvas)] rounded-lg">
     <SearchBar placeholder="Buscar transa??es, APIs ou documentos..." />
   </div>
 );

@@ -25,36 +25,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
 
   const shapeClass = shape === 'pill' ? 'rounded-full' : 'rounded-lg';
 
-  // Variant & Tone configurations consuming semantic tokens
-  let variantClasses = '';
-  if (variant === 'solid') {
-    if (tone === 'primary') {
-      variantClasses = 'bg-[var(--color-accent)] text-white hover:opacity-90 active:opacity-80 shadow-sm';
-    } else if (tone === 'secondary') {
-      variantClasses = 'bg-[var(--surface-secondary)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:bg-[var(--border-subtle)] active:opacity-85';
-    } else if (tone === 'danger') {
-      variantClasses = 'bg-[var(--color-destructive)] text-white hover:opacity-90 active:opacity-80 shadow-sm';
-    }
-  } else if (variant === 'outline') {
-    if (tone === 'danger') {
-      variantClasses = 'bg-transparent border border-[var(--color-destructive)] text-[var(--color-destructive)] hover:bg-[var(--solide-error-surface)]';
-    } else {
-      variantClasses = 'bg-transparent border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--solide-accent-surface)]';
-    }
-  } else if (variant === 'ghost') {
-    if (tone === 'danger') {
-      variantClasses = 'bg-transparent text-[var(--color-destructive)] hover:bg-[var(--solide-error-surface)]';
-    } else {
-      variantClasses = 'bg-transparent text-[var(--text-secondary)] hover:text-[var(--color-accent)] hover:bg-[var(--surface-secondary)]';
-    }
-  }
+  const solidClasses = {
+    primary: 'bg-[var(--sld-action-primary-bg)] text-[var(--sld-action-primary-text)] enabled:hover:bg-[var(--sld-action-primary-hover)] enabled:active:bg-[var(--sld-action-primary-active)]',
+    secondary: 'bg-[var(--sld-action-secondary-bg)] text-[var(--sld-action-secondary-text)] border border-[var(--sld-border-strong)] enabled:hover:bg-[var(--sld-action-secondary-hover)] enabled:active:bg-[var(--sld-action-secondary-active)]',
+    danger: 'bg-[var(--sld-action-danger-bg)] text-[var(--sld-action-danger-text)] enabled:hover:bg-[var(--sld-action-danger-hover)] enabled:active:bg-[var(--sld-action-danger-active)]',
+  };
+  const subtleClasses = tone === 'danger'
+    ? 'text-[var(--sld-status-danger-text)] border-[var(--sld-status-danger-border)] enabled:hover:bg-[var(--sld-status-danger-bg)] enabled:active:bg-[var(--sld-status-danger-bg)]'
+    : 'text-[var(--sld-text-primary)] border-[var(--sld-border-strong)] enabled:hover:bg-[var(--sld-action-ghost-hover)] enabled:active:bg-[var(--sld-action-ghost-active)]';
+  const variantClasses = variant === 'solid' ? solidClasses[tone] : `bg-transparent ${variant === 'outline' ? 'border' : ''} ${subtleClasses}`;
 
   return (
     <button
       ref={ref}
+      type="button"
       disabled={isDisabled}
       aria-busy={isLoading}
-      className={`inline-flex items-center justify-center font-medium font-sans ${shapeClass} transition-all duration-150 relative select-none disabled:opacity-[var(--solide-opacity-disabled,0.45)] disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 ${sizeClasses} ${variantClasses} ${className}`}
+      className={`inline-flex items-center justify-center font-medium font-sans ${shapeClass} transition-colors duration-[var(--sld-durationFast)] motion-reduce:transition-none relative select-none disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:border-[var(--sld-border-subtle)] disabled:cursor-not-allowed sld-focus-ring ${sizeClasses} ${variantClasses} ${className}`}
       {...props}
     >
       {isLoading && (
@@ -65,7 +52,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
           </svg>
         </span>
       )}
-      <span className={`inline-flex items-center gap-inherit ${isLoading ? 'invisible' : ''}`}>
+      <span className={`inline-flex items-center [gap:inherit] ${isLoading ? 'invisible' : ''}`}>
         {leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>}
         <span>{children}</span>
         {rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}

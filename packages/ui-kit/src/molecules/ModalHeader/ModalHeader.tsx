@@ -14,11 +14,11 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
     <div className={`flex flex-col font-ui ${className}`}>
       {showGrabber && (
         <div
-          className="w-9 h-1 rounded-full bg-[var(--border-secondary,#E5E5EA)] dark:bg-[var(--border-secondary,#38383A)] mx-auto mb-3"
+          className="w-9 h-1 rounded-full bg-[var(--border-secondary)] dark:bg-[var(--border-secondary)] mx-auto mb-3"
           aria-hidden="true"
         />
       )}
-      <div className="flex items-start justify-between pb-4 border-b border-[var(--solide-border-default)]">
+      <div className="flex items-start justify-between pb-4 border-b border-[var(--sld-border-default)]">
       <div className="flex flex-col gap-0.5">
         <Typography variant="h3" tone="primary">
           {title}
@@ -34,8 +34,8 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
         <button
           type="button"
           onClick={onClose}
-          aria-label="Fechar di?logo"
-          className="p-1.5 rounded-[var(--sld-radius-md,8px)] text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover,rgba(15,23,42,0.05))] sld-focus-ring transition-colors"
+          aria-label="Fechar diálogo"
+          className="p-1.5 rounded-[var(--sld-radius-md)] text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
         >
           <Icon name="x" size="md" />
         </button>

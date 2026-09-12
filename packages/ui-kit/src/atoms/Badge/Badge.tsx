@@ -11,41 +11,41 @@ export const Badge: React.FC<BadgeProps> = ({
 }) => {
   const toneClasses: Record<BadgeTone, { container: string; dot: string }> = {
     success: {
-      container: 'bg-[var(--solide-color-success-50)] text-[var(--solide-color-success-700)] border-[var(--solide-color-success-200)]',
-      dot: 'bg-[var(--solide-color-success-600)]'
+      container: 'bg-[var(--sld-status-success-bg)] text-[var(--sld-status-success-text)] border-[var(--sld-status-success-border)]',
+      dot: 'bg-[var(--sld-status-success-icon)]'
     },
     warning: {
-      container: 'bg-[var(--solide-color-warning-50)] text-[var(--solide-color-warning-700)] border-[var(--solide-color-warning-200)]',
-      dot: 'bg-[var(--solide-color-warning-600)]'
+      container: 'bg-[var(--sld-status-warning-bg)] text-[var(--sld-status-warning-text)] border-[var(--sld-status-warning-border)]',
+      dot: 'bg-[var(--sld-status-warning-icon)]'
     },
     error: {
-      container: 'bg-[var(--solide-color-error-50)] text-[var(--solide-color-error-700)] border-[var(--solide-color-error-200)]',
-      dot: 'bg-[var(--solide-color-error-600)]'
+      container: 'bg-[var(--sld-status-danger-bg)] text-[var(--sld-status-danger-text)] border-[var(--sld-status-danger-border)]',
+      dot: 'bg-[var(--sld-status-danger-icon)]'
     },
     info: {
-      container: 'bg-[var(--solide-color-info-50)] text-[var(--solide-color-info-700)] border-[var(--solide-color-info-200)]',
-      dot: 'bg-[var(--solide-color-info-600)]'
+      container: 'bg-[var(--sld-status-info-bg)] text-[var(--sld-status-info-text)] border-[var(--sld-status-info-border)]',
+      dot: 'bg-[var(--sld-status-info-icon)]'
     },
     brand: {
-      container: 'bg-[var(--solide-color-primary-50)] text-[var(--solide-color-primary-700)] border-[var(--solide-color-primary-200)]',
-      dot: 'bg-[var(--solide-color-primary-600)]'
+      container: 'bg-[var(--sld-status-brand-bg)] text-[var(--sld-status-brand-text)] border-[var(--sld-status-brand-border)]',
+      dot: 'bg-[var(--sld-status-brand-icon)]'
     },
     neutral: {
-      container: 'bg-[var(--solide-color-neutral-100)] text-[var(--solide-color-neutral-700)] border-[var(--solide-color-neutral-200)]',
-      dot: 'bg-[var(--solide-color-neutral-500)]'
+      container: 'bg-[var(--sld-status-neutral-bg)] text-[var(--sld-status-neutral-text)] border-[var(--sld-status-neutral-border)]',
+      dot: 'bg-[var(--sld-status-neutral-icon)]'
     }
   };
 
   const sizeClasses: Record<BadgeSize, string> = {
     sm: 'h-5 px-1.5 text-[11px] gap-1',
-    md: 'h-[var(--sld-badge-h,22px)] px-[var(--sld-badge-px,8px)] text-[12px] gap-1.5'
+    md: 'h-[var(--sld-badge-h)] px-[var(--sld-badge-px)] text-[12px] gap-1.5'
   };
 
   const config = toneClasses[tone];
 
   return (
     <span
-      className={`inline-flex items-center font-medium font-ui rounded-[var(--sld-radius-full,9999px)] border ${config.container} ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center font-medium font-ui rounded-[var(--sld-radius-full)] border ${config.container} ${sizeClasses[size]} ${className}`}
       {...props}
     >
       {hasDot && (

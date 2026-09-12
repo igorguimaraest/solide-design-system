@@ -49,7 +49,7 @@ export const BodyAndCaption = () => (
 );
 
 export const TabularNumbers = () => (
-  <div className="flex flex-col gap-2 font-mono max-w-xs p-4 bg-[var(--solide-surface-sunken)] rounded-md">
+  <div className="flex flex-col gap-2 font-mono max-w-xs p-4 bg-[var(--sld-surface-sunken)] rounded-md">
     <Typography variant="mono" tabularNums>R$ 1.849.200,00</Typography>
     <Typography variant="mono" tabularNums>R$   842.100,50</Typography>
     <Typography variant="mono" tabularNums>R$    12.450,00</Typography>

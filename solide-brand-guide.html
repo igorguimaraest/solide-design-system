@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solide — Design System & Brand Guide v2.0</title>
+<title>Solide — Design System & Brand Guide</title>
 <!--
   FONTE VISUAL NORMATIVA DO SOLIDE.
   Implementação: use os tokens de solide-tokens.css e os padrões demonstrados
@@ -32,208 +32,208 @@ svg {
   /* ==========================================================================
      SOLIDE TYPOGRAPHY DESIGN SYSTEM TOKENS (ROLE-BASED)
      ========================================================================== */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
-  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-mono: var(--font-family-mono);
-  --bg-card: var(--sld-surface-card);
+
+
+
+
 
   /* Papéis Semânticos Oficiais */
-  --text-large-title: 34px;
-  --lh-large-title: 41px;
-  --tracking-large-title: -0.02em;
-  --weight-large-title: 700;
 
-  --text-title1: 28px;
-  --lh-title1: 34px;
-  --tracking-title1: -0.02em;
-  --weight-title1: 700;
 
-  --text-title2: 22px;
-  --lh-title2: 28px;
-  --tracking-title2: -0.01em;
-  --weight-title2: 600;
 
-  --text-headline: 17px;
-  --lh-headline: 22px;
-  --tracking-headline: -0.01em;
-  --weight-headline: 600;
 
-  --text-body: 17px;
-  --lh-body: 24px;
-  --tracking-body: -0.01em;
-  --weight-body: 400;
 
-  --text-body-ui: 14px;
-  --lh-body-ui: 20px;
-  --tracking-body-ui: 0em;
-  --weight-body-ui: 400;
 
-  --text-footnote: 13px;
-  --lh-footnote: 18px;
-  --tracking-footnote: 0.01em;
-  --weight-footnote: 500;
 
-  --text-caption: 11px;
-  --lh-caption: 14px;
-  --tracking-caption: 0.06em;
-  --weight-caption: 700;
 
-  --text-dados: 13px;
-  --lh-dados: 18px;
-  --weight-dados: 500;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* O azul é um sinal de ação, nunca uma camada decorativa. */
-  --solide-accent: #0040dd;
-  --color-accent-fg: #ffffff;
-  --opacity-hover: 0.85;
-  --focus-ring-width: 2px;
-  --focus-ring-offset: 2px;
-  --solide-accent-hover: #0040dd;
-  --solide-accent-surface: var(--bg-secondary);
-  --solide-accent-border: var(--color-separator);
-  --solide-accent-text: var(--text-primary);
-  --solide-accent-ring: #0040dd;
-  --solide-neutral-0: #ffffff;
-  --solide-neutral-50: #fcfcfd;
-  --solide-neutral-100: #f3f3f3;
-  --solide-neutral-200: #eef0f3;
-  --solide-neutral-300: #e2e4e8;
-  --solide-neutral-600: #6e6e73;
-  --solide-neutral-900: #1d1d1f;
 
-  --bg-primary: var(--surface-primary);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Paleta de superfície — neutra e sem subtom azulado. */
-  --color-canvas-light: #ffffff;
-  --color-shell-light: #e9e9e6;
-  --color-shell-dark: #000000;
-  --color-surface-dark: #1c1c1e;
-  --color-hover-light: #e0e0dd;
-  --color-hover-dark: #2a2a2c;
-  --bg-secondary: var(--surface-secondary);
-  --bg-hover: var(--surface-hover);
-  --bg-tertiary: var(--surface-primary);
-  --bg-elevated: var(--surface-elevated);
-  --bg-overlay: var(--sld-surface-overlay);
-  --bg-dark: var(--sld-color-neutral-black);
-  --color-separator: #c6c6c8;
 
-  --text-primary: #000000;
-  --text-secondary: #6a6a70;
-  --text-tertiary: #6a6a70;
-  --text-quaternary: #6a6a70;
-  --text-inverse: #ffffff;
 
-  --border-primary: var(--border-subtle);
-  --border-secondary: var(--border-subtle);
-  --border-subtle: #c6c6c8;
 
-  --solide-success: #34c759;
-  --solide-success-surface: var(--bg-secondary);
-  --solide-success-border: #34c759;
-  --solide-success-text: var(--text-primary);
 
-  --solide-warning: #ff9500;
-  --solide-warning-surface: var(--bg-secondary);
-  --solide-warning-border: #ff9500;
-  --solide-warning-text: var(--text-primary);
 
-  --solide-error: #ff3b30;
-  --solide-error-surface: var(--bg-secondary);
-  --solide-error-border: #ff3b30;
-  --solide-error-text: var(--text-primary);
 
-  --solide-info: #0040dd;
-  --solide-info-surface: var(--bg-secondary);
-  --solide-info-border: #0040dd;
-  --solide-info-text: var(--text-primary);
 
-  --solide-waiting: #8e8e93;
-  --solide-waiting-surface: var(--bg-secondary);
-  --solide-waiting-border: var(--color-separator);
-  --solide-waiting-text: var(--text-secondary);
 
-  --shadow-xs: var(--sld-shadow-xs);
-  --shadow-sm: var(--sld-shadow-sm);
-  --shadow-md: var(--sld-shadow-md);
-  --shadow-lg: var(--sld-shadow-lg);
 
-  --r-xs: var(--sld-radius-xs);
-  --r-sm: var(--sld-radius-sm);
-  --r-md: var(--sld-radius-md);
-  --r: var(--sld-radius-md);
-  --r-lg: var(--sld-radius-lg);
-  --r-xl: var(--sld-radius-xl);
-  --r-pill: var(--sld-radius-full);
-  --r-full: var(--sld-radius-full);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   --r-circle: 50%;
 
   /* SOLIDE APP SHELL & SURFACE HIERARCHY (GMAIL-STYLE CANVAS) */
-  --app-shell-bg: var(--surface-secondary);
-  --app-surface-card: var(--sld-surface-card);
 
-  --dot-color: rgba(0, 0, 0, 0.06);
+
+
+
 }
 
 [data-theme="dark"] {
-  --solide-accent: #0f5fe8;
-  --color-accent-fg: #ffffff;
-  --solide-accent-hover: #0f5fe8;
-  --solide-accent-surface: var(--bg-secondary);
-  --solide-accent-border: var(--color-separator);
-  --solide-accent-text: var(--text-primary);
-  --solide-accent-ring: #0f5fe8;
-  --bg-primary: var(--surface-primary);
-  --bg-secondary: var(--surface-secondary);
-  --bg-hover: var(--surface-hover);
-  --bg-tertiary: var(--surface-primary);
-  --bg-elevated: var(--surface-elevated);
-  --bg-overlay: var(--sld-surface-overlay);
-  --bg-dark: var(--sld-color-neutral-black);
-  --color-separator: #38383a;
 
-  --text-primary: #ffffff;
-  --text-secondary: #8e8e93;
-  --text-tertiary: #8e8e93;
-  --text-quaternary: #8e8e93;
-  --text-inverse: #000000;
 
-  --border-primary: var(--border-subtle);
-  --border-secondary: var(--border-subtle);
-  --border-subtle: #38383a;
 
-  --solide-success: #30d158;
-  --solide-success-surface: var(--bg-secondary);
-  --solide-success-border: #30d158;
-  --solide-success-text: var(--text-primary);
 
-  --solide-warning: #ff9f0a;
-  --solide-warning-surface: var(--bg-secondary);
-  --solide-warning-border: #ff9f0a;
-  --solide-warning-text: var(--text-primary);
 
-  --solide-error: #ff453a;
-  --solide-error-surface: var(--bg-secondary);
-  --solide-error-border: #ff453a;
-  --solide-error-text: var(--text-primary);
 
-  --solide-info: #0f5fe8;
-  --solide-info-surface: var(--bg-secondary);
-  --solide-info-border: #0f5fe8;
-  --solide-info-text: var(--text-primary);
 
-  --solide-waiting-surface: var(--bg-secondary);
-  --solide-waiting-border: var(--color-separator);
-  --solide-waiting-text: var(--text-secondary);
 
-  --shadow-xs: var(--sld-shadow-xs);
-  --shadow-sm: var(--sld-shadow-sm);
-  --shadow-md: var(--sld-shadow-md);
-  --shadow-lg: var(--sld-shadow-lg);
 
-  --app-shell-bg: var(--surface-primary);
-  --app-surface-card: var(--surface-secondary);
 
-  --dot-color: rgba(255, 255, 255, 0.08);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -242,12 +242,12 @@ svg {
    ========================================================================== */
 @media (max-width: 768px) {
   :root {
-    --text-large-title: 28px;
-    --lh-large-title: 34px;
-    --text-title1: 22px;
-    --lh-title1: 28px;
-    --text-title2: 20px;
-    --lh-title2: 25px;
+
+
+
+
+
+
   }
 }
 
@@ -626,8 +626,8 @@ body {
   width: 38px;
   height: 38px;
   border-radius: 50% !important;
-  background: var(--solide-neutral-800, #2C2C2E);
-  color: #ffffff;
+  background: var(--solide-neutral-800);
+  color: var(--sld-text-on-inverse);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -637,8 +637,8 @@ body {
 }
 
 [data-theme="light"] .user-dropdown-avatar {
-  background: #1D1D1F;
-  color: #FFFFFF;
+  background: var(--sld-surface-inverse);
+  color: var(--sld-text-on-inverse);
 }
 
 .user-dropdown-info {
@@ -777,8 +777,8 @@ body {
 [data-theme="dark"] .solide-theme-switch-track,
 [data-theme="black"] .solide-theme-switch-track,
 [data-theme="blueprint"] .solide-theme-switch-track {
-  background-color: var(--solide-neutral-900, #1D1D1F);
-  border-color: #38383C;
+  background-color: var(--solide-neutral-900);
+  border-color: var(--sld-border-strong);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
@@ -807,7 +807,7 @@ body {
 [data-theme="black"] .solide-theme-switch-glyph.glyph-sun,
 [data-theme="blueprint"] .solide-theme-switch-glyph.glyph-sun {
   opacity: 0.7;
-  color: #8E8E93;
+  color: var(--sld-text-muted);
 }
 
 [data-theme="dark"] .solide-theme-switch-glyph.glyph-moon,
@@ -823,7 +823,7 @@ body {
   left: 3px;
   width: 20px;
   height: 20px;
-  background-color: #FFFFFF;
+  background-color: var(--sld-surface-card);
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -838,7 +838,7 @@ body {
 [data-theme="black"] .solide-theme-switch-thumb,
 [data-theme="blueprint"] .solide-theme-switch-thumb {
   transform: translateX(24px);
-  background-color: #FFFFFF;
+  background-color: var(--sld-surface-card);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -849,12 +849,12 @@ body {
 }
 
 .solide-theme-switch-thumb .thumb-sun {
-  color: #1D1D1F;
+  color: var(--sld-text-primary);
   display: block;
 }
 
 .solide-theme-switch-thumb .thumb-moon {
-  color: #1D1D1F;
+  color: var(--sld-text-primary);
   display: none;
 }
 
@@ -1194,54 +1194,6 @@ body {
 }
 .btn:active { transform: scale(0.98); }
 .btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--solide-accent-ring); }
-
-.btn-primary { 
-  background: var(--solide-accent); 
-  color: #ffffff !important; 
-  border-color: var(--solide-accent); 
-  box-shadow: 0 1px 3px rgba(0, 102, 255, 0.25); 
-  font-weight: 600; 
-}
-.btn-primary:hover { 
-  background: var(--solide-accent-hover); 
-  border-color: var(--solide-accent-hover); 
-  box-shadow: 0 3px 8px rgba(0, 102, 255, 0.35); 
-}
-[data-theme="dark"] .btn-primary { 
-  background: var(--solide-accent); 
-  color: #0b1526 !important; 
-  border-color: var(--solide-accent); 
-  box-shadow: 0 1px 3px rgba(51, 133, 255, 0.3); 
-  font-weight: 600;
-}
-[data-theme="dark"] .btn-primary:hover { 
-  background: var(--solide-accent-hover); 
-  color: #000000 !important;
-  border-color: var(--solide-accent-hover); 
-  box-shadow: 0 3px 8px rgba(51, 133, 255, 0.45); 
-}
-
-.btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border-color: var(--border-primary); }
-.btn-secondary:hover { background: var(--border-secondary); }
-
-.btn-outline { background: transparent; color: var(--solide-accent); border-color: var(--solide-accent); font-weight: 500; }
-.btn-outline:hover { background: var(--solide-accent-surface); border-color: var(--solide-accent); }
-
-.btn-ghost { background: transparent; color: var(--text-secondary); }
-.btn-ghost:hover { background: var(--bg-secondary); color: var(--text-primary); }
-
-.btn-destructive { background: var(--solide-error-surface); color: var(--solide-error-text); border-color: var(--solide-error-border); }
-.btn-destructive:hover {
-  background: rgba(255, 59, 48, 0.08);
-  border-color: var(--solide-error);
-}
-[data-theme="dark"] .btn-destructive:hover {
-  background: rgba(255, 69, 58, 0.22);
-  color: #ff6e66;
-  border-color: #ff6e66;
-}
-
-.btn-disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 .btn-sm { padding: 6px 12px; font-size: 12px; border-radius: var(--r-md); }
 .btn-lg { padding: 12px 22px; font-size: 14px; border-radius: var(--r-lg); }
 
@@ -1686,7 +1638,7 @@ kbd {
 
 [data-theme="blueprint"] .doc-main {
   background: var(--app-surface-card);
-  border: 1px solid #192849;
+  border: 1px solid var(--sld-border-strong);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -2093,15 +2045,15 @@ kbd {
 }
 
 .app-nav-item.active {
-  background: #FFFFFF !important;
-  color: #1D1D1F !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03) !important;
 }
 
 [data-theme="dark"] .app-nav-item.active {
-  background: #262629 !important;
-  color: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 1px 4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05) !important;
 }
 
@@ -2114,14 +2066,14 @@ kbd {
   bottom: 0;
   width: 3px;
   height: 100% !important;
-  background: #1D1D1F;
+  background: var(--sld-surface-card);
   border-radius: 6px 0 0 6px;
   opacity: 0;
   transition: opacity 0.15s ease !important;
 }
 
 [data-theme="dark"] .app-nav-item::before {
-  background: #FFFFFF;
+  background: var(--sld-surface-card);
 }
 
 .app-nav-item.active::before {
@@ -2140,24 +2092,24 @@ kbd {
 }
 
 .app-nav-item.active {
-  background: #FFFFFF !important;
-  color: #1D1D1F !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   font-weight: 600;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
 [data-theme="dark"] .app-nav-item.active {
-  background: #262629 !important;
-  color: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 
 .app-nav-item.active svg {
-  color: #1D1D1F !important;
+  color: var(--sld-text-primary) !important;
 }
 
 [data-theme="dark"] .app-nav-item.active svg {
-  color: #FFFFFF !important;
+  color: var(--sld-text-primary) !important;
 }
 
 .app-nav-item::before {
@@ -2168,14 +2120,14 @@ kbd {
   bottom: 0;
   width: 3px;
   height: 0;
-  background: #1D1D1F;
+  background: var(--sld-surface-card);
   border-radius: 6px 0 0 6px;
   opacity: 0;
   transition: height 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
 }
 
 [data-theme="dark"] .app-nav-item::before {
-  background: #FFFFFF;
+  background: var(--sld-surface-card);
 }
 
 .app-nav-item.active::before {
@@ -3191,8 +3143,8 @@ kbd {
   opacity: 0;
   pointer-events: none;
   z-index: 950;
-  background: #111113;
-  color: #ffffff;
+  background: var(--sld-surface-inverse);
+  color: var(--sld-text-on-inverse);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--r-pill, 9999px);
   padding: 8px 18px;
@@ -3210,7 +3162,7 @@ kbd {
   pointer-events: auto;
 }
 [data-theme="dark"] .bulk-actions-bar {
-  background: #232326;
+  background: var(--sld-surface-inverse);
   border-color: rgba(255, 255, 255, 0.22);
 }
 .bulk-counter-pill {
@@ -3231,7 +3183,7 @@ kbd {
 .bulk-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #ffffff;
+  color: var(--sld-text-on-inverse);
   font-size: 12px;
   font-weight: 500;
   padding: 6px 13px;
@@ -3248,13 +3200,13 @@ kbd {
   border-color: rgba(255, 255, 255, 0.45);
 }
 .bulk-btn-danger {
-  color: #ff6961;
+  color: var(--sld-status-danger-text);
   border-color: rgba(255, 69, 58, 0.45);
 }
 .bulk-btn-danger:hover {
   background: rgba(255, 69, 58, 0.25);
-  border-color: #ff453a;
-  color: #ffffff;
+  border-color: var(--sld-status-danger-text);
+  color: var(--sld-status-danger-text);
 }
 .bulk-btn-close {
   background: transparent;
@@ -3271,7 +3223,7 @@ kbd {
   transition: all 0.14s ease;
 }
 .bulk-btn-close:hover {
-  color: #ffffff;
+  color: var(--sld-text-on-inverse);
   background: rgba(255, 255, 255, 0.16);
 }
 .data-table tbody tr.row-selected {
@@ -3670,16 +3622,16 @@ kbd {
   font-weight: 500;
 }
 .calendar-day.range-start {
-  background: var(--solide-accent) !important;
-  color: #ffffff !important;
+  background: var(--sld-action-primary-bg) !important;
+  color: var(--sld-text-primary) !important;
   border-radius: var(--r-sm) 0 0 var(--r-sm) !important;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0, 102, 255, 0.35);
   z-index: 2;
 }
 .calendar-day.range-end {
-  background: var(--solide-accent) !important;
-  color: #ffffff !important;
+  background: var(--sld-action-primary-bg) !important;
+  color: var(--sld-text-primary) !important;
   border-radius: 0 var(--r-sm) var(--r-sm) 0 !important;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0, 102, 255, 0.35);
@@ -3697,7 +3649,7 @@ kbd {
 }
 [data-theme="dark"] .calendar-day.range-start,
 [data-theme="dark"] .calendar-day.range-end {
-  background: var(--solide-accent) !important;
+  background: var(--sld-action-primary-bg) !important;
   color: var(--text-inverse) !important;
   box-shadow: none;
 }
@@ -3705,8 +3657,8 @@ kbd {
   background: rgba(255, 255, 255, 0.08);
 }
 [data-theme="dark"] .date-preset-btn.active {
-  background: var(--solide-accent) !important;
-  color: #ffffff !important;
+  background: var(--sld-action-primary-bg) !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 2px 8px rgba(0, 102, 255, 0.4);
 }
 .date-picker-footer {
@@ -3765,10 +3717,10 @@ kbd {
   box-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
 [data-theme="dark"] .kbd-key {
-  background: #252528;
+  background: var(--sld-surface-card);
   border-color: rgba(255,255,255,0.18);
   border-bottom-color: rgba(255,255,255,0.3);
-  color: #f0f0f2;
+  color: var(--sld-text-primary);
 }
 .kbd-sep {
   font-size: 11px;
@@ -4013,15 +3965,15 @@ kbd {
 }
 
 [data-theme="light"] .doc-sidebar-link.active::before {
-  background: #1D1D1F !important;
+  background: var(--sld-surface-card) !important;
 }
 
 [data-theme="dark"] .doc-sidebar-link.active::before {
-  background: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
 }
 
 [data-theme="blueprint"] .doc-sidebar-link.active::before {
-  background: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
 }
 
 .doc-sidebar-link .nav-item-left {
@@ -4083,34 +4035,34 @@ kbd {
 /* ESTADO ATIVO DO MÓDULO — ALTO CONTRASTE MONOCROMÁTICO SOLIDE (ZERO AZUL)
    Fundo branco puro (#ffffff) no tema claro e grafite escuro (#262629) no tema escuro, com fonte no contraste da paleta */
 .doc-sidebar-link.active {
-  color: #1D1D1F !important;
-  background: #FFFFFF !important;
+  color: var(--sld-text-primary) !important;
+  background: var(--sld-surface-card) !important;
   font-weight: 600 !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03) !important;
 }
 
 [data-theme="dark"] .doc-sidebar-link.active {
-  background: #262629 !important;
-  color: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
 }
 
 [data-theme="blueprint"] .doc-sidebar-link.active {
-  background: #162544 !important;
-  color: #FFFFFF !important;
+  background: var(--sld-surface-card) !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
 }
 
 .doc-sidebar-link.active .nav-icon {
-  color: #1D1D1F !important;
+  color: var(--sld-text-primary) !important;
 }
 
 [data-theme="dark"] .doc-sidebar-link.active .nav-icon {
-  color: #FFFFFF !important;
+  color: var(--sld-text-primary) !important;
 }
 
 [data-theme="blueprint"] .doc-sidebar-link.active .nav-icon {
-  color: #FFFFFF !important;
+  color: var(--sld-text-primary) !important;
 }
 
 /* ==========================================================================
@@ -4167,8 +4119,8 @@ kbd {
 .sidebar-floating-tooltip {
   position: fixed;
   z-index: 100000;
-  background: var(--solide-neutral-900, #1D1D1F);
-  color: #FFFFFF;
+  background: var(--solide-neutral-900);
+  color: var(--sld-text-on-inverse);
   font-family: var(--font-family, -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 12px;
   font-weight: 500;
@@ -4184,8 +4136,8 @@ kbd {
 }
 
 [data-theme="light"] .sidebar-floating-tooltip {
-  background: #1D1D1F;
-  color: #FFFFFF;
+  background: var(--sld-surface-inverse);
+  color: var(--sld-text-on-inverse);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
 }
 
@@ -4225,7 +4177,7 @@ kbd {
 }
 
 [data-theme="dark"] .app-nav-item .app-nav-chevron {
-  color: #ffffff;
+  color: var(--sld-text-primary);
 }
 
 .app-nav-item:hover {
@@ -4241,7 +4193,7 @@ kbd {
 
 [data-theme="dark"] .app-nav-item.active {
   background: rgba(255, 255, 255, 0.09) !important;
-  color: #ffffff !important;
+  color: var(--sld-text-primary) !important;
 }
 
 .app-nav-item.active .app-nav-chevron {
@@ -4448,7 +4400,7 @@ kbd {
   position: absolute;
   pointer-events: none;
   background: var(--solide-neutral-900);
-  color: #FFFFFF;
+  color: var(--sld-text-on-inverse);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-sm);
   padding: 8px 12px;
@@ -4461,8 +4413,8 @@ kbd {
   white-space: nowrap;
 }
 [data-theme="light"] .spring-bar-tooltip-box {
-  background: #1D1D1F;
-  color: #FFFFFF;
+  background: var(--sld-surface-inverse);
+  color: var(--sld-text-on-inverse);
 }
 .spring-bar-tooltip-box::after {
   content: '';
@@ -4472,7 +4424,7 @@ kbd {
   transform: translateX(-50%);
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #1D1D1F;
+  border-top: 5px solid var(--sld-border-strong);
 }
 [data-theme="dark"] .spring-bar-tooltip-box::after {
   border-top-color: var(--solide-neutral-900);
@@ -4572,8 +4524,8 @@ kbd {
 }
 
 .auth-brand-side {
-  background: #111113;
-  color: #f5f5f7;
+  background: var(--sld-surface-inverse);
+  color: var(--sld-text-on-inverse);
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -4586,7 +4538,7 @@ kbd {
 .auth-brand-grid {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
@@ -4700,8 +4652,8 @@ kbd {
 
 /* ACCENT DE AÇÃO — identidade visual permanece neutra */
 .btn-accent {
-  background: var(--solide-accent) !important;
-  color: #ffffff !important;
+  background: var(--sld-action-primary-bg) !important;
+  color: var(--sld-text-primary) !important;
   border: 1px solid transparent !important;
   box-shadow: 0 1px 3px rgba(0, 102, 255, 0.28) !important;
   font-weight: 600 !important;
@@ -4709,7 +4661,7 @@ kbd {
 }
 .btn-accent:hover {
   background: var(--solide-accent-hover) !important;
-  color: #ffffff !important;
+  color: var(--sld-text-primary) !important;
   box-shadow: 0 3px 8px rgba(0, 102, 255, 0.38) !important;
 }
 .btn-accent:active {
@@ -5168,21 +5120,14 @@ kbd {
     font-family: var(--font-mono);
   }
 /* ========================================================================
-   DIREÇÃO VISUAL v3.4 — identidade neutra, cor somente como sinal
+   DIREÇÃO VISUAL CONSOLIDADA — identidade neutra, cor somente como sinal
    ======================================================================== */
 .btn-primary,
 [data-theme="dark"] .btn-primary,
 [data-theme="blueprint"] .btn-primary {
-  background: var(--solide-accent) !important;
-  border-color: var(--solide-accent) !important;
-  color: var(--color-accent-fg) !important;
-  box-shadow: none !important;
-}
-
-.btn-primary:hover,
-[data-theme="dark"] .btn-primary:hover,
-[data-theme="blueprint"] .btn-primary:hover {
-  opacity: var(--opacity-hover);
+  background: var(--sld-action-primary-bg) !important;
+  border-color: var(--sld-action-primary-bg) !important;
+  color: var(--sld-action-primary-text) !important;
   box-shadow: none !important;
 }
 
@@ -5193,7 +5138,7 @@ kbd {
 .doc-sidebar-link:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: var(--focus-ring-width) solid var(--solide-accent) !important;
+  outline: var(--focus-ring-width) solid var(--sld-action-focusRing) !important;
   outline-offset: var(--focus-ring-offset) !important;
 }
 
@@ -5207,7 +5152,7 @@ select:focus-visible {
 
 .solide-tabs-underline .solide-tab-link.active::after,
 .doc-sidebar-link.active::before {
-  background: var(--solide-accent) !important;
+  background: var(--sld-action-primary-bg) !important;
 }
 
 /* Hover não compartilha a mesma cor da superfície-base: precisa ser percebido. */
@@ -5229,6 +5174,23 @@ select:focus-visible {
   color: var(--solide-error) !important;
 }
 
+
+/* Canonical actions. States are semantic, never opacity blends. */
+.btn-primary {background:var(--sld-action-primary-bg);color:var(--sld-action-primary-text);border-color:var(--sld-action-primary-bg);box-shadow:none;}
+.btn-primary:enabled:hover {background:var(--sld-action-primary-hover);border-color:var(--sld-action-primary-hover);}
+.btn-primary:enabled:active {background:var(--sld-action-primary-active);border-color:var(--sld-action-primary-active);}
+.btn-secondary,.btn-outline {background:var(--sld-action-secondary-bg);color:var(--sld-action-secondary-text);border-color:var(--sld-border-strong);}
+.btn-secondary:enabled:hover,.btn-outline:enabled:hover {background:var(--sld-action-secondary-hover);}
+.btn-secondary:enabled:active,.btn-outline:enabled:active {background:var(--sld-action-secondary-active);}
+.btn-ghost {background:transparent;color:var(--sld-text-primary);}
+.btn-ghost:enabled:hover {background:var(--sld-action-ghost-hover);}
+.btn-destructive {background:var(--sld-action-danger-bg);color:var(--sld-action-danger-text);border-color:var(--sld-action-danger-bg);}
+.btn-destructive:enabled:hover {background:var(--sld-action-danger-hover);}
+.btn-destructive:enabled:active {background:var(--sld-action-danger-active);}
+.btn:disabled,.btn-disabled {background:var(--sld-disabled-bg)!important;color:var(--sld-disabled-fg)!important;border-color:var(--sld-border-subtle)!important;opacity:1;cursor:not-allowed;transform:none;}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {outline:var(--focus-ring-width) solid var(--sld-action-focusRing)!important;outline-offset:var(--focus-ring-offset)!important;}
+.input-base,.header-search-input {border:1px solid var(--sld-border-strong);}
+@media(prefers-reduced-motion:reduce) {*,*::before,*::after {scroll-behavior:auto!important;transition-duration:0.01ms!important;animation-duration:0.01ms!important;}}
 </style>
 </head>
 <body>
@@ -5473,7 +5435,7 @@ select:focus-visible {
     <div>
       <span class="chip">
         <span class="beacon-dot pulse-anim" style="background:var(--solide-success)"></span>
-        Design System & Brand Guide v2.0
+        Design System & Brand Guide
       </span>
       <h1 style="font-size:56px;font-weight:600;letter-spacing:-0.03em;line-height:1;margin-bottom:1.25rem;color:var(--text-primary)">Solide</h1>
       <p style="font-size:16px;color:var(--text-secondary);max-width:540px;line-height:1.6;margin-bottom:1.5rem">
@@ -5533,14 +5495,14 @@ select:focus-visible {
     </div>
 
     <!-- Versão Escuro: solide-logo-dark.svg -->
-    <div style="background:#1d1d1f;border-radius:var(--r);padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow-md)">
+    <div style="background:var(--sld-print-ink);border-radius:var(--r);padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow-md)">
       <div style="width:100px;height:100px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;padding:12px;margin-bottom:14px">
         <img src="solide-logo-dark.svg" alt="solide-logo-dark.svg" style="width:100%;height:100%;object-fit:contain">
       </div>
-      <span style="font-size:16px;font-weight:600;color:#f5f5f7" class="mono">solide-logo-dark.svg</span>
+      <span style="font-size:16px;font-weight:600;color:var(--sld-print-paper)" class="mono">solide-logo-dark.svg</span>
       <span class="status-pill status-pill-success" style="margin-top:6px;font-size:11px">Versão Oficial Tema Escuro</span>
-      <p style="font-size:12px;color:#86868b;margin-top:10px;max-width:320px">Logotipo oficial para superfícies escuras, displays OLED e modo dark.</p>
-      <a href="solide-logo-dark.svg" download class="btn btn-outline mono" style="font-size:12px;padding:6px 16px;margin-top:14px;color:#f5f5f7;border-color:rgba(255,255,255,0.2)">Baixar solide-logo-dark.svg ↓</a>
+      <p style="font-size:12px;color:var(--sld-text-muted-on-inverse);margin-top:10px;max-width:320px">Logotipo oficial para superfícies escuras, displays OLED e modo dark.</p>
+      <a href="solide-logo-dark.svg" download class="btn btn-outline mono" style="font-size:12px;padding:6px 16px;margin-top:14px;color:var(--sld-print-paper);border-color:rgba(255,255,255,0.2)">Baixar solide-logo-dark.svg ↓</a>
     </div>
   </div>
 
@@ -5558,13 +5520,13 @@ select:focus-visible {
       <!-- Lockup Claro -->
       <div style="background:var(--bg-elevated);border:1px dashed var(--border-primary);border-radius:var(--r-sm);padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:14px;min-height:90px">
         <img src="solide-logo-light.svg" alt="Solide Símbolo" style="width:38px;height:38px;object-fit:contain">
-        <span style="font-size:28px;font-weight:600;letter-spacing:-0.03em;color:#1d1d1f">Solide</span>
+        <span style="font-size:28px;font-weight:600;letter-spacing:-0.03em;color:var(--sld-print-ink)">Solide</span>
       </div>
 
       <!-- Lockup Escuro -->
-      <div style="background:#1d1d1f;border:1px dashed rgba(255,255,255,0.2);border-radius:var(--r-sm);padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:14px;min-height:90px">
+      <div style="background:var(--sld-print-ink);border:1px dashed rgba(255,255,255,0.2);border-radius:var(--r-sm);padding:1.5rem;display:flex;align-items:center;justify-content:center;gap:14px;min-height:90px">
         <img src="solide-logo-dark.svg" alt="Solide Símbolo" style="width:38px;height:38px;object-fit:contain">
-        <span style="font-size:28px;font-weight:600;letter-spacing:-0.03em;color:#f5f5f7">Solide</span>
+        <span style="font-size:28px;font-weight:600;letter-spacing:-0.03em;color:var(--sld-print-paper)">Solide</span>
       </div>
     </div>
   </div>
@@ -5584,7 +5546,7 @@ select:focus-visible {
     <div class="technical-frame" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.25rem">
       <div class="crosshair-tl"></div><div class="crosshair-tr"></div><div class="crosshair-bl"></div><div class="crosshair-br"></div>
       <p class="mono" style="font-size:10px;color:var(--text-tertiary);margin-bottom:12px">APPLE (iOS / macOS)</p>
-      <div style="width:72px;height:72px;border-radius:18px;background:#1d1d1f;border:0.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;padding:12px;box-shadow:var(--shadow-md);margin-bottom:12px">
+      <div style="width:72px;height:72px;border-radius:18px;background:var(--sld-print-ink);border:0.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;padding:12px;box-shadow:var(--shadow-md);margin-bottom:12px">
         <img src="solide-logo-dark.svg" alt="iOS App Icon" style="width:100%;height:100%;object-fit:contain">
       </div>
       <span style="font-size:12px;font-weight:600;color:var(--text-primary)">Squircle / Superelipse</span>
@@ -5595,7 +5557,7 @@ select:focus-visible {
     <div class="technical-frame" style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1.25rem">
       <div class="crosshair-tl"></div><div class="crosshair-tr"></div><div class="crosshair-bl"></div><div class="crosshair-br"></div>
       <p class="mono" style="font-size:10px;color:var(--text-tertiary);margin-bottom:12px">ANDROID ADAPTIVE</p>
-      <div style="width:72px;height:72px;border-radius:50%;background:#1d1d1f;border:0.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;padding:14px;box-shadow:var(--shadow-md);margin-bottom:12px">
+      <div style="width:72px;height:72px;border-radius:50%;background:var(--sld-print-ink);border:0.5px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;padding:14px;box-shadow:var(--shadow-md);margin-bottom:12px">
         <img src="solide-logo-dark.svg" alt="Android App Icon" style="width:100%;height:100%;object-fit:contain">
       </div>
       <span style="font-size:12px;font-weight:600;color:var(--text-primary)">Adaptive Mask (72dp)</span>
@@ -5676,14 +5638,14 @@ select:focus-visible {
     <div class="technical-frame">
       <div class="crosshair-tl"></div><div class="crosshair-tr"></div><div class="crosshair-bl"></div><div class="crosshair-br"></div>
       <p class="mono" style="font-size:11px;color:var(--text-tertiary);margin-bottom:12px">RATIO 1.75:1 — CARTÃO EXECUTIVO</p>
-      <div style="aspect-ratio:1.75/1;background:#1d1d1f;border-radius:var(--r);padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:#ffffff;box-shadow:var(--shadow-md)">
+      <div style="aspect-ratio:1.75/1;background:var(--sld-print-ink);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:var(--sld-print-paper);box-shadow:var(--shadow-md)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <img src="solide-logo-dark.svg" alt="Solide Logo" style="width:24px;height:24px;object-fit:contain">
-          <span class="mono" style="font-size:9px;color:#86868b">Solide Card</span>
+          <span class="mono" style="font-size:9px;color:var(--sld-text-muted-on-inverse)">Solide Card</span>
         </div>
         <div>
-          <p style="font-size:11px;font-weight:600;color:#f5f5f7">Igor Guimarães</p>
-          <p class="mono" style="font-size:9px;color:#86868b">Fundador / Engenharia</p>
+          <p style="font-size:11px;font-weight:600;color:var(--sld-print-paper)">Igor Guimarães</p>
+          <p class="mono" style="font-size:9px;color:var(--sld-text-muted-on-inverse)">Fundador / Engenharia</p>
         </div>
       </div>
       <p style="font-size:12px;color:var(--text-secondary);margin-top:10px">Cartões NFC corporativos, crachás físicos, credenciais e ID cards.</p>
@@ -5734,147 +5696,47 @@ select:focus-visible {
 
 </div>
 
-<div class="doc-screen" id="screen-cores">
-<section class="sec" id="tokens">
-  <span class="chip">Color Tokens</span>
-  <h2 class="stl">Paleta Neutra & Cores Semânticas</h2>
-  <p class="sd">
-    Cinzas calibrados e cores semânticas funcionais de 4 camadas: base, superfície suave, borda e texto de alto contraste. Clique em qualquer swatch para copiar a variável.
-  </p>
-
-  
-  <!-- O acento existe para orientar ação e foco; a identidade é neutra. -->
-  <div style="margin-bottom:28px;background:var(--bg-elevated);border:1px solid var(--border-primary);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-xs)">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
-      <div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:15px;font-weight:700;color:var(--text-primary)">Acento de ação — provisório</span>
-          <span class="status-pill status-pill-accent" style="font-size:10px;padding:2px 8px">#0040DD</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--text-secondary);margin-top:4px;max-width:640px">
-          A Solide é construída em preto, branco e cinzas. O azul provisório aparece somente em ações primárias, seleção e foco; nunca como cor decorativa ou texto sobre superfície neutra.
-        </p>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="status-pill status-pill-success" style="font-size:11px"><span class="beacon-dot"></span>Branco sobre accent: AAA (7.6:1)</span>
-      </div>
-    </div>
-
-    <div class="g4" style="gap:14px">
-      <div class="icon-card" onclick="copyToken('var(--solide-accent)')" title="Clique para copiar token de acento">
-        <div style="width:100%;height:54px;border-radius:var(--r);background:var(--solide-accent);box-shadow:var(--shadow-xs)"></div>
-        <p style="font-size:12px;font-weight:600">Accent de ação</p>
-        <p class="mono" style="font-size:11px;color:var(--text-tertiary)">--solide-accent</p>
-      </div>
-      <div class="icon-card" onclick="copyToken('var(--bg-hover)')" title="Clique para copiar token de hover">
-        <div style="width:100%;height:54px;border-radius:var(--r);background:var(--bg-hover);box-shadow:var(--shadow-xs)"></div>
-        <p style="font-size:12px;font-weight:600">Hover de superfície</p>
-        <p class="mono" style="font-size:11px;color:var(--text-tertiary)">--bg-hover</p>
-      </div>
-      <div class="icon-card" onclick="copyToken('var(--solide-accent-surface)')" title="Clique para copiar token de superfície">
-        <div style="width:100%;height:54px;border-radius:var(--r);background:var(--solide-accent-surface);border:1px solid var(--solide-accent-border);box-shadow:var(--shadow-xs)"></div>
-        <p style="font-size:12px;font-weight:600">Superfície neutra</p>
-        <p class="mono" style="font-size:11px;color:var(--text-tertiary)">Sem banho de cor</p>
-      </div>
-      <div class="icon-card" onclick="copyToken('var(--solide-accent-text)')" title="Clique para copiar token de texto adaptativo">
-        <div style="width:100%;height:54px;border-radius:var(--r);background:var(--bg-secondary);border:1px solid var(--border-primary);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-xs)">
-          <span style="font-size:16px;font-weight:700;color:var(--text-primary)">Aa</span>
-        </div>
-        <p style="font-size:12px;font-weight:600">Texto permanece neutro</p>
-        <p class="mono" style="font-size:11px;color:var(--text-tertiary)">Acento não é texto</p>
-      </div>
-    </div>
-  </div>
-
-  <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Superfícies oficiais da Solide</h3>
-  <div class="g5" style="margin-bottom:24px">
-    <div class="icon-card" onclick="copyToken('var(--bg-primary)')">
-      <div style="width:100%;height:54px;border-radius:var(--r);background:var(--color-canvas-light);border:1px solid var(--border-primary);box-shadow:var(--shadow-xs)"></div>
-      <p style="font-size:12px;font-weight:600">Canvas claro</p>
-      <p class="mono" style="font-size:11px;color:var(--text-tertiary)">#FFFFFF</p>
-    </div>
-    <div class="icon-card" onclick="copyToken('var(--color-shell-light)')">
-      <div style="width:100%;height:54px;border-radius:var(--r);background:var(--color-shell-light);border:1px solid var(--border-primary);box-shadow:var(--shadow-xs)"></div>
-      <p style="font-size:12px;font-weight:600">Shell clara</p>
-      <p class="mono" style="font-size:11px;color:var(--text-tertiary)">#E9E9E6</p>
-    </div>
-    <div class="icon-card" onclick="copyToken('var(--color-hover-light)')">
-      <div style="width:100%;height:54px;border-radius:var(--r);background:var(--color-hover-light);border:1px solid var(--border-primary);box-shadow:var(--shadow-xs)"></div>
-      <p style="font-size:12px;font-weight:600">Hover claro</p>
-      <p class="mono" style="font-size:11px;color:var(--text-tertiary)">#E0E0DD</p>
-    </div>
-    <div class="icon-card" onclick="copyToken('var(--color-shell-dark)')">
-      <div style="width:100%;height:54px;border-radius:var(--r);background:var(--color-shell-dark);box-shadow:var(--shadow-xs)"></div>
-      <p style="font-size:12px;font-weight:600">Canvas escuro</p>
-      <p class="mono" style="font-size:11px;color:var(--text-tertiary)">#000000</p>
-    </div>
-    <div class="icon-card" onclick="copyToken('var(--color-surface-dark)')">
-      <div style="width:100%;height:54px;border-radius:var(--r);background:var(--color-surface-dark);box-shadow:var(--shadow-xs)"></div>
-      <p style="font-size:12px;font-weight:600">Conteúdo escuro</p>
-      <p class="mono" style="font-size:11px;color:var(--text-tertiary)">#1C1C1E</p>
-    </div>
-  </div>
-
-  <div style="margin-bottom:24px;padding:16px;background:var(--bg-secondary);border:1px solid var(--border-primary);border-radius:var(--r)">
-    <p style="font-size:12px;font-weight:600;color:var(--text-primary);margin-bottom:4px">Hierarquia de superfície por tema</p>
-    <p style="font-size:12px;color:var(--text-secondary)"><strong>Claro:</strong> shell #E9E9E6, conteúdo #FFFFFF e hover #E0E0DD. <strong>Escuro:</strong> canvas #000000, conteúdo #1C1C1E e hover #2A2A2C. Cada nível tem uma função documentada e nenhum usa subtom azulado.</p>
-  </div>
-
-  <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Cores Semânticas Funcionais</h3>
-  <div class="g4">
-    <div style="background:var(--solide-success-surface);border:1px solid var(--solide-success-border);border-radius:var(--r);padding:1.25rem">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div class="beacon-dot" style="background:var(--solide-success)"></div>
-        <span style="font-size:13px;font-weight:600;color:var(--solide-success-text)">Sucesso (claro #34C759 · escuro #30D158)</span>
-      </div>
-      <p style="font-size:12px;color:var(--solide-success-text)">App publicado, webhook validado, pagamento confirmado.</p>
-    </div>
-
-    <div style="background:var(--solide-warning-surface);border:1px solid var(--solide-warning-border);border-radius:var(--r);padding:1.25rem">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div class="beacon-dot" style="background:var(--solide-warning)"></div>
-        <span style="font-size:13px;font-weight:600;color:var(--solide-warning-text)">Atenção (claro #FF9500 · escuro #FF9F0A)</span>
-      </div>
-      <p style="font-size:12px;color:var(--solide-warning-text)">Revisão necessária, certificado próximo de expirar.</p>
-    </div>
-
-    <div style="background:var(--solide-error-surface);border:1px solid var(--solide-error-border);border-radius:var(--r);padding:1.25rem">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div class="beacon-dot" style="background:var(--solide-error)"></div>
-        <span style="font-size:13px;font-weight:600;color:var(--solide-error-text)">Erro (claro #FF3B30 · escuro #FF453A)</span>
-      </div>
-      <p style="font-size:12px;color:var(--solide-error-text)">Deploy falhou, transação negada, credencial inválida.</p>
-    </div>
-
-    <div style="background:var(--solide-info-surface);border:1px solid var(--solide-info-border);border-radius:var(--r);padding:1.25rem">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-        <div class="beacon-dot" style="background:var(--solide-info)"></div>
-        <span style="font-size:13px;font-weight:600;color:var(--solide-info-text)">Informativo (claro #0040DD · escuro #0F5FE8)</span>
-      </div>
-      <p style="font-size:12px;color:var(--solide-info-text)">Nova versão disponível, sincronização em andamento.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ========================================================================== -->
-<!-- SEÇÃO: TIPOGRAFIA & SISTEMA DE TIPOS OFICIAL                              -->
-<!-- ========================================================================== -->
-
-</div>
-
+<div class="doc-screen" id="screen-cores"><section class="section">
+<span class="chip">Contrato de cores consolidado</span><h2 class="stl">Neutros quentes, cobalto e semântica</h2>
+<p class="sd">A marca usa cobalto. Botões usam tokens de ação próprios, com foreground e estados validados. Cor comunica ação, seleção, estado e informação. A v3.2 é a origem da direção cromática; tipografia e geometria preservam os padrões Solide.</p>
+<p>Primitivo → papel semântico → componente. A escala <code>--sld-palette-warm-*</code> cresce do claro para o escuro. Os neutros legados não foram invertidos. Não use os números N da candidata como se fossem a escala antiga.</p>
+<div class="g4" style="margin:24px 0">
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-brand-accent);border-radius:var(--r)"></div><code>--sld-brand-accent</code><span data-token-value="--sld-brand-accent"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-action-primary-bg);border-radius:var(--r)"></div><code>--sld-action-primary-bg</code><span data-token-value="--sld-action-primary-bg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-surface-canvas);border-radius:var(--r)"></div><code>--sld-surface-canvas</code><span data-token-value="--sld-surface-canvas"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-surface-shell);border-radius:var(--r)"></div><code>--sld-surface-shell</code><span data-token-value="--sld-surface-shell"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-surface-card);border-radius:var(--r)"></div><code>--sld-surface-card</code><span data-token-value="--sld-surface-card"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-surface-raised);border-radius:var(--r)"></div><code>--sld-surface-raised</code><span data-token-value="--sld-surface-raised"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-border-subtle);border-radius:var(--r)"></div><code>--sld-border-subtle</code><span data-token-value="--sld-border-subtle"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-border-strong);border-radius:var(--r)"></div><code>--sld-border-strong</code><span data-token-value="--sld-border-strong"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-text-primary);border-radius:var(--r)"></div><code>--sld-text-primary</code><span data-token-value="--sld-text-primary"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-text-secondary);border-radius:var(--r)"></div><code>--sld-text-secondary</code><span data-token-value="--sld-text-secondary"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-text-muted);border-radius:var(--r)"></div><code>--sld-text-muted</code><span data-token-value="--sld-text-muted"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-action-focusRing);border-radius:var(--r)"></div><code>--sld-action-focusRing</code><span data-token-value="--sld-action-focusRing"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-selection-bg);border-radius:var(--r)"></div><code>--sld-selection-bg</code><span data-token-value="--sld-selection-bg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-selection-text);border-radius:var(--r)"></div><code>--sld-selection-text</code><span data-token-value="--sld-selection-text"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-disabled-bg);border-radius:var(--r)"></div><code>--sld-disabled-bg</code><span data-token-value="--sld-disabled-bg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-disabled-fg);border-radius:var(--r)"></div><code>--sld-disabled-fg</code><span data-token-value="--sld-disabled-fg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-1);border-radius:var(--r)"></div><code>--sld-chart-1</code><span data-token-value="--sld-chart-1"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-2);border-radius:var(--r)"></div><code>--sld-chart-2</code><span data-token-value="--sld-chart-2"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-3);border-radius:var(--r)"></div><code>--sld-chart-3</code><span data-token-value="--sld-chart-3"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-4);border-radius:var(--r)"></div><code>--sld-chart-4</code><span data-token-value="--sld-chart-4"></span></div>
+</div><h3>Estados semânticos</h3><div class="row" style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0"><span style="background:var(--sld-status-success-bg);color:var(--sld-status-success-text);border:1px solid var(--sld-status-success-border);border-radius:var(--r-pill);padding:4px 10px">success</span><span style="background:var(--sld-status-warning-bg);color:var(--sld-status-warning-text);border:1px solid var(--sld-status-warning-border);border-radius:var(--r-pill);padding:4px 10px">warning</span><span style="background:var(--sld-status-danger-bg);color:var(--sld-status-danger-text);border:1px solid var(--sld-status-danger-border);border-radius:var(--r-pill);padding:4px 10px">danger</span><span style="background:var(--sld-status-info-bg);color:var(--sld-status-info-text);border:1px solid var(--sld-status-info-border);border-radius:var(--r-pill);padding:4px 10px">info</span><span style="background:var(--sld-status-neutral-bg);color:var(--sld-status-neutral-text);border:1px solid var(--sld-status-neutral-border);border-radius:var(--r-pill);padding:4px 10px">neutral</span></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin:20px 0"><button class="btn btn-primary">Salvar alterações</button><button class="btn btn-secondary">Cancelar</button><button class="btn btn-destructive">Excluir registro</button><button class="btn btn-primary" disabled>Indisponível</button></div>
+<p>O teste automatizado mede pares de texto/fundo e bordas/foco contra as superfícies declaradas. Isso não certifica globalmente a WCAG. Gráficos precisam de rótulos e identificação adicional; cores categóricas não substituem legenda.</p>
+<p><a href="docs/consolidation/README.md">Decisões, compatibilidade e validação</a> · <a href="solide-tokens.css">CSS canônico</a></p>
+</section></div>
 <div class="doc-screen" id="screen-tipografia">
   <section class="section">
     <span class="chip">Tipografia & Sistema de Tipos Oficial</span>
     <h2 class="stl">Tipografia Solide (Papéis Semânticos)</h2>
     <p class="sd">
-      A tipografia da Solide foi projetada sob rigor cirúrgico, neutralidade estética e alta densidade operacional. 
+      A tipografia da Solide foi projetada sob rigor cirúrgico, neutralidade estética e alta densidade operacional.
       O ecossistema adota duas famílias com papéis estritos: <strong>Inter</strong> para leitura, interface e controles operacionais, e <strong>JetBrains Mono</strong> para dados, moedas, códigos fiscais e métricas com alinhamento tabular absoluto.
     </p>
 
     <!-- DUAS FAMÍLIAS -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px;margin:28px 0;">
-      
+
       <!-- INTER -->
       <div style="background:var(--bg-card);border:1px solid var(--border-primary);border-radius:var(--r-md);padding:24px;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
@@ -6119,7 +5981,7 @@ select:focus-visible {
       <p style="font-size:13px;color:var(--text-secondary);margin:0 0 16px 0;">Como combinar os papéis tipográficos nos cenários reais do produto:</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:16px;">
-        
+
         <!-- CENÁRIO 1: PÁGINA -->
         <div style="background:var(--bg-card);border:1px solid var(--border-primary);border-radius:var(--r-md);padding:20px;">
           <span style="font-size:11px;font-family:var(--font-mono);color:var(--solide-accent);text-transform:uppercase;font-weight:600;">1. Página</span>
@@ -6262,7 +6124,7 @@ select:focus-visible {
 
     <!-- COMPARATIVO TABULAR NUMS & ZERO COM PONTO -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px;margin-bottom:32px;">
-      
+
       <!-- TABULAR NUMS -->
       <div style="background:var(--bg-card);border:1px solid var(--border-primary);border-radius:var(--r-md);padding:24px;">
         <h4 style="font-size:15px;font-weight:700;color:var(--text-primary);margin:0 0 8px 0;">Recurso Mandatório: tabular-nums</h4>
@@ -7082,7 +6944,7 @@ select:focus-visible {
         </button>
       </div>
     </div>
-    
+
     <div style="padding:10px 18px;background:var(--bg-secondary);border-bottom:0.5px solid var(--border-secondary);font-size:12px;color:var(--text-secondary);display:flex;align-items:center;gap:8px">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--solide-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <span><strong>Experimente a digitação:</strong> Máscaras numéricas demonstrativas, sem validação cadastral ou fiscal.</span>
@@ -7458,7 +7320,7 @@ select:focus-visible {
     </div>
   </div>
 
-  
+
 </div>
 
 <div class="doc-screen" id="screen-alertas">
@@ -7518,7 +7380,7 @@ select:focus-visible {
   </div>
 
   <!-- 6. CAMADAS DE OVERLAY: MODAIS, DRAWER & COMMAND PALETTE -->
-  
+
 <div class="comp-sandbox" id="comp-toast-stack">
     <div class="comp-header">
       <div style="display:flex;align-items:center;gap:8px">
@@ -7547,7 +7409,7 @@ select:focus-visible {
   <!-- ========================================== -->
   <!-- 10. HOVER CARDS (DOSSIÊ POP-OVER)          -->
   <!-- ========================================== -->
-  
+
 </div>
 
 <div class="doc-screen" id="screen-tabelas">
@@ -8209,7 +8071,7 @@ select:focus-visible {
       <div id="spring-bar-tooltip" class="spring-bar-tooltip-box">
         <div style="font-weight:600;margin-bottom:2px" id="bar-tooltip-title">16:00 (Throughput Operacional)</div>
         <div style="display:flex;align-items:center;gap:6px;font-size:11px;opacity:0.95">
-          <span style="width:7px;height:7px;border-radius:2px;background:#FFF;display:inline-block"></span>
+          <span style="width:7px;height:7px;border-radius:2px;background:var(--sld-print-paper);display:inline-block"></span>
           <span id="bar-tooltip-val1">4.560 req/s (200 OK)</span>
         </div>
         <div style="display:flex;align-items:center;gap:6px;font-size:11px;opacity:0.8;margin-top:1px">
@@ -8370,7 +8232,7 @@ select:focus-visible {
         <div style="font-size:12px;font-weight:600;color:var(--text-secondary)">Interação ao vivo (Gatilho + Popover Flutuante Ancorado):</div>
         <span class="status-pill status-pill-info" style="font-size:10px;padding:2px 8px">Clique no botão para abrir/fechar</span>
       </div>
-      
+
       <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;position:relative;overflow:visible">
         <!-- Gatilho Oficial Popover -->
         <div class="solide-date-picker-wrapper" id="demo-picker-wrapper" style="position:relative;overflow:visible">
@@ -8487,7 +8349,7 @@ select:focus-visible {
   </div>
 
   <!-- 7. ESTADOS DE ESPERA & TELAS VAZIAS (EMPTY STATES & SKELETONS) -->
-  
+
 <div class="comp-sandbox" id="comp-accordions">
     <div class="comp-header">
       <div style="display:flex;align-items:center;gap:8px">
@@ -8597,7 +8459,7 @@ select:focus-visible {
   <!-- ========================================== -->
   <!-- 8. DATE RANGE PICKER (SELEÇÃO FISCAL)      -->
   <!-- ========================================== -->
-  
+
 <div class="comp-sandbox" id="comp-hovercard">
     <div class="comp-header">
       <div style="display:flex;align-items:center;gap:8px">
@@ -8621,7 +8483,7 @@ select:focus-visible {
 
 </div> <!-- /screen-overlays-periodos -->
 
-<div class="doc-screen" id="screen-app-shell">
+<div class="doc-screen" id="screen-app-shell"><section class="section"><h2 class="stl">Implementação reutilizável</h2><p>O preview abaixo usa os componentes reais do UI Kit. Header acima da sidebar, workspace alinhado ao topo, tokens de geometria preservados. Em largura abaixo de 1024px: navegação em diálogo modal nativo, Escape fecha e devolve foco; padding de conteúdo de 16px, tabela com rolagem horizontal. A decisão completa está em docs/geometry/app-shell-sidebar.md.</p><iframe title="UI Kit Solide — estados e temas" src="preview-dist/preview/index.html" style="width:100%;height:850px;border:1px solid var(--border-primary);border-radius:var(--r)"></iframe></section>
   <div class="screen-header">
     <span class="chip">Arquitetura de Aplicação</span>
     <h2 class="stl">App Shell & Navegação Lateral</h2>
@@ -8659,7 +8521,7 @@ select:focus-visible {
 
       <!-- Preview interativo do App Shell: Header + Sidebar expandida/compacta + Área de trabalho. -->
       <div style="display:flex;flex-direction:column;border:1px solid var(--border-primary);border-radius:var(--r-xl);background:var(--app-shell-bg);min-height:560px;overflow:hidden;box-shadow:var(--shadow-md)">
-        
+
         <!-- 1. HEADER DO APP SHELL (RÉPLICA CANÔNICA DO .TOP-NAV 57px) -->
         <header class="app-shell-topbar" style="height:var(--sld-header-h);min-height:var(--sld-header-h);max-height:var(--sld-header-h);background:var(--app-shell-bg);display:flex;align-items:center;justify-content:space-between;padding:0 var(--sld-app-shell-header-padding-inline-end) 0 var(--sld-app-shell-header-padding-inline-start);box-sizing:border-box;position:relative;z-index:10">
           <!-- Esquerda: Toggle da Sidebar + Brand Badge -->
@@ -8704,10 +8566,10 @@ select:focus-visible {
 
         <!-- 2. CORPO DO APP SHELL (SIDEBAR LATERAL + ÁREA DE TRABALHO) -->
         <div style="display:flex;flex:1;min-height:480px;position:relative;overflow:hidden">
-          
+
           <!-- SIDEBAR INTERATIVA CANÔNICA -->
           <aside class="app-sidebar-demo" id="app-sidebar-demo" style="width:var(--sld-sidebar-w);background:var(--app-shell-bg);border-right:none;display:flex;flex-direction:column;gap:var(--sld-app-shell-sidebar-gap);padding:var(--sld-app-shell-sidebar-padding-block-start) var(--sld-app-shell-sidebar-padding-inline) var(--sld-app-shell-sidebar-padding-block-end);box-sizing:border-box;transition:width var(--sld-durationBase) var(--sld-easingSnappy)">
-            
+
             <a class="app-nav-item active" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Visão geral')" title="Visão geral" data-tooltip="Visão geral">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
               <span class="app-nav-label">Visão geral</span>
@@ -8804,7 +8666,7 @@ select:focus-visible {
   </div>
 
   <!-- 1. BOTÕES -->
-  
+
 <!-- 4. BLOCO DE CÓDIGO TÉCNICO -->
   <div class="comp-sandbox">
     <div class="comp-header">
@@ -8838,7 +8700,7 @@ select:focus-visible {
   </div>
 
   <!-- 5. BANNERS DE ALERTA CONTEXTUAIS -->
-  
+
 </div>
 
 <div class="doc-screen" id="screen-diretrizes-cobertura">
@@ -8992,11 +8854,11 @@ select:focus-visible {
     </button>
   </div>
 
-  
+
 <!-- 1. TELA DE LOGIN GERAL & PESSOAL (COMPACTA & CENTRALIZADA) -->
 <div class="auth-tab-pane" id="pane-auth-login">
   <div style="background:var(--bg-secondary);padding:48px 24px;border-radius:var(--r-lg);margin-bottom:24px">
-    
+
     <div style="max-width:440px;margin:0 auto;background:var(--bg-elevated);border:1px solid var(--border-primary);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg)">
       <!-- Browser Topbar -->
       <div style="background:var(--bg-secondary);border-bottom:1px solid var(--border-secondary);padding:8px 14px;display:flex;align-items:center;gap:10px">
@@ -9081,7 +8943,7 @@ select:focus-visible {
 
         <!-- Rodapé -->
         <div style="margin-top:24px;text-align:center;font-size:12.5px;color:var(--text-secondary)">
-          Não tem uma conta? 
+          Não tem uma conta?
           <a href="javascript:void(0)" onclick="goToAuthTab('pane-auth-signup-personal')" style="color:var(--solide-accent-text);font-weight:600;text-decoration:none">Criar conta gratuita →</a>
         </div>
       </div>
@@ -9094,7 +8956,7 @@ select:focus-visible {
 <!-- 2. TELA DE REGISTRO DE CONTA PESSOAL (NOVA) -->
 <div class="auth-tab-pane" id="pane-auth-signup-personal" style="display:none">
   <div style="background:var(--bg-secondary);padding:48px 24px;border-radius:var(--r-lg);margin-bottom:24px">
-    
+
     <div style="max-width:440px;margin:0 auto;background:var(--bg-elevated);border:1px solid var(--border-primary);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg)">
       <!-- Browser Topbar -->
       <div style="background:var(--bg-secondary);border-bottom:1px solid var(--border-secondary);padding:8px 14px;display:flex;align-items:center;gap:10px">
@@ -9200,7 +9062,7 @@ select:focus-visible {
 
         <!-- Rodapé -->
         <div style="margin-top:22px;text-align:center;font-size:12.5px;color:var(--text-secondary)">
-          Já possui uma conta? 
+          Já possui uma conta?
           <a href="javascript:void(0)" onclick="goToAuthTab('pane-auth-login')" style="color:var(--solide-accent-text);font-weight:600;text-decoration:none">Fazer login →</a>
         </div>
       </div>
@@ -9213,7 +9075,7 @@ select:focus-visible {
 <!-- 3. TELA DE ESQUECEU SUA SENHA (NOVA) -->
 <div class="auth-tab-pane" id="pane-auth-forgot" style="display:none">
   <div style="background:var(--bg-secondary);padding:48px 24px;border-radius:var(--r-lg);margin-bottom:24px">
-    
+
     <div style="max-width:440px;margin:0 auto;background:var(--bg-elevated);border:1px solid var(--border-primary);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg)">
       <!-- Browser Topbar -->
       <div style="background:var(--bg-secondary);border-bottom:1px solid var(--border-secondary);padding:8px 14px;display:flex;align-items:center;gap:10px">
@@ -9309,18 +9171,18 @@ select:focus-visible {
             <div style="width:36px;height:36px;border-radius:var(--r-sm);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;padding:6px">
               <img src="solide-logo-dark.svg" alt="Solide" style="width:100%;height:100%;object-fit:contain">
             </div>
-            <span style="font-size:18px;font-weight:700;letter-spacing:-0.02em;color:#ffffff">Solide</span>
+            <span style="font-size:18px;font-weight:700;letter-spacing:-0.02em;color:var(--sld-print-paper)">Solide</span>
           </div>
 
           <span class="status-pill status-pill-success" style="font-size:10px;padding:2px 8px;margin-bottom:16px"><span class="beacon-dot"></span>Onboarding Corporativo</span>
-          <h3 style="font-size:26px;font-weight:600;line-height:1.25;letter-spacing:-0.02em;color:#ffffff;margin-bottom:12px">
+          <h3 style="font-size:26px;font-weight:600;line-height:1.25;letter-spacing:-0.02em;color:var(--sld-print-paper);margin-bottom:12px">
             Construa o futuro sobre uma base inabalável.
           </h3>
-          <p style="font-size:13px;color:#a1a1aa;line-height:1.6;max-width:320px;margin-bottom:20px">
+          <p style="font-size:13px;color:var(--sld-text-muted-on-inverse);line-height:1.6;max-width:320px;margin-bottom:20px">
             Crie seu ambiente dedicado com acesso completo à suíte de Design Tokens, UI Kit e conectores corporativos.
           </p>
 
-          <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;color:#d4d4d8">
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:12px;color:var(--sld-text-muted-on-inverse)">
             <div style="display:flex;align-items:center;gap:8px">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--solide-success)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>14 dias de teste com todas as funções ativas</span>
@@ -9336,7 +9198,7 @@ select:focus-visible {
           </div>
         </div>
 
-        <div style="position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#71717a">
+        <div style="position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--sld-text-muted-on-inverse)">
           <span>Ambiente Dedicado Solide Cloud</span>
           <span>v2.2 Oficial</span>
         </div>
@@ -9420,7 +9282,7 @@ select:focus-visible {
           </form>
 
           <div style="margin-top:20px;text-align:center;font-size:12.5px;color:var(--text-secondary)">
-            Já possui conta corporativa? 
+            Já possui conta corporativa?
             <a href="javascript:void(0)" onclick="switchAuthPreviewTab(document.querySelectorAll('.solide-tab-link')[0], 'pane-auth-login')" style="color:var(--text-primary);font-weight:600;text-decoration:none">Fazer login →</a>
           </div>
         </div>
@@ -9430,7 +9292,7 @@ select:focus-visible {
 </div>
 
 <div class="auth-tab-pane" id="pane-auth-aplicacoes" style="display:none">
-    
+
 <section class="sec" id="aplicacoes">
   <span class="chip">Brand in Action</span>
   <h2 class="stl">Aplicações Reais nos Pontos de Contato</h2>
@@ -9460,14 +9322,14 @@ select:focus-visible {
     <!-- Cartão Executivo -->
     <div style="background:var(--bg-elevated);border:0.5px solid var(--border-primary);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow-xs)">
       <p class="mono" style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:14px">Cartão de Visita Físico</p>
-      <div style="background:#1d1d1f;border-radius:var(--r);padding:1.25rem;aspect-ratio:1.75/1;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-sm)">
+      <div style="background:var(--sld-print-ink);border-radius:var(--r);padding:1.25rem;aspect-ratio:1.75/1;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-sm)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <img src="solide-logo-dark.svg" alt="Solide Logo" style="width:28px;height:28px;object-fit:contain">
-          <span class="mono" style="font-size:9px;color:#86868b;letter-spacing:0.08em">SOLIDE</span>
+          <span class="mono" style="font-size:9px;color:var(--sld-text-muted-on-inverse);letter-spacing:0.08em">SOLIDE</span>
         </div>
         <div>
-          <p style="font-size:12px;color:#f5f5f7;font-weight:600">Igor Guimarães</p>
-          <p style="font-size:10px;color:#86868b;margin-top:1px">Fundador / Engenharia</p>
+          <p style="font-size:12px;color:var(--sld-print-paper);font-weight:600">Igor Guimarães</p>
+          <p style="font-size:10px;color:var(--sld-text-muted-on-inverse);margin-top:1px">Fundador / Engenharia</p>
         </div>
       </div>
     </div>
@@ -9476,7 +9338,7 @@ select:focus-visible {
     <div style="background:var(--bg-elevated);border:0.5px solid var(--border-primary);border-radius:var(--r);padding:1.5rem;box-shadow:var(--shadow-xs)">
       <p class="mono" style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:14px">Perfil Corporativo</p>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-        <div style="width:40px;height:40px;background:#1d1d1f;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;padding:6px">
+        <div style="width:40px;height:40px;background:var(--sld-print-ink);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;padding:6px">
           <img src="solide-logo-dark.svg" alt="Solide Logo" style="width:100%;height:100%;object-fit:contain">
         </div>
         <div>
@@ -9551,7 +9413,7 @@ let currentIconCategory = 'accessibility';
 function initIconSystem() {
   const select = document.getElementById('icon-category-select');
   if (select && window.SOLIDE_CATEGORIES && select.options.length === 0) {
-    select.innerHTML = window.SOLIDE_CATEGORIES.map(c => 
+    select.innerHTML = window.SOLIDE_CATEGORIES.map(c =>
       '<option value="' + c.id + '" ' + (c.id === currentIconCategory ? 'selected' : '') + '>' + c.name + ' (' + c.count + ')</option>'
     ).join('') + '<option value="all">— Todos os Ícones (2.066) —</option>';
   }
@@ -9572,7 +9434,7 @@ function filterIcons() {
 function renderIcons() {
   const container = document.getElementById('icons-container');
   if (!container) return;
-  
+
   const allIcons = window.SOLIDE_ICONS || [];
   if (allIcons.length === 0) {
     container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-tertiary); padding: 2rem;">Carregando ícones...</p>';
@@ -9581,7 +9443,7 @@ function renderIcons() {
 
   const query = (document.getElementById('icon-search-input')?.value || '').toLowerCase().trim();
   const countBadge = document.getElementById('rendered-icon-count');
-  
+
   let iconsToRender = [];
   let feedbackHtml = '';
 
@@ -9594,12 +9456,12 @@ function renderIcons() {
   } else {
     let inCatMatches = [];
     if (currentIconCategory !== 'all') {
-      inCatMatches = allIcons.filter(i => 
+      inCatMatches = allIcons.filter(i =>
         i.cats && i.cats.includes(currentIconCategory) &&
         (i.id.includes(query) || i.name.toLowerCase().includes(query) || (i.tags && i.tags.toLowerCase().includes(query)))
       );
     }
-    
+
     if (inCatMatches.length > 0) {
       iconsToRender = inCatMatches;
       const catObj = (window.SOLIDE_CATEGORIES || []).find(c => c.id === currentIconCategory);
@@ -9609,7 +9471,7 @@ function renderIcons() {
         '<button class="btn btn-sm btn-ghost" onclick="searchEverywhere(\'' + query.replace(/'/g, "\\'") + '\')" style="font-size:11px;padding:2px 8px;height:auto">Buscar no catálogo completo (2.066)</button>' +
       '</div>';
     } else {
-      const globalMatches = allIcons.filter(i => 
+      const globalMatches = allIcons.filter(i =>
         i.id.includes(query) || i.name.toLowerCase().includes(query) || (i.tags && i.tags.toLowerCase().includes(query))
       );
       iconsToRender = globalMatches;
@@ -9638,7 +9500,7 @@ function renderIcons() {
     return;
   }
 
-  const cardsHtml = iconsToRender.map(icon => 
+  const cardsHtml = iconsToRender.map(icon =>
     '<div class="icon-card" data-cat="' + (icon.cats ? icon.cats[0] : '') + '" data-name="' + icon.name.toLowerCase() + '" data-id="' + icon.id + '" onclick="copyIconSvg(\'' + icon.id + '\')" title="Clique para copiar SVG de ' + icon.name + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' +
         icon.inner +
@@ -9702,7 +9564,7 @@ function copyCodeSnippet(btn) {
 function setTheme(theme) {
   theme = theme === 'dark' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('solide-theme', theme);
+  try { localStorage.setItem('solide-theme', theme); } catch {}
 
   const favicon = document.getElementById('solide-favicon');
   const touchIcon = document.getElementById('solide-touch-icon');
@@ -9728,47 +9590,19 @@ function setTheme(theme) {
 
 // TOKEN EXPORTER TABS
 let activeTokenTab = 'css';
-const CSS_TOKENS = `:root {
-  --color-canvas-light: #ffffff;
-  --color-shell-light: #e9e9e6;
-  --color-hover-light: #e0e0dd;
-  --color-canvas-dark: #000000;
-  --color-surface-dark: #1c1c1e;
-  --color-hover-dark: #2a2a2c;
-  --color-text-primary: #000000;
-  --color-text-secondary: #6a6a70;
-  --color-accent: #0040dd;
-  --color-accent-fg: #ffffff;
-  --color-destructive: #ff3b30;
-  --color-success: #34c759;
-  --color-warning: #ff9500;
-  --color-separator: #c6c6c8;
-  --radius-button: 12px;
-  --radius-card: 20px;
-  --font-family: 'Inter', -apple-system, sans-serif;
-}`;
-
-const JSON_TOKENS = `{
-  "color": {
-    "neutral": {
-      "canvas-light": { "value": "#ffffff" },
-      "shell-light": { "value": "#e9e9e6" },
-      "hover-light": { "value": "#e0e0dd" },
-      "canvas-dark": { "value": "#000000" },
-      "surface-dark": { "value": "#1c1c1e" },
-      "hover-dark": { "value": "#2a2a2c" },
-      "text-primary": { "value": "#000000" },
-      "text-secondary": { "value": "#6a6a70" }
-    },
-    "semantic": {
-      "accent": { "value": "#0040dd" },
-      "success": { "value": "#34c759" },
-      "warning": { "value": "#ff9500" },
-      "error": { "value": "#ff3b30" }
-    }
-  },
-  "borderRadius": { "button": { "value": "12px" }, "card": { "value": "20px" } }
-}`;
+let CSS_TOKENS = 'Carregando contrato canônico…';
+let JSON_TOKENS = 'Carregando contrato canônico…';
+fetch('solide-tokens.css').then(response => { if(!response.ok) throw Error('HTTP '+response.status); return response.text(); }).then(css => {
+ CSS_TOKENS = css;
+ JSON_TOKENS = JSON.stringify({source:'solide-tokens.css', format:'CSS custom properties', css}, null, 2);
+ showTokenTab(activeTokenTab);
+}).catch(() => { CSS_TOKENS = JSON_TOKENS = 'Abra solide-tokens.css: não foi possível carregar a exportação.'; showTokenTab(activeTokenTab); });
+function refreshTokenValues() {
+ const style = getComputedStyle(document.documentElement);
+ document.querySelectorAll('[data-token-value]').forEach(el => el.textContent = style.getPropertyValue(el.dataset.tokenValue).trim());
+}
+new MutationObserver(refreshTokenValues).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+document.addEventListener('DOMContentLoaded',refreshTokenValues);
 
 function showTokenTab(tab, btn) {
   activeTokenTab = tab;
@@ -9969,7 +9803,7 @@ function toggleDocSidebar(forceState) {
     sidebar.classList.toggle('compact', makeCompact);
     document.body.classList.toggle('sidebar-is-compact', makeCompact);
     try {
-      localStorage.setItem('solide-sidebar-mode', makeCompact ? 'compact' : 'expanded');
+      try { localStorage.setItem('solide-sidebar-mode', makeCompact ? 'compact' : 'expanded'); } catch {}
     } catch(e) {}
   } else {
     // Mobile / Tablet: Gaveta Flutuante com Backdrop
@@ -9981,7 +9815,7 @@ function toggleDocSidebar(forceState) {
 
 // RESTAURAR ESTADO DA SIDEBAR AO INICIALIZAR
 try {
-  const savedSidebarMode = localStorage.getItem('solide-sidebar-mode');
+  let savedSidebarMode; try { savedSidebarMode = localStorage.getItem('solide-sidebar-mode'); } catch {}
   if (savedSidebarMode === 'compact' && window.innerWidth > 1024) {
     const sb = document.getElementById('doc-sidebar');
     if (sb) {
@@ -10392,7 +10226,7 @@ function checkBodyOverflow() {
 document.addEventListener('DOMContentLoaded', () => {
   initIconSystem();
   if (document.getElementById('screen-graficos')?.classList.contains('active')) initChartsScreen();
-  const saved = localStorage.getItem('solide-theme');
+  let saved; try { saved = localStorage.getItem('solide-theme'); } catch {}
   if (saved) setTheme(saved);
   renderIcons();
   showTokenTab('css');
@@ -11099,7 +10933,7 @@ let splineInitialDrawn = false;
 function generateSmoothSpline(points) {
   if (points.length === 0) return '';
   if (points.length === 1) return 'M ' + points[0].x + ' ' + points[0].y;
-  
+
   let path = 'M ' + points[0].x + ' ' + points[0].y;
   for (let i = 0; i < points.length - 1; i++) {
     const p0 = i > 0 ? points[i - 1] : points[i];
@@ -11744,7 +11578,7 @@ function simulateForgotPassword(e, form) {
   const banner = document.getElementById('forgot-success-banner');
   const sentEmail = document.getElementById('forgot-sent-email');
   const btn = document.getElementById('btn-forgot-submit');
-  
+
   if (sentEmail) sentEmail.textContent = email;
   if (banner) banner.style.display = 'block';
   if (btn) {
@@ -11776,7 +11610,7 @@ function togglePasswordVisibility(inputId, btn) {
   input.type = isPass ? 'text' : 'password';
 
   if (btn) {
-    btn.innerHTML = isPass ? 
+    btn.innerHTML = isPass ?
       '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>' :
       '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
   }

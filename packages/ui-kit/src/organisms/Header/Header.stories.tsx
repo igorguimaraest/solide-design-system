@@ -9,7 +9,7 @@ export default {
 export const Default = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   return (
-    <div className="w-full bg-[var(--solide-surface-canvas)] min-h-[140px]">
+    <div className="w-full bg-[var(--sld-surface-canvas)] min-h-[140px]">
       <Header
         currentTheme={theme}
         onThemeToggle={() => setTheme(t => t === 'light' ? 'dark' : 'light')}

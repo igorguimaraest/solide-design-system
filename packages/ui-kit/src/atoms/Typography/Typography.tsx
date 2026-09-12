@@ -20,24 +20,24 @@ export function Typography<C extends React.ElementType = 'p'>({
   );
 
   const variantClasses: Record<TypographyVariant, string> = {
-    display: 'font-display text-4xl leading-tight tracking-tight font-bold',
-    h1: 'font-display text-3xl leading-snug tracking-tight font-bold',
-    h2: 'font-display text-2xl leading-normal tracking-tight font-semibold',
-    h3: 'font-sans text-xl leading-normal font-semibold',
-    body: 'font-sans text-base leading-relaxed',
-    'body-sm': 'font-sans text-sm leading-normal',
-    caption: 'font-sans text-xs leading-normal',
-    mono: 'font-mono text-sm leading-normal',
+    'display': 'font-ui text-[length:var(--text-large-title)] leading-[var(--lh-large-title)] tracking-[var(--tracking-large-title)] font-[number:var(--weight-large-title)]',
+    'h1': 'font-ui text-[length:var(--text-title1)] leading-[var(--lh-title1)] tracking-[var(--tracking-title1)] font-[number:var(--weight-title1)]',
+    'h2': 'font-ui text-[length:var(--text-title2)] leading-[var(--lh-title2)] tracking-[var(--tracking-title2)] font-[number:var(--weight-title2)]',
+    'h3': 'font-ui text-[length:var(--text-headline)] leading-[var(--lh-headline)] tracking-[var(--tracking-headline)] font-[number:var(--weight-headline)]',
+    'body': 'font-ui text-[length:var(--text-body)] leading-[var(--lh-body)] tracking-[var(--tracking-body)] font-[number:var(--weight-body)]',
+    'body-sm': 'font-ui text-[length:var(--text-body-ui)] leading-[var(--lh-body-ui)] tracking-[var(--tracking-body-ui)] font-[number:var(--weight-body-ui)]',
+    'caption': 'font-ui text-[length:var(--text-caption)] leading-[var(--lh-caption)] tracking-[var(--tracking-caption)] font-[number:var(--weight-caption)]',
+    'mono': 'font-mono text-[length:var(--text-dados)] leading-[var(--lh-dados)] tracking-[var(--tracking-dados)] font-[number:var(--weight-dados)]',
   };
 
   const toneClasses: Record<TypographyTone, string> = {
     primary: 'text-[var(--solide-text-primary)]',
     secondary: 'text-[var(--solide-text-secondary)]',
     muted: 'text-[var(--solide-text-muted)]',
-    brand: 'text-[var(--solide-text-primary)]',
+    brand: 'text-[var(--sld-text-brand)]',
     danger: 'text-[var(--solide-feedback-error)]',
     success: 'text-[var(--solide-feedback-success)]',
-    inverse: 'text-[var(--solide-bg-canvas)]',
+    inverse: 'text-[var(--sld-text-inverse)]',
   };
 
   const weightClasses: Record<TypographyWeight, string> = {

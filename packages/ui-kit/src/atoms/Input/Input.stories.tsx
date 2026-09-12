@@ -33,7 +33,7 @@ export const WithLeftIcon = () => (
 export const Invalid = () => (
   <div className="max-w-sm">
     <Input isInvalid defaultValue="email-invalido@dominio" aria-describedby="error-hint" />
-    <span id="error-hint" className="text-xs text-[var(--solide-text-danger)] mt-1.5 block">
+    <span id="error-hint" className="text-xs text-[var(--sld-text-danger)] mt-1.5 block">
       Formato de e-mail corporativo inv?lido.
     </span>
   </div>

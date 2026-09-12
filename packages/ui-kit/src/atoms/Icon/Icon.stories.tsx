@@ -31,9 +31,9 @@ export const Sizes = () => (
 
 export const SemanticGallery = () => (
   <div className="grid grid-cols-4 gap-4 max-w-sm text-sm">
-    <div className="flex items-center gap-2 text-[var(--solide-text-success)]"><Icon name="check-circle" /> Sucesso</div>
-    <div className="flex items-center gap-2 text-[var(--solide-text-warning)]"><Icon name="alert-triangle" /> Aviso</div>
-    <div className="flex items-center gap-2 text-[var(--solide-text-danger)]"><Icon name="x" /> Erro</div>
-    <div className="flex items-center gap-2 text-[var(--solide-text-brand)]"><Icon name="info" /> Info</div>
+    <div className="flex items-center gap-2 text-[var(--sld-text-success)]"><Icon name="check-circle" /> Sucesso</div>
+    <div className="flex items-center gap-2 text-[var(--sld-text-warning)]"><Icon name="alert-triangle" /> Aviso</div>
+    <div className="flex items-center gap-2 text-[var(--sld-text-danger)]"><Icon name="x" /> Erro</div>
+    <div className="flex items-center gap-2 text-[var(--sld-text-brand)]"><Icon name="info" /> Info</div>
   </div>
 );

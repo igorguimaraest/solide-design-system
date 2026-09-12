@@ -1,94 +1,56 @@
-/**
- * Solide Design System — tema mobile
- * Mobile Theme Definition (TypeScript / React Native / Flutter)
- *
- * Implements strict semantic tokens avoiding hardcoded hex values.
- * As superfícies seguem a mesma arquitetura neutra do guia web.
- */
-
-export interface AppTheme {
-  colors: {
-    accent: string;
-    destructive: string;
-    success: string;
-    warning: string;
-    caution: string;
-  };
-  surfaces: {
-    primary: string;
-    secondary: string;
-    elevated: string;
-  };
-  text: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-  };
-  border: string;
-  effects?: {
-    blurSurface: {
-      background: string;
-      blurRadius: string;
-    };
-  };
-}
-
-export const lightTheme: AppTheme = {
-  colors: {
-    accent: '#0040DD',
-    destructive: '#FF3B30',
-    success: '#34C759',
-    warning: '#FF9500',
-    caution: '#FFCC00',
+// Generated from solide-tokens.css. Do not edit. Native color contract; no mobile layout implied.
+export const lightTheme = {
+  "colors": {
+    "accent": "#2D7CF6",
+    "destructive": "#A92F27",
+    "success": "#197A49",
+    "warning": "#8A4F05",
+    "caution": "#8A4F05"
   },
-  surfaces: {
-    primary: '#FFFFFF',
-    secondary: '#E9E9E6',
-    elevated: '#FFFFFF',
+  "surfaces": {
+    "primary": "#FFFFFF",
+    "secondary": "#E9E6DE",
+    "elevated": "#FFFFFF"
   },
-  text: {
-    primary: '#000000',
-    secondary: '#6A6A70',
-    tertiary: '#6A6A70',
+  "text": {
+    "primary": "#242220",
+    "secondary": "#6B675F",
+    "tertiary": "#6B675F"
   },
-  border: '#C6C6C8',
-  effects: {
-    blurSurface: {
-      background: 'rgba(255, 255, 255, 0.80)',
-      blurRadius: '20px',
-    },
-  },
+  "border": "#DEDAD0",
+  "action": {
+    "primary": "#1D63D6",
+    "foreground": "#FFFFFF",
+    "hover": "#154FAF",
+    "active": "#123F87"
+  }
 };
-
-export const darkTheme: AppTheme = {
-  colors: {
-    accent: '#0F5FE8',
-    destructive: '#FF453A',
-    success: '#30D158',
-    warning: '#FF9F0A',
-    caution: '#FFD60A',
+export const darkTheme = {
+  "colors": {
+    "accent": "#5C9EFF",
+    "destructive": "#EE6E62",
+    "success": "#4CC685",
+    "warning": "#E8A542",
+    "caution": "#E8A542"
   },
-  surfaces: {
-    primary: '#000000',
-    secondary: '#1C1C1E',
-    elevated: '#1C1C1E',
+  "surfaces": {
+    "primary": "#242220",
+    "secondary": "#121110",
+    "elevated": "#2E2C29"
   },
-  text: {
-    primary: '#FFFFFF',
-    secondary: '#8E8E93',
-    tertiary: '#8E8E93',
+  "text": {
+    "primary": "#FAF9F6",
+    "secondary": "#C4BFB4",
+    "tertiary": "#A8A399"
   },
-  border: '#38383A',
-  effects: {
-    blurSurface: {
-      background: 'rgba(28, 28, 30, 0.80)',
-      blurRadius: '20px',
-    },
-  },
+  "border": "#3A3733",
+  "action": {
+    "primary": "#5C9EFF",
+    "foreground": "#121110",
+    "hover": "#93BFFF",
+    "active": "#2D7CF6"
+  }
 };
-
+export type AppTheme = typeof lightTheme;
 export type ThemeMode = 'light' | 'dark';
-
-export function getTheme(mode: ThemeMode): AppTheme {
-  return mode === 'dark' ? darkTheme : lightTheme;
-}
+export function getTheme(mode: ThemeMode): AppTheme { return mode === 'dark' ? darkTheme : lightTheme; }

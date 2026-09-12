@@ -19,8 +19,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   }[inputSize];
 
   const borderClasses = isInvalid
-    ? 'border-[var(--color-destructive)] focus:border-[var(--color-destructive)] focus:ring-2 focus:ring-[var(--solide-error-surface)]'
-    : 'border-[var(--border-subtle)] focus:border-[var(--color-accent)] focus:ring-2 focus:ring-[var(--solide-accent-ring)]';
+    ? 'border-[var(--sld-status-danger-border)] focus:border-[var(--sld-status-danger-border)] focus:ring-2 focus:ring-[var(--sld-status-danger-border)]'
+    : 'border-[var(--sld-border-strong)] focus:border-[var(--sld-action-focusRing)] focus:ring-2 focus:ring-[var(--sld-action-focusRing)]';
 
   return (
     <div className="relative inline-flex w-full items-center">
@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
         disabled={disabled}
         aria-invalid={isInvalid}
         aria-describedby={ariaDescribedBy}
-        className={`w-full bg-[var(--solide-bg-surface)] text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-lg border transition-colors outline-none disabled:opacity-[var(--solide-opacity-disabled,0.45)] disabled:cursor-not-allowed ${sizeClasses} ${borderClasses} ${leftIcon ? 'pl-9' : ''} ${rightIcon ? 'pr-9' : ''} ${className}`}
+        className={`w-full bg-[var(--solide-bg-surface)] text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-lg border transition-colors outline-none disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:cursor-not-allowed ${sizeClasses} ${borderClasses} ${leftIcon ? 'pl-9' : ''} ${rightIcon ? 'pr-9' : ''} ${className}`}
         {...props}
       />
       {rightIcon && (

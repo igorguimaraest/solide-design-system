@@ -16,7 +16,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 }) => {
   return (
     <div className={`flex flex-col items-center justify-center p-12 text-center max-w-md mx-auto font-ui ${className}`}>
-      <div className="w-12 h-12 rounded-full bg-[var(--solide-surface-sunken)] border border-[var(--solide-border-default)] text-[var(--solide-text-muted)] flex items-center justify-center mb-4 shadow-xs">
+      <div className="w-12 h-12 rounded-full bg-[var(--sld-surface-sunken)] border border-[var(--sld-border-default)] text-[var(--solide-text-muted)] flex items-center justify-center mb-4 shadow-xs">
         <Icon name={icon} size="lg" />
       </div>
 
@@ -28,7 +28,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
         {description}
       </Typography>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap justify-center items-center gap-3">
         {actionLabel && (
           <Button onClick={onAction} tone="primary">
             {actionLabel}

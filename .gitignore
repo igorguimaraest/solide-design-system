@@ -18,3 +18,11 @@ nemu/
 .DS_Store
 Thumbs.db
 .vscode/
+
+storybook-static/
+test-results/
+playwright-report/
+
+preview-dist/
+
+docs/consolidation/screenshots/

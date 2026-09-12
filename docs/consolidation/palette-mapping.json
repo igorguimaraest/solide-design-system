@@ -1,0 +1,19 @@
+{
+  "candidateNeutralToWarm": {
+    "n-950": "--sld-palette-warm-50",
+    "n-900": "--sld-palette-warm-100",
+    "n-850": "--sld-palette-warm-150",
+    "n-800": "--sld-palette-warm-200",
+    "n-700": "--sld-palette-warm-300",
+    "n-600": "--sld-palette-warm-400",
+    "n-500": "--sld-palette-warm-500",
+    "n-450": "--sld-palette-warm-550",
+    "n-400": "--sld-palette-warm-600",
+    "n-300": "--sld-palette-warm-700",
+    "n-200": "--sld-palette-warm-750",
+    "n-150": "--sld-palette-warm-800",
+    "n-100": "--sld-palette-warm-850",
+    "n-50": "--sld-palette-warm-900",
+    "n-0": "--sld-palette-warm-950"
+  }
+}
