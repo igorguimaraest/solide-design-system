@@ -6,7 +6,7 @@ Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida e implementada localmente; sua confirmação visual permanece pendente por indisponibilidade do Chromium neste ambiente.
+Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida, implementada e teve sua direção visual aprovada; a execução automatizada no bundle real permanece pendente por indisponibilidade do Chromium neste ambiente.
 
 ## Concluído
 
@@ -15,12 +15,13 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
 - VC-02 aprovada e implementada: cinco tokens semânticos próprios; Guide e DataTable migrados; Checkbox, Radio e Switch adicionados ao UI Kit com stories, preview e cobertura Playwright.
+- Direção visual de VC-02 aprovada após inspeção interativa dos controles e dos estados cromáticos light/dark.
 
 ## Principais achados
 
 - Motion: Button sem press; Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`; hover sem guarda de cursor fino.
 - Encoding: 11 stories têm texto PT-BR corrompido.
-- Guide × UI Kit: Alert/Banner e os primitivos reutilizáveis de Checkbox, Radio e Switch estão ausentes; Input usa foco por mouse além de `focus-visible`.
+- Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
@@ -36,6 +37,14 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent sem�
 - `packages/tokens/build/verify-tokens.js`
 - `packages/ui-kit/src/molecules/ThemeToggle/`
 - `packages/ui-kit/src/organisms/Header/`
+- `packages/ui-kit/src/atoms/Checkbox/`
+- `packages/ui-kit/src/atoms/Radio/`
+- `packages/ui-kit/src/atoms/Switch/`
+- `packages/ui-kit/src/organisms/DataTable/DataTable.tsx`
+- `packages/ui-kit/src/index.ts`
+- `preview/main.tsx`
+- `tests/system.spec.ts`
+- `solide-brand-guide.html`
 - `docs/audits/solide-visual-convergence-audit.md`
 - `docs/contracts/missing-component-contracts.md`
 
@@ -48,6 +57,7 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent sem�
 - `npm run build:storybook` — passou.
 - `npm run lint` — passou.
 - VC-02: `npm run typecheck`, `npm run build:storybook`, `npm run lint` e `node packages/tokens/build/verify-tokens.js` passaram; o verificador cobre 92 pares de contraste e 329 referências de componentes.
+- VC-02: `npm run build` e `npm run test:tokens` passaram após a implementação final.
 - VC-02: `npm run test:ui` foi atualizado, mas os cinco cenários não iniciaram porque o executável Chromium não existe neste ambiente. Não houve falha de asserção da interface.
 
 ## Pendências
@@ -59,4 +69,4 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent sem�
 
 ## Próximo passo exato
 
-Executar `npm run test:ui` com Chromium disponível e inspecionar Checkbox, Radio e Switch em 1440/light, 1440/dark, 390/light e 390/dark. Se passarem, encerrar VC-02 e retornar à decisão VC-01 sem misturar as etapas.
+Executar `npm run test:ui` com Chromium disponível e inspecionar o bundle real de Checkbox, Radio e Switch em 1440/light, 1440/dark, 390/light e 390/dark. Se passar, registrar a confirmação técnica final de VC-02; somente depois, e mediante autorização, retornar à decisão VC-01.

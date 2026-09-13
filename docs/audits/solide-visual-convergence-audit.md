@@ -126,4 +126,8 @@ O contrato detalhado foi aprovado e implementado com cinco papéis: `selected-bg
 
 O Brand Guide passou a consumir o contrato accent; Checkbox, Radio e Switch foram criados no UI Kit; o DataTable deixou de usar `action-primary` e passou a compor Checkbox; stories, preview e testes foram ampliados. `selected-border` permanece independente mesmo coincidindo inicialmente com `selected-bg`. No Switch, `selected-fg` é restrito ao thumb/ícone e não governa label ou descrição.
 
-Validações estáticas concluídas: TypeScript, build de Storybook, lint/auditoria e 92 pares reais de contraste. A suíte Playwright foi atualizada, mas não executou os cenários porque o binário Chromium não está instalado neste ambiente; as cinco falhas ocorreram no lançamento do navegador. VC-02 permanece **implementada, com confirmação visual automatizada pendente**.
+Validações concluídas: build completo, TypeScript, build de Storybook, lint/auditoria, `test:tokens` e 92 pares reais de contraste. A direção visual light/dark e os estados dos controles foram aprovados após inspeção interativa. A suíte Playwright foi atualizada, mas não executou os cenários no bundle real porque o binário Chromium não está instalado neste ambiente; as cinco falhas ocorreram no lançamento do navegador. VC-02 permanece **implementada e aprovada visualmente, com confirmação automatizada do bundle pendente**.
+
+Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, `packages/tokens/build/verify-tokens.js`, derivados rastreados de tokens/contraste, `packages/ui-kit/src/atoms/{Checkbox,Radio,Switch}/`, exportações do UI Kit, `DataTable.tsx`, `preview/main.tsx`, stories e `tests/system.spec.ts`.
+
+**Próximo passo exato:** executar `npm run test:ui` quando o Chromium estiver disponível, verificar o bundle em 1440/390 e light/dark e registrar o resultado. Não iniciar VC-01 nem outra frente sem autorização.
