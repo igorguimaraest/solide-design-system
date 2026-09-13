@@ -1,55 +1,51 @@
 # Checkpoint — migração do Solide Design System
 
 Atualizado em: 2026-09-12  
-Branch: `consolidate/solide-semantic-system`
+Branch: `codex/visual-convergence-audit`
 
-## Objetivo
+## Objetivo da etapa atual
 
-Consolidar Brand Guide, tokens, pacote `@solide/tokens`, UI Kit, Storybook e temas light/dark como um único sistema, usando a direção cromática v3.2 de forma crítica e preservando os subsistemas maduros existentes.
+Consolidar a auditoria de convergência entre Brand Guide, contrato de tokens, UI Kit/Storybook, preview e documentação. Esta etapa é exclusivamente investigativa e documental: não altera tokens, componentes, estilos, motion, preview nem geometria.
 
-## Decisões tomadas
+## Estado da auditoria
 
-- `solide-tokens.css` é o contrato canônico. Build gera cópia do pacote, JSONs resolvidos e tema nativo a partir dele.
-- Neutros novos vivem em `--sld-palette-warm-*`, crescente do claro para o escuro. Tokens neutros legados mantêm sua convenção histórica.
-- Brand Accent e Primary Action são papéis separados.
-- Componentes dependem de tokens semânticos; primitives ficam restritas à camada de tokens.
-- Status têm tokens para `bg`, `border`, `text`, `icon`, `solid`, `on-solid` e `hover`.
-- Tipografia por papéis, spacing, radius, shadows, motion, iconografia e geometria desktop foram preservados.
-- A lacuna mobile do App Shell foi resolvida e documentada: drawer modal abaixo de 1024 px, Escape e restauração de foco, padding de 16 px e overflow horizontal de tabela.
-- Aliases legados permanecem temporariamente; a matriz e o critério de remoção estão em `docs/consolidation/README.md`.
-- A validação de contraste cobre pares declarados. Não há afirmação de conformidade WCAG global.
+A matriz normativa está em [`docs/audits/solide-visual-convergence-audit.md`](../audits/solide-visual-convergence-audit.md). Foram registrados 18 achados: 0 Blocker, 10 High, 6 Medium e 2 Low.
 
-## Arquivos alterados
+Principais grupos:
 
-- Fonte normativa e contrato: `solide-brand-guide.html`, `solide-tokens.css`, `solide-tailwind.config.js`.
-- Tokens: `packages/tokens/build/{contract,build-tokens,verify-tokens,tailwind.preset,tailwind.colors}.js`, arquivos gerados em `packages/tokens/src/` e remoção das fontes JSON concorrentes antigas.
-- UI Kit: os 15 componentes em `packages/ui-kit/src` foram auditados; os 13 que necessitavam de mudança foram migrados. `Icon` já era compatível por usar `currentColor`, sem cor fixa, e `FormField` já consumia aliases semânticos suportados pelo contrato. Também foram ajustados os stories afetados, criado o story de `SegmentedTabs` e adicionados assets portáveis em `packages/ui-kit/src/assets/logos.ts`.
-- Validação/documentação: `.storybook/`, `preview/`, `tests/`, `scripts/audit-system.js`, configurações de Vite, Tailwind, PostCSS e Playwright, `docs/consolidation/` e este checkpoint.
-- Scripts/dependências: `package.json`, `package-lock.json`, `.gitignore`.
+- Guide × UI Kit: ThemeToggle reduzido a botão de ícone; Alert/Banner ausente; checkbox do Guide neutro e checkbox do DataTable azul; Input usa `focus:` em vez de `:focus-visible`.
+- Padrões ausentes: Checkbox, Radio, Switch, Alert/Banner e ThemeToggle não têm contrato/componente reutilizável completo no UI Kit.
+- Motion: Button perdeu press documentado; Tabs contém timing/easing literal; drawer/modal não transiciona; Sidebar usa `transition-all` sem easing semântico; hover não é protegido por cursor fino.
+- Encoding: 11 stories têm PT-BR corrompido (`??`/`?` no lugar de acentos).
+- Geometria: a documentação de App Shell afirma não autorizar mobile e, adiante, especifica o comportamento mobile.
+- Integridade de tokens: o teste isolado depende de um `dist/tokens.css` ignorado e obsoleto; três derivados rastreados não correspondem ao gerador atual.
 
-## Etapa atual
+## Investigação do drift de tokens
 
-Implementação concluída. Branch publicada e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto contra `main`. O workflow `.github/workflows/ci.yml` valida pull requests com instalação reproduzível, build, typecheck, tokens, auditoria, Storybook e testes de UI em Chromium.
+`solide-tokens.css` é a fonte canônica consumida por `packages/tokens/build/contract.js`. `build-tokens.js` gera `packages/tokens/dist/tokens.css` (ignorado), `src/primitives.tokens.json`, `src/semantic.tokens.json` e `src/mobile-theme.ts`.
 
-## Testes executados
+A falha inicial de `npm run test:tokens` foi causada por `verify-tokens.js` comparar diretamente o `dist/tokens.css` local sem construir antes. O arquivo ignorado era antigo. Duas gerações consecutivas produziram hashes idênticos, portanto não há indício de não determinismo. O histórico não prova edição manual dos derivados rastreados; ele prova que seu conteúdo commitado está defasado do gerador atual. O CI mascara o problema ao executar `npm run build` antes de `npm run test:tokens`.
 
-- `npm run build`
-- `npm run typecheck`
-- `npm run test:tokens` — 86 pares reais de contraste e 232 referências de componentes validados.
-- `npm run build:storybook`
-- `npm run test:ui` — light/dark em 1440 px e 390 px; estados de Button, foco, tabs, tabela, busca, troca de tema e drawer móvel.
-- Inspeção visual das capturas geradas localmente em `docs/consolidation/screenshots/` (ignoradas no Git).
-- `npm run lint` — 2.191 arquivos rastreados, 15 componentes do UI Kit, 2 arquivos TSX de configuração/preview e 2.066 ícones auditados.
-- `git diff --check`
+Classificação: `TOKEN_CONTRACT_PROBLEM`, High. A correção da estratégia de geração/verificação é o primeiro trabalho de implementação da próxima sessão.
 
-O workflow de CI repete essas validações em `ubuntu-latest`, com Node.js 22 e Chromium instalado pelo Playwright. Nesta etapa, `npm ci`, build, typecheck, tokens, lint e Storybook passaram localmente. A reinstalação local do Chromium foi bloqueada pelo proxy do ambiente; o teste de UI já havia passado com o navegador disponível na validação anterior e será repetido no runner pela instalação oficial do Playwright.
+## Testes executados nesta etapa
+
+- `npm run build` — passou.
+- `npm run typecheck` — passou.
+- `npm run test:ui` — passou em 1440/390, light/dark, após instalar Chromium localmente; capturas geradas em `docs/consolidation/screenshots/` (ignorado).
+- `npm run test:tokens` antes de build — falhou com `Package CSS drift`.
+- `npm run build:tokens` duas vezes — saídas idênticas para CSS, JSONs e tema nativo.
+- `npm run test:tokens` após build — passou: 86 pares de contraste e 232 referências de componentes.
+
+Os artefatos gerados durante a investigação foram restaurados; nenhuma mudança de implementação integra esta etapa.
 
 ## Pendências
 
-- Aguardar e revisar os checks do PR #1 antes do merge em `main`.
-- Compatibilidade: remover aliases legados somente após inventariar e migrar consumidores externos.
-- Reduzir posteriormente o peso dos SVGs oficiais embutidos no bundle do Storybook; o build informa chunks acima de 500 kB, sem falha funcional.
+- Aprovar a matriz de 18 achados e a classificação do drift.
+- Executar a comparação manual lado a lado no Work para 1440/light, 1440/dark, 390/light e 390/dark antes das correções perceptivas.
+- Decidir os contratos de seleção e a estratégia visual da warning action.
+- Definir a política de derivados de tokens e de verificação em checkout limpo.
 
 ## Próximo passo exato
 
-Revisar os checks do PR #1 e, se todos estiverem aprovados, fazer merge em main.
+Abrir a Fase A de correção: tornar o pipeline de tokens determinístico e verificável em checkout limpo, começando pela decisão de como `verify-tokens.js` obtém o CSS gerado e como os derivados rastreados são validados. Não iniciar componentes ou correções visuais antes disso.
