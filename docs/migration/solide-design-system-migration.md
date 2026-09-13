@@ -39,7 +39,7 @@ Classificação: `TOKEN_CONTRACT_PROBLEM`, High. A proteção inicial foi implem
 
 Os artefatos gerados durante a investigação foram restaurados; nenhuma mudança de implementação integra esta etapa.
 
-## Pendências
+## Contratos da Fase B`n`nA proposta de API, estados, semântica e critérios de aceite está em [`docs/contracts/missing-component-contracts.md`](../contracts/missing-component-contracts.md). Ela não autoriza implementação visual e mantém abertas as decisões VC-01 e VC-02.`n`n## Pendências
 
 - Aprovar a matriz de 18 achados e a classificação do drift.
 - Executar a comparação manual lado a lado no Work para 1440/light, 1440/dark, 390/light e 390/dark antes das correções perceptivas.
@@ -48,4 +48,4 @@ Os artefatos gerados durante a investigação foram restaurados; nenhuma mudanç
 
 ## Próximo passo exato
 
-Iniciar a especificação documental da Fase B: contrato e estados de ThemeToggle, Checkbox, Radio, Switch e Alert/Banner. Não implementar componentes ou correções visuais antes de aprovar esses contratos.
+Aguardar aprovação de `docs/contracts/missing-component-contracts.md`; depois implementar os componentes da Fase B em uma etapa separada, começando por ThemeToggle e Checkbox.
