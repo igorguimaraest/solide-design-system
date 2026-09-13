@@ -23,7 +23,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | ID | Componente/padrão | Guide | UI Kit/preview | Token/contrato | Classificação | Sev. | Problema | Recomendação | Arquivos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | VC-01 | Warning action | Banner usa `--solide-warning` + `--solide-neutral-900` via style inline. | Não há Alert/Banner. | `--sld-status-warning-solid/on-solid` existem, mas não são usados. | GUIDE_CORRECT / IMPLEMENTATION_WRONG; BOTH_NEED_REVIEW para o peso. | High | peso visual | Medir contraste e comparar ação secondary/outline, solid warning ou primary separado. | guide, futuro Alert |
-| VC-02 | Checkbox selecionado | `.solide-checkbox` é neutro (preto/branco por tema). | DataTable usa native `accent-[--sld-action-primary-bg]` azul. | Não há token de controle de seleção. | TOKEN_CONTRACT_PROBLEM | High | semântica | Decidir seleção neutra vs accent e migrar ambos juntos. | guide, tokens, DataTable |
+| VC-02 | Checkbox/radio/switch selecionado | Os controles do Guide usam preenchimento neutro (preto no light e branco no dark), preservado de CSS legado. | O checkbox nativo do DataTable usa azul por meio de `accent-[--sld-action-primary-bg]`; Radio e Switch reutilizáveis ainda não existem. | Não há par semântico próprio para controle selecionado. | IMPLEMENTATION_CORRECT / GUIDE_STALE quanto à direção accent; TOKEN_CONTRACT_PROBLEM quanto ao uso de `action-primary`. | High | semântica/inconsistência | Adotar accent semântico de seleção para `checked`, `indeterminate` e `on`; criar contrato próprio de foreground/background por tema e migrar Guide e UI Kit juntos. Não reutilizar tokens de ação primária. | guide, tokens, DataTable, futuros Checkbox/Radio/Switch |
 | VC-03 | Checkbox/radio/switch | Guia tem estados complete, disabled, indeterminate e motion. | UI Kit não exporta esses primitivos; tabela é parcial. | Sem API/contrato. | DOCUMENTATION_GAP | High | affordance | Especificar API/estados antes de implementar. | UI Kit, stories |
 | VC-04 | Theme toggle | Switch 50×26, track/thumb, `role=switch`, `aria-checked`, tema dark próprio. | Header usa ícone sem track/role/estado persistente. | Sem contrato de componente. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | affordance/visibilidade | Restaurar padrão ou atualizar guia por decisão explícita; conferir contorno dark. | Header, preview, guide |
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover. | Mesma estratégia. | `--sld-action-ghost-*`. | BOTH_NEED_REVIEW | Medium | affordance | Validar em contexto/dark; não adicionar borda sem atualizar padrão. | Button, guide |
@@ -51,7 +51,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 ## Ordem de correção após autorização
 
 1. Definir contratos de seleção, Alert/Banner e ThemeToggle.
-2. Decidir VC-01/VC-02 visualmente nos dois temas.
+2. Validar visualmente VC-01 e o contrato accent aprovado em VC-02 nos dois temas.
 3. Corrigir motion/estados com tokens e guards (VC-08–VC-12).
 4. Completar componentes e cobertura (VC-03, VC-06, VC-15).
 5. Corrigir encoding/documentação (VC-14, VC-16).
@@ -105,3 +105,17 @@ Tokens de geometria e motion extraídos do Brand Guide foram adicionados ao cont
 ## Consolidação da sessão — 2026-09-13
 
 VC-02 permanece **pendente de decisão**. As alterações locais incompletas que ensaiavam uma família de tokens para controles selecionados foram descartadas por autorização explícita; elas não integram o contrato, o Brand Guide, o UI Kit, os testes ou esta auditoria. A próxima sessão deve decidir, antes de implementar, se checkbox/radio/switch selecionados permanecem neutros ou passam a comunicar seleção por accent semântico.
+
+## Decisão VC-02 — 2026-09-13
+
+**Decisão:** Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` passam a comunicar estado ativo por **accent semântico de seleção**.
+
+- O preenchimento neutro atual do Brand Guide é considerado legado e deverá ser atualizado junto com a implementação, sem correção isolada de um dos lados.
+- O azul atual do checkbox do DataTable acerta a direção perceptiva, mas está semanticamente incorreto por consumir `--sld-action-primary-bg`. Controle selecionado não é ação primária.
+- A implementação futura deverá criar um contrato próprio para background/border/foreground de controle selecionado em light e dark. O glifo interno precisa usar foreground explícito e não herdar por coincidência o texto de botão primário.
+- O accent não poderá ser o único indicador: check, ponto do radio, posição do thumb e `aria-checked`/semântica nativa continuam obrigatórios.
+- `unchecked/off`, hover, focus-visible, disabled e motion-reduce permanecem governados por seus papéis próprios; a decisão não autoriza pintar labels, linhas inteiras ou superfícies adjacentes como ação primária.
+
+**Classificação final de VC-02:** `IMPLEMENTATION_CORRECT / GUIDE_STALE` para a direção accent e `TOKEN_CONTRACT_PROBLEM` para o acoplamento atual ao token de ação.
+
+**Próximo passo de VC-02, ainda não executado:** especificar os nomes e mapeamentos dos tokens de controle selecionado e submetê-los à validação light/dark antes de alterar Guide, DataTable ou criar Checkbox/Radio/Switch.

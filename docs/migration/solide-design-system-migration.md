@@ -6,7 +6,7 @@ Branch: `codex/visual-convergence-audit`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria e estabilizar o estado documental do Solide Design System. Nenhuma nova correção visual ou componente deve ser iniciado sem a decisão explícita de VC-02.
+Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida; nenhuma implementação deve começar antes da especificação do contrato semântico correspondente.
 
 ## Concluído
 
@@ -23,9 +23,9 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
-## VC-02 — pendente de decisão
+## VC-02 — decisão registrada
 
-A decisão sobre o comportamento selecionado de checkbox, radio e switch permanece pendente. O Brand Guide mantém controles selecionados neutros, enquanto o DataTable usa seleção azul. Não foram preservadas alterações locais de VC-02: não houve mudança de tokens, Guide, UI Kit ou testes nesta consolidação. Antes de implementar, decidir explicitamente se o estado selecionado será neutro ou accent e, então, definir o contrato semântico correspondente.
+Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent semântico de seleção. O Brand Guide neutro é considerado legado; o checkbox azul do DataTable tem a direção visual correta, mas o acoplamento a `--sld-action-primary-bg` é semanticamente incorreto. A implementação futura deverá introduzir um par próprio de tokens para background/border/foreground de controle selecionado em light e dark e migrar Guide e UI Kit juntos. Nenhuma alteração de token ou componente foi feita nesta decisão.
 
 ## Arquivos relevantes já consolidados
 
@@ -49,11 +49,11 @@ A decisão sobre o comportamento selecionado de checkbox, radio e switch permane
 
 ## Pendências
 
-- Decidir VC-02 e só então definir o contrato semântico para checkbox/radio/switch.
+- Especificar e validar o contrato de tokens de VC-02 antes de alterar checkbox/radio/switch.
 - Decidir VC-01 (ação warning).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-Registrar a decisão de VC-02 sobre o comportamento selecionado de checkbox/radio/switch — neutro ou accent — antes de criar tokens, alterar o Brand Guide ou implementar qualquer componente.
+Especificar, sem ainda implementar, os nomes e mapeamentos light/dark dos tokens próprios de controle selecionado de VC-02; depois submeter esse contrato à validação antes de alterar Brand Guide, DataTable ou criar Checkbox/Radio/Switch.

@@ -6,7 +6,7 @@ Status: proposta documental para aprovação. Não autoriza implementação visu
 
 - Referência visual: `solide-brand-guide.html` — ThemeToggle (linhas 735–869 e 5220–5228), controles de seleção (2489–2751 e 6814–6921) e Alert/Banner (1498–1538 e 7329–7377).
 - Tokens permitidos são apenas os existentes em `solide-tokens.css`.
-- A decisão semântica de checkbox neutro versus accent permanece aberta (VC-02). Nenhuma API abaixo fixa essa cor.
+- VC-02 foi decidida em 2026-09-13: `checked`, `indeterminate` e `on` usam accent semântico de seleção. A decisão não autoriza reutilizar `action-primary`; o par próprio de tokens de controle ainda precisa ser especificado antes da implementação.
 - A ação de warning permanece aberta (VC-01). O contrato não prescreve preenchimento para a ação.
 
 ## ThemeToggle
@@ -40,7 +40,7 @@ type CheckboxProps = {
 };
 ```
 
-Estados obrigatórios: unchecked, checked, indeterminate, hover em cursor fino, focus-visible, disabled e motion-reduce. `indeterminate` é propriedade imperativa do input nativo e não substitui `checked`. A semântica é `input[type=checkbox]`; rótulo e descrição precisam associar-se ao controle. A escolha de cor de checked será definida na Fase C.
+Estados obrigatórios: unchecked, checked, indeterminate, hover em cursor fino, focus-visible, disabled e motion-reduce. `indeterminate` é propriedade imperativa do input nativo e não substitui `checked`. A semântica é `input[type=checkbox]`; rótulo e descrição precisam associar-se ao controle. `checked` e `indeterminate` usam accent semântico de seleção com glifo de foreground explícito.
 
 ## Radio
 
@@ -63,6 +63,8 @@ type RadioProps<T extends string> = {
 
 Estados obrigatórios: unchecked, checked, hover em cursor fino, focus-visible, disabled e motion-reduce. A implementação preserva `input[type=radio]`, nome compartilhado e navegação por teclado nativa.
 
+O estado `checked` usa accent semântico de seleção; o ponto interno continua sendo indicador estrutural obrigatório e recebe foreground explícito.
+
 ## Switch
 
 Responsabilidade: ligar/desligar uma preferência que produz efeito imediato; não representa seleção em lote.
@@ -79,6 +81,8 @@ type SwitchProps = {
 ```
 
 Estados obrigatórios: off, on, hover em cursor fino, focus-visible, disabled e motion-reduce. Semântica: `input[type=checkbox]` com apresentação de switch e rótulo associado. Os tamanhos somente poderão reproduzir as variantes já demonstradas no Guide.
+
+O estado `on` usa accent semântico de seleção. A posição do thumb continua sendo o indicador estrutural primário, portanto a cor não pode ser o único sinal de estado.
 
 ## Alert/Banner
 
@@ -100,7 +104,7 @@ Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver 
 
 ## Critérios de aceite antes da implementação
 
-1. Aprovar a cor semântica de checkbox/radio/switch selecionados.
+1. Especificar e aprovar os tokens próprios que implementam a decisão accent de VC-02 sem consumir `action-primary`.
 2. Aprovar a composição e contraste da ação warning.
 3. Criar stories para cada estado obrigatório e combinações light/dark.
 4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px.
