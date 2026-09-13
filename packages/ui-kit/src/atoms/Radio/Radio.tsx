@@ -39,7 +39,7 @@ export function Radio<T extends string>({ value, disabled = false, label, descri
   const stateClasses = isDisabled
     ? 'bg-[var(--sld-disabled-bg)] border-[var(--sld-border-subtle)] text-[var(--sld-disabled-fg)]'
     : checked
-      ? 'bg-[var(--sld-control-selected-bg)] border-[var(--sld-control-selected-border)] text-[var(--sld-control-selected-fg)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[var(--sld-control-selected-hover-bg)] group-active:bg-[var(--sld-control-selected-active-bg)]'
+      ? 'bg-[var(--sld-control-selected-bg)] border-[var(--sld-control-selected-border)] text-[var(--sld-control-selected-fg)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[var(--sld-control-selected-hover-bg)] group-active:[&&]:bg-[var(--sld-control-selected-active-bg)]'
       : 'bg-[var(--sld-surface-card)] border-[var(--sld-border-strong)] text-transparent [@media(hover:hover)_and_(pointer:fine)]:group-hover:border-[var(--sld-text-secondary)]';
 
   return (

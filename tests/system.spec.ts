@@ -1,7 +1,13 @@
-import {test,expect} from '@playwright/test';
+import {test,expect,type Locator,type Page} from '@playwright/test';
 import fs from 'node:fs';
 const output='docs/consolidation/screenshots';
 test.beforeAll(()=>fs.mkdirSync(output,{recursive:true}));
+
+const controlFor=(input:Locator)=>input.locator('xpath=following-sibling::*[@data-part="control"]');
+async function tokenColor(page:Page,token:string){return page.evaluate(name=>{const probe=document.createElement('span');probe.style.backgroundColor=`var(${name})`;document.body.appendChild(probe);const color=getComputedStyle(probe).backgroundColor;probe.remove();return color;},token);}
+async function expectKeyboardFocus(page:Page,input:Locator){const control=controlFor(input);await input.focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await expect(input).toBeFocused();await expect(control).toHaveCSS('outline-style','solid');}
+async function expectSelectedInteraction(page:Page,input:Locator){const control=controlFor(input);const selected=await tokenColor(page,'--sld-control-selected-bg');const selectedBorder=await tokenColor(page,'--sld-control-selected-border');const hover=await tokenColor(page,'--sld-control-selected-hover-bg');const active=await tokenColor(page,'--sld-control-selected-active-bg');await expect(input).toBeEnabled();await expect(input).toBeChecked();await expect(control).toHaveCSS('background-color',selected);await expect(control).toHaveCSS('border-color',selectedBorder);await input.locator('..').hover();await expect(control).toHaveCSS('background-color',hover);await page.mouse.down();await expect(input.locator('..')).toHaveCSS('cursor','pointer');await expect(control).toHaveCSS('background-color',active);await page.mouse.up();await expect(control).toHaveCSS('background-color',hover);await expectKeyboardFocus(page,input);}
+async function expectDisabledPrecedence(page:Page,input:Locator){const control=controlFor(input);const disabled=await tokenColor(page,'--sld-disabled-bg');await expect(input).toBeDisabled();await expect(control).toHaveCSS('background-color',disabled);await input.locator('..').hover();await page.mouse.down();await expect(control).toHaveCSS('background-color',disabled);await page.mouse.up();await expect(control).toHaveCSS('background-color',disabled);}
 for(const width of [1440,390])for(const theme of ['light','dark'])test(`${theme} ${width}: components, keyboard and themes`,async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.setViewportSize({width,height:1000});await page.goto('/preview/index.html');
@@ -24,7 +30,16 @@ for(const width of [1440,390])for(const theme of ['light','dark'])test(`${theme}
  await page.getByRole('button',{name:'Limpar busca'}).click();await expect(page.getByRole('textbox',{name:'Buscar...'})).toHaveValue('');
  if(width===390){await page.getByRole('button',{name:'Alternar navegação'}).click();await expect(page.getByRole('dialog')).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();await expect(page.getByRole('button',{name:'Alternar navegação'})).toBeFocused();}
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await primary.focus();await page.screenshot({path:`${output}/kit-${theme}-${width}.png`,fullPage:true});expect(errors).toEqual([]);
+ await primary.focus();await page.screenshot({path:`${output}/kit-${theme}-${width}.png`,fullPage:true});
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/tests/fixtures/vc02.html');await page.evaluate(currentTheme=>{document.documentElement.dataset.theme=currentTheme;document.documentElement.style.setProperty('--sld-action-primary-bg','var(--sld-status-error-solid)');},theme);
+ const selected=await tokenColor(page,'--sld-control-selected-bg');await expect(selected).not.toBe(await tokenColor(page,'--sld-action-primary-bg'));
+ const selectedCheckbox=page.getByRole('checkbox',{name:'Checkbox selecionado'});await expectSelectedInteraction(page,selectedCheckbox);
+ const indeterminate=page.getByRole('checkbox',{name:'Checkbox indeterminado'});await expect(indeterminate).toHaveJSProperty('indeterminate',true);await expect(controlFor(indeterminate)).toHaveCSS('background-color',selected);
+ const unchecked=page.getByRole('checkbox',{name:'Checkbox não selecionado'});await expect(unchecked).not.toBeChecked();await expect(controlFor(unchecked)).toHaveCSS('background-color',await tokenColor(page,'--sld-surface-card'));
+ await expectDisabledPrecedence(page,page.getByRole('checkbox',{name:'Checkbox desabilitado'}));
+ const selectedRadio=page.getByRole('radio',{name:'Radio selecionado'});await expectSelectedInteraction(page,selectedRadio);const uncheckedRadio=page.getByRole('radio',{name:'Radio não selecionado'});await expect(uncheckedRadio).not.toBeChecked();await expect(controlFor(uncheckedRadio)).toHaveCSS('background-color',await tokenColor(page,'--sld-surface-card'));await expectDisabledPrecedence(page,page.getByRole('radio',{name:'Radio desabilitado'}));
+ const selectedSwitch=page.getByRole('switch',{name:'Switch ligado'});await expectSelectedInteraction(page,selectedSwitch);const offSwitch=page.getByRole('switch',{name:'Switch desligado'});await expect(offSwitch).not.toBeChecked();await expect(controlFor(offSwitch)).toHaveCSS('background-color',await tokenColor(page,'--sld-border-default'));await expectDisabledPrecedence(page,page.getByRole('switch',{name:'Switch desabilitado'}));
+ expect(errors).toEqual([]);
 });
 test('guide: toggle works with storage blocked and renders canonical colors',async({page})=>{
  await page.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new DOMException('blocked','SecurityError')}})});

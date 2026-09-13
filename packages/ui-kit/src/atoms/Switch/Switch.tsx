@@ -23,7 +23,7 @@ export const Switch: React.FC<SwitchProps> = ({
   const stateClasses = disabled
     ? 'bg-[var(--sld-disabled-bg)] border-[var(--sld-border-subtle)]'
     : checked
-      ? 'bg-[var(--sld-control-selected-bg)] border-[var(--sld-control-selected-border)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[var(--sld-control-selected-hover-bg)] group-active:bg-[var(--sld-control-selected-active-bg)]'
+      ? 'bg-[var(--sld-control-selected-bg)] border-[var(--sld-control-selected-border)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-[var(--sld-control-selected-hover-bg)] group-active:[&&]:bg-[var(--sld-control-selected-active-bg)]'
       : 'bg-[var(--sld-border-default)] border-[var(--sld-border-default)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:border-[var(--sld-border-strong)]';
   const thumbColor = disabled
     ? 'bg-[var(--sld-disabled-fg)]'

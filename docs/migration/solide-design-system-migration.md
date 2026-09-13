@@ -6,7 +6,7 @@ Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida, implementada e teve sua direção visual aprovada. O Chromium foi disponibilizado e a suíte oficial passou no bundle real, mas a confirmação técnica final revelou uma falha de precedência no estado `active`; por isso VC-02 ainda não pode ser encerrada.
+Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida, implementada, aprovada visualmente e tecnicamente concluída após corrigir e cobrir a precedência `disabled > active > hover > default` nos três controles.
 
 ## Concluído
 
@@ -17,6 +17,7 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - VC-02 aprovada e implementada: cinco tokens semânticos próprios; Guide e DataTable migrados; Checkbox, Radio e Switch adicionados ao UI Kit com stories, preview e cobertura Playwright.
 - Direção visual de VC-02 aprovada após inspeção interativa dos controles e dos estados cromáticos light/dark.
 - Chromium do Playwright disponibilizado; `npm run test:ui` passou com 5/5 cenários no bundle real em 1440/light, 1440/dark, 390/light e 390/dark.
+- Precedência de interação corrigida em Checkbox, Radio e Switch; a suíte oficial agora cobre default, hover, active simultâneo a hover, focus-visible e disabled nos quatro cenários.
 
 ## Principais achados
 
@@ -28,7 +29,7 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 
 ## VC-02 — implementada
 
-Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent semântico de seleção por meio da família `--sld-control-selected-*`. O Brand Guide neutro foi migrado; o checkbox do DataTable não consome mais `--sld-action-primary-bg`. `selected-border` é independente de `selected-bg`, e no Switch `selected-fg` é usado somente no thumb/ícone. Os contrastes dos glifos variam de 4,78:1 a 10,06:1. A confirmação técnica encontrou uma pendência: com ponteiro fino, `group-hover` prevalece sobre `group-active`, de modo que os três controles permanecem em `--sld-control-selected-hover-bg` durante o pressionamento em vez de usar `--sld-control-selected-active-bg`.
+Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent semântico de seleção por meio da família `--sld-control-selected-*`. O Brand Guide neutro foi migrado; o checkbox do DataTable não consome mais `--sld-action-primary-bg`. `selected-border` é independente de `selected-bg`, e no Switch `selected-fg` é usado somente no thumb/ícone. Os contrastes dos glifos variam de 4,78:1 a 10,06:1. A falha em que `group-hover` prevalecia sobre `group-active` foi corrigida elevando apenas a especificidade da variante active; disabled continua removendo as variantes interativas por ramificação e focus-visible permanece independente.
 
 ## Arquivos relevantes já consolidados
 
@@ -60,15 +61,14 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent sem�
 - VC-02: `npm run typecheck`, `npm run build:storybook`, `npm run lint` e `node packages/tokens/build/verify-tokens.js` passaram; o verificador cobre 92 pares de contraste e 329 referências de componentes.
 - VC-02: `npm run build` e `npm run test:tokens` passaram após a implementação final.
 - VC-02: após instalar/disponibilizar o Chromium e executar fora do sandbox que bloqueava `spawn`, `npm run test:ui` passou: 5/5 cenários em 1440/390 e light/dark.
-- VC-02: uma checagem suplementar das stories confirmou `:active` no rótulo, mas o fundo computado permaneceu no token de hover nos três controles. A suíte oficial não possui asserção para essa precedência e, portanto, seu resultado verde não encerra tecnicamente VC-02.
+- VC-02 final: `npm run test:ui`, `npm run test:tokens`, `npm run typecheck` e `npm run build` passaram após a correção. A suíte oficial confirma que `--sld-control-selected-active-bg` vence hover+active e que disabled permanece dominante em Checkbox, Radio e Switch, nos quatro cenários.
 
 ## Pendências
 
-- Corrigir a precedência `active` × `hover` em Checkbox, Radio e Switch e incorporar essa asserção à suíte oficial.
 - Decidir VC-01 (ação warning).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-Corrigir, dentro do escopo de VC-02, a precedência dos estados selecionados para que `--sld-control-selected-active-bg` vença `--sld-control-selected-hover-bg` durante o pressionamento de Checkbox, Radio e Switch. Adicionar cobertura oficial para `active` e os demais estados exigidos, repetir `npm run test:ui` em 1440/light, 1440/dark, 390/light e 390/dark e só então registrar a confirmação técnica final. Não iniciar VC-01 sem autorização.
+VC-02 está tecnicamente concluída. Aguardar autorização expressa antes de iniciar VC-01 ou qualquer nova frente.
