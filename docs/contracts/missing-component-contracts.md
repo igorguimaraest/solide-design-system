@@ -9,6 +9,30 @@ Status: proposta documental para aprovação. Não autoriza implementação visu
 - VC-02 foi decidida em 2026-09-13: `checked`, `indeterminate` e `on` usam accent semântico de seleção. A decisão não autoriza reutilizar `action-primary`; o par próprio de tokens de controle ainda precisa ser especificado antes da implementação.
 - A ação de warning permanece aberta (VC-01). O contrato não prescreve preenchimento para a ação.
 
+## Contrato cromático proposto para VC-02
+
+Status: **aguardando validação; não implementado**.
+
+| Token semântico proposto | Light | Dark | Responsabilidade |
+| --- | --- | --- | --- |
+| `--sld-control-selected-bg` | `--sld-palette-cobalt-600` (`#1D63D6`) | `--sld-palette-cobalt-400` (`#5C9EFF`) | Preenchimento de Checkbox `checked/indeterminate`, Radio `checked` e track de Switch `on`. |
+| `--sld-control-selected-border` | `--sld-palette-cobalt-600` (`#1D63D6`) | `--sld-palette-cobalt-400` (`#5C9EFF`) | Contorno do controle selecionado; separado de `bg` para permitir evolução sem quebrar consumidores. |
+| `--sld-control-selected-fg` | `--sld-palette-warm-0` (`#FFFFFF`) | `--sld-palette-warm-950` (`#121110`) | Check, barra de indeterminate, ponto do Radio e thumb do Switch quando aplicável. |
+| `--sld-control-selected-hover-bg` | `--sld-palette-cobalt-700` (`#154FAF`) | `--sld-palette-cobalt-300` (`#93BFFF`) | Hover do controle já selecionado, somente com cursor fino. |
+| `--sld-control-selected-active-bg` | `--sld-palette-cobalt-800` (`#123F87`) | `--sld-palette-cobalt-500` (`#2D7CF6`) | Feedback de pressionamento do controle já selecionado. |
+
+O mapeamento cromático coincide inicialmente com parte da escala usada por ações primárias, mas os papéis não são aliases entre si. Componentes de seleção consumirão apenas `--sld-control-selected-*`; alterações futuras em botões não poderão mudar controles por efeito colateral.
+
+### Contraste calculado do glifo
+
+| Estado | Light | Dark |
+| --- | ---: | ---: |
+| Selected | 5,51:1 | 7,00:1 |
+| Hover selected | 7,58:1 | 10,00:1 |
+| Active selected | 10,06:1 | 4,78:1 |
+
+Todos os pares superam 4,5:1. Isso é margem adicional para o glifo pequeno, não declaração de conformidade global do componente. Foco continua usando `--sld-action-focusRing` conforme o contrato transversal atual; disabled continua usando os tokens globais de disabled e não recebe uma variante accent própria.
+
 ## ThemeToggle
 
 Responsabilidade: alternar exclusivamente entre `light` e `dark`; não controla temas legados `black` ou `blueprint` no UI Kit.
@@ -104,7 +128,7 @@ Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver 
 
 ## Critérios de aceite antes da implementação
 
-1. Especificar e aprovar os tokens próprios que implementam a decisão accent de VC-02 sem consumir `action-primary`.
+1. Aprovar o contrato proposto `--sld-control-selected-*` antes de adicioná-lo a `solide-tokens.css`.
 2. Aprovar a composição e contraste da ação warning.
 3. Criar stories para cada estado obrigatório e combinações light/dark.
 4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px.

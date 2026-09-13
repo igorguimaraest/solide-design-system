@@ -25,7 +25,7 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 
 ## VC-02 — decisão registrada
 
-Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent semântico de seleção. O Brand Guide neutro é considerado legado; o checkbox azul do DataTable tem a direção visual correta, mas o acoplamento a `--sld-action-primary-bg` é semanticamente incorreto. A implementação futura deverá introduzir um par próprio de tokens para background/border/foreground de controle selecionado em light e dark e migrar Guide e UI Kit juntos. Nenhuma alteração de token ou componente foi feita nesta decisão.
+Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent semântico de seleção. O Brand Guide neutro é considerado legado; o checkbox azul do DataTable tem a direção visual correta, mas o acoplamento a `--sld-action-primary-bg` é semanticamente incorreto. Foi proposta, sem implementação, a família `--sld-control-selected-*` para background, border, foreground, hover e active em light/dark; o detalhamento e os contrastes estão em `docs/contracts/missing-component-contracts.md`.
 
 ## Arquivos relevantes já consolidados
 
@@ -49,11 +49,11 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent s
 
 ## Pendências
 
-- Especificar e validar o contrato de tokens de VC-02 antes de alterar checkbox/radio/switch.
+- Validar a proposta de tokens `--sld-control-selected-*` antes de alterar checkbox/radio/switch.
 - Decidir VC-01 (ação warning).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-Especificar, sem ainda implementar, os nomes e mapeamentos light/dark dos tokens próprios de controle selecionado de VC-02; depois submeter esse contrato à validação antes de alterar Brand Guide, DataTable ou criar Checkbox/Radio/Switch.
+Aprovar ou ajustar a proposta `--sld-control-selected-*`. Somente após aprovação, adicioná-la ao contrato canônico e migrar Brand Guide, DataTable e os futuros Checkbox/Radio/Switch em uma etapa separada.

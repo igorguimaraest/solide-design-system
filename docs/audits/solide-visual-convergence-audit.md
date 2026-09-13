@@ -119,3 +119,9 @@ VC-02 permanece **pendente de decisão**. As alterações locais incompletas que
 **Classificação final de VC-02:** `IMPLEMENTATION_CORRECT / GUIDE_STALE` para a direção accent e `TOKEN_CONTRACT_PROBLEM` para o acoplamento atual ao token de ação.
 
 **Próximo passo de VC-02, ainda não executado:** especificar os nomes e mapeamentos dos tokens de controle selecionado e submetê-los à validação light/dark antes de alterar Guide, DataTable ou criar Checkbox/Radio/Switch.
+
+### Proposta de tokens VC-02 — aguardando validação
+
+O contrato detalhado foi registrado em `docs/contracts/missing-component-contracts.md` com cinco papéis: `selected-bg`, `selected-border`, `selected-fg`, `selected-hover-bg` e `selected-active-bg`. A proposta usa cobalt 600/700/800 no light e cobalt 400/300/500 no dark, com foreground warm 0/950. Os contrastes calculados do glifo variam de 4,78:1 a 10,06:1.
+
+Não houve alteração no contrato CSS ou nos componentes. A validação desta proposta é o bloqueio atual de VC-02.
