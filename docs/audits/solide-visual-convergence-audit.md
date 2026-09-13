@@ -91,3 +91,8 @@ O total da auditoria passa a **18** achados: 0 Blocker, 10 High, 6 Medium e 2 Lo
 
 Implementada a proteção mínima de integridade:
 pm run test:tokens agora executa uild:tokens, valida o contrato e encerra com falha se mobile-theme.ts, os dois JSONs derivados ou contrast.json ficarem divergentes do commit. Os artefatos rastreados foram regenerados a partir de solide-tokens.css. O dist/ continua ignorado e é sempre reconstruído; a eliminação definitiva da dependência de dist dentro de erify-tokens.js permanece uma melhoria de infraestrutura para revisão posterior.
+
+
+## Endurecimento concluído — verificação sem dist/
+
+erify-tokens.js não lê mais packages/tokens/dist/tokens.css. A verificação avalia o contrato canônico, referências, contraste e Brand Guide; 	est:tokens mantém a geração inicial e exige que qualquer derivado rastreado resultante esteja no commit. Assim, um checkout limpo não depende de artefato ignorado, e o build segue sendo o único responsável por produzir o pacote dist/.

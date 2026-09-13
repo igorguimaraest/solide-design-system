@@ -18,7 +18,7 @@ Principais grupos:
 - Motion: Button perdeu press documentado; Tabs contém timing/easing literal; drawer/modal não transiciona; Sidebar usa `transition-all` sem easing semântico; hover não é protegido por cursor fino.
 - Encoding: 11 stories têm PT-BR corrompido (`??`/`?` no lugar de acentos).
 - Geometria: a documentação de App Shell afirma não autorizar mobile e, adiante, especifica o comportamento mobile.
-- Integridade de tokens: o teste isolado depende de um `dist/tokens.css` ignorado e obsoleto; o pacote CSS em `dist/` pode ficar obsoleto porque é ignorado pelo Git; os derivados rastreados foram confirmados como equivalentes ao gerador.
+- Integridade de tokens: a verificação de tokens independe de `dist/` ignorado; o build é o único responsável por gerar o pacote CSS; os derivados rastreados são protegidos por `test:tokens`.
 
 ## Investigação do drift de tokens
 
@@ -26,7 +26,7 @@ Principais grupos:
 
 A falha inicial de `npm run test:tokens` foi causada por `verify-tokens.js` comparar diretamente o `dist/tokens.css` local sem construir antes. O arquivo ignorado era antigo. Duas gerações consecutivas produziram hashes idênticos, portanto não há indício de não determinismo. Não há evidência de edição manual ou defasagem de conteúdo nos derivados rastreados; a divergência confirmada era o CSS em `dist/` ignorado. O CI mascara o problema ao executar `npm run build` antes de `npm run test:tokens`.
 
-Classificação: `TOKEN_CONTRACT_PROBLEM`, High. A proteção inicial foi implementada: `test:tokens` gera os derivados e falha se eles não forem incluídos no commit. A remoção da dependência de `dist` do verificador permanece como endurecimento posterior.
+Classificação: `TOKEN_CONTRACT_PROBLEM`, High. A proteção inicial foi implementada: `test:tokens` gera os derivados e falha se eles não forem incluídos no commit. O endurecimento foi concluído: `verify-tokens.js` não depende de `dist/`; o build produz o pacote e `test:tokens` protege os derivados rastreados.
 
 ## Testes executados nesta etapa
 
@@ -48,4 +48,4 @@ Os artefatos gerados durante a investigação foram restaurados; nenhuma mudanç
 
 ## Próximo passo exato
 
-Revisar a proteção da Fase A e decidir se `verify-tokens.js` deve deixar de depender totalmente de `dist/` ignorado. Não iniciar componentes ou correções visuais antes dessa decisão.
+Iniciar a especificação documental da Fase B: contrato e estados de ThemeToggle, Checkbox, Radio, Switch e Alert/Banner. Não implementar componentes ou correções visuais antes de aprovar esses contratos.
