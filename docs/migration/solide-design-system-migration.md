@@ -2,7 +2,8 @@
 
 Atualizado em: 2026-09-13  
 Branch: `codex/visual-convergence-audit`  
-Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
+Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`  
+Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 
 ## Objetivo da etapa
 

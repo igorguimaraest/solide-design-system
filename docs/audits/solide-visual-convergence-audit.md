@@ -132,6 +132,10 @@ A confirmação específica dos estados encontrou e remediou uma falha de cascat
 
 A suíte oficial agora cobre selecionado, indeterminado, não selecionado/desligado, hover, active, hover+active, focus-visible e disabled nos três controles, em 1440/light, 1440/dark, 390/light e 390/dark. Ela também altera temporariamente `--sld-action-primary-bg` durante a asserção para provar que os controles continuam governados por `--sld-control-selected-*`. `npm run test:ui`, `npm run test:tokens`, `npm run typecheck` e `npm run build` passaram. VC-02 está **tecnicamente concluída**.
 
+Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`.
+
+Pendências preservadas, sem autorização para execução: decisão VC-01, motion/guards restantes, encoding, geometria mobile, cobertura de preview e inventário de legado, conforme a matriz e o checkpoint de migração.
+
 Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, `packages/tokens/build/verify-tokens.js`, derivados rastreados de tokens/contraste, `packages/ui-kit/src/atoms/{Checkbox,Radio,Switch}/`, exportações do UI Kit, `DataTable.tsx`, `preview/main.tsx`, stories e `tests/system.spec.ts`.
 
 **Próximo passo exato:** aguardar autorização expressa antes de iniciar VC-01 ou qualquer nova frente.
