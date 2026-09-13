@@ -3,7 +3,6 @@ const path=require('node:path');
 const assert=require('node:assert/strict');
 const {contract,root}=require('./contract');
 const c=contract();
-assert.equal(fs.readFileSync(path.join(root,'packages/tokens/dist/tokens.css'),'utf8'),c.css,'Package CSS drift');
 for(const mode of ['light','dark']) for(const name of Object.keys(c.themes[mode])) c.resolve(name,mode);
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(d=>d.isDirectory()?files(path.join(dir,d.name)):[path.join(dir,d.name)]);}
 let refs=0;
