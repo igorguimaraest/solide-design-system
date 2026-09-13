@@ -3,7 +3,7 @@ import React from 'react';
 import { HeaderProps } from './Header.types';
 import { Typography } from '../../atoms/Typography';
 import { Icon } from '../../atoms/Icon';
-import { Button } from '../../atoms/Button';
+import { ThemeToggle } from '../../molecules/ThemeToggle';
 
 export const Header: React.FC<HeaderProps> = ({
   brandTitle = 'Solide',
@@ -55,14 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
         )}
 
         {onThemeToggle && (
-          <button
-            type="button"
-            onClick={onThemeToggle}
-            aria-label={`Mudar para modo ${currentTheme === 'light' ? 'escuro' : 'claro'}`}
-            className="p-2 rounded-[var(--sld-radius-md)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
-          >
-            <Icon name={currentTheme === 'light' ? 'moon' : 'sun'} size="md" />
-          </button>
+          <ThemeToggle value={currentTheme} onValueChange={() => onThemeToggle()} aria-label={`Mudar para modo ${currentTheme === 'light' ? 'escuro' : 'claro'}`} />
         )}
 
         {user && (

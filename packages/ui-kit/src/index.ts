@@ -14,6 +14,7 @@ export * from './atoms/Badge';
 export * from './molecules/FormField';
 export * from './molecules/SearchBar';
 export * from './molecules/ModalHeader';
+export * from './molecules/ThemeToggle';
 export * from './molecules/SegmentedTabs';
 
 // Organisms

@@ -141,6 +141,19 @@
   --sld-sidebar-w: 256px;
   --sld-sidebar-w-compact: 68px;
   --sld-header-h: 56px;
+  /* ThemeToggle — geometria e motion extraídos do Brand Guide. */
+  --sld-theme-toggle-track-w: 50px;
+  --sld-theme-toggle-track-h: 26px;
+  --sld-theme-toggle-track-px: 6px;
+  --sld-theme-toggle-thumb-size: 20px;
+  --sld-theme-toggle-thumb-inset-block: 2px;
+  --sld-theme-toggle-thumb-inset-inline: 3px;
+  --sld-theme-toggle-thumb-translate: 24px;
+  --sld-theme-toggle-glyph-size: 14px;
+  --sld-theme-toggle-icon-size: 11px;
+  --sld-theme-toggle-duration-track: 220ms;
+  --sld-theme-toggle-duration-thumb: 240ms;
+  --sld-theme-toggle-duration-glyph: 200ms;
   --sld-app-shell-header-left-w: 244px;
   --sld-app-shell-search-max-w: 540px;
   --sld-app-shell-header-padding-inline-start: var(--sld-space-3);

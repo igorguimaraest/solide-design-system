@@ -14,7 +14,7 @@ A matriz normativa está em [`docs/audits/solide-visual-convergence-audit.md`](.
 Principais grupos:
 
 - Guide × UI Kit: ThemeToggle reduzido a botão de ícone; Alert/Banner ausente; checkbox do Guide neutro e checkbox do DataTable azul; Input usa `focus:` em vez de `:focus-visible`.
-- Padrões ausentes: Checkbox, Radio, Switch, Alert/Banner e ThemeToggle não têm contrato/componente reutilizável completo no UI Kit.
+- Padrões ausentes: Checkbox, Radio, Switch e Alert/Banner não têm componente reutilizável completo no UI Kit. ThemeToggle foi consolidado com tokens normativos, Guide, UI Kit, stories e testes.
 - Motion: Button perdeu press documentado; Tabs contém timing/easing literal; drawer/modal não transiciona; Sidebar usa `transition-all` sem easing semântico; hover não é protegido por cursor fino.
 - Encoding: 11 stories têm PT-BR corrompido (`??`/`?` no lugar de acentos).
 - Geometria: a documentação de App Shell afirma não autorizar mobile e, adiante, especifica o comportamento mobile.
@@ -48,4 +48,4 @@ Os artefatos gerados durante a investigação foram restaurados; nenhuma mudanç
 
 ## Próximo passo exato
 
-Aguardar aprovação de `docs/contracts/missing-component-contracts.md`; depois implementar os componentes da Fase B em uma etapa separada, começando por ThemeToggle e Checkbox.
+ThemeToggle está concluído. Antes de implementar Checkbox, aprovar a decisão VC-02 sobre seleção neutra versus accent; depois especificar/implementar Checkbox, Radio, Switch e Alert/Banner em etapas separadas.

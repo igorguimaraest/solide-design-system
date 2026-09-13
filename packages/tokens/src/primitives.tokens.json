@@ -559,6 +559,54 @@
     "$type": "string",
     "$value": "56px"
   },
+  "--sld-theme-toggle-track-w": {
+    "$type": "string",
+    "$value": "50px"
+  },
+  "--sld-theme-toggle-track-h": {
+    "$type": "string",
+    "$value": "26px"
+  },
+  "--sld-theme-toggle-track-px": {
+    "$type": "string",
+    "$value": "6px"
+  },
+  "--sld-theme-toggle-thumb-size": {
+    "$type": "string",
+    "$value": "20px"
+  },
+  "--sld-theme-toggle-thumb-inset-block": {
+    "$type": "string",
+    "$value": "2px"
+  },
+  "--sld-theme-toggle-thumb-inset-inline": {
+    "$type": "string",
+    "$value": "3px"
+  },
+  "--sld-theme-toggle-thumb-translate": {
+    "$type": "string",
+    "$value": "24px"
+  },
+  "--sld-theme-toggle-glyph-size": {
+    "$type": "string",
+    "$value": "14px"
+  },
+  "--sld-theme-toggle-icon-size": {
+    "$type": "string",
+    "$value": "11px"
+  },
+  "--sld-theme-toggle-duration-track": {
+    "$type": "string",
+    "$value": "220ms"
+  },
+  "--sld-theme-toggle-duration-thumb": {
+    "$type": "string",
+    "$value": "240ms"
+  },
+  "--sld-theme-toggle-duration-glyph": {
+    "$type": "string",
+    "$value": "200ms"
+  },
   "--sld-app-shell-header-left-w": {
     "$type": "string",
     "$value": "244px"

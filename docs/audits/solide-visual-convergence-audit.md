@@ -96,3 +96,8 @@ pm run test:tokens agora executa uild:tokens, valida o contrato e encerra com f
 ## Endurecimento concluído — verificação sem dist/
 
 erify-tokens.js não lê mais packages/tokens/dist/tokens.css. A verificação avalia o contrato canônico, referências, contraste e Brand Guide; 	est:tokens mantém a geração inicial e exige que qualquer derivado rastreado resultante esteja no commit. Assim, um checkout limpo não depende de artefato ignorado, e o build segue sendo o único responsável por produzir o pacote dist/.
+
+
+## ThemeToggle — implementação consolidada
+
+Tokens de geometria e motion extraídos do Brand Guide foram adicionados ao contrato (--sld-theme-toggle-*). O Guide agora os consome e o UI Kit fornece ThemeToggle, integrado ao Header, com ole=switch, ria-checked, tema claro/escuro, foco pelo token padrão e redução de motion. Stories cobrem light, dark e disabled; a suíte de UI cobre troca de estado e semântica. Checkbox, Radio, Switch e Alert/Banner continuam sem implementação, pois as decisões VC-01/VC-02 permanecem abertas.
