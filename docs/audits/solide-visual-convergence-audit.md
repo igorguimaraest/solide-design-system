@@ -101,3 +101,7 @@ pm run test:tokens agora executa uild:tokens, valida o contrato e encerra com f
 ## ThemeToggle — implementação consolidada
 
 Tokens de geometria e motion extraídos do Brand Guide foram adicionados ao contrato (--sld-theme-toggle-*). O Guide agora os consome e o UI Kit fornece ThemeToggle, integrado ao Header, com ole=switch, ria-checked, tema claro/escuro, foco pelo token padrão e redução de motion. Stories cobrem light, dark e disabled; a suíte de UI cobre troca de estado e semântica. Checkbox, Radio, Switch e Alert/Banner continuam sem implementação, pois as decisões VC-01/VC-02 permanecem abertas.
+
+## Consolidação da sessão — 2026-09-13
+
+VC-02 permanece **pendente de decisão**. As alterações locais incompletas que ensaiavam uma família de tokens para controles selecionados foram descartadas por autorização explícita; elas não integram o contrato, o Brand Guide, o UI Kit, os testes ou esta auditoria. A próxima sessão deve decidir, antes de implementar, se checkbox/radio/switch selecionados permanecem neutros ou passam a comunicar seleção por accent semântico.

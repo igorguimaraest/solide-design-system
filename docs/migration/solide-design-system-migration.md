@@ -1,51 +1,59 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-12  
-Branch: `codex/visual-convergence-audit`
+Atualizado em: 2026-09-13  
+Branch: `codex/visual-convergence-audit`  
+Último commit antes deste checkpoint: `5cf3a62 feat: add normative theme toggle`
 
-## Objetivo da etapa atual
+## Objetivo da etapa
 
-Consolidar a auditoria de convergência entre Brand Guide, contrato de tokens, UI Kit/Storybook, preview e documentação. Esta etapa é exclusivamente investigativa e documental: não altera tokens, componentes, estilos, motion, preview nem geometria.
+Consolidar a auditoria e estabilizar o estado documental do Solide Design System. Nenhuma nova correção visual ou componente deve ser iniciado sem a decisão explícita de VC-02.
 
-## Estado da auditoria
+## Concluído
 
-A matriz normativa está em [`docs/audits/solide-visual-convergence-audit.md`](../audits/solide-visual-convergence-audit.md). Foram registrados 18 achados: 0 Blocker, 10 High, 6 Medium e 2 Low.
+- Auditoria de convergência consolidada com 18 achados: 0 Blocker, 10 High, 6 Medium e 2 Low.
+- Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
+- ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
+- Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
 
-Principais grupos:
+## Principais achados
 
-- Guide × UI Kit: ThemeToggle reduzido a botão de ícone; Alert/Banner ausente; checkbox do Guide neutro e checkbox do DataTable azul; Input usa `focus:` em vez de `:focus-visible`.
-- Padrões ausentes: Checkbox, Radio, Switch e Alert/Banner não têm componente reutilizável completo no UI Kit. ThemeToggle foi consolidado com tokens normativos, Guide, UI Kit, stories e testes.
-- Motion: Button perdeu press documentado; Tabs contém timing/easing literal; drawer/modal não transiciona; Sidebar usa `transition-all` sem easing semântico; hover não é protegido por cursor fino.
-- Encoding: 11 stories têm PT-BR corrompido (`??`/`?` no lugar de acentos).
-- Geometria: a documentação de App Shell afirma não autorizar mobile e, adiante, especifica o comportamento mobile.
-- Integridade de tokens: a verificação de tokens independe de `dist/` ignorado; o build é o único responsável por gerar o pacote CSS; os derivados rastreados são protegidos por `test:tokens`.
+- Motion: Button sem press; Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`; hover sem guarda de cursor fino.
+- Encoding: 11 stories têm texto PT-BR corrompido.
+- Guide × UI Kit: Alert/Banner e os primitivos reutilizáveis de Checkbox, Radio e Switch estão ausentes; Input usa foco por mouse além de `focus-visible`.
+- Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
+- Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
-## Investigação do drift de tokens
+## VC-02 — pendente de decisão
 
-`solide-tokens.css` é a fonte canônica consumida por `packages/tokens/build/contract.js`. `build-tokens.js` gera `packages/tokens/dist/tokens.css` (ignorado), `src/primitives.tokens.json`, `src/semantic.tokens.json` e `src/mobile-theme.ts`.
+A decisão sobre o comportamento selecionado de checkbox, radio e switch permanece pendente. O Brand Guide mantém controles selecionados neutros, enquanto o DataTable usa seleção azul. Não foram preservadas alterações locais de VC-02: não houve mudança de tokens, Guide, UI Kit ou testes nesta consolidação. Antes de implementar, decidir explicitamente se o estado selecionado será neutro ou accent e, então, definir o contrato semântico correspondente.
 
-A falha inicial de `npm run test:tokens` foi causada por `verify-tokens.js` comparar diretamente o `dist/tokens.css` local sem construir antes. O arquivo ignorado era antigo. Duas gerações consecutivas produziram hashes idênticos, portanto não há indício de não determinismo. Não há evidência de edição manual ou defasagem de conteúdo nos derivados rastreados; a divergência confirmada era o CSS em `dist/` ignorado. O CI mascara o problema ao executar `npm run build` antes de `npm run test:tokens`.
+## Arquivos relevantes já consolidados
 
-Classificação: `TOKEN_CONTRACT_PROBLEM`, High. A proteção inicial foi implementada: `test:tokens` gera os derivados e falha se eles não forem incluídos no commit. O endurecimento foi concluído: `verify-tokens.js` não depende de `dist/`; o build produz o pacote e `test:tokens` protege os derivados rastreados.
+- `solide-tokens.css`
+- `packages/tokens/build/contract.js`
+- `packages/tokens/build/build-tokens.js`
+- `packages/tokens/build/verify-tokens.js`
+- `packages/ui-kit/src/molecules/ThemeToggle/`
+- `packages/ui-kit/src/organisms/Header/`
+- `docs/audits/solide-visual-convergence-audit.md`
+- `docs/contracts/missing-component-contracts.md`
 
-## Testes executados nesta etapa
+## Testes executados
 
 - `npm run build` — passou.
 - `npm run typecheck` — passou.
-- `npm run test:ui` — passou em 1440/390, light/dark, após instalar Chromium localmente; capturas geradas em `docs/consolidation/screenshots/` (ignorado).
-- `npm run test:tokens` antes de build — falhou com `Package CSS drift`.
-- `npm run build:tokens` duas vezes — saídas idênticas para CSS, JSONs e tema nativo.
-- `npm run test:tokens` após build — passou: 86 pares de contraste e 232 referências de componentes.
+- `npm run test:tokens` — passou após o endurecimento; a falha histórica por `Package CSS drift` foi reproduzida e atribuída ao `dist/` ignorado obsoleto.
+- `npm run test:ui` — passou em 1440/390, light/dark.
+- `npm run build:storybook` — passou.
+- `npm run lint` — passou.
 
-Os artefatos gerados durante a investigação foram restaurados; nenhuma mudança de implementação integra esta etapa.
+## Pendências
 
-## Contratos da Fase B`n`nA proposta de API, estados, semântica e critérios de aceite está em [`docs/contracts/missing-component-contracts.md`](../contracts/missing-component-contracts.md). Ela não autoriza implementação visual e mantém abertas as decisões VC-01 e VC-02.`n`n## Pendências
-
-- Aprovar a matriz de 18 achados e a classificação do drift.
-- Executar a comparação manual lado a lado no Work para 1440/light, 1440/dark, 390/light e 390/dark antes das correções perceptivas.
-- Decidir os contratos de seleção e a estratégia visual da warning action.
-- Definir a política de derivados de tokens e de verificação em checkout limpo.
+- Decidir VC-02 e só então definir o contrato semântico para checkbox/radio/switch.
+- Decidir VC-01 (ação warning).
+- Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
+- Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-ThemeToggle está concluído. Antes de implementar Checkbox, aprovar a decisão VC-02 sobre seleção neutra versus accent; depois especificar/implementar Checkbox, Radio, Switch e Alert/Banner em etapas separadas.
+Registrar a decisão de VC-02 sobre o comportamento selecionado de checkbox/radio/switch — neutro ou accent — antes de criar tokens, alterar o Brand Guide ou implementar qualquer componente.
