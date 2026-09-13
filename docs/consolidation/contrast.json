@@ -387,6 +387,33 @@
     "min": 4.5
   },
   {
+    "mode": "light",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-bg",
+    "a": "#FFFFFF",
+    "b": "#1D63D6",
+    "ratio": 5.51,
+    "min": 4.5
+  },
+  {
+    "mode": "light",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-hover-bg",
+    "a": "#FFFFFF",
+    "b": "#154FAF",
+    "ratio": 7.58,
+    "min": 4.5
+  },
+  {
+    "mode": "light",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-active-bg",
+    "a": "#FFFFFF",
+    "b": "#123F87",
+    "ratio": 10.06,
+    "min": 4.5
+  },
+  {
     "mode": "dark",
     "fg": "text-primary",
     "bg": "surface-canvas",
@@ -771,6 +798,33 @@
     "a": "#93BFFF",
     "b": "#203047",
     "ratio": 7.07,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-bg",
+    "a": "#121110",
+    "b": "#5C9EFF",
+    "ratio": 7,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-hover-bg",
+    "a": "#121110",
+    "b": "#93BFFF",
+    "ratio": 10,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "control-selected-fg",
+    "bg": "control-selected-active-bg",
+    "a": "#121110",
+    "b": "#2D7CF6",
+    "ratio": 4.78,
     "min": 4.5
   }
 ]

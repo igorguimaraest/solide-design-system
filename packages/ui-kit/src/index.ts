@@ -9,6 +9,9 @@ export * from './atoms/Input';
 export * from './atoms/Typography';
 export * from './atoms/Icon';
 export * from './atoms/Badge';
+export * from './atoms/Checkbox';
+export * from './atoms/Radio';
+export * from './atoms/Switch';
 
 // Molecules
 export * from './molecules/FormField';

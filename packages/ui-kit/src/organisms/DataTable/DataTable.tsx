@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DataTableProps, ColumnDef } from './DataTable.types';
 import { Icon } from '../../atoms/Icon';
+import { Checkbox } from '../../atoms/Checkbox';
 
 export function DataTable<T extends Record<string, any>>({
   columns,
@@ -22,8 +23,8 @@ export function DataTable<T extends Record<string, any>>({
   const allSelected = data.length > 0 && data.every(row => selectedIds.includes(String(row[keyField])));
   const someSelected = data.some(row => selectedIds.includes(String(row[keyField]))) && !allSelected;
 
-  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
       const allRowIds = data.map(r => String(r[keyField]));
       onSelectionChange?.([...new Set([...selectedIds, ...allRowIds])]);
     } else {
@@ -32,8 +33,8 @@ export function DataTable<T extends Record<string, any>>({
     }
   };
 
-  const handleSelectRow = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
+  const handleSelectRow = (id: string, checked: boolean) => {
+    if (checked) {
       onSelectionChange?.([...selectedIds, id]);
     } else {
       onSelectionChange?.(selectedIds.filter(i => i !== id));
@@ -58,13 +59,11 @@ export function DataTable<T extends Record<string, any>>({
             <tr className="bg-[var(--sld-surface-sunken)] border-b border-solide-subtle text-xs font-semibold text-solide-secondary">
               {onSelectionChange && (
                 <th className="w-10 px-4 py-3 text-center">
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={allSelected}
-                    ref={el => { if (el) el.indeterminate = someSelected; }}
-                    onChange={handleSelectAll}
+                    indeterminate={someSelected}
+                    onCheckedChange={handleSelectAll}
                     aria-label="Selecionar todos os registros visíveis"
-                    className="w-4 h-4 rounded border-[var(--solide-border-strong)] accent-[var(--sld-action-primary-bg)] sld-focus-ring focus:ring-[var(--sld-action-focusRing)] cursor-pointer"
                   />
                 </th>
               )}
@@ -109,12 +108,10 @@ export function DataTable<T extends Record<string, any>>({
                 >
                   {onSelectionChange && (
                     <td className="w-10 px-4 py-2.5 text-center">
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         checked={isSelected}
-                        onChange={e => handleSelectRow(rowId, e)}
+                        onCheckedChange={checked => handleSelectRow(rowId, checked)}
                         aria-label={`Selecionar registro ${rowId}`}
-                        className="w-4 h-4 rounded border-[var(--solide-border-strong)] accent-[var(--sld-action-primary-bg)] sld-focus-ring focus:ring-[var(--sld-action-focusRing)] cursor-pointer"
                       />
                     </td>
                   )}

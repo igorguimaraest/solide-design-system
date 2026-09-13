@@ -1,17 +1,17 @@
 # Fase B — contratos de componentes ausentes
 
-Status: proposta documental para aprovação. Não autoriza implementação visual, token novo ou alteração do Brand Guide.
+Status: contratos de VC-02 aprovados e implementados; Alert/Banner continua pendente de VC-01.
 
 ## Fonte e limites
 
 - Referência visual: `solide-brand-guide.html` — ThemeToggle (linhas 735–869 e 5220–5228), controles de seleção (2489–2751 e 6814–6921) e Alert/Banner (1498–1538 e 7329–7377).
-- Tokens permitidos são apenas os existentes em `solide-tokens.css`.
-- VC-02 foi decidida em 2026-09-13: `checked`, `indeterminate` e `on` usam accent semântico de seleção. A decisão não autoriza reutilizar `action-primary`; o par próprio de tokens de controle ainda precisa ser especificado antes da implementação.
+- A fonte canônica de tokens é `solide-tokens.css`.
+- VC-02 foi decidida e implementada em 2026-09-13: `checked`, `indeterminate` e `on` usam accent semântico de seleção por meio da família própria `--sld-control-selected-*`, sem reutilizar `action-primary`.
 - A ação de warning permanece aberta (VC-01). O contrato não prescreve preenchimento para a ação.
 
 ## Contrato cromático proposto para VC-02
 
-Status: **aguardando validação; não implementado**.
+Status: **aprovado e implementado em VC-02; validação visual automatizada pendente por ausência do Chromium no ambiente**.
 
 | Token semântico proposto | Light | Dark | Responsabilidade |
 | --- | --- | --- | --- |
@@ -22,6 +22,8 @@ Status: **aguardando validação; não implementado**.
 | `--sld-control-selected-active-bg` | `--sld-palette-cobalt-800` (`#123F87`) | `--sld-palette-cobalt-500` (`#2D7CF6`) | Feedback de pressionamento do controle já selecionado. |
 
 O mapeamento cromático coincide inicialmente com parte da escala usada por ações primárias, mas os papéis não são aliases entre si. Componentes de seleção consumirão apenas `--sld-control-selected-*`; alterações futuras em botões não poderão mudar controles por efeito colateral.
+
+`--sld-control-selected-border` permanece separado mesmo quando coincide com `selected-bg` em Checkbox e Radio preenchidos. Essa separação é intencional: borda e preenchimento podem divergir futuramente em outros controles ou estados sem mudança de API. No Switch, `--sld-control-selected-fg` é restrito ao thumb ou a eventual ícone interno; label e descrição continuam usando os tokens tipográficos normais e nunca herdam `selected-fg`.
 
 ### Contraste calculado do glifo
 
@@ -128,7 +130,7 @@ Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver 
 
 ## Critérios de aceite antes da implementação
 
-1. Aprovar o contrato proposto `--sld-control-selected-*` antes de adicioná-lo a `solide-tokens.css`.
+1. Contrato `--sld-control-selected-*` aprovado e adicionado a `solide-tokens.css`.
 2. Aprovar a composição e contraste da ação warning.
 3. Criar stories para cada estado obrigatório e combinações light/dark.
 4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px.

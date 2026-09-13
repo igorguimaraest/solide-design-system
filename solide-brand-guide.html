@@ -2563,20 +2563,11 @@ kbd {
 }
 
 .solide-switch input:checked + .solide-switch-track {
-  background-color: var(--solide-neutral-900);
-}
-
-[data-theme="dark"] .solide-switch input:checked + .solide-switch-track,
-[data-theme="blueprint"] .solide-switch input:checked + .solide-switch-track {
-  background-color: var(--solide-neutral-100);
-}
-
-[data-theme="dark"] .solide-switch input:checked + .solide-switch-track::before,
-[data-theme="blueprint"] .solide-switch input:checked + .solide-switch-track::before {
-  background-color: var(--solide-neutral-900);
+  background-color: var(--sld-control-selected-bg);
 }
 
 .solide-switch input:checked + .solide-switch-track::before {
+  background-color: var(--sld-control-selected-fg);
   transform: translateX(16px);
 }
 
@@ -2646,16 +2637,8 @@ kbd {
 
 .solide-checkbox:checked,
 .solide-radio:checked {
-  background: var(--solide-neutral-900);
-  border-color: var(--solide-neutral-900);
-}
-
-[data-theme="dark"] .solide-checkbox:checked,
-[data-theme="dark"] .solide-radio:checked,
-[data-theme="blueprint"] .solide-checkbox:checked,
-[data-theme="blueprint"] .solide-radio:checked {
-  background: var(--solide-neutral-100);
-  border-color: var(--solide-neutral-100);
+  background: var(--sld-control-selected-bg);
+  border-color: var(--sld-control-selected-border);
 }
 
 .solide-checkbox::before {
@@ -2664,13 +2647,8 @@ kbd {
   height: 6px;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   transform: scale(0);
-  background: var(--solide-neutral-0);
+  background: var(--sld-control-selected-fg);
   transition: transform 0.12s ease-in-out;
-}
-
-[data-theme="dark"] .solide-checkbox::before,
-[data-theme="blueprint"] .solide-checkbox::before {
-  background: var(--solide-neutral-900);
 }
 
 .solide-checkbox:checked::before {
@@ -2679,14 +2657,8 @@ kbd {
 
 /* Estado Intermediário / Indeterminate */
 .solide-checkbox:indeterminate {
-  background: var(--solide-neutral-900);
-  border-color: var(--solide-neutral-900);
-}
-
-[data-theme="dark"] .solide-checkbox:indeterminate,
-[data-theme="blueprint"] .solide-checkbox:indeterminate {
-  background: var(--solide-neutral-100);
-  border-color: var(--solide-neutral-100);
+  background: var(--sld-control-selected-bg);
+  border-color: var(--sld-control-selected-border);
 }
 
 .solide-checkbox:indeterminate::before {
@@ -2696,12 +2668,7 @@ kbd {
   clip-path: none;
   border-radius: 1px;
   transform: scale(1);
-  background: var(--solide-neutral-0);
-}
-
-[data-theme="dark"] .solide-checkbox:indeterminate::before,
-[data-theme="blueprint"] .solide-checkbox:indeterminate::before {
-  background: var(--solide-neutral-900);
+  background: var(--sld-control-selected-fg);
 }
 
 .solide-radio::before {
@@ -2710,13 +2677,8 @@ kbd {
   height: 6px;
   border-radius: 50%;
   transform: scale(0);
-  background: var(--solide-neutral-0);
+  background: var(--sld-control-selected-fg);
   transition: transform 0.12s ease-in-out;
-}
-
-[data-theme="dark"] .solide-radio::before,
-[data-theme="blueprint"] .solide-radio::before {
-  background: var(--solide-neutral-900);
 }
 
 .solide-radio:checked::before {
@@ -2734,6 +2696,22 @@ kbd {
   cursor: not-allowed !important;
   opacity: 0.45;
   pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .solide-switch input:checked:not(:disabled) + .solide-switch-track:hover,
+  .solide-checkbox:checked:not(:disabled):hover,
+  .solide-checkbox:indeterminate:not(:disabled):hover,
+  .solide-radio:checked:not(:disabled):hover {
+    background: var(--sld-control-selected-hover-bg);
+  }
+}
+
+.solide-switch input:checked:not(:disabled) + .solide-switch-track:active,
+.solide-checkbox:checked:not(:disabled):active,
+.solide-checkbox:indeterminate:not(:disabled):active,
+.solide-radio:checked:not(:disabled):active {
+  background: var(--sld-control-selected-active-bg);
 }
 
 .solide-checkbox:disabled:hover,
@@ -5713,6 +5691,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-text-secondary);border-radius:var(--r)"></div><code>--sld-text-secondary</code><span data-token-value="--sld-text-secondary"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-text-muted);border-radius:var(--r)"></div><code>--sld-text-muted</code><span data-token-value="--sld-text-muted"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-action-focusRing);border-radius:var(--r)"></div><code>--sld-action-focusRing</code><span data-token-value="--sld-action-focusRing"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-control-selected-bg);border-radius:var(--r)"></div><code>--sld-control-selected-bg</code><span data-token-value="--sld-control-selected-bg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-control-selected-border);border-radius:var(--r)"></div><code>--sld-control-selected-border</code><span data-token-value="--sld-control-selected-border"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-control-selected-fg);border-radius:var(--r)"></div><code>--sld-control-selected-fg</code><span data-token-value="--sld-control-selected-fg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-control-selected-hover-bg);border-radius:var(--r)"></div><code>--sld-control-selected-hover-bg</code><span data-token-value="--sld-control-selected-hover-bg"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-control-selected-active-bg);border-radius:var(--r)"></div><code>--sld-control-selected-active-bg</code><span data-token-value="--sld-control-selected-active-bg"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-selection-bg);border-radius:var(--r)"></div><code>--sld-selection-bg</code><span data-token-value="--sld-selection-bg"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-selection-text);border-radius:var(--r)"></div><code>--sld-selection-text</code><span data-token-value="--sld-selection-text"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-disabled-bg);border-radius:var(--r)"></div><code>--sld-disabled-bg</code><span data-token-value="--sld-disabled-bg"></span></div>

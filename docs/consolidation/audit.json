@@ -49,6 +49,12 @@
       "colorLiterals": 0
     },
     {
+      "path": "docs/audits/solide-visual-convergence-audit.md",
+      "bytes": 15771,
+      "sha256": "4648c09f4338a5b9ad747031045db10fcbc6086ad7b5426d7397d93b68fcd884",
+      "colorLiterals": 0
+    },
+    {
       "path": "docs/consolidation/README.md",
       "bytes": 2284,
       "sha256": "c74454b773273a3cdc3c73e578d6d9a8b697c2e9fd0d085fb8cecb8cb975d3ae",
@@ -56,21 +62,27 @@
     },
     {
       "path": "docs/consolidation/audit.json",
-      "bytes": 409302,
-      "sha256": "3079967e387bb14c36acd9cfe375a63e6bb0a9c0ec0d5a9b1786056f4522283d",
+      "bytes": 411662,
+      "sha256": "790fe0558c540e7a2fc7ca09589e5dd871d3ec96de1ee285914c9738aedf764d",
       "colorLiterals": 9
     },
     {
       "path": "docs/consolidation/contrast.json",
-      "bytes": 13905,
-      "sha256": "e168faafd2f36214cbdc2a82a22b0173546cead3cacb2879c2eadc434e1fc5e0",
-      "colorLiterals": 172
+      "bytes": 14944,
+      "sha256": "bfc1dbc30941456e97674e44835615d9ef6b17784050cfe0c626027c4f538830",
+      "colorLiterals": 184
     },
     {
       "path": "docs/consolidation/palette-mapping.json",
       "bytes": 617,
       "sha256": "3237191a3802f680c7cbe11b17eb23e0735b792d6f8264f85782b1691e31efa9",
       "colorLiterals": 0
+    },
+    {
+      "path": "docs/contracts/missing-component-contracts.md",
+      "bytes": 7330,
+      "sha256": "1732d186d701c475458ad21ab6894f2e8478fce28d5f02d40c30724bf73c93fb",
+      "colorLiterals": 10
     },
     {
       "path": "docs/geometry/app-shell-sidebar.md",
@@ -80,8 +92,8 @@
     },
     {
       "path": "docs/migration/solide-design-system-migration.md",
-      "bytes": 4196,
-      "sha256": "b4140220915f4db01d52b350ce1d8cb4abf2642bf76347768a2aaaa6907e7a87",
+      "bytes": 3984,
+      "sha256": "0d6beb35ce53df58fd38d39f6fb86fb8858683717bbfd76d2ccfa865f8250f3e",
       "colorLiterals": 0
     },
     {
@@ -12494,8 +12506,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1383,
-      "sha256": "8a96923bfcdd686e69ede7ee82aa18e7e678d10f0449cc918fdac15171bb082e",
+      "bytes": 1587,
+      "sha256": "3c2ba7b4dabe9d600d7c7f3caa4538c3ff4081bf013e0aad34b704b7713b99e4",
       "colorLiterals": 0
     },
     {
@@ -12554,8 +12566,8 @@
     },
     {
       "path": "packages/tokens/build/verify-tokens.js",
-      "bytes": 3162,
-      "sha256": "55e72a35cfc8a23ab627120e921e794d018d9c370d0d188baa2dab208f9a5538",
+      "bytes": 3246,
+      "sha256": "6cebbba314305fd0dfbdb6da5803e903d8cb74b39f55da956c07eaceecb40642",
       "colorLiterals": 0
     },
     {
@@ -12578,14 +12590,14 @@
     },
     {
       "path": "packages/tokens/src/primitives.tokens.json",
-      "bytes": 21718,
-      "sha256": "2d7f0a54e8ff1300ad251b21060120cb337211f05570bcd8c8ba4da88ccef418",
+      "bytes": 22773,
+      "sha256": "c5225226a9a3bad5b1b6a6504e66b04b9689766bfa86072988264fcc846cebd2",
       "colorLiterals": 124
     },
     {
       "path": "packages/tokens/src/semantic.tokens.json",
-      "bytes": 44600,
-      "sha256": "04ae5449c920e73850c4744b8af9a34386bf029eaf3fb0be31fdc094badde351",
+      "bytes": 45858,
+      "sha256": "3d72b9dc7cf4fc328f5481cc0cdb28b90bbfa232bfecf817b2b7de8883903964",
       "colorLiterals": 2
     },
     {
@@ -12746,8 +12758,8 @@
     },
     {
       "path": "packages/ui-kit/src/index.ts",
-      "bytes": 704,
-      "sha256": "4e2cdb901d4e1d6ecb0700185d41b7c9068bbd811bb3f209f01389ecc60db261",
+      "bytes": 842,
+      "sha256": "838d54ee0347952d05b40a16a46d3d9aee741e9b2d04a40dca926e538aec3e02",
       "colorLiterals": 0
     },
     {
@@ -12847,6 +12859,30 @@
       "colorLiterals": 0
     },
     {
+      "path": "packages/ui-kit/src/molecules/ThemeToggle/ThemeToggle.stories.tsx",
+      "bytes": 646,
+      "sha256": "06c13c9f7787251399bbbbd12968d24c0cf611b5f59340639be04feb138487be",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/ThemeToggle/ThemeToggle.tsx",
+      "bytes": 2889,
+      "sha256": "dd6df29a2d5f56757b7ba3e1b062723e9b190af84327db629239e84ec5799075",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/ThemeToggle/ThemeToggle.types.ts",
+      "bytes": 192,
+      "sha256": "ab826373069387be04c622e8221ba585f14706f076439dd34c3c5282095c2e2e",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/ThemeToggle/index.ts",
+      "bytes": 68,
+      "sha256": "5d6d2147912b34f0b064bc6656e5c1a2fcc0e40434b9e1a98069b6a345cf8b33",
+      "colorLiterals": 0
+    },
+    {
       "path": "packages/ui-kit/src/organisms/DataTable/DataTable.stories.tsx",
       "bytes": 2067,
       "sha256": "ca5073db23dd2d8edc0aac4a0d84b51f854e40b1ed5f0b926de5f00ce2705fb7",
@@ -12854,8 +12890,8 @@
     },
     {
       "path": "packages/ui-kit/src/organisms/DataTable/DataTable.tsx",
-      "bytes": 8243,
-      "sha256": "87e66b2cf015aa6347df71e44043cabddcdb985c0b0ea80b8274386c9094f4e3",
+      "bytes": 7766,
+      "sha256": "592006082c3879653cc7f17523171ff6dec3b9167dc3e023c5aac4dad8779397",
       "colorLiterals": 0
     },
     {
@@ -12902,8 +12938,8 @@
     },
     {
       "path": "packages/ui-kit/src/organisms/Header/Header.tsx",
-      "bytes": 3825,
-      "sha256": "d280808d67f632fd8a6d8267173ddc900147e8a7d9fb2efad9dcc6cf5290202f",
+      "bytes": 3539,
+      "sha256": "d7c404c2c42884de77a535b17db4b4ac51148840371bf136b946c110425b6374",
       "colorLiterals": 0
     },
     {
@@ -13016,8 +13052,8 @@
     },
     {
       "path": "preview/main.tsx",
-      "bytes": 3145,
-      "sha256": "d0ad43990a5097adaac775466a4c89666555e4b3581ce8e791960ea4d3480f4f",
+      "bytes": 3854,
+      "sha256": "7fcfaaf791050abccfadfa29d4765fb32fcbcfa0d50c0e9294ec89a7c35f9883",
       "colorLiterals": 0
     },
     {
@@ -13034,8 +13070,8 @@
     },
     {
       "path": "solide-brand-guide.html",
-      "bytes": 568599,
-      "sha256": "01ffc7f071d99d2133a6f5393937c34cc4a1124f523605421edca83c5d22843c",
+      "bytes": 569936,
+      "sha256": "f15a561be22c7609e1061824428968428a8f98f70c9d2cf0db50a612f4c559c9",
       "colorLiterals": 96
     },
     {
@@ -13106,8 +13142,8 @@
     },
     {
       "path": "solide-tokens.css",
-      "bytes": 41265,
-      "sha256": "4e85c83df9735925408147fdbacf5b4207cd838dcd82a73d2a5be9f51eb6f7e0",
+      "bytes": 42769,
+      "sha256": "a95695102eede4ef4da2043fb864541fa922df2a5307532eea3dfa147992f3ae",
       "colorLiterals": 127
     },
     {
@@ -13130,9 +13166,9 @@
     },
     {
       "path": "tests/system.spec.ts",
-      "bytes": 3585,
-      "sha256": "9a96a991cda20de71e3440dc7962c7ea526434a9138a7d101d6c558e5c77ae32",
-      "colorLiterals": 9
+      "bytes": 5327,
+      "sha256": "3e518feff8c5452c7fab0f4e8177f64be46293507c2244f6c7c7f01d2d7bce62",
+      "colorLiterals": 15
     },
     {
       "path": "tsconfig.base.json",
@@ -13359,14 +13395,40 @@
       ]
     },
     {
+      "path": "packages/ui-kit/src/molecules/ThemeToggle/ThemeToggle.tsx",
+      "tokens": [
+        "--sld-radius-full",
+        "--sld-theme-toggle-track-w",
+        "--sld-theme-toggle-track-h",
+        "--sld-theme-toggle-track-px",
+        "--sld-border-subtle",
+        "--sld-surface-shell",
+        "--sld-border-strong",
+        "--sld-border-default",
+        "--sld-theme-toggle-duration-track",
+        "--sld-easingSnappy",
+        "--sld-theme-toggle-glyph-size",
+        "--sld-text-muted",
+        "--sld-theme-toggle-duration-glyph",
+        "--sld-theme-toggle-thumb-inset-block",
+        "--sld-theme-toggle-thumb-inset-inline",
+        "--sld-theme-toggle-thumb-size",
+        "--sld-surface-card",
+        "--sld-text-primary",
+        "--sld-shadow-xs",
+        "--sld-theme-toggle-duration-thumb",
+        "--sld-theme-toggle-thumb-translate",
+        "--sld-theme-toggle-icon-size"
+      ],
+      "hardcodedColors": 0,
+      "arbitraryDimensions": []
+    },
+    {
       "path": "packages/ui-kit/src/organisms/DataTable/DataTable.tsx",
       "tokens": [
         "--sld-radius-lg",
         "--sld-shadow-xs",
         "--sld-surface-sunken",
-        "--solide-border-strong",
-        "--sld-action-primary-bg",
-        "--sld-action-focusRing",
         "--sld-border-default",
         "--sld-table-row-h",
         "--sld-selection-bg"

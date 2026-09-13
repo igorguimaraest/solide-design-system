@@ -85,6 +85,26 @@
         "$type": "string",
         "$value": "var(--sld-palette-cobalt-600)"
       },
+      "--sld-control-selected-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-600)"
+      },
+      "--sld-control-selected-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-600)"
+      },
+      "--sld-control-selected-fg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-0)"
+      },
+      "--sld-control-selected-hover-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-700)"
+      },
+      "--sld-control-selected-active-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-800)"
+      },
       "--sld-disabled-bg": {
         "$type": "string",
         "$value": "var(--sld-palette-warm-150)"
@@ -858,6 +878,26 @@
       "--sld-selection-border": {
         "$type": "string",
         "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-control-selected-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-control-selected-border": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-control-selected-fg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-control-selected-hover-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-300)"
+      },
+      "--sld-control-selected-active-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-cobalt-500)"
       },
       "--sld-disabled-bg": {
         "$type": "string",

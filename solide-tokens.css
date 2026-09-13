@@ -298,6 +298,11 @@
   --sld-selection-bg: var(--sld-palette-cobalt-100);
   --sld-selection-text: var(--sld-palette-cobalt-700);
   --sld-selection-border: var(--sld-palette-cobalt-600);
+  --sld-control-selected-bg: var(--sld-palette-cobalt-600);
+  --sld-control-selected-border: var(--sld-palette-cobalt-600);
+  --sld-control-selected-fg: var(--sld-palette-warm-0);
+  --sld-control-selected-hover-bg: var(--sld-palette-cobalt-700);
+  --sld-control-selected-active-bg: var(--sld-palette-cobalt-800);
   --sld-disabled-bg: var(--sld-palette-warm-150);
   --sld-disabled-fg: var(--sld-palette-warm-600);
   --sld-chart-grid: var(--sld-palette-warm-200);
@@ -495,6 +500,11 @@
   --sld-selection-bg: var(--sld-palette-cobalt-subtle-dark);
   --sld-selection-text: var(--sld-palette-cobalt-300);
   --sld-selection-border: var(--sld-palette-cobalt-400);
+  --sld-control-selected-bg: var(--sld-palette-cobalt-400);
+  --sld-control-selected-border: var(--sld-palette-cobalt-400);
+  --sld-control-selected-fg: var(--sld-palette-warm-950);
+  --sld-control-selected-hover-bg: var(--sld-palette-cobalt-300);
+  --sld-control-selected-active-bg: var(--sld-palette-cobalt-500);
   --sld-disabled-bg: var(--sld-palette-warm-800);
   --sld-disabled-fg: var(--sld-palette-warm-500);
   --sld-chart-grid: var(--sld-palette-warm-750);
@@ -692,6 +702,11 @@
   --sld-selection-bg: var(--sld-palette-cobalt-subtle-dark);
   --sld-selection-text: var(--sld-palette-cobalt-300);
   --sld-selection-border: var(--sld-palette-cobalt-400);
+  --sld-control-selected-bg: var(--sld-palette-cobalt-400);
+  --sld-control-selected-border: var(--sld-palette-cobalt-400);
+  --sld-control-selected-fg: var(--sld-palette-warm-950);
+  --sld-control-selected-hover-bg: var(--sld-palette-cobalt-300);
+  --sld-control-selected-active-bg: var(--sld-palette-cobalt-500);
   --sld-disabled-bg: var(--sld-palette-warm-800);
   --sld-disabled-fg: var(--sld-palette-warm-500);
   --sld-chart-grid: var(--sld-palette-warm-750);

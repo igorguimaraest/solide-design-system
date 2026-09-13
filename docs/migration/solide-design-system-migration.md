@@ -2,11 +2,11 @@
 
 Atualizado em: 2026-09-13  
 Branch: `codex/visual-convergence-audit`  
-Último commit antes deste checkpoint: `5cf3a62 feat: add normative theme toggle`
+Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida; nenhuma implementação deve começar antes da especificação do contrato semântico correspondente.
+Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida e implementada localmente; sua confirmação visual permanece pendente por indisponibilidade do Chromium neste ambiente.
 
 ## Concluído
 
@@ -14,6 +14,7 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
+- VC-02 aprovada e implementada: cinco tokens semânticos próprios; Guide e DataTable migrados; Checkbox, Radio e Switch adicionados ao UI Kit com stories, preview e cobertura Playwright.
 
 ## Principais achados
 
@@ -23,9 +24,9 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
-## VC-02 — decisão registrada
+## VC-02 — implementada
 
-Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent semântico de seleção. O Brand Guide neutro é considerado legado; o checkbox azul do DataTable tem a direção visual correta, mas o acoplamento a `--sld-action-primary-bg` é semanticamente incorreto. Foi proposta, sem implementação, a família `--sld-control-selected-*` para background, border, foreground, hover e active em light/dark; o detalhamento e os contrastes estão em `docs/contracts/missing-component-contracts.md`.
+Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent semântico de seleção por meio da família `--sld-control-selected-*`. O Brand Guide neutro foi migrado; o checkbox do DataTable não consome mais `--sld-action-primary-bg`. `selected-border` é independente de `selected-bg`, e no Switch `selected-fg` é usado somente no thumb/ícone. Os contrastes dos glifos variam de 4,78:1 a 10,06:1.
 
 ## Arquivos relevantes já consolidados
 
@@ -46,14 +47,16 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usarão accent s
 - `npm run test:ui` — passou em 1440/390, light/dark.
 - `npm run build:storybook` — passou.
 - `npm run lint` — passou.
+- VC-02: `npm run typecheck`, `npm run build:storybook`, `npm run lint` e `node packages/tokens/build/verify-tokens.js` passaram; o verificador cobre 92 pares de contraste e 329 referências de componentes.
+- VC-02: `npm run test:ui` foi atualizado, mas os cinco cenários não iniciaram porque o executável Chromium não existe neste ambiente. Não houve falha de asserção da interface.
 
 ## Pendências
 
-- Validar a proposta de tokens `--sld-control-selected-*` antes de alterar checkbox/radio/switch.
+- Executar a confirmação visual automatizada de VC-02 quando o Chromium estiver disponível.
 - Decidir VC-01 (ação warning).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-Aprovar ou ajustar a proposta `--sld-control-selected-*`. Somente após aprovação, adicioná-la ao contrato canônico e migrar Brand Guide, DataTable e os futuros Checkbox/Radio/Switch em uma etapa separada.
+Executar `npm run test:ui` com Chromium disponível e inspecionar Checkbox, Radio e Switch em 1440/light, 1440/dark, 390/light e 390/dark. Se passarem, encerrar VC-02 e retornar à decisão VC-01 sem misturar as etapas.

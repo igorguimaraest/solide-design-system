@@ -30,6 +30,9 @@ for(const mode of ['light','dark']){
   check(mode,`status-${tone}-on-solid`,`status-${tone}-solid`,4.5);
  }
  check(mode,'selection-text','selection-bg',4.5);
+ check(mode,'control-selected-fg','control-selected-bg',4.5);
+ check(mode,'control-selected-fg','control-selected-hover-bg',4.5);
+ check(mode,'control-selected-fg','control-selected-active-bg',4.5);
 }
 const steps=Object.entries(c.fixed).filter(([k])=>k.startsWith('--sld-palette-warm-')).sort((a,b)=>Number(a[0].split('-').pop())-Number(b[0].split('-').pop()));
 for(let i=1;i<steps.length;i++)assert(lum(c.resolve(steps[i-1][0],'light'))>lum(c.resolve(steps[i][0],'light')),'Warm scale luminance reversed');
