@@ -1,6 +1,6 @@
 # Auditoria de convergência visual — Solide
 
-Data: 2026-09-12  
+Data: 2026-09-12
 Escopo: `main` consolidada, sem alterações de implementação.
 
 ## Método e cobertura
@@ -68,12 +68,12 @@ Revisar lado a lado no Work as combinações 1440/light, 1440/dark, 390/light e 
 | Descrição | `npm run test:tokens`, em um checkout limpo que ainda contém `packages/tokens/dist/tokens.css` local, falha com `Package CSS drift`. |
 | Causa identificada | O verificador lê diretamente `packages/tokens/dist/tokens.css`, mas esse diretório é ignorado pelo Git e `test:tokens` não executa o gerador antes de comparar. O `dist/tokens.css` local era um artefato de geração anterior e não correspondia a `solide-tokens.css`. |
 | Fonte canônica | `solide-tokens.css`, lido por `packages/tokens/build/contract.js`. |
-| Artefatos desatualizados | O build reescreve `packages/tokens/dist/tokens.css` (ignorado), `packages/tokens/src/primitives.tokens.json`, `packages/tokens/src/semantic.tokens.json` e `packages/tokens/src/mobile-theme.ts`. Os três últimos são rastreados e diferem do resultado atual do gerador. |
+| Artefatos desatualizados | O build reescreve `packages/tokens/dist/tokens.css` (ignorado), `packages/tokens/src/primitives.tokens.json`, `packages/tokens/src/semantic.tokens.json` e `packages/tokens/src/mobile-theme.ts`. Na investigação, os três últimos não apresentaram diferença de conteúdo em relação ao HEAD após a normalização de fim de linha; eles permanecem incluídos na proteção preventiva. |
 | Determinismo | Duas execuções consecutivas de `npm run build:tokens` produziram hashes idênticos para os quatro artefatos. Não há evidência de geração não determinística. |
-| Build/manual | A causa operacional imediata é a ausência de build antes do teste local. O histórico não permite provar edição manual dos três arquivos rastreados; o fato verificável é que o conteúdo commitado está defasado em relação ao gerador atual. |
+| Build/manual | A causa operacional imediata é a ausência de build antes do teste local. Não há evidência de edição manual dos derivados rastreados nem de conteúdo commitado defasado; a divergência confirmada é exclusivamente o CSS em `dist/` ignorado. |
 | Pipeline | `.github/workflows/ci.yml` executa `npm run build` antes de `npm run test:tokens`, mascarando o drift no checkout: o build o regenera antes da asserção. O comando isolado continua vulnerável a falha por `dist` ausente/obsoleto. |
 | Arquivos e scripts | `solide-tokens.css`; `packages/tokens/build/contract.js`; `build-tokens.js`; `verify-tokens.js`; `packages/tokens/dist/tokens.css`; `packages/tokens/src/{primitives.tokens.json,semantic.tokens.json,mobile-theme.ts}`; `package.json`; `.github/workflows/ci.yml`. |
-| Impacto | A promessa de fonte única de verdade não é verificável de modo confiável em checkout limpo/local, e artefatos publicados/consumidos podem divergir do contrato até que o build seja executado. |
+| Impacto | A promessa de fonte única de verdade não é verificável de modo confiável em checkout limpo/local, e o pacote local pode divergir do contrato até que o build seja executado. |
 | Classificação/severidade | `TOKEN_CONTRACT_PROBLEM` — **High**. Não é Blocker porque o gerador é determinístico e o CI constrói antes de validar, mas deve preceder toda correção visual. |
 | Recomendação | Na Fase A, definir uma única estratégia: gerar antes de verificar, verificar os artefatos rastreados contra o contrato, e remover a dependência implícita de um `dist` ignorado. Decidir conscientemente se os derivados devem ser rastreados ou sempre produzidos no empacotamento. Não executar nesta etapa. |
 
@@ -86,3 +86,8 @@ O total da auditoria passa a **18** achados: 0 Blocker, 10 High, 6 Medium e 2 Lo
 3. **Fase C — convergência visual:** decidir checkbox neutro × azul e warning action; corrigir contraste, bordas, ícones/texto apagados, affordance do Ghost, ThemeToggle dark e estados selected/hover/focus.
 4. **Fase D — motion:** Button press, tabs, drawer, modal e Sidebar; aplicar guard de hover para cursor fino e `motion-reduce` em cada componente.
 5. **Fase E — higiene e cobertura:** corrigir encoding dos stories, ampliar preview/stories/estados e executar validação visual final em desktop/mobile/light/dark.
+
+## Remediação da Fase A — 2026-09-12
+
+Implementada a proteção mínima de integridade:
+pm run test:tokens agora executa uild:tokens, valida o contrato e encerra com falha se mobile-theme.ts, os dois JSONs derivados ou contrast.json ficarem divergentes do commit. Os artefatos rastreados foram regenerados a partir de solide-tokens.css. O dist/ continua ignorado e é sempre reconstruído; a eliminação definitiva da dependência de dist dentro de erify-tokens.js permanece uma melhoria de infraestrutura para revisão posterior.
