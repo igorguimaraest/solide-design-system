@@ -93,7 +93,7 @@ export function SegmentedTabs<T extends string = string>({
               ${
                 isSelected
                   ? 'bg-[var(--solide-bg-surface-elevated)] text-[var(--solide-text-primary)] font-semibold shadow-xs'
-                  : 'bg-transparent text-[var(--solide-text-secondary)] font-medium hover:text-[var(--solide-text-primary)]'
+                  : 'bg-transparent text-[var(--solide-text-secondary)] font-medium [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--solide-text-primary)]'
               }
             `.trim().replace(/\s+/g, ' ')}
           >

@@ -35,7 +35,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Fechar diálogo"
-          className="p-1.5 rounded-[var(--sld-radius-md)] text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
+          className="p-1.5 rounded-[var(--sld-radius-md)] text-[var(--solide-text-muted)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--solide-text-primary)] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
         >
           <Icon name="x" size="md" />
         </button>

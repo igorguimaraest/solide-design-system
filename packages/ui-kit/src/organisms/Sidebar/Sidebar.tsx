@@ -35,7 +35,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     className={`relative flex items-center ${isCompact ? 'justify-center px-0' : 'justify-between px-3'} h-[var(--sld-sidebar-nav-h)] rounded-[var(--sld-radius-md)] text-sm font-medium transition-colors sld-focus-ring ${
                       active
                         ? 'bg-[var(--sld-selection-bg)] text-[var(--sld-selection-text)] font-semibold'
-                        : 'text-solide-secondary hover:bg-[var(--sld-action-ghost-hover)] hover:text-solide-primary'
+                        : 'text-solide-secondary [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-solide-primary'
                     }`}
                   >
                     {/* Aba Indicadora T?til Solide */}
@@ -79,7 +79,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             type="button"
             onClick={onToggleCompact}
-            className="w-full flex items-center justify-center p-2 rounded-[var(--sld-radius-md)] text-solide-tertiary hover:bg-[var(--sld-action-ghost-hover)] hover:text-solide-primary transition-colors sld-focus-ring"
+            className="w-full flex items-center justify-center p-2 rounded-[var(--sld-radius-md)] text-solide-tertiary [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-solide-primary transition-colors sld-focus-ring"
             aria-label={isCompact ? 'Expandir barra lateral' : 'Recolher barra lateral'}
           >
             <Icon name={isCompact ? 'chevron-right' : 'chevron-down'} size="sm" />

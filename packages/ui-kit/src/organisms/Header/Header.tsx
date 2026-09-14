@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onMenuToggle}
-            className="p-1.5 rounded-[var(--sld-radius-md)] text-solide-secondary hover:text-solide-primary hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring"
+            className="p-1.5 rounded-[var(--sld-radius-md)] text-solide-secondary [@media(hover:hover)_and_(pointer:fine)]:hover:text-solide-primary [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring"
             aria-label="Alternar navegação"
           >
             <Icon name="menu" size="md" />
@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onSearchClick}
-            className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs text-solide-tertiary bg-solide-surface-sunken border border-solide-subtle rounded-[var(--sld-radius-md)] hover:border-solide-strong transition-colors sld-focus-ring"
+            className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-xs text-solide-tertiary bg-solide-surface-sunken border border-solide-subtle rounded-[var(--sld-radius-md)] [@media(hover:hover)_and_(pointer:fine)]:hover:border-solide-strong transition-colors sld-focus-ring"
           >
             <Icon name="search" size="sm" />
             <span>Buscar no sistema...</span>

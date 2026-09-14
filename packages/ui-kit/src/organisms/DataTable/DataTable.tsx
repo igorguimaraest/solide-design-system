@@ -71,7 +71,7 @@ export function DataTable<T extends Record<string, any>>({
               {columns.map(col => (
                 <th
                   key={col.key}
-                  className={`px-4 py-3 select-none ${col.isNumeric ? 'text-right' : 'text-left'} ${col.sortable ? 'cursor-pointer hover:text-solide-primary' : ''}`}
+                  className={`px-4 py-3 select-none ${col.isNumeric ? 'text-right' : 'text-left'} ${col.sortable ? 'cursor-pointer [@media(hover:hover)_and_(pointer:fine)]:hover:text-solide-primary' : ''}`}
                   aria-sort={col.sortable ? (sortKey === col.key ? (sortDir === "asc" ? "ascending" : "descending") : "none") : undefined}
                 >
                   <div className={`inline-flex items-center gap-1.5 ${col.isNumeric ? 'justify-end w-full' : ''}`}>
@@ -103,7 +103,7 @@ export function DataTable<T extends Record<string, any>>({
                   className={`h-[var(--sld-table-row-h)] transition-colors ${
                     isSelected
                       ? 'bg-[var(--sld-selection-bg)]'
-                      : 'hover:bg-[var(--sld-surface-sunken)]'
+                      : '[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)]'
                   }`}
                 >
                   {onSelectionChange && (
@@ -161,7 +161,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage <= 1}
             onClick={() => onPageChange?.(currentPage - 1)}
             aria-label="Página anterior"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="arrow-left" size="sm" />
           </button>
@@ -175,7 +175,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage >= totalPages}
             onClick={() => onPageChange?.(currentPage + 1)}
             aria-label="Próxima página"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="chevron-right" size="sm" />
           </button>

@@ -26,14 +26,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   const shapeClass = shape === 'pill' ? 'rounded-full' : 'rounded-lg';
 
   const solidClasses = {
-    primary: 'bg-[var(--sld-action-primary-bg)] text-[var(--sld-action-primary-text)] enabled:hover:bg-[var(--sld-action-primary-hover)] enabled:active:bg-[var(--sld-action-primary-active)]',
-    secondary: 'bg-[var(--sld-action-secondary-bg)] text-[var(--sld-action-secondary-text)] border border-[var(--sld-border-strong)] enabled:hover:bg-[var(--sld-action-secondary-hover)] enabled:active:bg-[var(--sld-action-secondary-active)]',
-    danger: 'bg-[var(--sld-action-danger-bg)] text-[var(--sld-action-danger-text)] enabled:hover:bg-[var(--sld-action-danger-hover)] enabled:active:bg-[var(--sld-action-danger-active)]',
-    warning: 'bg-[var(--sld-action-warning-bg)] text-[var(--sld-action-warning-text)] enabled:hover:bg-[var(--sld-action-warning-hover)] enabled:active:bg-[var(--sld-action-warning-active)]',
+    primary: 'bg-[var(--sld-action-primary-bg)] text-[var(--sld-action-primary-text)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-action-primary-hover)] enabled:active:[&&]:bg-[var(--sld-action-primary-active)]',
+    secondary: 'bg-[var(--sld-action-secondary-bg)] text-[var(--sld-action-secondary-text)] border border-[var(--sld-border-strong)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-action-secondary-hover)] enabled:active:[&&]:bg-[var(--sld-action-secondary-active)]',
+    danger: 'bg-[var(--sld-action-danger-bg)] text-[var(--sld-action-danger-text)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-action-danger-hover)] enabled:active:[&&]:bg-[var(--sld-action-danger-active)]',
+    warning: 'bg-[var(--sld-action-warning-bg)] text-[var(--sld-action-warning-text)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-action-warning-hover)] enabled:active:[&&]:bg-[var(--sld-action-warning-active)]',
   };
   const subtleClasses = tone === 'danger'
-    ? 'text-[var(--sld-status-danger-text)] border-[var(--sld-status-danger-border)] enabled:hover:bg-[var(--sld-status-danger-bg)] enabled:active:bg-[var(--sld-status-danger-bg)]'
-    : 'text-[var(--sld-text-primary)] border-[var(--sld-border-strong)] enabled:hover:bg-[var(--sld-action-ghost-hover)] enabled:active:bg-[var(--sld-action-ghost-active)]';
+    ? 'text-[var(--sld-status-danger-text)] border-[var(--sld-status-danger-border)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-status-danger-bg)] enabled:active:[&&]:bg-[var(--sld-status-danger-bg)]'
+    : 'text-[var(--sld-text-primary)] border-[var(--sld-border-strong)] [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-action-ghost-hover)] enabled:active:[&&]:bg-[var(--sld-action-ghost-active)]';
   const variantClasses = variant === 'solid' ? solidClasses[tone] : `bg-transparent ${variant === 'outline' ? 'border' : ''} ${subtleClasses}`;
 
   return (

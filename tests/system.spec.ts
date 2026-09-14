@@ -5,6 +5,7 @@ test.beforeAll(()=>fs.mkdirSync(output,{recursive:true}));
 
 const controlFor=(input:Locator)=>input.locator('xpath=following-sibling::*[@data-part="control"]');
 async function tokenColor(page:Page,token:string){return page.evaluate(name=>{const probe=document.createElement('span');probe.style.backgroundColor=`var(${name})`;document.body.appendChild(probe);const color=getComputedStyle(probe).backgroundColor;probe.remove();return color;},token);}
+async function tokenColorScoped(page:Page,token:string,scopeSelector:string='.sld-ui'){return page.evaluate(({name,selector})=>{const probe=document.createElement('span');probe.style.backgroundColor=`var(${name})`;const container=document.querySelector(selector)||document.body;container.appendChild(probe);const color=getComputedStyle(probe).backgroundColor;probe.remove();return color;},{name:token,selector:scopeSelector});}
 function contrastFromRgb(foreground:string,background:string){const channels=(value:string)=>value.match(/[\d.]+/g)!.slice(0,3).map(Number).map(channel=>{const normalized=channel/255;return normalized<=0.04045?normalized/12.92:((normalized+0.055)/1.055)**2.4;});const luminance=(value:string)=>channels(value).reduce((sum,channel,index)=>sum+channel*[0.2126,0.7152,0.0722][index],0);const foregroundLuminance=luminance(foreground);const backgroundLuminance=luminance(background);return(Math.max(foregroundLuminance,backgroundLuminance)+0.05)/(Math.min(foregroundLuminance,backgroundLuminance)+0.05);}
 async function expectThemeToggleContrast(track:Locator,thumb:Locator,theme:string,page:Page){await track.evaluate(async(node)=>await Promise.all(node.getAnimations().map(a=>a.finished)));await thumb.evaluate(async(node)=>await Promise.all(node.getAnimations().map(a=>a.finished)));const trackColor=await track.evaluate(node=>getComputedStyle(node).backgroundColor);const thumbColor=await thumb.evaluate(node=>getComputedStyle(node).backgroundColor);const iconColor=await thumb.evaluate(node=>getComputedStyle(node).color);console.log(`[${theme}] track:${trackColor} thumb:${thumbColor} icon:${iconColor}`);if(theme==='dark'){expect(contrastFromRgb(thumbColor,trackColor)).toBeGreaterThanOrEqual(3);}else{expect(thumbColor).toBe(await tokenColor(page,'--sld-surface-card'));expect(iconColor).toBe(await tokenColor(page,'--sld-text-primary'));}expect(contrastFromRgb(iconColor,thumbColor)).toBeGreaterThanOrEqual(3);}
 async function expectKeyboardFocus(page:Page,input:Locator){const control=controlFor(input);await input.focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await expect(input).toBeFocused();await expect(control).toHaveCSS('outline-style','solid');}
@@ -89,4 +90,93 @@ test('guide: warning action respects semantic contract', async ({ page }) => {
 
   const statusWarning = await tokenColor(page, '--sld-status-warning-bg');
   await expect(btn).not.toHaveCSS('background-color', statusWarning);
+});
+
+test.describe('VC-08: Hover Guard', () => {
+  for (const theme of ['light', 'dark']) {
+    test(`mouse/fine pointer maintains hover and states (${theme})`, async ({ page }) => {
+      await page.goto('/preview/index.html');
+
+      expect(await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)).toBe(true);
+
+      if (theme === 'dark') {
+        const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+        if (await toggle.isVisible()) {
+          await toggle.click();
+          await expect(page.getByRole('switch', { name: 'Mudar para modo claro' })).toHaveAttribute('aria-checked', 'true');
+          await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark');
+        }
+      }
+
+      const primary = page.getByTestId('primary');
+      await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+      const baseColor = await primary.evaluate(node => getComputedStyle(node).backgroundColor);
+
+      await primary.hover();
+      await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+      const hoverColor = await primary.evaluate(node => getComputedStyle(node).backgroundColor);
+      expect(hoverColor).not.toBe(baseColor);
+
+      await page.mouse.down();
+      await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+      const expectedActiveColor = await tokenColorScoped(page, '--sld-action-primary-active');
+      await expect(primary).toHaveCSS('background-color', expectedActiveColor);
+      await page.mouse.up();
+
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Shift+Tab');
+      await expect(primary).toBeFocused();
+      await expect(primary).toHaveCSS('outline-style', 'solid');
+
+      const disabledBtn = page.getByRole('button', { name: 'Indisponível' });
+      await expect(disabledBtn).toBeDisabled();
+      const disabledBg = await disabledBtn.evaluate(node => getComputedStyle(node).backgroundColor);
+      await disabledBtn.hover();
+      await disabledBtn.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+      await expect(disabledBtn).toHaveCSS('background-color', disabledBg);
+    });
+
+    test(`touch/coarse pointer ignores hover media query (${theme})`, async ({ browser }) => {
+      const context = await browser.newContext({
+        viewport: { width: 390, height: 844 },
+        hasTouch: true,
+        isMobile: true
+      });
+      try {
+        const page = await context.newPage();
+        await page.goto('/preview/index.html');
+
+        expect(await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches)).toBe(false);
+
+        if (theme === 'dark') {
+          const toggleBtn = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggleBtn.isVisible()) {
+             await toggleBtn.click();
+             await expect(page.getByRole('switch', { name: 'Mudar para modo claro' })).toHaveAttribute('aria-checked', 'true');
+             await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark');
+          }
+        }
+
+        const primary = page.getByTestId('primary');
+        await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+        const baseColor = await primary.evaluate(node => getComputedStyle(node).backgroundColor);
+
+        await primary.hover();
+        await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+        await expect(primary).toHaveCSS('background-color', baseColor);
+
+        await primary.tap();
+        await primary.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+        await expect(primary).toHaveCSS('background-color', baseColor);
+
+        const disabledBtn = page.getByRole('button', { name: 'Indisponível' });
+        const disabledBg = await disabledBtn.evaluate(node => getComputedStyle(node).backgroundColor);
+        await disabledBtn.tap({ force: true });
+        await disabledBtn.evaluate(async (node) => await Promise.all(node.getAnimations().map(a => a.finished)));
+        await expect(disabledBtn).toHaveCSS('background-color', disabledBg);
+      } finally {
+        await context.close();
+      }
+    });
+  }
 });

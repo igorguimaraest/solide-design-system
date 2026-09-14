@@ -60,7 +60,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             type="button"
             onClick={handleClear}
             disabled={disabled}
-            className="sld-focus-ring disabled:cursor-not-allowed p-1 rounded text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover)] transition-colors"
+            className="sld-focus-ring disabled:cursor-not-allowed p-1 rounded text-[var(--solide-text-muted)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--solide-text-primary)] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] transition-colors"
             aria-label="Limpar busca"
           >
             <Icon name="x" size="sm" />
