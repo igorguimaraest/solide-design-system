@@ -11,7 +11,7 @@ Status: contratos de VC-02 aprovados e implementados; Alert/Banner continua pend
 
 ## Contrato cromático proposto para VC-02
 
-Status: **aprovado e implementado em VC-02; validação visual automatizada pendente por ausência do Chromium no ambiente**.
+Status: **aprovado e implementado em VC-02; validação visual concluída no Chromium**.
 
 | Token semântico proposto | Light | Dark | Responsabilidade |
 | --- | --- | --- | --- |
@@ -126,12 +126,14 @@ type AlertProps = {
 };
 ```
 
-Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver `onDismiss`, focus-visible da ação/fechamento, tema claro/escuro e motion-reduce. O ícone é semântico ao tom; título e descrição são texto, não cor isolada. `warning` com ação é bloqueado para decisão visual da Fase C, pois o exemplo atual usa style inline fora do token solid/on-solid.
+Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver `onDismiss`, focus-visible da ação/fechamento, tema claro/escuro e motion-reduce. O ícone é semântico ao tom; título e descrição são texto, não cor isolada.
+*Nota: a ação warning (VC-01) foi decidida, validada e implementada como ação warning sólida e semanticamente independente com tokens próprios. O desenvolvimento funcional do componente permanece aguardando a etapa VC-06.*
 
-## Critérios de aceite antes da implementação
+## Critérios de aceite gerais
 
-1. Contrato `--sld-control-selected-*` aprovado e adicionado a `solide-tokens.css`.
-2. Aprovar a composição e contraste da ação warning.
-3. Criar stories para cada estado obrigatório e combinações light/dark.
-4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px.
+1. Contrato `--sld-control-selected-*` (VC-02) aprovado e implementado.
+2. Contrato da ação warning (VC-01) aprovado, validado visualmente e tecnicamente implementado.
+3. Criar stories para cada componente abordado e combinações light/dark.
+4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px antes de finalizações.
 5. Não criar token, raio, espaçamento, shadow ou duração novos sem atualizar a fonte normativa primeiro.
+6. Alert/Banner reutilizável permanece pendente de implementação na VC-06.

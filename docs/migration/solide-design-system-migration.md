@@ -9,9 +9,10 @@ Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 
 Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida, implementada, aprovada visualmente e tecnicamente concluída após corrigir e cobrir a precedência `disabled > active > hover > default` nos três controles.
 
+
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados: 0 Blocker, 10 High, 6 Medium e 2 Low.
+- Auditoria de convergência consolidada com 18 achados históricos: 4 tecnicamente remediados (VC-01, VC-02, VC-03 e VC-18) e 14 ainda abertos, considerando a VC-04 reaberta parcialmente (achados parcialmente remediados continuam contados como abertos).
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -19,6 +20,8 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - Direção visual de VC-02 aprovada após inspeção interativa dos controles e dos estados cromáticos light/dark.
 - Chromium do Playwright disponibilizado; `npm run test:ui` passou com 5/5 cenários no bundle real em 1440/light, 1440/dark, 390/light e 390/dark.
 - Precedência de interação corrigida em Checkbox, Radio e Switch; a suíte oficial agora cobre default, hover, active simultâneo a hover, focus-visible e disabled nos quatro cenários.
+- VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
+- Tema dark do ThemeToggle (VC-04) parcialmente reaberto para ajuste de contraste do thumb.
 
 ## Principais achados
 
@@ -31,6 +34,28 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 ## VC-02 — implementada
 
 Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent semântico de seleção por meio da família `--sld-control-selected-*`. O Brand Guide neutro foi migrado; o checkbox do DataTable não consome mais `--sld-action-primary-bg`. `selected-border` é independente de `selected-bg`, e no Switch `selected-fg` é usado somente no thumb/ícone. Os contrastes dos glifos variam de 4,78:1 a 10,06:1. A falha em que `group-hover` prevalecia sobre `group-active` foi corrigida elevando apenas a especificidade da variante active; disabled continua removendo as variantes interativas por ramificação e focus-visible permanece independente.
+
+## VC-01 — Registro de Implementação (Ação Warning)
+
+A ação do Alert/Banner warning foi implementada como uma ação **sólida e semanticamente independente**, restrita a `Button tone="warning"` associado com `variant="solid"`.
+- Foram introduzidos os tokens `--sld-action-warning-bg/text/hover/active`.
+- **Light:** default `warning-400`, hover/active `warning-500`.
+- **Dark:** default `warning-500`, hover/active `warning-400`.
+- **Foreground:** `warm-950` em ambos os temas.
+- **Contraste Mínimo:** 6,93:1 atingido consistentemente.
+- O estilo inline antigo foi removido, e `#8A4F05` deixou de ser usado como fundo da ação warning.
+- Os estados transicionais (`disabled` e focus) continuam transversais, sem classes fixadas localmente. `hover` e `active` compartilham cor provisoriamente até a execução arquitetural completa da VC-09.
+- A validação visual obteve aprovação em 1440/390 px, light/dark. O cenário específico da ação warning no Brand Guide passou na suíte Playwright, integrada aos cenários existentes.
+- **Commit técnico aprovado:** `503122f`.
+- **Nota técnica:** A VC-01 está tecnicamente concluída, mas o componente Alert/Banner reutilizável permanece alocado na etapa VC-06.
+
+## VC-04 — Reabertura parcial (ThemeToggle)
+
+Foi registrado que o ThemeToggle teve sua implementação funcional e semântica concluída. Contudo, sua convergência visual foi reaberta parcialmente pela insuficiência de visibilidade do *thumb* no modo dark:
+- Guide: `#242220` sobre `#1D1D1F` = 1,06:1;
+- UI Kit: `#242220` sobre `#121110` = 1,19:1;
+- Requisito: 3:1;
+- Classificação atual: contraste/affordance insuficiente no dark; permanece aberta.
 
 ## Arquivos relevantes já consolidados
 
@@ -66,10 +91,10 @@ Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent sem�
 
 ## Pendências
 
-- Decidir VC-01 (ação warning).
+- Decidir correção do contraste dark de ThemeToggle (VC-04).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-VC-02 está tecnicamente concluída. Aguardar autorização expressa antes de iniciar VC-01 ou qualquer nova frente.
+VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.

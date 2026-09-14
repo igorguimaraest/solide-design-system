@@ -22,10 +22,10 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 
 | ID | Componente/padrão | Guide | UI Kit/preview | Token/contrato | Classificação | Sev. | Problema | Recomendação | Arquivos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| VC-01 | Warning action | Banner usa `--solide-warning` + `--solide-neutral-900` via style inline. | Não há Alert/Banner. | `--sld-status-warning-solid/on-solid` existem, mas não são usados. | GUIDE_CORRECT / IMPLEMENTATION_WRONG; BOTH_NEED_REVIEW para o peso. | High | peso visual | Medir contraste e comparar ação secondary/outline, solid warning ou primary separado. | guide, futuro Alert |
-| VC-02 | Checkbox/radio/switch selecionado | Os controles do Guide usam preenchimento neutro (preto no light e branco no dark), preservado de CSS legado. | O checkbox nativo do DataTable usa azul por meio de `accent-[--sld-action-primary-bg]`; Radio e Switch reutilizáveis ainda não existem. | Não há par semântico próprio para controle selecionado. | IMPLEMENTATION_CORRECT / GUIDE_STALE quanto à direção accent; TOKEN_CONTRACT_PROBLEM quanto ao uso de `action-primary`. | High | semântica/inconsistência | Adotar accent semântico de seleção para `checked`, `indeterminate` e `on`; criar contrato próprio de foreground/background por tema e migrar Guide e UI Kit juntos. Não reutilizar tokens de ação primária. | guide, tokens, DataTable, futuros Checkbox/Radio/Switch |
-| VC-03 | Checkbox/radio/switch | Guia tem estados complete, disabled, indeterminate e motion. | UI Kit não exporta esses primitivos; tabela é parcial. | Sem API/contrato. | DOCUMENTATION_GAP | High | affordance | Especificar API/estados antes de implementar. | UI Kit, stories |
-| VC-04 | Theme toggle | Switch 50×26, track/thumb, `role=switch`, `aria-checked`, tema dark próprio. | Header usa ícone sem track/role/estado persistente. | Sem contrato de componente. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | affordance/visibilidade | Restaurar padrão ou atualizar guia por decisão explícita; conferir contorno dark. | Header, preview, guide |
+| VC-01 | Warning action | Contrato `--sld-action-warning-*` implementado; Brand Guide migrado. | Button warning sólido implementado; contraste aprovado. | `--sld-action-warning-*` criados e vinculados. | IMPLEMENTATION_CORRECT | High | peso visual histórico | Status tecnicamente remediado; Alert/Banner reutilizável permanece na VC-06. | guide, Button, tokens |
+| VC-02 | Checkbox/radio/switch selecionado | Controles migrados para accent semântico de seleção. | Checkbox, Radio e Switch implementados e exportados; DataTable compõe Checkbox; stories, preview e testes cobrem os estados. | Família própria `--sld-control-selected-*`, sem dependência de `action-primary`. | REMEDIATED | High | semântica/inconsistência | Tecnicamente remediada. | guide, tokens, DataTable, UI Kit |
+| VC-03 | Checkbox/radio/switch | Estados checked, unchecked, indeterminate/on/off e disabled demonstrados. | Checkbox, Radio e Switch reutilizáveis implementados, exportados e cobertos. | APIs e estados documentados em `missing-component-contracts.md`. | REMEDIATED | High | affordance | Tecnicamente remediada. | UI Kit, stories |
+| VC-04 | Theme toggle | Contraste thumb/track no dark (Guide: `#242220` sobre `#1D1D1F` = 1,06:1). | Implementação funcional/semântica concluída. Contraste thumb/track no dark (UI Kit: `#242220` sobre `#121110` = 1,19:1). | Requisito: 3:1 mínimo. | PARTIALLY_REMEDIATED | High | contraste/affordance insuficiente no dark | Reabertura parcial somente pela visibilidade dark do thumb; permanece aberta. | ThemeToggle, guide |
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover. | Mesma estratégia. | `--sld-action-ghost-*`. | BOTH_NEED_REVIEW | Medium | affordance | Validar em contexto/dark; não adicionar borda sem atualizar padrão. | Button, guide |
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
@@ -138,4 +138,29 @@ Pendências preservadas, sem autorização para execução: decisão VC-01, moti
 
 Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, `packages/tokens/build/verify-tokens.js`, derivados rastreados de tokens/contraste, `packages/ui-kit/src/atoms/{Checkbox,Radio,Switch}/`, exportações do UI Kit, `DataTable.tsx`, `preview/main.tsx`, stories e `tests/system.spec.ts`.
 
-**Próximo passo exato:** aguardar autorização expressa antes de iniciar VC-01 ou qualquer nova frente.
+**Próximo passo exato:** VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.
+
+## Decisão e Consolidação VC-01 — 2026-09-13
+
+**Decisão:** A ação do Alert/Banner warning (VC-01) foi implementada como uma ação **sólida e semanticamente independente**.
+- Tokens criados: `--sld-action-warning-bg/text/hover/active`.
+- Light default: `warning-400`, hover/active `warning-500`.
+- Dark default: `warning-500`, hover/active `warning-400`.
+- Foreground: `warm-950` em ambos.
+- Contrastes mínimos de 6,93:1 atingidos e validados.
+- Remoção de `#8A4F05` como fundo da ação warning.
+- Restrição via TypeScript em `Button.types.ts`: `tone="warning"` exige `variant="solid"`.
+- `disabled` e focus continuam mapeados de forma transversal pela suíte global.
+- `hover` e `active` compartilham cor até a resolução de motion na VC-09.
+- Validação visual aprovada (1440/390, light/dark). Testes UI adicionados e aprovados.
+- Commit técnico: `503122f`.
+- **Status:** VC-01 tecnicamente implementada. Componente Alert/Banner (VC-06) permanece aberto.
+
+## Reabertura Parcial VC-04 — 2026-09-13
+
+**Registro:** O componente ThemeToggle foi funcionalmente implementado, suprindo todos os requisitos semânticos; a implementação funcional permanece válida. Contudo, **somente a convergência visual dark está reaberta**:
+- Guide: 1,06:1;
+- UI Kit: 1,19:1;
+- Requisito: 3:1.
+
+**Próximo passo exato:** VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.
