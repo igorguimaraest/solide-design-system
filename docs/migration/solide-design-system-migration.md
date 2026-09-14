@@ -5,15 +5,16 @@ Branch: `codex/visual-convergence-audit`
 Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`  
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
+Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria após a remediação técnica e visual da VC-04, preservando as demais frentes sem autorização.
+Consolidar a auditoria após a remediação técnica da VC-08, preservando as demais frentes sem autorização.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 5 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04 e VC-18) e 13 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 6 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08 e VC-18) e 12 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -23,10 +24,11 @@ Consolidar a auditoria após a remediação técnica e visual da VC-04, preserva
 - Precedência de interação corrigida em Checkbox, Radio e Switch; a suíte oficial agora cobre default, hover, active simultâneo a hover, focus-visible e disabled nos quatro cenários.
 - VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
 - Tema dark do ThemeToggle (VC-04) remediado para contraste de 17,91:1 no thumb.
+- VC-08 aprovada e implementada: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader agora usam `(hover:hover) and (pointer:fine)`. Button precisou elevar somente a especificidade de active para impedir que o bloco media emitido depois pelo Tailwind prevalecesse. Cobertura fine/coarse, light/dark e resultado oficial de 14/14 confirmam o funcionamento.
 
 ## Principais achados
 
-- Motion: Button sem press; Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`; hover sem guarda de cursor fino.
+- Motion: Button sem press; Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
 - Encoding: 11 stories têm texto PT-BR corrompido.
 - Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.

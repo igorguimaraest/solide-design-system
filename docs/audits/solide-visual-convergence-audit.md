@@ -29,12 +29,12 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover. | Mesma estratégia. | `--sld-action-ghost-*`. | BOTH_NEED_REVIEW | Medium | affordance | Validar em contexto/dark; não adicionar borda sem atualizar padrão. | Button, guide |
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
-| VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | `hover:` sem guard em Button, Sidebar, Header, SearchBar, DataTable e tabs. | Extensão WEB. | IMPLEMENTATION_WRONG | High | comportamento | Aplicar estratégia de guard antes de mudar aparência. | componentes/preview CSS |
+| VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
 | VC-09 | Press de Button | Guia declara scale/opacity táteis. | Só transição de cores. | motion/`--sld-durationFast`. | IMPLEMENTATION_WRONG | High | feedback | Reintroduzir apenas o press documentado, com reduced-motion. | Button, guide |
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | `duration-150 ease-out` literal. | duration/easing tokens. | IMPLEMENTATION_WRONG | High | consistência | Trocar por tokens e limitar propriedades. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | `<dialog>` abre instantaneamente; ModalHeader não compõe modal. | base/snappy/gentle. | IMPLEMENTATION_WRONG | High | feedback | Definir wrapper responsável pela animação. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | `transition-all` sem easing e amplo demais. | durationBase/easingSnappy. | IMPLEMENTATION_WRONG | Medium | ruído/comportamento | Animar só largura com easing semântico. | Sidebar |
-| VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | checkboxes blue, hovers sem guard, disabled `opacity-40` literal. | seleção/disabled/focus. | TOKEN_CONTRACT_PROBLEM | Medium | contraste/affordance | Consolidar depois de VC-02/08. | DataTable, tokens |
+| VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Seleção semântica remediada na VC-02 e hover guardado na VC-08; paginação ainda usa disabled opacity-40 literal. | seleção/disabled/focus. | TOKEN_CONTRACT_PROBLEM | Medium | contraste/affordance | Consolidar depois de VC-02/08. | DataTable, tokens |
 | VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 11 stories usam `??`/`?` no lugar de acentos. | N/A. | IMPLEMENTATION_WRONG | High | conteúdo | Corrigir UTF-8 e criar checagem. | stories listados abaixo |
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview não cobre Alert, checkbox/radio/switch, Sidebar compacta nem estados completos. | aceitação. | DOCUMENTATION_GAP | Medium | cobertura | Expandir após decidir componentes faltantes. | preview, testes |
 | VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
@@ -42,7 +42,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 
 ## Motion
 
-Press de Button perdeu scale/opacity; Tabs usa tempo/curva fora de token; drawer/modal abre sem transição; Sidebar anima `all`; hover não respeita cursor fino; e os três controles de seleção não existem como primitivas reutilizáveis.
+Press de Button perdeu scale/opacity; Tabs usa tempo/curva fora de token; drawer/modal abre sem transição; Sidebar anima `all`.
 
 ## Encoding
 
@@ -52,7 +52,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 1. Definir contratos de seleção, Alert/Banner e ThemeToggle.
 2. Validar visualmente VC-01 e o contrato accent aprovado em VC-02 nos dois temas.
-3. Corrigir motion/estados com tokens e guards (VC-08–VC-12).
+3. Corrigir motion/estados com tokens (VC-08 remediada; manter VC-09–VC-12 pendentes).
 4. Completar componentes e cobertura (VC-03, VC-06, VC-15).
 5. Corrigir encoding/documentação (VC-14, VC-16).
 6. Inventariar legado (VC-17).
@@ -167,5 +167,20 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 - Commit técnico: `331a1cdf5515d1a9a8b5fa7ca435939b213a78cc`.
 
 **Status:** VC-04 tecnicamente remediada.
+
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+
+## Consolidação VC-08 — 2026-09-14
+
+**Registro:** Hover sem guarda de cursor fino foi remediado nos componentes.
+- Commit técnico: `08ffae1`.
+- 7 componentes corrigidos: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader (incluído após inventário).
+- Estratégia de guard aplicada via Tailwind com `[@media(hover:hover)_and_(pointer:fine)]`.
+- Motivo do `[&&]` no active do Button: a media query arbitrária fez o bloco hover ser emitido pelo Tailwind no final do CSS gerado, vencendo o seletor `active`. A especificidade do `active` foi elevada pontualmente para garantir que a cor de clique prevaleça enquanto o botão estiver pressionado.
+- Cobertura `matchMedia` validando fine e coarse (touch).
+- Suíte Playwright executada com sucesso (14/14 cenários).
+- Build, typecheck e test:tokens aprovados.
+
+**Status:** VC-08 tecnicamente remediada. VC-09, VC-10, VC-11 e VC-12 continuam abertas.
 
 **Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
