@@ -39,4 +39,14 @@ for(const mode of ['light','dark']){
 const steps=Object.entries(c.fixed).filter(([k])=>k.startsWith('--sld-palette-warm-')).sort((a,b)=>Number(a[0].split('-').pop())-Number(b[0].split('-').pop()));
 for(let i=1;i<steps.length;i++)assert(lum(c.resolve(steps[i-1][0],'light'))>lum(c.resolve(steps[i][0],'light')),'Warm scale luminance reversed');
 fs.writeFileSync(path.join(root,'docs/consolidation/contrast.json'),JSON.stringify(rows,null,2)+'\n');
+const motionTs = fs.readFileSync(path.join(root, 'packages/tokens/src/motion.ts'), 'utf8');
+assert(c.fixed['--sld-button-press-scale'], 'Button press scale missing in :root');
+assert(c.fixed['--sld-spring-snappy-stiffness'], 'Spring stiffness missing in :root');
+assert(c.fixed['--sld-spring-snappy-damping'], 'Spring damping missing in :root');
+
+assert(new RegExp(`scale:\\s*${Number(c.fixed['--sld-button-press-scale'])}\\b`).test(motionTs), 'motion.ts out of sync with CSS scale');
+assert(new RegExp(`stiffness:\\s*${Number(c.fixed['--sld-spring-snappy-stiffness'])}\\b`).test(motionTs), 'motion.ts out of sync with CSS stiffness');
+assert(new RegExp(`damping:\\s*${Number(c.fixed['--sld-spring-snappy-damping'])}\\b`).test(motionTs), 'motion.ts out of sync with CSS damping');
+assert(motionTs.includes("type: 'spring'"), "motion.ts missing type: 'spring'");
+assert(guide.includes('var(--sld-button-press-scale)'), 'Guide does not consume --sld-button-press-scale');
 console.log(`PASS: ${rows.length} actual semantic contrast pairs, ${refs} component references, aliases, luminance direction and guide/package parity. No global WCAG certification implied.`);

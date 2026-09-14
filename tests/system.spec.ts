@@ -180,3 +180,260 @@ test.describe('VC-08: Hover Guard', () => {
     });
   }
 });
+
+test.describe('VC-09A: Button Press Contract (Guide)', () => {
+  test('Guide text regression protection (scale 0.98 vs 0.97)', async ({ page }) => {
+    await page.goto('/solide-brand-guide.html');
+    const body = page.locator('body');
+    await expect(body).not.toContainText('clique tátil (scale 0.98)');
+    await expect(body).not.toContainText('Microestados táteis (scale 0.98)');
+  });
+
+  for (const width of [1440, 390]) {
+    for (const theme of ['light', 'dark']) {
+      test(`Normal motion: press and cancel ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+        const btn = page.locator('#screen-controles .btn-primary').first();
+        await expect(btn).toBeVisible();
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active', '#screen-controles');
+
+        await btn.hover();
+        await page.mouse.down();
+
+        await btn.evaluate(async (node) => await Promise.all(node.getAnimations().map(animation => animation.finished)));
+        await btn.screenshot({ path: `test-results/press_${width}_${theme}.png` });
+
+        const transitionProp = await btn.evaluate((el) => window.getComputedStyle(el).transitionProperty);
+        expect(transitionProp).not.toContain('transform');
+
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+        await expect(btn).toHaveCSS('opacity', '1');
+        await expect(btn).toHaveCSS('background-color', activeBg);
+
+        await page.mouse.move(0, 0);
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+        await page.mouse.up();
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+        const disabledBtn = page.locator('#screen-controles button:has-text("Desabilitado")');
+        const disabledBg = await disabledBtn.evaluate((node) => getComputedStyle(node).backgroundColor);
+        await disabledBtn.hover({ force: true });
+        await page.mouse.down();
+        await expect(disabledBtn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(disabledBtn).toHaveCSS('opacity', '1');
+        await expect(disabledBtn).toHaveCSS('background-color', disabledBg);
+        await page.mouse.up();
+      });
+
+      test(`Reduced motion: no scale ${theme} ${width}`, async ({ page }) => {
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+        const btn = page.locator('#screen-controles .btn-primary').first();
+        await expect(btn).toBeVisible();
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active', '#screen-controles');
+
+        await btn.hover();
+        await page.mouse.down();
+
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).toHaveCSS('background-color', activeBg);
+
+        const transitionVal = await btn.evaluate((el) => window.getComputedStyle(el).transitionDuration);
+        expect(transitionVal === '0s' || transitionVal === '0.01ms' || transitionVal === 'none').toBeTruthy();
+        const animations = await btn.evaluate((el) => el.getAnimations().length);
+        expect(animations).toBe(0);
+
+        await page.mouse.up();
+      });
+
+      test(`Right click ignored ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+        const btn = page.locator('#screen-controles .btn-primary').first();
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active', '#screen-controles');
+
+        await btn.hover();
+        await page.mouse.down({ button: 'right' });
+
+        await expect(btn).not.toHaveAttribute('data-pressed');
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+        await page.mouse.up({ button: 'right' });
+      });
+
+      test(`Ghost press and cancel ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+        const btn = page.locator('#screen-controles .btn-ghost').first();
+        const activeBg = await tokenColorScoped(page, '--sld-action-ghost-active', '#screen-controles');
+        const hoverBg = await tokenColorScoped(page, '--sld-action-ghost-hover', '#screen-controles');
+
+        await btn.hover();
+        await page.mouse.down();
+        await expect(btn).toHaveAttribute('data-pressed', 'true');
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+        await expect(btn).toHaveCSS('background-color', activeBg);
+
+        await page.mouse.up();
+        await expect(btn).not.toHaveAttribute('data-pressed');
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).toHaveCSS('background-color', hoverBg);
+      });
+
+      test(`Keyboard contract (Enter & Space) ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+
+        for (const variant of ['primary', 'ghost']) {
+          const btn = page.locator(`#screen-controles .btn-${variant}`).first();
+          const activeBg = await tokenColorScoped(page, `--sld-action-${variant}-active`, '#screen-controles');
+
+          for (const key of ['Enter', 'Space']) {
+            await btn.focus();
+
+            await page.keyboard.down(key);
+            await expect(btn).toHaveCSS('background-color', activeBg);
+            await expect(btn).toBeFocused();
+            await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+            await expect(btn).toHaveAttribute('data-kbd-active', 'true');
+            await expect(btn).not.toHaveAttribute('data-pressed');
+
+            await page.keyboard.up(key);
+            await expect(btn).not.toHaveAttribute('data-kbd-active');
+            await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+            await btn.blur();
+          }
+        }
+      });
+
+      test(`Modality switch (Keyboard to Pointer) ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+
+        const btn = page.locator('#screen-controles .btn-primary').first();
+
+        await page.locator('body').focus();
+        while (await btn.evaluate((node) => document.activeElement !== node)) {
+          await page.keyboard.press('Tab');
+        }
+
+        expect(await btn.evaluate((node) => document.activeElement === node)).toBe(true);
+        expect(await btn.evaluate((node) => node.matches(':focus-visible'))).toBe(true);
+
+        const box = await btn.boundingBox();
+        await page.mouse.move(box!.x + 10, box!.y + 10);
+        await page.mouse.down();
+
+        await expect(btn).toBeFocused();
+        expect(await btn.evaluate((node) => node.matches(':focus-visible'))).toBe(true);
+        await expect(btn).toHaveAttribute('data-pressed', 'true');
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        await page.mouse.up();
+        await expect(btn).not.toHaveAttribute('data-pressed');
+      });
+    }
+  }
+
+  for (const theme of ['light', 'dark']) {
+    test(`Touch/Coarse: press and cancel ${theme} 390`, async ({ browser }) => {
+      const context = await browser.newContext({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } });
+      const page = await context.newPage();
+
+      await page.addInitScript((t) => {
+        try { localStorage.setItem('solide-theme', t); } catch {}
+        document.documentElement.setAttribute('data-theme', t);
+      }, theme);
+
+      await page.goto('/solide-brand-guide.html');
+      await page.evaluate((t) => (window as any).setTheme(t), theme);
+      await page.evaluate(() => (window as any).showScreen('screen-controles'));
+
+      const btn = page.locator('#screen-controles .btn-primary').first();
+      await expect(btn).toBeVisible();
+      const activeBg = await tokenColorScoped(page, '--sld-action-primary-active', '#screen-controles');
+
+      const box = await btn.boundingBox();
+      const x = box!.x + box!.width / 2;
+      const y = box!.y + box!.height / 2;
+
+      const client = await context.newCDPSession(page);
+
+      // 1. Touch Start
+      await client.send('Input.dispatchTouchEvent', {
+        type: 'touchStart',
+        touchPoints: [{ x, y }]
+      });
+
+      await expect(btn).toHaveAttribute('data-pressed', 'true');
+      await expect(btn).toHaveCSS('transform', /0\.97/);
+      await expect(btn).toHaveCSS('opacity', '1');
+      await expect(btn).toHaveCSS('background-color', activeBg);
+
+      // 2. Touch Move outside
+      await client.send('Input.dispatchTouchEvent', {
+        type: 'touchMove',
+        touchPoints: [{ x: 0, y: 0 }]
+      });
+
+      await expect(btn).not.toHaveAttribute('data-pressed');
+      await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+      await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+      // 3. Touch End
+      await client.send('Input.dispatchTouchEvent', {
+        type: 'touchEnd',
+        touchPoints: []
+      });
+
+      await expect(btn).not.toHaveAttribute('data-pressed');
+      await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+      await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+      await context.close();
+    });
+  }
+});

@@ -1184,7 +1184,7 @@ body {
   min-height: 32px;
   min-width: 28px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color var(--sld-durationFast) var(--sld-easingOut), border-color var(--sld-durationFast) var(--sld-easingOut), color var(--sld-durationFast) var(--sld-easingOut);
   border: 0.5px solid transparent;
   line-height: 1;
   text-decoration: none;
@@ -1193,7 +1193,16 @@ body {
 .btn-pill {
   border-radius: var(--r-pill);
 }
-.btn:active { transform: scale(0.98); }
+.btn[data-pressed="true"]:not(:disabled):not(.btn-disabled) {
+  transform: scale(var(--sld-button-press-scale));
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
 .btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--solide-accent-ring); }
 .btn-sm { padding: 6px 12px; font-size: 12px; border-radius: var(--r-md); }
 .btn-lg { padding: 12px 22px; font-size: 14px; border-radius: var(--r-lg); }
@@ -4632,27 +4641,6 @@ kbd {
 }
 
 
-/* ACCENT DE AÇÃO — identidade visual permanece neutra */
-.btn-accent {
-  background: var(--sld-action-primary-bg) !important;
-  color: var(--sld-text-primary) !important;
-  border: 1px solid transparent !important;
-  box-shadow: 0 1px 3px rgba(0, 102, 255, 0.28) !important;
-  font-weight: 600 !important;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-.btn-accent:hover {
-  background: var(--solide-accent-hover) !important;
-  color: var(--sld-text-primary) !important;
-  box-shadow: 0 3px 8px rgba(0, 102, 255, 0.38) !important;
-}
-.btn-accent:active {
-  transform: scale(0.98) !important;
-}
-.btn-accent:focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 4px var(--solide-accent) !important;
-}
 
 .status-pill-accent {
   background: var(--solide-accent-surface) !important;
@@ -5101,17 +5089,7 @@ kbd {
     color: var(--text-secondary);
     font-family: var(--font-mono);
   }
-/* ========================================================================
-   DIREÇÃO VISUAL CONSOLIDADA — identidade neutra, cor somente como sinal
-   ======================================================================== */
-.btn-primary,
-[data-theme="dark"] .btn-primary,
-[data-theme="blueprint"] .btn-primary {
-  background: var(--sld-action-primary-bg) !important;
-  border-color: var(--sld-action-primary-bg) !important;
-  color: var(--sld-action-primary-text) !important;
-  box-shadow: none !important;
-}
+
 
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
@@ -5159,19 +5137,27 @@ select:focus-visible {
 
 /* Canonical actions. States are semantic, never opacity blends. */
 .btn-primary {background:var(--sld-action-primary-bg);color:var(--sld-action-primary-text);border-color:var(--sld-action-primary-bg);box-shadow:none;}
-.btn-primary:enabled:hover {background:var(--sld-action-primary-hover);border-color:var(--sld-action-primary-hover);}
-.btn-primary:enabled:active {background:var(--sld-action-primary-active);border-color:var(--sld-action-primary-active);}
 .btn-warning {background:var(--sld-action-warning-bg);color:var(--sld-action-warning-text);border-color:var(--sld-action-warning-bg);box-shadow:none;}
-.btn-warning:enabled:hover {background:var(--sld-action-warning-hover);border-color:var(--sld-action-warning-hover);}
-.btn-warning:enabled:active {background:var(--sld-action-warning-active);border-color:var(--sld-action-warning-active);}
 .btn-secondary,.btn-outline {background:var(--sld-action-secondary-bg);color:var(--sld-action-secondary-text);border-color:var(--sld-border-strong);}
-.btn-secondary:enabled:hover,.btn-outline:enabled:hover {background:var(--sld-action-secondary-hover);}
-.btn-secondary:enabled:active,.btn-outline:enabled:active {background:var(--sld-action-secondary-active);}
 .btn-ghost {background:transparent;color:var(--sld-text-primary);}
-.btn-ghost:enabled:hover {background:var(--sld-action-ghost-hover);}
 .btn-destructive {background:var(--sld-action-danger-bg);color:var(--sld-action-danger-text);border-color:var(--sld-action-danger-bg);}
+
+.btn-primary:enabled:hover {background:var(--sld-action-primary-hover);border-color:var(--sld-action-primary-hover);}
+.btn-primary:enabled[data-pressed="true"] {background:var(--sld-action-primary-active);border-color:var(--sld-action-primary-active);}
+.btn-warning:enabled:hover {background:var(--sld-action-warning-hover);border-color:var(--sld-action-warning-hover);}
+.btn-warning:enabled[data-pressed="true"] {background:var(--sld-action-warning-active);border-color:var(--sld-action-warning-active);}
+.btn-secondary:enabled:hover,.btn-outline:enabled:hover {background:var(--sld-action-secondary-hover);}
+.btn-secondary:enabled[data-pressed="true"],.btn-outline:enabled[data-pressed="true"] {background:var(--sld-action-secondary-active);}
+.btn-ghost:enabled:hover {background:var(--sld-action-ghost-hover);}
+.btn-ghost:enabled[data-pressed="true"] {background:var(--sld-action-ghost-active);}
 .btn-destructive:enabled:hover {background:var(--sld-action-danger-hover);}
-.btn-destructive:enabled:active {background:var(--sld-action-danger-active);}
+.btn-destructive:enabled[data-pressed="true"] {background:var(--sld-action-danger-active);}
+
+.btn-primary:enabled[data-kbd-active="true"] {background:var(--sld-action-primary-active);border-color:var(--sld-action-primary-active);}
+.btn-warning:enabled[data-kbd-active="true"] {background:var(--sld-action-warning-active);border-color:var(--sld-action-warning-active);}
+.btn-secondary:enabled[data-kbd-active="true"],.btn-outline:enabled[data-kbd-active="true"] {background:var(--sld-action-secondary-active);}
+.btn-destructive:enabled[data-kbd-active="true"] {background:var(--sld-action-danger-active);}
+.btn-ghost:enabled[data-kbd-active="true"] {background:var(--sld-action-ghost-active);}
 .btn:disabled,.btn-disabled {background:var(--sld-disabled-bg)!important;color:var(--sld-disabled-fg)!important;border-color:var(--sld-border-subtle)!important;opacity:1;cursor:not-allowed;transform:none;}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {outline:var(--focus-ring-width) solid var(--sld-action-focusRing)!important;outline-offset:var(--focus-ring-offset)!important;}
 .input-base,.header-search-input {border:1px solid var(--sld-border-strong);}
@@ -6503,6 +6489,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 <span style="color:var(--solide-info)">export const</span> whileTap = {
   scale: <span style="color:var(--solide-warning)">0.97</span>,
   opacity: <span style="color:var(--solide-warning)">0.65</span>,
+};
+
+<span style="color:var(--text-tertiary)">// Exceção: O Button usa o contrato buttonPress e cor active para feedback tátil.</span>
+<span style="color:var(--text-tertiary)">// Opacidade integral foi rejeitada no Button porque diminui o contraste do texto (abaixo de 4.5:1).</span>
+<span style="color:var(--solide-info)">export const</span> buttonPress = {
+  scale: <span style="color:var(--solide-warning)">0.97</span>,
 };</code></pre>
     </div>
   </div>
@@ -6694,7 +6686,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
   <div class="screen-header">
     <span class="chip">Controles & Formulários</span>
     <h2 class="stl">Botões, Entradas & Seleções</h2>
-    <p class="sd">Microestados táteis (scale 0.98), foco duplo acessível (WCAG 2.2 AA), validações imediatas e interruptores industriais.</p>
+    <p class="sd">Microestados táteis (scale 0.97), foco duplo acessível (WCAG 2.2 AA), validações imediatas e interruptores industriais.</p>
   </div>
 <div class="comp-sandbox">
     <div class="comp-header">
@@ -6726,7 +6718,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
             <svg class="pulse-anim" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             Processando...
           </button>
-          <button class="btn btn-secondary btn-disabled">Desabilitado</button>
+          <button class="btn btn-secondary" disabled>Desabilitado</button>
           <button class="btn btn-secondary btn-sm">Small (32px)</button>
           <button class="btn btn-primary">Base (38px) — Destaque</button>
           <button class="btn btn-secondary btn-lg">Large (46px)</button>
@@ -8715,7 +8707,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
       </div>
       <p class="anti-ai-title">2. Microestados Reais</p>
-      <p class="anti-ai-desc">Todo elemento possui comportamento físico: clique tátil (scale 0.98), foco acessível duplo, estado de carregamento com spinner geométrico e validação de erro.</p>
+      <p class="anti-ai-desc">Todo elemento possui comportamento físico: clique tátil (scale 0.97), foco acessível duplo, estado de carregamento com spinner geométrico e validação de erro.</p>
     </div>
 
     <div class="anti-ai-card">
@@ -12338,5 +12330,68 @@ function toggleAppSidebarDemo() {
 <!-- FLOATING TOOLTIP PARA SIDEBAR RECOLHIDA (LEGENDA DOS ÍCONES) -->
 <div id="sidebar-floating-tooltip" class="sidebar-floating-tooltip" aria-hidden="true"></div>
 
+<script>
+  (function() {
+    let activePressBtn = null;
+
+    document.addEventListener('pointerdown', (e) => {
+      if (!e.isPrimary) return;
+      if ((e.pointerType === 'mouse' || e.pointerType === 'pen') && e.button !== 0) return;
+
+      const btn = e.target.closest('.btn:not(:disabled):not(.btn-disabled)');
+      if (btn && (e.pointerType === 'mouse' || e.pointerType === 'touch' || e.pointerType === 'pen')) {
+        btn.setAttribute('data-pressed', 'true');
+        activePressBtn = btn;
+      }
+    });
+
+    document.addEventListener('pointermove', (e) => {
+      if (activePressBtn) {
+        const rect = activePressBtn.getBoundingClientRect();
+        const isInside = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
+        if (isInside) {
+          activePressBtn.setAttribute('data-pressed', 'true');
+        } else {
+          activePressBtn.removeAttribute('data-pressed');
+        }
+      }
+    });
+
+    const clearPress = () => {
+      if (activePressBtn) {
+        activePressBtn.removeAttribute('data-pressed');
+        activePressBtn = null;
+      }
+    };
+
+    document.addEventListener('pointerup', clearPress);
+    document.addEventListener('pointercancel', clearPress);
+    document.addEventListener('lostpointercapture', clearPress);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const btn = e.target.closest('.btn:not(:disabled):not(.btn-disabled)');
+        if (btn) {
+          btn.setAttribute('data-kbd-active', 'true');
+        }
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const btn = e.target.closest('.btn:not(:disabled):not(.btn-disabled)');
+        if (btn) {
+          btn.removeAttribute('data-kbd-active');
+        }
+      }
+    });
+
+    document.addEventListener('focusout', (e) => {
+      if (e.target && e.target.nodeType === 1 && e.target.hasAttribute('data-kbd-active')) {
+        e.target.removeAttribute('data-kbd-active');
+      }
+    });
+  })();
+</script>
 </body>
 </html>

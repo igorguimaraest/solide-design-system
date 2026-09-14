@@ -15,6 +15,18 @@
     "$type": "string",
     "$value": "var(--sld-durationFast)"
   },
+  "--sld-button-press-scale": {
+    "$type": "string",
+    "$value": "0.97"
+  },
+  "--sld-spring-snappy-stiffness": {
+    "$type": "string",
+    "$value": "400"
+  },
+  "--sld-spring-snappy-damping": {
+    "$type": "string",
+    "$value": "28"
+  },
   "--sld-print-ink": {
     "$type": "string",
     "$value": "var(--sld-palette-warm-950)"

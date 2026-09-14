@@ -5,6 +5,9 @@
   --border-strong: var(--sld-border-strong);
   --motion-base: var(--sld-durationBase);
   --motion-fast: var(--sld-durationFast);
+  --sld-button-press-scale: 0.97;
+  --sld-spring-snappy-stiffness: 400;
+  --sld-spring-snappy-damping: 28;
   --sld-print-ink: var(--sld-palette-warm-950);
   --sld-print-paper: var(--sld-palette-warm-0);
   --sld-border-on-inverse: var(--sld-palette-warm-600);
