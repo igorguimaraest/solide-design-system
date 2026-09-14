@@ -25,7 +25,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-01 | Warning action | Contrato `--sld-action-warning-*` implementado; Brand Guide migrado. | Button warning sólido implementado; contraste aprovado. | `--sld-action-warning-*` criados e vinculados. | IMPLEMENTATION_CORRECT | High | peso visual histórico | Status tecnicamente remediado; Alert/Banner reutilizável permanece na VC-06. | guide, Button, tokens |
 | VC-02 | Checkbox/radio/switch selecionado | Controles migrados para accent semântico de seleção. | Checkbox, Radio e Switch implementados e exportados; DataTable compõe Checkbox; stories, preview e testes cobrem os estados. | Família própria `--sld-control-selected-*`, sem dependência de `action-primary`. | REMEDIATED | High | semântica/inconsistência | Tecnicamente remediada. | guide, tokens, DataTable, UI Kit |
 | VC-03 | Checkbox/radio/switch | Estados checked, unchecked, indeterminate/on/off e disabled demonstrados. | Checkbox, Radio e Switch reutilizáveis implementados, exportados e cobertos. | APIs e estados documentados em `missing-component-contracts.md`. | REMEDIATED | High | affordance | Tecnicamente remediada. | UI Kit, stories |
-| VC-04 | Theme toggle | Contraste thumb/track no dark (Guide: `#242220` sobre `#1D1D1F` = 1,06:1). | Implementação funcional/semântica concluída. Contraste thumb/track no dark (UI Kit: `#242220` sobre `#121110` = 1,19:1). | Requisito: 3:1 mínimo. | PARTIALLY_REMEDIATED | High | contraste/affordance insuficiente no dark | Reabertura parcial somente pela visibilidade dark do thumb; permanece aberta. | ThemeToggle, guide |
+| VC-04 | Theme toggle | Contraste dark > 3:1 garantido; light preservado. | Implementação funcional e visual concluída. Contraste dark remediado (17,91:1) com `--sld-theme-toggle-thumb-bg/fg`. | Requisito: 3:1 mínimo. | REMEDIATED | High | contraste/affordance no dark | Tecnicamente remediada. | ThemeToggle, guide, tokens |
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover. | Mesma estratégia. | `--sld-action-ghost-*`. | BOTH_NEED_REVIEW | Medium | affordance | Validar em contexto/dark; não adicionar borda sem atualizar padrão. | Button, guide |
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-Revisar lado a lado no Work as combinações 1440/light, 1440/dark, 390/light e 390/dark, registrando capturas para os 18 IDs antes de iniciar correções.
+A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
 
 ## VC-18 — Drift de distribuição de tokens
 
@@ -138,7 +138,7 @@ Pendências preservadas, sem autorização para execução: decisão VC-01, moti
 
 Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, `packages/tokens/build/verify-tokens.js`, derivados rastreados de tokens/contraste, `packages/ui-kit/src/atoms/{Checkbox,Radio,Switch}/`, exportações do UI Kit, `DataTable.tsx`, `preview/main.tsx`, stories e `tests/system.spec.ts`.
 
-**Próximo passo exato:** VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
 
 ## Decisão e Consolidação VC-01 — 2026-09-13
 
@@ -156,11 +156,16 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 - Commit técnico: `503122f`.
 - **Status:** VC-01 tecnicamente implementada. Componente Alert/Banner (VC-06) permanece aberto.
 
-## Reabertura Parcial VC-04 — 2026-09-13
+## Consolidação VC-04 — 2026-09-14
 
-**Registro:** O componente ThemeToggle foi funcionalmente implementado, suprindo todos os requisitos semânticos; a implementação funcional permanece válida. Contudo, **somente a convergência visual dark está reaberta**:
-- Guide: 1,06:1;
-- UI Kit: 1,19:1;
-- Requisito: 3:1.
+**Registro:** O ThemeToggle teve sua convergência visual remediada.
+- O modo light foi preservado utilizando `surface-card` e `text-primary`.
+- O modo dark passou a utilizar os novos tokens `--sld-theme-toggle-thumb-bg/fg` mapeados para `warm-50` e `warm-950`.
+- O contraste no dark foi estabilizado em 17,91:1 tanto no UI Kit quanto no contrato; Guide também supera o mínimo de 3:1.
+- Os testes no Playwright aguardam o fim da transição nativa via `getAnimations().finished`, impedindo falsos negativos gerados pela avaliação durante a animação CSS.
+- Foram verificados 101 pares semânticos de contraste e 334 referências no contrato de tokens, além de 10/10 cenários UI em 1440/390 (light e dark).
+- Commit técnico: `331a1cdf5515d1a9a8b5fa7ca435939b213a78cc`.
 
-**Próximo passo exato:** VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.
+**Status:** VC-04 tecnicamente remediada.
+
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.

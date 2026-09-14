@@ -1,18 +1,19 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-13  
+Atualizado em: 2026-09-14  
 Branch: `codex/visual-convergence-audit`  
 Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`  
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
+Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria e estabilizar o estado documental do Solide Design System. VC-02 foi decidida, implementada, aprovada visualmente e tecnicamente concluída após corrigir e cobrir a precedência `disabled > active > hover > default` nos três controles.
+Consolidar a auditoria após a remediação técnica e visual da VC-04, preservando as demais frentes sem autorização.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 4 tecnicamente remediados (VC-01, VC-02, VC-03 e VC-18) e 14 ainda abertos, considerando a VC-04 reaberta parcialmente (achados parcialmente remediados continuam contados como abertos).
+- Auditoria de convergência consolidada com 18 achados históricos: 5 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04 e VC-18) e 13 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -21,7 +22,7 @@ Consolidar a auditoria e estabilizar o estado documental do Solide Design System
 - Chromium do Playwright disponibilizado; `npm run test:ui` passou com 5/5 cenários no bundle real em 1440/light, 1440/dark, 390/light e 390/dark.
 - Precedência de interação corrigida em Checkbox, Radio e Switch; a suíte oficial agora cobre default, hover, active simultâneo a hover, focus-visible e disabled nos quatro cenários.
 - VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
-- Tema dark do ThemeToggle (VC-04) parcialmente reaberto para ajuste de contraste do thumb.
+- Tema dark do ThemeToggle (VC-04) remediado para contraste de 17,91:1 no thumb.
 
 ## Principais achados
 
@@ -49,13 +50,15 @@ A ação do Alert/Banner warning foi implementada como uma ação **sólida e se
 - **Commit técnico aprovado:** `503122f`.
 - **Nota técnica:** A VC-01 está tecnicamente concluída, mas o componente Alert/Banner reutilizável permanece alocado na etapa VC-06.
 
-## VC-04 — Reabertura parcial (ThemeToggle)
+## VC-04 — Remediada (ThemeToggle)
 
-Foi registrado que o ThemeToggle teve sua implementação funcional e semântica concluída. Contudo, sua convergência visual foi reaberta parcialmente pela insuficiência de visibilidade do *thumb* no modo dark:
-- Guide: `#242220` sobre `#1D1D1F` = 1,06:1;
-- UI Kit: `#242220` sobre `#121110` = 1,19:1;
-- Requisito: 3:1;
-- Classificação atual: contraste/affordance insuficiente no dark; permanece aberta.
+Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
+- O modo light foi preservado utilizando `surface-card` e `text-primary`.
+- O modo dark passou a utilizar os novos tokens `--sld-theme-toggle-thumb-bg/fg` mapeados para `warm-50` e `warm-950`.
+- O contraste no dark foi estabilizado em 17,91:1 tanto no UI Kit quanto no contrato; Guide também supera o mínimo de 3:1.
+- Testes melhorados aguardando `getAnimations().finished` para evitar leituras de cores durante a transição CSS.
+- Commit técnico: `331a1cdf5515d1a9a8b5fa7ca435939b213a78cc`.
+- Testes aprovados: build, typecheck, test:tokens e test:ui. Foram verificados 10/10 testes UI em 1440/390 (light/dark), 101 pares semânticos e 334 referências.
 
 ## Arquivos relevantes já consolidados
 
@@ -91,10 +94,9 @@ Foi registrado que o ThemeToggle teve sua implementação funcional e semântica
 
 ## Pendências
 
-- Decidir correção do contraste dark de ThemeToggle (VC-04).
 - Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-VC-01 está tecnicamente concluída no commit `503122f`. Antes de iniciar motion, VC-06 ou qualquer outra frente, decidir e corrigir a reabertura parcial da VC-04: contraste do thumb do ThemeToggle no modo dark.
+A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
