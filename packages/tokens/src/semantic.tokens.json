@@ -453,6 +453,14 @@
         "$type": "string",
         "$value": "var(--sld-surface-shell)"
       },
+      "--sld-theme-toggle-thumb-bg": {
+        "$type": "string",
+        "$value": "var(--sld-surface-card)"
+      },
+      "--sld-theme-toggle-thumb-fg": {
+        "$type": "string",
+        "$value": "var(--sld-text-primary)"
+      },
       "--solide-bg-canvas": {
         "$type": "string",
         "$value": "var(--sld-surface-canvas)"
@@ -1262,6 +1270,14 @@
       "--nav-background": {
         "$type": "string",
         "$value": "var(--sld-surface-shell)"
+      },
+      "--sld-theme-toggle-thumb-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-50)"
+      },
+      "--sld-theme-toggle-thumb-fg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
       },
       "--solide-bg-canvas": {
         "$type": "string",

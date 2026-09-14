@@ -390,6 +390,8 @@
   --color-caution: var(--sld-status-warning-icon);
   --color-destructive: var(--sld-status-danger-icon);
   --nav-background: var(--sld-surface-shell);
+  --sld-theme-toggle-thumb-bg: var(--sld-surface-card);
+  --sld-theme-toggle-thumb-fg: var(--sld-text-primary);
   --solide-bg-canvas: var(--sld-surface-canvas);
   --solide-bg-surface: var(--sld-surface-card);
   --solide-bg-surface-elevated: var(--sld-surface-raised);
@@ -596,6 +598,8 @@
   --color-caution: var(--sld-status-warning-icon);
   --color-destructive: var(--sld-status-danger-icon);
   --nav-background: var(--sld-surface-shell);
+  --sld-theme-toggle-thumb-bg: var(--sld-palette-warm-50);
+  --sld-theme-toggle-thumb-fg: var(--sld-palette-warm-950);
   --solide-bg-canvas: var(--sld-surface-canvas);
   --solide-bg-surface: var(--sld-surface-card);
   --solide-bg-surface-elevated: var(--sld-surface-raised);
@@ -802,6 +806,8 @@
   --color-caution: var(--sld-status-warning-icon);
   --color-destructive: var(--sld-status-danger-icon);
   --nav-background: var(--sld-surface-shell);
+  --sld-theme-toggle-thumb-bg: var(--sld-palette-warm-50);
+  --sld-theme-toggle-thumb-fg: var(--sld-palette-warm-950);
   --solide-bg-canvas: var(--sld-surface-canvas);
   --solide-bg-surface: var(--sld-surface-card);
   --solide-bg-surface-elevated: var(--sld-surface-raised);

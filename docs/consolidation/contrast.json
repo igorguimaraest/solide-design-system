@@ -441,6 +441,15 @@
     "min": 4.5
   },
   {
+    "mode": "light",
+    "fg": "theme-toggle-thumb-fg",
+    "bg": "theme-toggle-thumb-bg",
+    "a": "#242220",
+    "b": "#FFFFFF",
+    "ratio": 15.85,
+    "min": 3
+  },
+  {
     "mode": "dark",
     "fg": "text-primary",
     "bg": "surface-canvas",
@@ -880,5 +889,23 @@
     "b": "#2D7CF6",
     "ratio": 4.78,
     "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "theme-toggle-thumb-fg",
+    "bg": "theme-toggle-thumb-bg",
+    "a": "#121110",
+    "b": "#FAF9F6",
+    "ratio": 17.91,
+    "min": 3
+  },
+  {
+    "mode": "dark",
+    "fg": "theme-toggle-thumb-bg",
+    "bg": "surface-shell",
+    "a": "#FAF9F6",
+    "b": "#121110",
+    "ratio": 17.91,
+    "min": 3
   }
 ]
