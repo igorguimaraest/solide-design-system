@@ -153,6 +153,22 @@
         "$type": "string",
         "$value": "var(--sld-palette-warm-0)"
       },
+      "--sld-action-warning-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-action-warning-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-500)"
+      },
+      "--sld-action-warning-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-500)"
+      },
+      "--sld-action-warning-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
       "--sld-action-danger-bg": {
         "$type": "string",
         "$value": "var(--sld-palette-danger-700)"
@@ -944,6 +960,22 @@
         "$value": "var(--sld-palette-cobalt-500)"
       },
       "--sld-action-primary-text": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warm-950)"
+      },
+      "--sld-action-warning-bg": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-500)"
+      },
+      "--sld-action-warning-hover": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-action-warning-active": {
+        "$type": "string",
+        "$value": "var(--sld-palette-warning-400)"
+      },
+      "--sld-action-warning-text": {
         "$type": "string",
         "$value": "var(--sld-palette-warm-950)"
       },

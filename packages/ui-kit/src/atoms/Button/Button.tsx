@@ -29,6 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     primary: 'bg-[var(--sld-action-primary-bg)] text-[var(--sld-action-primary-text)] enabled:hover:bg-[var(--sld-action-primary-hover)] enabled:active:bg-[var(--sld-action-primary-active)]',
     secondary: 'bg-[var(--sld-action-secondary-bg)] text-[var(--sld-action-secondary-text)] border border-[var(--sld-border-strong)] enabled:hover:bg-[var(--sld-action-secondary-hover)] enabled:active:bg-[var(--sld-action-secondary-active)]',
     danger: 'bg-[var(--sld-action-danger-bg)] text-[var(--sld-action-danger-text)] enabled:hover:bg-[var(--sld-action-danger-hover)] enabled:active:bg-[var(--sld-action-danger-active)]',
+    warning: 'bg-[var(--sld-action-warning-bg)] text-[var(--sld-action-warning-text)] enabled:hover:bg-[var(--sld-action-warning-hover)] enabled:active:bg-[var(--sld-action-warning-active)]',
   };
   const subtleClasses = tone === 'danger'
     ? 'text-[var(--sld-status-danger-text)] border-[var(--sld-status-danger-border)] enabled:hover:bg-[var(--sld-status-danger-bg)] enabled:active:bg-[var(--sld-status-danger-bg)]'

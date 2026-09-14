@@ -24,7 +24,7 @@ for(const mode of ['light','dark']){
   for(const fg of ['text-primary','text-secondary','text-muted','text-brand']) check(mode,fg,bg,4.5);
   check(mode,'border-strong',bg,3);check(mode,'action-focusRing',bg,3);
  }
- for(const action of ['primary','danger'])for(const state of ['bg','hover','active'])check(mode,`action-${action}-text`,`action-${action}-${state}`,4.5);
+ for(const action of ['primary','warning','danger'])for(const state of ['bg','hover','active'])check(mode,`action-${action}-text`,`action-${action}-${state}`,4.5);
  for(const tone of ['success','warning','danger','info','brand','neutral']){
   check(mode,`status-${tone}-text`,`status-${tone}-bg`,4.5);
   check(mode,`status-${tone}-on-solid`,`status-${tone}-solid`,4.5);

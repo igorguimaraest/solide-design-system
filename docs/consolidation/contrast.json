@@ -244,6 +244,33 @@
   },
   {
     "mode": "light",
+    "fg": "action-warning-text",
+    "bg": "action-warning-bg",
+    "a": "#121110",
+    "b": "#E8A542",
+    "ratio": 8.88,
+    "min": 4.5
+  },
+  {
+    "mode": "light",
+    "fg": "action-warning-text",
+    "bg": "action-warning-hover",
+    "a": "#121110",
+    "b": "#D98C1D",
+    "ratio": 6.93,
+    "min": 4.5
+  },
+  {
+    "mode": "light",
+    "fg": "action-warning-text",
+    "bg": "action-warning-active",
+    "a": "#121110",
+    "b": "#D98C1D",
+    "ratio": 6.93,
+    "min": 4.5
+  },
+  {
+    "mode": "light",
     "fg": "action-danger-text",
     "bg": "action-danger-bg",
     "a": "#FFFFFF",
@@ -654,6 +681,33 @@
     "a": "#121110",
     "b": "#2D7CF6",
     "ratio": 4.78,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "action-warning-text",
+    "bg": "action-warning-bg",
+    "a": "#121110",
+    "b": "#D98C1D",
+    "ratio": 6.93,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "action-warning-text",
+    "bg": "action-warning-hover",
+    "a": "#121110",
+    "b": "#E8A542",
+    "ratio": 8.88,
+    "min": 4.5
+  },
+  {
+    "mode": "dark",
+    "fg": "action-warning-text",
+    "bg": "action-warning-active",
+    "a": "#121110",
+    "b": "#E8A542",
+    "ratio": 8.88,
     "min": 4.5
   },
   {

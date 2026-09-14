@@ -315,6 +315,10 @@
   --sld-action-primary-hover: var(--sld-palette-cobalt-700);
   --sld-action-primary-active: var(--sld-palette-cobalt-800);
   --sld-action-primary-text: var(--sld-palette-warm-0);
+  --sld-action-warning-bg: var(--sld-palette-warning-400);
+  --sld-action-warning-hover: var(--sld-palette-warning-500);
+  --sld-action-warning-active: var(--sld-palette-warning-500);
+  --sld-action-warning-text: var(--sld-palette-warm-950);
   --sld-action-danger-bg: var(--sld-palette-danger-700);
   --sld-action-danger-hover: var(--sld-palette-danger-800);
   --sld-action-danger-active: var(--sld-palette-danger-900);
@@ -517,6 +521,10 @@
   --sld-action-primary-hover: var(--sld-palette-cobalt-300);
   --sld-action-primary-active: var(--sld-palette-cobalt-500);
   --sld-action-primary-text: var(--sld-palette-warm-950);
+  --sld-action-warning-bg: var(--sld-palette-warning-500);
+  --sld-action-warning-hover: var(--sld-palette-warning-400);
+  --sld-action-warning-active: var(--sld-palette-warning-400);
+  --sld-action-warning-text: var(--sld-palette-warm-950);
   --sld-action-danger-bg: var(--sld-palette-danger-400);
   --sld-action-danger-hover: var(--sld-palette-danger-300);
   --sld-action-danger-active: var(--sld-palette-danger-450);
@@ -719,6 +727,10 @@
   --sld-action-primary-hover: var(--sld-palette-cobalt-300);
   --sld-action-primary-active: var(--sld-palette-cobalt-500);
   --sld-action-primary-text: var(--sld-palette-warm-950);
+  --sld-action-warning-bg: var(--sld-palette-warning-500);
+  --sld-action-warning-hover: var(--sld-palette-warning-400);
+  --sld-action-warning-active: var(--sld-palette-warning-400);
+  --sld-action-warning-text: var(--sld-palette-warm-950);
   --sld-action-danger-bg: var(--sld-palette-danger-400);
   --sld-action-danger-hover: var(--sld-palette-danger-300);
   --sld-action-danger-active: var(--sld-palette-danger-450);

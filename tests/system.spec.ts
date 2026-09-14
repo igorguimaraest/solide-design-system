@@ -48,3 +48,38 @@ test('guide: toggle works with storage blocked and renders canonical colors',asy
  await expect(page.locator('#screen-cores .btn-primary').first()).toHaveCSS('background-color','rgb(92, 158, 255)');
  for(const theme of ['dark','light']){await page.evaluate(t=>(window as any).setTheme(t),theme);const selected=theme==='dark'?'rgb(92, 158, 255)':'rgb(29, 99, 214)';await expect(page.locator('.solide-checkbox:checked').first()).toHaveCSS('background-color',selected);await expect(page.locator('.solide-radio:checked').first()).toHaveCSS('background-color',selected);await expect(page.locator('.solide-switch input:checked + .solide-switch-track').first()).toHaveCSS('background-color',selected);await page.waitForTimeout(400);await page.screenshot({path:`${output}/guide-${theme}-1440.png`,fullPage:true});}
 });
+test('guide: warning action respects semantic contract', async ({ page }) => {
+  await page.goto('/solide-brand-guide.html');
+  await page.evaluate(() => (window as any).showScreen('screen-alertas'));
+  const btn = page.locator('.alert-banner-warning .btn-warning');
+  await expect(btn).toHaveText('Renovar Certificado');
+  const style = await btn.getAttribute('style');
+  if (style) expect(style).not.toMatch(/background:/);
+
+  await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
+  await expect(btn).toHaveCSS('background-color', 'rgb(232, 165, 66)');
+  await expect(btn).toHaveCSS('color', 'rgb(18, 17, 16)');
+  await btn.hover();
+  await expect(btn).toHaveCSS('background-color', 'rgb(217, 140, 29)');
+  await page.mouse.down();
+  await expect(btn).toHaveCSS('background-color', 'rgb(217, 140, 29)');
+  await page.mouse.up();
+  await page.mouse.move(0, 0); // remove hover state
+
+  await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
+  await expect(btn).toHaveCSS('background-color', 'rgb(217, 140, 29)');
+  await expect(btn).toHaveCSS('color', 'rgb(18, 17, 16)');
+  await btn.hover();
+  await expect(btn).toHaveCSS('background-color', 'rgb(232, 165, 66)');
+  await page.mouse.down();
+  await expect(btn).toHaveCSS('background-color', 'rgb(232, 165, 66)');
+  await page.mouse.up();
+  await page.mouse.move(0, 0); // remove hover state
+
+  await btn.evaluate((node) => node.setAttribute('disabled', 'true'));
+  const disabledBg = await tokenColor(page, '--sld-disabled-bg');
+  await expect(btn).toHaveCSS('background-color', disabledBg);
+
+  const statusWarning = await tokenColor(page, '--sld-status-warning-bg');
+  await expect(btn).not.toHaveCSS('background-color', statusWarning);
+});

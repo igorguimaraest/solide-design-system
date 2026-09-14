@@ -8,7 +8,7 @@ export default {
   argTypes: {
     variant: { control: { type: 'select' }, options: ['solid', 'outline', 'ghost'] },
     size: { control: { type: 'select' }, options: ['sm', 'md', 'lg'] },
-    tone: { control: { type: 'select' }, options: ['primary', 'secondary', 'danger'] },
+    tone: { control: { type: 'select' }, options: ['primary', 'secondary', 'danger', 'warning'] },
     isLoading: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
@@ -23,6 +23,16 @@ export const Outline = () => <Button variant="outline">Exportar Dados</Button>;
 export const Ghost = () => <Button variant="ghost">Ver Detalhes</Button>;
 
 export const Danger = () => <Button tone="danger">Excluir Registro</Button>;
+
+export const Warning = () => (
+  <div className="flex flex-col gap-4">
+    <div className="flex items-center gap-3">
+      <Button tone="warning">Renovar Certificado (Default)</Button>
+      <Button tone="warning" disabled>Renovar Certificado (Disabled)</Button>
+    </div>
+    <p className="text-sm text-[var(--sld-text-secondary)]">Interaja com os botões para verificar o hover e active.</p>
+  </div>
+);
 
 export const Loading = () => <Button isLoading>Processando</Button>;
 

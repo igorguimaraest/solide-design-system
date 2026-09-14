@@ -1516,6 +1516,9 @@ kbd {
   font-size: 12px;
   line-height: 1.5;
 }
+.alert-banner-desc + .btn, .alert-banner-title + .btn {
+  margin-top: var(--sld-space-2);
+}
 .alert-banner-success {
   background: var(--solide-success-surface);
   border-color: var(--solide-success-border);
@@ -5157,6 +5160,9 @@ select:focus-visible {
 .btn-primary {background:var(--sld-action-primary-bg);color:var(--sld-action-primary-text);border-color:var(--sld-action-primary-bg);box-shadow:none;}
 .btn-primary:enabled:hover {background:var(--sld-action-primary-hover);border-color:var(--sld-action-primary-hover);}
 .btn-primary:enabled:active {background:var(--sld-action-primary-active);border-color:var(--sld-action-primary-active);}
+.btn-warning {background:var(--sld-action-warning-bg);color:var(--sld-action-warning-text);border-color:var(--sld-action-warning-bg);box-shadow:none;}
+.btn-warning:enabled:hover {background:var(--sld-action-warning-hover);border-color:var(--sld-action-warning-hover);}
+.btn-warning:enabled:active {background:var(--sld-action-warning-active);border-color:var(--sld-action-warning-active);}
 .btn-secondary,.btn-outline {background:var(--sld-action-secondary-bg);color:var(--sld-action-secondary-text);border-color:var(--sld-border-strong);}
 .btn-secondary:enabled:hover,.btn-outline:enabled:hover {background:var(--sld-action-secondary-hover);}
 .btn-secondary:enabled:active,.btn-outline:enabled:active {background:var(--sld-action-secondary-active);}
@@ -7335,7 +7341,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <div style="flex:1">
           <p class="alert-banner-title">Certificado Digital A1 próximo do vencimento</p>
           <p class="alert-banner-desc">Expira em 4 dias úteis. Renove a chave criptográfica para manter a emissão ininterrupta de NF-e e NFS-e.</p>
-          <button class="btn btn-sm" style="background:var(--solide-warning);color:var(--solide-neutral-900);font-weight:600;margin-top:8px;border:none" onclick="showToast('Abrindo assistente de renovação A1')">Renovar Certificado</button>
+          <button class="btn btn-warning btn-sm" onclick="showToast('Abrindo assistente de renovação A1')">Renovar Certificado</button>
         </div>
       </div>
 
