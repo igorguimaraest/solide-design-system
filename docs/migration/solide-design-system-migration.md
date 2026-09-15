@@ -6,11 +6,12 @@ Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
 Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
-Commit técnico final da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
+Commit de formalização/contrato da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
+Commit técnico final/corretivo da VC-09A: `6bd3059 fix: enforce VC-09A loading press guard`
 
 ## Objetivo da etapa
 
-Consolidar a auditoria após a remediação técnica da VC-08, preservando as demais frentes sem autorização.
+Consolidar a conclusão técnica da VC-09A, incluindo o guard final de Loading, preservando VC-09B e demais frentes sem autorização.
 
 
 ## Concluído
@@ -30,7 +31,7 @@ Consolidar a auditoria após a remediação técnica da VC-08, preservando as de
 
 ## Principais achados
 
-- Motion: Button sem press; Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
+- Motion: Brand Guide e o contrato de press estão concluídos na VC-09A. Button.tsx do UI Kit ainda não implementa spring e permanece pendente na VC-09B. Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
 - Encoding: 11 stories têm texto PT-BR corrompido.
 - Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
@@ -67,7 +68,8 @@ Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
 ## VC-09A — Concluída (Contrato de Button Press)
 
 A etapa VC-09A está tecnicamente concluída, com a formalização do contrato de Button press. A auditoria VC-09 permanece parcialmente aberta porque o `Button.tsx` do UI Kit ainda não implementa a física spring. A VC-09B permanece não executada e não autorizada.
-- **Commit técnico final da VC-09A:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
+- **Commit de formalização/contrato:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
+- **Commit técnico final/corretivo da VC-09A:** `6bd3059cd3332e3716da6df1245929954bc74ef7`.
 - **Decisões consolidadas:**
   - target scale 0.97;
   - spring.snappy com stiffness 400 e damping 28;
@@ -77,6 +79,7 @@ A etapa VC-09A está tecnicamente concluída, com a formalização do contrato d
   - right click é ignorado;
   - Enter/Space recebem apenas active, sem scale;
   - disabled/loading não recebem press;
+  - Loading usa disabled nativo e `aria-busy="true"`, não aceitando mouse, teclado ou touch press;
   - pointer cancel/out restaura o estado;
   - reduced motion remove scale/transições e preserva active instantâneo;
   - transform não usa duration/easing CSS fixos no Guide;
@@ -84,8 +87,8 @@ A etapa VC-09A está tecnicamente concluída, com a formalização do contrato d
 - **Evidências:**
   - build, typecheck, lint, build:storybook passaram;
   - test:tokens passou com 101 pares semânticos e 334 referências;
-  - test:ui passou com 41/41;
-  - inspeção aferida em 1440/390, light/dark;
+  - test:ui passou com 45/45;
+  - inspeção aferida em 1440/390, light/dark, e comparação visual de Loading;
   - Primary e Ghost cobertos;
   - Interações via mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled e reduced motion foram garantidas.
 
@@ -120,7 +123,7 @@ A etapa VC-09A está tecnicamente concluída, com a formalização do contrato d
 - VC-02: `npm run build` e `npm run test:tokens` passaram após a implementação final.
 - VC-02: após instalar/disponibilizar o Chromium e executar fora do sandbox que bloqueava `spawn`, `npm run test:ui` passou: 5/5 cenários em 1440/390 e light/dark.
 - VC-02 final: `npm run test:ui`, `npm run test:tokens`, `npm run typecheck` e `npm run build` passaram após a correção. A suíte oficial confirma que `--sld-control-selected-active-bg` vence hover+active e que disabled permanece dominante em Checkbox, Radio e Switch, nos quatro cenários.
-- VC-09A: `npm run build`, `npm run typecheck`, `npm run test:tokens` (101 pares), `npm run test:ui` (41/41 aprovados), `npm run build:storybook` e `npm run lint` passaram com sucesso consolidando as interações híbridas de pointeiro e teclado em multi-modalidade.
+- VC-09A: `npm run build`, `npm run typecheck`, `npm run test:tokens` (101 pares), `npm run test:ui` (45/45 aprovados), `npm run build:storybook` e `npm run lint` passaram com sucesso consolidando as interações híbridas de ponteiro e teclado em multi-modalidade.
 
 ## Pendências
 
