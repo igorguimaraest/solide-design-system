@@ -30,7 +30,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
-| VC-09 | Press de Button | Guia declara scale/opacity táteis. | Só transição de cores. | motion/`--sld-durationFast`. | IMPLEMENTATION_WRONG | High | feedback | Reintroduzir apenas o press documentado, com reduced-motion. | Button, guide |
+| VC-09 | Press de Button | VC-09A concluída (contrato formalizado). | UI Kit/Button.tsx ainda pendente. | motion/`--sld-durationFast`. | IMPLEMENTATION_WRONG (PARTIAL) | High | feedback | VC-09A concluída. Implementar VC-09B somente após autorização. | Button, guide |
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | `duration-150 ease-out` literal. | duration/easing tokens. | IMPLEMENTATION_WRONG | High | consistência | Trocar por tokens e limitar propriedades. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | `<dialog>` abre instantaneamente; ModalHeader não compõe modal. | base/snappy/gentle. | IMPLEMENTATION_WRONG | High | feedback | Definir wrapper responsável pela animação. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | `transition-all` sem easing e amplo demais. | durationBase/easingSnappy. | IMPLEMENTATION_WRONG | Medium | ruído/comportamento | Animar só largura com easing semântico. | Sidebar |
@@ -183,4 +183,31 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 
 **Status:** VC-08 tecnicamente remediada. VC-09, VC-10, VC-11 e VC-12 continuam abertas.
 
-**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+## Consolidação VC-09A — 2026-09-14
+
+**Registro:** O contrato de press do Button foi formalizado e validado visualmente no Brand Guide (VC-09A). Contudo, a frente VC-09 permanece aberta pois o UI Kit (`Button.tsx`) ainda não implementa a física spring (VC-09B não executada e não autorizada).
+- **Commit técnico final da VC-09A:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
+- **Decisões consolidadas:**
+  - target scale 0.97;
+  - spring.snappy com stiffness 400 e damping 28;
+  - opacidade integral 0.65 rejeitada para Button por degradar contraste;
+  - cores semânticas active preservadas;
+  - pointer primário recebe scale e active;
+  - right click é ignorado;
+  - Enter/Space recebem apenas active, sem scale;
+  - disabled/loading não recebem press;
+  - pointer cancel/out restaura o estado;
+  - reduced motion remove scale/transições e preserva active instantâneo;
+  - transform não usa duration/easing CSS fixos no Guide;
+  - exportação determinística por `@solide/tokens/motion`.
+- **Validações:**
+  - build, typecheck, lint, build:storybook passaram;
+  - test:tokens passou com 101 pares semânticos e 334 referências;
+  - test:ui passou com 41/41;
+  - inspeção em 1440/390, light/dark;
+  - Primary e Ghost cobertos;
+  - mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled e reduced motion cobertos.
+
+**Status:** VC-09A tecnicamente concluída. VC-09 permanece parcialmente aberta (aguardando VC-09B).
+
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional (incluindo VC-09B) está autorizada nesta consolidação.

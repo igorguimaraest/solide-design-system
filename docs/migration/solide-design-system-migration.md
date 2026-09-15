@@ -6,6 +6,7 @@ Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
 Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
+Commit técnico final da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
 
 ## Objetivo da etapa
 
@@ -25,6 +26,7 @@ Consolidar a auditoria após a remediação técnica da VC-08, preservando as de
 - VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
 - Tema dark do ThemeToggle (VC-04) remediado para contraste de 17,91:1 no thumb.
 - VC-08 aprovada e implementada: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader agora usam `(hover:hover) and (pointer:fine)`. Button precisou elevar somente a especificidade de active para impedir que o bloco media emitido depois pelo Tailwind prevalecesse. Cobertura fine/coarse, light/dark e resultado oficial de 14/14 confirmam o funcionamento.
+- VC-09A concluída: contrato formalizado para Button press sem autorizar VC-09B, validado visualmente e com alta cobertura de testes.
 
 ## Principais achados
 
@@ -62,6 +64,31 @@ Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
 - Commit técnico: `331a1cdf5515d1a9a8b5fa7ca435939b213a78cc`.
 - Testes aprovados: build, typecheck, test:tokens e test:ui. Foram verificados 10/10 testes UI em 1440/390 (light/dark), 101 pares semânticos e 334 referências.
 
+## VC-09A — Concluída (Contrato de Button Press)
+
+A etapa VC-09A está tecnicamente concluída, com a formalização do contrato de Button press. A auditoria VC-09 permanece parcialmente aberta porque o `Button.tsx` do UI Kit ainda não implementa a física spring. A VC-09B permanece não executada e não autorizada.
+- **Commit técnico final da VC-09A:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
+- **Decisões consolidadas:**
+  - target scale 0.97;
+  - spring.snappy com stiffness 400 e damping 28;
+  - opacidade integral 0.65 rejeitada para Button por degradar contraste;
+  - cores semânticas active preservadas;
+  - pointer primário recebe scale e active;
+  - right click é ignorado;
+  - Enter/Space recebem apenas active, sem scale;
+  - disabled/loading não recebem press;
+  - pointer cancel/out restaura o estado;
+  - reduced motion remove scale/transições e preserva active instantâneo;
+  - transform não usa duration/easing CSS fixos no Guide;
+  - exportação determinística por `@solide/tokens/motion`.
+- **Evidências:**
+  - build, typecheck, lint, build:storybook passaram;
+  - test:tokens passou com 101 pares semânticos e 334 referências;
+  - test:ui passou com 41/41;
+  - inspeção aferida em 1440/390, light/dark;
+  - Primary e Ghost cobertos;
+  - Interações via mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled e reduced motion foram garantidas.
+
 ## Arquivos relevantes já consolidados
 
 - `solide-tokens.css`
@@ -93,6 +120,7 @@ Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
 - VC-02: `npm run build` e `npm run test:tokens` passaram após a implementação final.
 - VC-02: após instalar/disponibilizar o Chromium e executar fora do sandbox que bloqueava `spawn`, `npm run test:ui` passou: 5/5 cenários em 1440/390 e light/dark.
 - VC-02 final: `npm run test:ui`, `npm run test:tokens`, `npm run typecheck` e `npm run build` passaram após a correção. A suíte oficial confirma que `--sld-control-selected-active-bg` vence hover+active e que disabled permanece dominante em Checkbox, Radio e Switch, nos quatro cenários.
+- VC-09A: `npm run build`, `npm run typecheck`, `npm run test:tokens` (101 pares), `npm run test:ui` (41/41 aprovados), `npm run build:storybook` e `npm run lint` passaram com sucesso consolidando as interações híbridas de pointeiro e teclado em multi-modalidade.
 
 ## Pendências
 
