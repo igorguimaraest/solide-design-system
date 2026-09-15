@@ -6,12 +6,22 @@ function App(){
  const [theme,setTheme]=useState<'light'|'dark'>('light');
  const [tab,setTab]=useState('all');const [selected,setSelected]=useState<string[]>([]);const [nav,setNav]=useState('overview');
  const [backup,setBackup]=useState(true);const [environment,setEnvironment]=useState('production');const [sync,setSync]=useState(true);
+ const [testDisabled,setTestDisabled]=useState(false);const [testLoading,setTestLoading]=useState(false);const [testUnmounted,setTestUnmounted]=useState(false);
+ const isHarness = window.location.search.includes('harness=vc-09b');
+ React.useEffect(()=>{
+   if (isHarness) {
+     const win = window as unknown as { setTestDisabled: typeof setTestDisabled; setTestLoading: typeof setTestLoading; setTestUnmounted: typeof setTestUnmounted; };
+     win.setTestDisabled=setTestDisabled;
+     win.setTestLoading=setTestLoading;
+     win.setTestUnmounted=setTestUnmounted;
+   }
+ },[isHarness]);
  const sections=[{title:'Gestão',items:[{id:'overview',label:'Visão geral',icon:'activity',isActive:nav==='overview',onClick:()=>setNav('overview')},{id:'records',label:'Registros administrativos',icon:'copy',isActive:nav==='records',onClick:()=>setNav('records')}]}];
  return <DashboardLayout sidebarSections={sections} currentTheme={theme} onThemeToggle={()=>setTheme(t=>t==='light'?'dark':'light')} headerUser={{name:'Igor Guimarães',role:'Administração'}}>
  <Typography variant="h1">Solide — revisão do sistema</Typography>
  <Typography variant="body-sm" tone="secondary">Cores, estados e componentes do contrato compartilhado.</Typography>
  <div className="flex flex-wrap gap-3" data-testid="buttons">
- <Button data-testid="primary">Salvar alterações</Button><Button tone="secondary">Cancelar</Button><Button tone="danger">Excluir registro</Button><Button variant="outline">Exportar</Button><Button variant="ghost">Consultar</Button><Button disabled>Indisponível</Button><Button isLoading>Salvando</Button>
+  <Button data-testid="primary" onPointerDown={(e) => (e.currentTarget as HTMLElement).setAttribute('data-down-called', 'true')} onPointerUp={(e) => (e.currentTarget as HTMLElement).setAttribute('data-up-called', 'true')} onPointerCancel={(e) => (e.currentTarget as HTMLElement).setAttribute('data-cancel-called', 'true')} onPointerLeave={(e) => (e.currentTarget as HTMLElement).setAttribute('data-leave-called', 'true')} onPointerOut={(e) => (e.currentTarget as HTMLElement).setAttribute('data-out-called', 'true')} onKeyDown={(e) => (e.currentTarget as HTMLElement).setAttribute('data-keydown-called', 'true')} onKeyUp={(e) => (e.currentTarget as HTMLElement).setAttribute('data-keyup-called', 'true')} onBlur={(e) => (e.currentTarget as HTMLElement).setAttribute('data-blur-called', 'true')}>Salvar alterações</Button><Button tone="secondary">Cancelar</Button><Button tone="danger">Excluir registro</Button><Button variant="outline">Exportar</Button><Button variant="ghost">Consultar</Button><Button disabled>Indisponível</Button><Button isLoading data-testid="loading">Salvando</Button>{isHarness && !testUnmounted && <Button data-testid="dynamic-state" disabled={testDisabled} isLoading={testLoading}>Dinâmico</Button>}
  </div>
  <div className="flex flex-wrap gap-3">{(['success','warning','error','info','brand','neutral'] as const).map(t=><Badge key={t} tone={t}>{t}</Badge>)}</div>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

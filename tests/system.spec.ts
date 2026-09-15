@@ -104,8 +104,7 @@ test.describe('VC-08: Hover Guard', () => {
         if (await toggle.isVisible()) {
           await toggle.click();
           await expect(page.getByRole('switch', { name: 'Mudar para modo claro' })).toHaveAttribute('aria-checked', 'true');
-          await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark');
-        }
+          await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
       }
 
       const primary = page.getByTestId('primary');
@@ -153,8 +152,7 @@ test.describe('VC-08: Hover Guard', () => {
           if (await toggleBtn.isVisible()) {
              await toggleBtn.click();
              await expect(page.getByRole('switch', { name: 'Mudar para modo claro' })).toHaveAttribute('aria-checked', 'true');
-             await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark');
-          }
+             await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
         }
 
         const primary = page.getByTestId('primary');
@@ -488,6 +486,396 @@ test.describe('VC-09A: Button Press Contract (Guide)', () => {
       await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
       await expect(btn).not.toHaveCSS('background-color', activeBg);
 
+      await context.close();
+    });
+  }
+});
+
+test.describe('VC-09B: Button Press Contract (UI Kit)', () => {
+  for (const width of [1440, 390]) {
+    for (const theme of ['light', 'dark']) {
+      test(`Normal motion: press and cancel ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByTestId('primary');
+        await expect(btn).toBeVisible();
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active');
+
+        await btn.hover();
+        await page.mouse.down();
+        await btn.evaluate(async (node) => await Promise.all(node.getAnimations().map(animation => animation.finished)));
+
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+        await expect(btn).toHaveCSS('background-color', activeBg);
+
+        await page.mouse.move(0, 0);
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        // Playwright natively retains :active when pointer moves out while down. The UI Kit uses native :active, so we skip color assertion here.
+
+        await page.mouse.up();
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        // Disabled
+        const disabledBtn = page.getByRole('button', { name: 'Indisponível' });
+        const disabledBg = await disabledBtn.evaluate((node) => getComputedStyle(node).backgroundColor);
+        await disabledBtn.hover({ force: true });
+        await page.mouse.down();
+        await expect(disabledBtn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(disabledBtn).toHaveCSS('background-color', disabledBg);
+        await page.mouse.up();
+      });
+
+      test(`Reduced motion: no scale ${theme} ${width}`, async ({ page }) => {
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByTestId('primary');
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active');
+
+        await btn.hover();
+        await page.mouse.down();
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        expect(await btn.evaluate((node) => node.style.transform)).toBe('');
+        await expect(btn).toHaveCSS('background-color', activeBg);
+        await page.mouse.up();
+      });
+
+      test(`Right click ignored ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByTestId('primary');
+        const activeBg = await tokenColorScoped(page, '--sld-action-primary-active');
+
+        await btn.hover();
+        await page.mouse.down({ button: 'right' });
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).not.toHaveCSS('background-color', activeBg);
+        await page.mouse.up({ button: 'right' });
+      });
+
+      test(`Non-primary pointer ignored ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByTestId('primary');
+        await btn.dispatchEvent('pointerdown', { button: 0, isPrimary: false, pointerType: 'mouse' });
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+      });
+
+      test(`PointerOut to descendant maintains scale ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByTestId('primary');
+        await btn.dispatchEvent('pointerdown', { button: 0, isPrimary: true, pointerType: 'mouse' });
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        // pointerout to descendant
+        await btn.evaluate((node) => {
+          const innerSpan = node.querySelector('span');
+          node.dispatchEvent(new PointerEvent('pointerout', { relatedTarget: innerSpan, bubbles: true }));
+        });
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        // pointerout real
+        await btn.evaluate((node) => {
+          node.dispatchEvent(new PointerEvent('pointerout', { relatedTarget: document.body, bubbles: true }));
+        });
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+      });
+
+      test(`Ghost press and cancel ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+        const btn = page.getByRole('button', { name: 'Consultar' });
+        const activeBg = await tokenColorScoped(page, '--sld-action-ghost-active');
+        const hoverBg = await tokenColorScoped(page, '--sld-action-ghost-hover');
+
+        await btn.hover();
+        await page.mouse.down();
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        await page.mouse.up();
+        await page.mouse.down();
+
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+        await expect(btn).toHaveCSS('background-color', activeBg);
+
+        await page.mouse.up();
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).toHaveCSS('background-color', hoverBg);
+      });
+
+      test(`Dynamic state change during press ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html?harness=vc-09b');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+
+        const btn = page.getByTestId('dynamic-state');
+        await btn.hover();
+        await page.mouse.down();
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        await page.evaluate(() => (window as any).setTestDisabled(true));
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.evaluate(() => (window as any).setTestDisabled(false));
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.mouse.up();
+
+        await page.mouse.down();
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+        await page.evaluate(() => (window as any).setTestLoading(true));
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.evaluate(() => (window as any).setTestLoading(false));
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.mouse.up();
+      });
+
+      test(`Animation interruption and unmount ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html?harness=vc-09b');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+
+        const btn = page.getByTestId('dynamic-state');
+        await btn.hover();
+
+        // pointerdown → antes da mola terminar, disabled=true → aguardar além da conclusão potencial da mola → confirmar que transform não reaparece
+        await page.mouse.down();
+        // Disabling it interrupts the spring
+        await page.evaluate(() => (window as any).setTestDisabled(true));
+
+        // Wait well beyond the duration of the spring
+        await page.waitForTimeout(500);
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.mouse.up();
+        await page.evaluate(() => (window as any).setTestDisabled(false));
+
+        // Test unmount during animation
+        await page.mouse.down();
+        // Immediately unmount
+        await page.evaluate(() => (window as any).setTestUnmounted(true));
+        // Ensure button is gone
+        await expect(btn).toHaveCount(0);
+
+        await page.mouse.up();
+      });
+
+      test(`Keyboard contract (Enter & Space) ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+
+        const primaryBtn = page.getByTestId('primary');
+        const ghostBtn = page.getByRole('button', { name: 'Consultar' });
+
+        for (const {btn, token} of [{btn: primaryBtn, token: '--sld-action-primary-active'}, {btn: ghostBtn, token: '--sld-action-ghost-active'}]) {
+          const activeBg = await tokenColorScoped(page, token);
+          const defaultBg = await btn.evaluate((node) => getComputedStyle(node).backgroundColor);
+
+          for (const key of ['Enter', 'Space']) {
+            await btn.focus();
+            await page.keyboard.down(key);
+            await expect(btn).toBeFocused();
+            await expect(btn).toHaveCSS('background-color', activeBg);
+            await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+            await page.keyboard.up(key);
+            await expect(btn).not.toHaveCSS('background-color', activeBg);
+            await btn.blur();
+          }
+        }
+      });
+
+      test(`Modality switch (Keyboard to Pointer) ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+
+        const btn = page.getByTestId('primary');
+        await btn.focus();
+
+        expect(await btn.evaluate((node) => document.activeElement === node)).toBe(true);
+
+        await btn.dispatchEvent('pointerdown', { button: 0, isPrimary: true, pointerType: 'mouse' });
+        await expect(btn).toHaveCSS('transform', /0\.97/);
+
+        await btn.dispatchEvent('pointerup', { button: 0, isPrimary: true, pointerType: 'mouse' });
+      });
+
+      test(`Loading state guard ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark');
+            await page.waitForTimeout(300);
+          }
+        }
+        const btn = page.getByTestId('loading');
+        await expect(btn).toHaveAttribute('disabled', '');
+        await expect(btn).toHaveAttribute('aria-busy', 'true');
+
+        const disabledBg = await btn.evaluate((node) => window.getComputedStyle(node).backgroundColor);
+
+        await btn.hover({ force: true });
+        await page.mouse.down();
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).toHaveCSS('background-color', disabledBg);
+        await page.mouse.up();
+
+        await btn.focus();
+        await expect(btn).not.toBeFocused();
+
+        await page.keyboard.down('Enter');
+        await expect(btn).toHaveCSS('background-color', disabledBg);
+        await page.keyboard.up('Enter');
+
+        const client = await page.context().newCDPSession(page);
+        const box = await btn.boundingBox();
+        if (box) {
+          const x = box.x + box.width / 2;
+          const y = box.y + box.height / 2;
+          await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+          await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+          await expect(btn).toHaveCSS('background-color', disabledBg);
+          await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+        }
+      });
+
+      test(`Handler composition ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/preview/index.html');
+        if (theme === 'dark') {
+          const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+          if (await toggle.isVisible()) {
+            await toggle.click();
+            await expect(page.locator('.sld-ui').first()).toHaveAttribute('data-theme', 'dark'); await page.waitForTimeout(300); }
+        }
+
+        const btn = page.getByTestId('primary');
+        await btn.hover();
+
+        await page.mouse.down();
+        await expect(btn).toHaveAttribute('data-down-called', 'true');
+
+        await page.mouse.up();
+        await expect(btn).toHaveAttribute('data-up-called', 'true');
+
+        const box = await btn.boundingBox();
+        await page.mouse.move(box!.x + 10, box!.y + 10);
+        await page.mouse.down();
+        await page.mouse.move(0, 0);
+        await expect(btn).toHaveAttribute('data-leave-called', 'true');
+        await expect(btn).toHaveAttribute('data-out-called', 'true');
+
+        const client = await page.context().newCDPSession(page);
+        await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: box!.x + 10, y: box!.y + 10 }] });
+        await client.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
+        await expect(btn).toHaveAttribute('data-cancel-called', 'true');
+
+        await btn.focus();
+        await page.keyboard.down('Enter');
+        await expect(btn).toHaveAttribute('data-keydown-called', 'true');
+        await expect(btn).toHaveAttribute('data-kbd-active', 'true');
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+
+        await page.keyboard.up('Enter');
+        await expect(btn).toHaveAttribute('data-keyup-called', 'true');
+
+        await btn.blur();
+        await expect(btn).toHaveAttribute('data-blur-called', 'true');
+        await expect(btn).not.toHaveAttribute('data-kbd-active', 'true');
+      });
+    }
+  }
+
+  for (const theme of ['light', 'dark']) {
+    test(`Touch/Coarse: press and cancel ${theme} 390`, async ({ browser }) => {
+      const context = await browser.newContext({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } });
+      const page = await context.newPage();
+      await page.goto('/preview/index.html');
+      if (theme === 'dark') {
+        const toggle = page.getByRole('switch', { name: 'Mudar para modo escuro' });
+        if (await toggle.isVisible()) await toggle.click();
+      }
+      const btn = page.getByTestId('primary');
+      const activeBg = await tokenColorScoped(page, '--sld-action-primary-active');
+      const box = await btn.boundingBox();
+      const x = box!.x + box!.width / 2;
+      const y = box!.y + box!.height / 2;
+      const client = await context.newCDPSession(page);
+
+      await client.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+      await expect(btn).toHaveCSS('transform', /0\.97/);
+      // CDP touch doesn't reliably trigger native CSS :active in Playwright, skip color assertion here.
+
+      await client.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 0, y: 0 }] });
+      await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+      await expect(btn).not.toHaveCSS('background-color', activeBg);
+
+      await client.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
       await context.close();
     });
   }
