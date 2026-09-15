@@ -375,6 +375,61 @@ test.describe('VC-09A: Button Press Contract (Guide)', () => {
         await page.mouse.up();
         await expect(btn).not.toHaveAttribute('data-pressed');
       });
+
+      test(`Loading state guard ${theme} ${width}`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.addInitScript((t) => {
+          try { localStorage.setItem('solide-theme', t); } catch {}
+          document.documentElement.setAttribute('data-theme', t);
+        }, theme);
+        await page.goto('/solide-brand-guide.html');
+        await page.evaluate((t) => (window as any).setTheme(t), theme);
+        await page.evaluate(() => (window as any).showScreen('screen-controles'));
+
+        const btn = page.locator('#screen-controles button:has-text("Processando...")');
+        await expect(btn).toHaveAttribute('disabled', '');
+        await expect(btn).toHaveAttribute('aria-busy', 'true');
+
+        await page.screenshot({ path: `test-results/loading-${theme}-${width}.png` });
+
+        const disabledBg = await btn.evaluate((node) => window.getComputedStyle(node).backgroundColor);
+
+        await btn.hover({ force: true });
+        await page.mouse.down();
+
+        await expect(btn).not.toHaveAttribute('data-pressed');
+        await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+        await expect(btn).toHaveCSS('background-color', disabledBg);
+        await page.mouse.up();
+
+        await btn.focus();
+        await expect(btn).not.toBeFocused();
+
+        await page.keyboard.down('Enter');
+        await expect(btn).not.toHaveAttribute('data-kbd-active');
+        await expect(btn).toHaveCSS('background-color', disabledBg);
+        await page.keyboard.up('Enter');
+
+        const client = await page.context().newCDPSession(page);
+        const box = await btn.boundingBox();
+        if (box) {
+          const x = box.x + box.width / 2;
+          const y = box.y + box.height / 2;
+          await client.send('Input.dispatchTouchEvent', {
+            type: 'touchStart',
+            touchPoints: [{ x, y }]
+          });
+
+          await expect(btn).not.toHaveAttribute('data-pressed');
+          await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
+          await expect(btn).toHaveCSS('background-color', disabledBg);
+
+          await client.send('Input.dispatchTouchEvent', {
+            type: 'touchEnd',
+            touchPoints: []
+          });
+        }
+      });
     }
   }
 
