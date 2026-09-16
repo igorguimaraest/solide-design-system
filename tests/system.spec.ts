@@ -930,3 +930,28 @@ test.describe('VC-11: modal and drawer motion', () => {
     await expect(dialog).not.toBeVisible();
   });
 });
+
+test.describe('VC-12: Sidebar semantic motion', () => {
+  test('animates only width with semantic duration and easing', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto('/preview/index.html');
+    const toggle = page.getByRole('button', { name: 'Recolher barra lateral' });
+    const sidebar = page.locator('aside').first();
+    await expect(sidebar).toHaveCSS('transition-property', 'width');
+    await expect(sidebar).toHaveCSS('transition-duration', '0.18s');
+    await expect(sidebar).toHaveCSS('transition-timing-function', 'cubic-bezier(0.16, 1, 0.3, 1)');
+    const expandedWidth = await sidebar.evaluate((node) => getComputedStyle(node).width);
+    await toggle.click();
+    await sidebar.evaluate(async (node) => Promise.all(node.getAnimations().map(animation => animation.finished)));
+    await expect(page.getByRole('button', { name: 'Expandir barra lateral' })).toBeVisible();
+    expect(await sidebar.evaluate((node) => getComputedStyle(node).width)).not.toBe(expandedWidth);
+  });
+
+  test('removes width motion when reduced motion is requested', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto('/preview/index.html');
+    const sidebar = page.locator('aside').first();
+    await expect(sidebar).toHaveCSS('transition-property', 'none');
+  });
+});

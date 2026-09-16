@@ -10,7 +10,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <aside
-      className={`${isCompact ? 'w-[var(--sld-sidebar-w-compact)]' : 'w-[var(--sld-sidebar-w)]'} h-full bg-[var(--sld-surface-shell)] flex flex-col justify-between transition-all duration-[var(--sld-durationBase)] motion-reduce:transition-none select-none font-ui shrink-0 ${className}`}
+      className={`${isCompact ? 'w-[var(--sld-sidebar-w-compact)]' : 'w-[var(--sld-sidebar-w)]'} h-full bg-[var(--sld-surface-shell)] flex flex-col justify-between transition-[width] duration-[var(--sld-durationBase)] [transition-timing-function:var(--sld-easingSnappy)] motion-reduce:transition-none select-none font-ui shrink-0 ${className}`}
     >
       <div className="flex flex-col pt-[var(--sld-app-shell-sidebar-padding-block-start)] pb-[var(--sld-app-shell-sidebar-padding-block-end)]">
         {sections.map((sec, idx) => (
