@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-15
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação integral da VC-09 pela VC-09B.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação da VC-10.
 
 ## Método e cobertura
 
@@ -31,7 +31,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
 | VC-09 | Press de Button | VC-09A/B concluídas. | `<button>` nativo com física spring imperativa via Framer Motion. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | REMEDIATED | High | feedback | Tecnicamente remediada. | Button, guide |
-| VC-10 | SegmentedTabs motion | Motion usa tokens. | `duration-150 ease-out` literal. | duration/easing tokens. | IMPLEMENTATION_WRONG | High | consistência | Trocar por tokens e limitar propriedades. | SegmentedTabs |
+| VC-10 | SegmentedTabs motion | Motion usa tokens. | Transição limitada a `background-color`, `color` e `box-shadow`, com duração e curva semânticas. | `--sld-durationFast`, `--sld-easingSnappy`. | REMEDIATED | High | consistência | Tecnicamente remediada. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | `<dialog>` abre instantaneamente; ModalHeader não compõe modal. | base/snappy/gentle. | IMPLEMENTATION_WRONG | High | feedback | Definir wrapper responsável pela animação. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | `transition-all` sem easing e amplo demais. | durationBase/easingSnappy. | IMPLEMENTATION_WRONG | Medium | ruído/comportamento | Animar só largura com easing semântico. | Sidebar |
 | VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Seleção semântica remediada na VC-02 e hover guardado na VC-08; paginação ainda usa disabled opacity-40 literal. | seleção/disabled/focus. | TOKEN_CONTRACT_PROBLEM | Medium | contraste/affordance | Consolidar depois de VC-02/08. | DataTable, tokens |
@@ -42,7 +42,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 
 ## Motion
 
-Guide/contrato e UI Kit Button concluídos e consolidados em VC-09A e VC-09B com `<button>` nativo com física spring imperativa via Framer Motion. Tabs usa tempo/curva fora de token; drawer/modal abre sem transição; Sidebar anima `all`.
+Guide/contrato e UI Kit Button concluídos em VC-09A/B. SegmentedTabs usa motion semântico e propriedades limitadas na VC-10. Drawer/modal abre sem transição; Sidebar anima `all`.
 
 ## Encoding
 
@@ -52,14 +52,14 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 1. Definir contratos de seleção, Alert/Banner e ThemeToggle.
 2. Validar visualmente VC-01 e o contrato accent aprovado em VC-02 nos dois temas.
-3. Corrigir motion/estados com tokens (VC-08 e VC-09 remediadas; manter VC-10–VC-12 pendentes).
+3. Corrigir motion/estados com tokens (VC-08, VC-09 e VC-10 remediadas; manter VC-11–VC-12 pendentes).
 4. Completar componentes e cobertura (VC-03, VC-06, VC-15).
 5. Corrigir encoding/documentação (VC-14, VC-16).
 6. Inventariar legado (VC-17).
 
 ## Próximo passo obrigatório
 
-A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-11, isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 
@@ -231,6 +231,18 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
   - build, typecheck, test:tokens, build:storybook, lint e diff check aprovados;
   - validação visual em 1440/390, light/dark.
 
-**Status:** VC-09B tecnicamente concluída; VC-09 integralmente remediada. VC-10, VC-11 e VC-12 continuam pendentes e não autorizadas.
+**Status naquele checkpoint:** VC-09B tecnicamente concluída; VC-09 integralmente remediada. VC-10, VC-11 e VC-12 continuavam pendentes.
 
 **Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+
+## Consolidação VC-10 — 2026-09-15
+
+**Registro:** O motion do SegmentedTabs foi alinhado ao contrato sem alteração perceptiva da composição.
+- **Commit técnico:** `73cd33a fix: use semantic motion for segmented tabs`.
+- `transition-all duration-150 ease-out` foi substituído por transições exclusivas de `background-color`, `color` e `box-shadow`.
+- O componente consome `--sld-durationFast` e `--sld-easingSnappy` e remove motion sob `prefers-reduced-motion`.
+- Build, typecheck, test:tokens, lint e build:storybook passaram; a suíte UI passou em 97/97.
+
+**Status:** VC-10 tecnicamente remediada.
+
+**Próximo passo exato:** executar a VC-11 sob a autorização integral concedida em 2026-09-15.

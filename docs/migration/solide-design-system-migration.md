@@ -9,15 +9,16 @@ Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
 Commit de formalização/contrato da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
 Commit técnico final/corretivo da VC-09A: `6bd3059 fix: enforce VC-09A loading press guard`
 Commit técnico final da VC-09B: `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`
+Commit técnico final da VC-10: `73cd33a fix: use semantic motion for segmented tabs`
 
 ## Objetivo da etapa
 
-Consolidar a conclusão técnica da VC-09B, garantindo a remediação integral da VC-09, sem iniciar as próximas frentes (VC-10, VC-11, VC-12).
+Consolidar a conclusão técnica da VC-10 e preparar a execução da VC-11.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 7 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08, VC-09 e VC-18) e 11 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 8 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08, VC-09, VC-10 e VC-18) e 10 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -30,10 +31,11 @@ Consolidar a conclusão técnica da VC-09B, garantindo a remediação integral d
 - VC-08 aprovada e implementada: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader agora usam `(hover:hover) and (pointer:fine)`. Button precisou elevar somente a especificidade de active para impedir que o bloco media emitido depois pelo Tailwind prevalecesse. Cobertura fine/coarse, light/dark e resultado oficial de 14/14 confirmam o funcionamento.
 - VC-09A concluída: contrato formalizado para Button press validado visualmente.
 - VC-09B concluída: componente Button usa `<button>` nativo com física spring imperativa via Framer Motion com alta cobertura de testes e comportamento híbrido protegido.
+- VC-10 concluída: SegmentedTabs limita motion a `background-color`, `color` e `box-shadow`, usando `--sld-durationFast` e `--sld-easingSnappy`, com reduced motion protegido.
 
 ## Principais achados
 
-- Motion: Button press concluído (VC-09 integralmente remediada). Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
+- Motion: Button press e SegmentedTabs concluídos (VC-09 e VC-10 remediadas). Drawer/modal segue sem transição; Sidebar ainda usa `transition-all`.
 - Encoding: 11 stories têm texto PT-BR corrompido.
 - Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
@@ -130,6 +132,15 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 - `docs/audits/solide-visual-convergence-audit.md`
 - `docs/contracts/missing-component-contracts.md`
 
+## VC-10 — Concluída (Motion semântico de SegmentedTabs)
+
+- **Commit técnico:** `73cd33a fix: use semantic motion for segmented tabs`.
+- `transition-all duration-150 ease-out` foi removido.
+- A transição foi limitada a `background-color`, `color` e `box-shadow`.
+- Duração e curva consomem `--sld-durationFast` e `--sld-easingSnappy`.
+- `prefers-reduced-motion` remove a transição.
+- Validações: build, typecheck, test:tokens, lint e build:storybook aprovados; `test:ui` passou em **97/97**.
+
 ## Testes executados
 
 - `npm run build` — passou.
@@ -146,9 +157,9 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 11 achados ainda abertos: VC-05, VC-06, VC-07 e VC-10 a VC-17, conforme a auditoria.
+- Concluir os 10 achados ainda abertos: VC-05, VC-06, VC-07 e VC-11 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+A autorização integral foi concedida em 2026-09-15. O próximo passo é executar a VC-11, mantendo a frente isolada até validação e commit.
