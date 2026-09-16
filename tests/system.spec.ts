@@ -900,3 +900,33 @@ test.describe('VC-10: SegmentedTabs semantic motion', () => {
     await expect(page.getByRole('tab', { name: 'Todos' })).toHaveCSS('transition-property', 'none');
   });
 });
+
+test.describe('VC-11: modal and drawer motion', () => {
+  test('mobile drawer animates, closes with Escape and restores trigger focus', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/preview/index.html');
+    const trigger = page.getByRole('button', { name: 'Alternar navegação' });
+    await trigger.click();
+    const dialog = page.getByRole('dialog', { name: 'Navegação principal' });
+    await expect(dialog).toBeVisible();
+    await dialog.evaluate(async (node) => Promise.all(node.getAnimations().map(animation => animation.finished)));
+    await expect(dialog).toHaveCSS('transform', /none|matrix\(1/);
+
+    await page.keyboard.press('Escape');
+    await expect(dialog).not.toBeVisible();
+    await expect(trigger).toBeFocused();
+  });
+
+  test('reduced motion opens and closes without inline transforms', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/preview/index.html');
+    await page.getByRole('button', { name: 'Alternar navegação' }).click();
+    const dialog = page.getByRole('dialog', { name: 'Navegação principal' });
+    await expect(dialog).toBeVisible();
+    expect(await dialog.evaluate((node) => node.style.transform)).toBe('');
+    expect(await dialog.evaluate((node) => node.style.opacity)).toBe('');
+    await page.keyboard.press('Escape');
+    await expect(dialog).not.toBeVisible();
+  });
+});

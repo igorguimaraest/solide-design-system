@@ -43,6 +43,12 @@ const motionTs = fs.readFileSync(path.join(root, 'packages/tokens/src/motion.ts'
 assert(c.fixed['--sld-button-press-scale'], 'Button press scale missing in :root');
 assert(c.fixed['--sld-spring-snappy-stiffness'], 'Spring stiffness missing in :root');
 assert(c.fixed['--sld-spring-snappy-damping'], 'Spring damping missing in :root');
+for (const profile of ['default', 'gentle']) {
+  assert(c.fixed[`--sld-spring-${profile}-stiffness`], `${profile} spring stiffness missing in :root`);
+  assert(c.fixed[`--sld-spring-${profile}-damping`], `${profile} spring damping missing in :root`);
+  assert(new RegExp(`stiffness:\\s*${Number(c.fixed[`--sld-spring-${profile}-stiffness`])}\\b`).test(motionTs), `motion.ts missing ${profile} stiffness`);
+  assert(new RegExp(`damping:\\s*${Number(c.fixed[`--sld-spring-${profile}-damping`])}\\b`).test(motionTs), `motion.ts missing ${profile} damping`);
+}
 
 assert(new RegExp(`scale:\\s*${Number(c.fixed['--sld-button-press-scale'])}\\b`).test(motionTs), 'motion.ts out of sync with CSS scale');
 assert(new RegExp(`stiffness:\\s*${Number(c.fixed['--sld-spring-snappy-stiffness'])}\\b`).test(motionTs), 'motion.ts out of sync with CSS stiffness');

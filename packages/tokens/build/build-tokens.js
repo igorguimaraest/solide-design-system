@@ -26,13 +26,23 @@ const motion = {
       stiffness: Number(c.fixed['--sld-spring-snappy-stiffness']),
       damping: Number(c.fixed['--sld-spring-snappy-damping']),
     },
+    default: {
+      type: 'spring',
+      stiffness: Number(c.fixed['--sld-spring-default-stiffness']),
+      damping: Number(c.fixed['--sld-spring-default-damping']),
+    },
+    gentle: {
+      type: 'spring',
+      stiffness: Number(c.fixed['--sld-spring-gentle-stiffness']),
+      damping: Number(c.fixed['--sld-spring-gentle-damping']),
+    },
   },
   buttonPress: {
     scale: Number(c.fixed['--sld-button-press-scale']),
   },
 };
 const motionTs = `// Generated from solide-tokens.css. Do not edit.\n` +
-                 `export const spring = {\n  snappy: {\n    type: 'spring',\n    stiffness: ${motion.spring.snappy.stiffness},\n    damping: ${motion.spring.snappy.damping},\n  },\n} as const;\n\n` +
+                 `export const spring = {\n  snappy: {\n    type: 'spring',\n    stiffness: ${motion.spring.snappy.stiffness},\n    damping: ${motion.spring.snappy.damping},\n  },\n  default: {\n    type: 'spring',\n    stiffness: ${motion.spring.default.stiffness},\n    damping: ${motion.spring.default.damping},\n  },\n  gentle: {\n    type: 'spring',\n    stiffness: ${motion.spring.gentle.stiffness},\n    damping: ${motion.spring.gentle.damping},\n  },\n} as const;\n\n` +
                  `export const buttonPress = {\n  scale: ${motion.buttonPress.scale},\n} as const;\n`;
 fs.writeFileSync(path.join(root, 'packages/tokens/src/motion.ts'), motionTs);
 

@@ -27,6 +27,22 @@
     "$type": "string",
     "$value": "28"
   },
+  "--sld-spring-default-stiffness": {
+    "$type": "string",
+    "$value": "170"
+  },
+  "--sld-spring-default-damping": {
+    "$type": "string",
+    "$value": "26"
+  },
+  "--sld-spring-gentle-stiffness": {
+    "$type": "string",
+    "$value": "120"
+  },
+  "--sld-spring-gentle-damping": {
+    "$type": "string",
+    "$value": "20"
+  },
   "--sld-print-ink": {
     "$type": "string",
     "$value": "var(--sld-palette-warm-950)"

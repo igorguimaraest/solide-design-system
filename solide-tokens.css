@@ -8,6 +8,10 @@
   --sld-button-press-scale: 0.97;
   --sld-spring-snappy-stiffness: 400;
   --sld-spring-snappy-damping: 28;
+  --sld-spring-default-stiffness: 170;
+  --sld-spring-default-damping: 26;
+  --sld-spring-gentle-stiffness: 120;
+  --sld-spring-gentle-damping: 20;
   --sld-print-ink: var(--sld-palette-warm-950);
   --sld-print-paper: var(--sld-palette-warm-0);
   --sld-border-on-inverse: var(--sld-palette-warm-600);
