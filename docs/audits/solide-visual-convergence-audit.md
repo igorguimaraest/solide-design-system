@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
-Data: 2026-09-12
-Escopo: `main` consolidada, sem alterações de implementação.
+Data: 2026-09-15
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação integral da VC-09 pela VC-09B.
 
 ## Método e cobertura
 
@@ -30,7 +30,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
-| VC-09 | Press de Button | VC-09A concluída, incluindo Loading protegido. | UI Kit/Button.tsx spring ainda pendente. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | IMPLEMENTATION_WRONG (PARTIAL) | High | feedback | VC-09A concluída. Implementar VC-09B somente após autorização. | Button, guide |
+| VC-09 | Press de Button | VC-09A/B concluídas. | `<button>` nativo com física spring imperativa via Framer Motion. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | REMEDIATED | High | feedback | Tecnicamente remediada. | Button, guide |
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | `duration-150 ease-out` literal. | duration/easing tokens. | IMPLEMENTATION_WRONG | High | consistência | Trocar por tokens e limitar propriedades. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | `<dialog>` abre instantaneamente; ModalHeader não compõe modal. | base/snappy/gentle. | IMPLEMENTATION_WRONG | High | feedback | Definir wrapper responsável pela animação. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | `transition-all` sem easing e amplo demais. | durationBase/easingSnappy. | IMPLEMENTATION_WRONG | Medium | ruído/comportamento | Animar só largura com easing semântico. | Sidebar |
@@ -42,7 +42,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 
 ## Motion
 
-Guide/contrato concluídos na VC-09A; UI Kit Button ainda não implementa spring. Tabs usa tempo/curva fora de token; drawer/modal abre sem transição; Sidebar anima `all`.
+Guide/contrato e UI Kit Button concluídos e consolidados em VC-09A e VC-09B com `<button>` nativo com física spring imperativa via Framer Motion. Tabs usa tempo/curva fora de token; drawer/modal abre sem transição; Sidebar anima `all`.
 
 ## Encoding
 
@@ -52,7 +52,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 1. Definir contratos de seleção, Alert/Banner e ThemeToggle.
 2. Validar visualmente VC-01 e o contrato accent aprovado em VC-02 nos dois temas.
-3. Corrigir motion/estados com tokens (VC-08 remediada; manter VC-09–VC-12 pendentes).
+3. Corrigir motion/estados com tokens (VC-08 e VC-09 remediadas; manter VC-10–VC-12 pendentes).
 4. Completar componentes e cobertura (VC-03, VC-06, VC-15).
 5. Corrigir encoding/documentação (VC-14, VC-16).
 6. Inventariar legado (VC-17).
@@ -185,7 +185,7 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 
 ## Consolidação VC-09A — 2026-09-14
 
-**Registro:** O contrato de press do Button foi formalizado e validado visualmente no Brand Guide (VC-09A). Contudo, a frente VC-09 permanece aberta pois o UI Kit (`Button.tsx`) ainda não implementa a física spring (VC-09B não executada e não autorizada).
+**Registro:** O contrato de press do Button foi formalizado e validado visualmente no Brand Guide (VC-09A). Naquele checkpoint, a frente VC-09 permaneceu parcialmente aberta aguardando a implementação da física spring no UI Kit, pendência posteriormente resolvida pela consolidação VC-09B abaixo.
 - **Commit de formalização/contrato:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
 - **Commit técnico final/corretivo da VC-09A:** `6bd3059cd3332e3716da6df1245929954bc74ef7`.
 - **Decisões consolidadas:**
@@ -210,6 +210,27 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
   - Primary e Ghost cobertos;
   - mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled, Loading e reduced motion cobertos.
 
-**Status:** VC-09A tecnicamente concluída. VC-09 permanece parcialmente aberta (aguardando VC-09B).
+**Status:** VC-09A tecnicamente concluída.
 
-**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional (incluindo VC-09B) está autorizada nesta consolidação.
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.
+
+## Consolidação VC-09B — 2026-09-15
+
+**Registro:** O press do Button foi totalmente implementado no UI Kit, marcando a VC-09 como integralmente remediada.
+- **Commit técnico VC-09B:** `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`
+- **Implementação:** `<button>` nativo com física spring imperativa via Framer Motion.
+- **Integração:** `buttonPress.scale` e `spring.snappy` consumidos de `@solide/tokens/motion`.
+- **Física e modalidades:**
+  - mouse/touch recebem scale e active;
+  - teclado recebe active sem scale;
+  - right click e ponteiro não primário ignorados;
+  - cancelamento, saída, disabled, loading, reduced motion e unmount protegidos;
+  - handlers públicos compostos sem alteração da API.
+- **Validações:**
+  - 95/95 testes UI aprovados;
+  - build, typecheck, test:tokens, build:storybook, lint e diff check aprovados;
+  - validação visual em 1440/390, light/dark.
+
+**Status:** VC-09B tecnicamente concluída; VC-09 integralmente remediada. VC-10, VC-11 e VC-12 continuam pendentes e não autorizadas.
+
+**Próximo passo exato:** A próxima frente exige autorização expressa. Nenhuma implementação adicional está autorizada nesta consolidação.

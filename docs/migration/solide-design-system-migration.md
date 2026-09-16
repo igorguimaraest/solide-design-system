@@ -1,22 +1,23 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-14  
-Branch: `codex/visual-convergence-audit`  
-Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`  
+Atualizado em: 2026-09-15
+Branch: `codex/visual-convergence-audit`
+Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
 Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
 Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
 Commit de formalização/contrato da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
 Commit técnico final/corretivo da VC-09A: `6bd3059 fix: enforce VC-09A loading press guard`
+Commit técnico final da VC-09B: `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`
 
 ## Objetivo da etapa
 
-Consolidar a conclusão técnica da VC-09A, incluindo o guard final de Loading, preservando VC-09B e demais frentes sem autorização.
+Consolidar a conclusão técnica da VC-09B, garantindo a remediação integral da VC-09, sem iniciar as próximas frentes (VC-10, VC-11, VC-12).
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 6 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08 e VC-18) e 12 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 7 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08, VC-09 e VC-18) e 11 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -27,11 +28,12 @@ Consolidar a conclusão técnica da VC-09A, incluindo o guard final de Loading, 
 - VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
 - Tema dark do ThemeToggle (VC-04) remediado para contraste de 17,91:1 no thumb.
 - VC-08 aprovada e implementada: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader agora usam `(hover:hover) and (pointer:fine)`. Button precisou elevar somente a especificidade de active para impedir que o bloco media emitido depois pelo Tailwind prevalecesse. Cobertura fine/coarse, light/dark e resultado oficial de 14/14 confirmam o funcionamento.
-- VC-09A concluída: contrato formalizado para Button press sem autorizar VC-09B, validado visualmente e com alta cobertura de testes.
+- VC-09A concluída: contrato formalizado para Button press validado visualmente.
+- VC-09B concluída: componente Button usa `<button>` nativo com física spring imperativa via Framer Motion com alta cobertura de testes e comportamento híbrido protegido.
 
 ## Principais achados
 
-- Motion: Brand Guide e o contrato de press estão concluídos na VC-09A. Button.tsx do UI Kit ainda não implementa spring e permanece pendente na VC-09B. Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
+- Motion: Button press concluído (VC-09 integralmente remediada). Tabs com timing/easing literal; drawer/modal sem transição; Sidebar com `transition-all`.
 - Encoding: 11 stories têm texto PT-BR corrompido.
 - Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
@@ -67,7 +69,7 @@ Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
 
 ## VC-09A — Concluída (Contrato de Button Press)
 
-A etapa VC-09A está tecnicamente concluída, com a formalização do contrato de Button press. A auditoria VC-09 permanece parcialmente aberta porque o `Button.tsx` do UI Kit ainda não implementa a física spring. A VC-09B permanece não executada e não autorizada.
+A etapa VC-09A definiu e validou o contrato de Button press. A frente VC-09 como um todo está agora integralmente remediada, incluindo a VC-09B (UI Kit).
 - **Commit de formalização/contrato:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
 - **Commit técnico final/corretivo da VC-09A:** `6bd3059cd3332e3716da6df1245929954bc74ef7`.
 - **Decisões consolidadas:**
@@ -91,6 +93,23 @@ A etapa VC-09A está tecnicamente concluída, com a formalização do contrato d
   - inspeção aferida em 1440/390, light/dark, e comparação visual de Loading;
   - Primary e Ghost cobertos;
   - Interações via mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled e reduced motion foram garantidas.
+
+## VC-09B — Concluída (Implementação de Button no UI Kit)
+
+A etapa VC-09B está tecnicamente concluída, marcando a remediação integral da VC-09.
+- **Commit técnico VC-09B:** `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`.
+- **Implementação:** `<button>` nativo com física spring imperativa via Framer Motion.
+- **Integração:** `buttonPress.scale` e `spring.snappy` consumidos diretamente do pacote `@solide/tokens/motion`.
+- **Física e Modalidades:**
+  - Mouse/touch recebem o `scale` e a cor de `active`.
+  - Teclado recebe apenas a cor de `active` sem `scale` (acessibilidade preservada).
+  - Right click e eventos de um ponteiro não primário são explicitamente ignorados.
+  - Cancelamento, saída real do ponteiro (preservando o estado ao atravessar descendentes), estado `disabled`, estado `isLoading`, modo `reduced-motion` e desmonte do componente (`unmount`) são devidamente protegidos para interrupção segura da animação.
+  - Handlers públicos (onPointerDown, onKeyDown, etc.) são desestruturados e chamados adequadamente, sem sofrer sobrescrita ou interferir na API original do componente.
+- **Evidências e Testes:**
+  - **95/95** testes de UI (`test:ui`) aprovados de forma determinística, englobando todas as modalidades de interação híbrida.
+  - Comandos de validação infraestrutural: `npm run build`, `npm run typecheck`, `npm run test:tokens`, `npm run build:storybook`, `npm run lint` e `git diff --check` todos executados e aprovados.
+  - Validação visual aferida com os novos comportamentos nos cenários 1440 px e 390 px, nos modos `light` e `dark`.
 
 ## Arquivos relevantes já consolidados
 
@@ -127,7 +146,7 @@ A etapa VC-09A está tecnicamente concluída, com a formalização do contrato d
 
 ## Pendências
 
-- Corrigir motion, encoding, geometria mobile e cobertura de preview conforme a auditoria.
+- Concluir os 11 achados ainda abertos: VC-05, VC-06, VC-07 e VC-10 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
