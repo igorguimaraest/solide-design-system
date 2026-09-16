@@ -85,7 +85,9 @@ export function SegmentedTabs<T extends string = string>({
               ${size === 'sm' ? 'px-2.5 py-1 text-xs' : 'px-3.5 py-1.5 text-xs'}
               font-sans whitespace-nowrap select-none
               rounded-[var(--r-xs)]
-              transition-all duration-150 ease-out
+              transition-[background-color,color,box-shadow]
+              duration-[var(--sld-durationFast)]
+              [transition-timing-function:var(--sld-easingSnappy)]
               motion-reduce:transition-none
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--solide-ring-focus)] focus-visible:ring-offset-1
               disabled:opacity-[var(--solide-opacity-disabled)] disabled:cursor-not-allowed

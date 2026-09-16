@@ -880,3 +880,23 @@ test.describe('VC-09B: Button Press Contract (UI Kit)', () => {
     });
   }
 });
+
+test.describe('VC-10: SegmentedTabs semantic motion', () => {
+  test('limits transitions to visual state properties and uses motion tokens', async ({ page }) => {
+    await page.goto('/preview/index.html');
+    const tab = page.getByRole('tab', { name: 'Todos' });
+
+    await expect(tab).toHaveCSS('transition-property', 'background-color, color, box-shadow');
+    await expect(tab).toHaveCSS('transition-duration', '0.1s');
+    await expect(tab).toHaveCSS('transition-timing-function', 'cubic-bezier(0.16, 1, 0.3, 1)');
+
+    await page.getByRole('tab', { name: 'Pendentes' }).click();
+    await expect(page.getByRole('tab', { name: 'Pendentes' })).toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('removes motion when reduced motion is requested', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/preview/index.html');
+    await expect(page.getByRole('tab', { name: 'Todos' })).toHaveCSS('transition-property', 'none');
+  });
+});
