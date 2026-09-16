@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-15
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação da VC-11.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação da VC-12.
 
 ## Método e cobertura
 
@@ -33,7 +33,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-09 | Press de Button | VC-09A/B concluídas. | `<button>` nativo com física spring imperativa via Framer Motion. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | REMEDIATED | High | feedback | Tecnicamente remediada. | Button, guide |
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | Transição limitada a `background-color`, `color` e `box-shadow`, com duração e curva semânticas. | `--sld-durationFast`, `--sld-easingSnappy`. | REMEDIATED | High | consistência | Tecnicamente remediada. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | Wrapper `Modal` compõe `<dialog>`, `ModalHeader` e DashboardLayout com entrada/saída, foco e reduced motion. | `spring.default`, `spring.gentle`, `@solide/tokens/motion`. | REMEDIATED | High | feedback | Tecnicamente remediada. | DashboardLayout, Modal |
-| VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | `transition-all` sem easing e amplo demais. | durationBase/easingSnappy. | IMPLEMENTATION_WRONG | Medium | ruído/comportamento | Animar só largura com easing semântico. | Sidebar |
+| VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | Transição limitada à largura, com duração/curva semânticas e reduced motion. | `--sld-durationBase`, `--sld-easingSnappy`. | REMEDIATED | Medium | ruído/comportamento | Tecnicamente remediada. | Sidebar |
 | VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Seleção semântica remediada na VC-02 e hover guardado na VC-08; paginação ainda usa disabled opacity-40 literal. | seleção/disabled/focus. | TOKEN_CONTRACT_PROBLEM | Medium | contraste/affordance | Consolidar depois de VC-02/08. | DataTable, tokens |
 | VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 11 stories usam `??`/`?` no lugar de acentos. | N/A. | IMPLEMENTATION_WRONG | High | conteúdo | Corrigir UTF-8 e criar checagem. | stories listados abaixo |
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview não cobre Alert, checkbox/radio/switch, Sidebar compacta nem estados completos. | aceitação. | DOCUMENTATION_GAP | Medium | cobertura | Expandir após decidir componentes faltantes. | preview, testes |
@@ -42,7 +42,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 
 ## Motion
 
-Guide/contrato e UI Kit Button concluídos em VC-09A/B. SegmentedTabs usa motion semântico na VC-10. Modal/drawer usa springs semânticas na VC-11. Sidebar ainda anima `all`.
+Guide/contrato e UI Kit Button concluídos em VC-09A/B. SegmentedTabs, Modal/drawer e Sidebar foram remediados nas VC-10 a VC-12.
 
 ## Encoding
 
@@ -52,14 +52,14 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 1. Definir contratos de seleção, Alert/Banner e ThemeToggle.
 2. Validar visualmente VC-01 e o contrato accent aprovado em VC-02 nos dois temas.
-3. Corrigir motion/estados com tokens (VC-08 a VC-11 remediadas; manter VC-12 pendente).
+3. Corrigir motion/estados com tokens (VC-08 a VC-12 remediadas).
 4. Completar componentes e cobertura (VC-03, VC-06, VC-15).
 5. Corrigir encoding/documentação (VC-14, VC-16).
 6. Inventariar legado (VC-17).
 
 ## Próximo passo obrigatório
 
-A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-12, isolada até validação e commit.
+A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-05, isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 
@@ -259,3 +259,15 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 **Status:** VC-11 tecnicamente remediada.
 
 **Próximo passo exato:** executar a VC-12 sob a autorização integral concedida em 2026-09-15.
+
+## Consolidação VC-12 — 2026-09-15
+
+**Registro:** O collapse/expand da Sidebar deixou de animar propriedades não relacionadas.
+- **Commit técnico:** `868c79c fix: constrain sidebar motion to width`.
+- A transição cobre somente `width`, usando `--sld-durationBase` e `--sld-easingSnappy`.
+- Reduced motion remove a transição.
+- Build, typecheck e lint passaram; a suíte UI passou em 101/101.
+
+**Status:** VC-12 tecnicamente remediada; a frente de motion VC-09–VC-12 está concluída.
+
+**Próximo passo exato:** revisar e encerrar a VC-05 sob a autorização integral concedida em 2026-09-15.
