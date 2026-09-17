@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
-Data: 2026-09-16
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-06.
+Data: 2026-09-17
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-07.
 
 ## Método e cobertura
 
@@ -28,7 +28,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-04 | Theme toggle | Contraste dark > 3:1 garantido; light preservado. | Implementação funcional e visual concluída. Contraste dark remediado (17,91:1) com `--sld-theme-toggle-thumb-bg/fg`. | Requisito: 3:1 mínimo. | REMEDIATED | High | contraste/affordance no dark | Tecnicamente remediada. | ThemeToggle, guide, tokens |
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover/active. | Mesma estratégia; foco, disabled, touch/coarse e reduced motion cobertos. | `--sld-action-ghost-*`. | REMEDIATED | Medium | affordance | Validado em contexto, light/dark e 1440/390 px; não introduzir borda fora do padrão normativo. | Button, guide |
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | `Alert` reutilizável, stories e preview implementados; ação e descarte cobertos. | `--sld-status-*-{bg,border,text}`. | REMEDIATED | High | hierarquia | Validado em 1440/390 px, light/dark, com semântica contextual e foco de teclado. | Alert, Button, Icon, preview |
-| VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
+| VC-07 | Input/FormField | Foco `:focus-visible` global. | Input e FormField preservam foco somente por `:focus-visible`; erro, disabled e fluxo de teclado cobertos. | `--sld-action-focusRing`. | REMEDIATED | Medium | foco | Tecnicamente remediada. | Input, FormField, preview |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
 | VC-09 | Press de Button | VC-09A/B concluídas. | `<button>` nativo com física spring imperativa via Framer Motion. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | REMEDIATED | High | feedback | Tecnicamente remediada. | Button, guide |
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | Transição limitada a `background-color`, `color` e `box-shadow`, com duração e curva semânticas. | `--sld-durationFast`, `--sld-easingSnappy`. | REMEDIATED | High | consistência | Tecnicamente remediada. | SegmentedTabs |
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-07 (Input/FormField), isolada até validação e commit.
+A VC-07 foi tecnicamente remediada. A próxima frente é a VC-13 (DataTable/paginação), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 

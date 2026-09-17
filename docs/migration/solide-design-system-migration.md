@@ -1,6 +1,6 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-16
+Atualizado em: 2026-09-17
 Branch: `codex/visual-convergence-audit`
 Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a implementação e validação da VC-06 e preparar a correção da VC-07.
+Consolidar a implementação e validação da VC-07 e preparar a correção da VC-13.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 12 tecnicamente remediados (VC-01 a VC-06, VC-08 a VC-12 e VC-18) e 6 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 13 tecnicamente remediados (VC-01 a VC-12 e VC-18) e 5 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -37,6 +37,7 @@ Consolidar a implementação e validação da VC-06 e preparar a correção da V
 - VC-11 concluída: wrapper `Modal` baseado em `<dialog>` centraliza física, Escape, backdrop, foco e reduced motion; o drawer mobile do DashboardLayout passou a compô-lo.
 - VC-12 concluída: Sidebar anima exclusivamente largura com `--sld-durationBase` e `--sld-easingSnappy`, preservando reduced motion.
 - VC-05 concluída por validação: Ghost permanece transparente em repouso e ganha superfície apenas em hover/active; a inspeção em 1440/390 px, light/dark confirmou affordance suficiente, sem introduzir borda fora do padrão normativo.
+- VC-07 concluída: Input usa foco exclusivo por `:focus-visible`, mantendo o anel `--sld-action-focusRing`; erro, disabled e fluxo de teclado foram cobertos no preview e no Playwright.
 
 ## Principais achados
 
@@ -180,12 +181,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 6 achados ainda abertos: VC-07 e VC-13 a VC-17, conforme a auditoria.
+- Concluir os 5 achados ainda abertos: VC-13 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A autorização integral foi concedida em 2026-09-15. O próximo passo é corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.
+A VC-07 foi tecnicamente remediada. O próximo passo é corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -207,3 +208,14 @@ A autorização integral foi concedida em 2026-09-15. O próximo passo é corrig
 **Status:** VC-06 tecnicamente remediada.
 
 **Próximo passo exato:** corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.
+
+## VC-07 — Concluída (Input/FormField)
+
+- **Escopo:** foco de teclado no `Input`, sem alteração de tokens, geometria ou componentes fora de `Input/FormField`.
+- **Contrato:** as variantes Tailwind `focus:` foram substituídas por `focus-visible`; o anel usa exclusivamente `--sld-action-focusRing`, `--focus-ring-width` e `--focus-ring-offset`. O estado inválido mantém sua borda `--sld-status-danger-border` sob foco.
+- **Cobertura:** preview com alvos estáveis; Playwright verifica foco visível, fluxo por Tab, semântica de erro (`aria-invalid`/`aria-describedby`) e estado disabled em 1440/390 px, claro/escuro.
+- **Validação:** comparação visual manual aprovada em desktop e mobile, nos temas claro e escuro; `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run test:ui` passaram (**109/109**).
+
+**Status:** VC-07 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.

@@ -997,3 +997,42 @@ test.describe('VC-12: Sidebar semantic motion', () => {
     await expect(sidebar).toHaveCSS('transition-property', 'none');
   });
 });
+
+test.describe('VC-07: Input/FormField focus contract', () => {
+  for (const width of [1440, 390]) for (const theme of ['light', 'dark']) {
+    test(`${theme} ${width}: focus-visible, invalid, disabled and keyboard flow`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto('/preview/index.html');
+      if (theme === 'dark') {
+        await page.getByRole('switch', { name: 'Mudar para modo escuro' }).click();
+      }
+
+      const focusRing = await tokenColorScoped(page, '--sld-action-focusRing');
+      const invalidBorder = await tokenColorScoped(page, '--sld-status-danger-border');
+      const disabledBackground = await tokenColorScoped(page, '--sld-disabled-bg');
+      const input = page.getByTestId('input-default');
+      const invalid = page.getByTestId('input-error');
+      const disabled = page.getByTestId('input-disabled');
+
+      expect(await input.getAttribute('class')).not.toMatch(/(^|\s)focus:/);
+      expect(await invalid.getAttribute('class')).not.toMatch(/(^|\s)focus:/);
+      await input.focus();
+      await expect(input).toBeFocused();
+      await expect(input).toHaveCSS('outline-style', 'solid');
+      await expect(input).toHaveCSS('outline-color', focusRing);
+      await expect(input).toHaveCSS('outline-width', '2px');
+
+      await page.keyboard.press('Tab');
+      await expect(invalid).toBeFocused();
+      await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+      await expect(invalid).toHaveAttribute('aria-describedby', 'email-error');
+      await expect(invalid).toHaveCSS('border-color', invalidBorder);
+      await expect(invalid).toHaveCSS('outline-color', focusRing);
+
+      await expect(disabled).toBeDisabled();
+      await expect(disabled).toHaveCSS('background-color', disabledBackground);
+      await disabled.focus();
+      await expect(disabled).not.toBeFocused();
+    });
+  }
+});

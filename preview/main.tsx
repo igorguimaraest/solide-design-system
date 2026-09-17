@@ -32,7 +32,7 @@ function App(){
   {showInfoAlert && <Alert data-testid="alert-info" dismissible tone="info" title="Ambiente de Contingência SVC-AN ativo" description="O tráfego fiscal está roteado com redundância nacional." onDismiss={()=>setShowInfoAlert(false)} />}
  </section>
  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
- <FormField id="name" label="Nome"><Input placeholder="Nome completo" /></FormField><FormField id="email" label="E-mail" error="Informe um e-mail válido"><Input defaultValue="inválido" /></FormField><Input aria-label="Campo desabilitado" disabled value="Sem edição"/><SearchBar defaultValue="Solide" /></div>
+ <FormField id="name" label="Nome"><Input data-testid="input-default" placeholder="Nome completo" /></FormField><FormField id="email" label="E-mail" error="Informe um e-mail válido"><Input data-testid="input-error" defaultValue="inválido" /></FormField><Input data-testid="input-disabled" aria-label="Campo desabilitado" disabled value="Sem edição"/><SearchBar defaultValue="Solide" /></div>
  <section className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="Controles de seleção">
  <Checkbox checked={backup} onCheckedChange={setBackup} label="Backup automático" description="Snapshot diário" />
  <RadioGroup value={environment} onValueChange={setEnvironment} aria-label="Ambiente"><Radio value="production" label="Produção"/><Radio value="staging" label="Homologação"/></RadioGroup>
