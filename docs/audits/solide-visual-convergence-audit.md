@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-17
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-07.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-13.
 
 ## Método e cobertura
 
@@ -34,7 +34,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-10 | SegmentedTabs motion | Motion usa tokens. | Transição limitada a `background-color`, `color` e `box-shadow`, com duração e curva semânticas. | `--sld-durationFast`, `--sld-easingSnappy`. | REMEDIATED | High | consistência | Tecnicamente remediada. | SegmentedTabs |
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | Wrapper `Modal` compõe `<dialog>`, `ModalHeader` e DashboardLayout com entrada/saída, foco e reduced motion. | `spring.default`, `spring.gentle`, `@solide/tokens/motion`. | REMEDIATED | High | feedback | Tecnicamente remediada. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | Transição limitada à largura, com duração/curva semânticas e reduced motion. | `--sld-durationBase`, `--sld-easingSnappy`. | REMEDIATED | Medium | ruído/comportamento | Tecnicamente remediada. | Sidebar |
-| VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Seleção semântica remediada na VC-02 e hover guardado na VC-08; paginação ainda usa disabled opacity-40 literal. | seleção/disabled/focus. | TOKEN_CONTRACT_PROBLEM | Medium | contraste/affordance | Consolidar depois de VC-02/08. | DataTable, tokens |
+| VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Paginação usa tokens semânticos de disabled; hover é limitado a controles habilitados. | `--sld-disabled-{bg,fg}`, `--sld-border-subtle`. | REMEDIATED | Medium | contraste/affordance | Tecnicamente remediada; cobertura em 1440/390 px, claro/escuro. | DataTable, preview, testes |
 | VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 11 stories usam `??`/`?` no lugar de acentos. | N/A. | IMPLEMENTATION_WRONG | High | conteúdo | Corrigir UTF-8 e criar checagem. | stories listados abaixo |
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview não cobre Alert, checkbox/radio/switch, Sidebar compacta nem estados completos. | aceitação. | DOCUMENTATION_GAP | Medium | cobertura | Expandir após decidir componentes faltantes. | preview, testes |
 | VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-A VC-07 foi tecnicamente remediada. A próxima frente é a VC-13 (DataTable/paginação), isolada até validação e commit.
+A VC-13 foi tecnicamente remediada. A próxima frente é a VC-14 (encoding PT-BR), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 

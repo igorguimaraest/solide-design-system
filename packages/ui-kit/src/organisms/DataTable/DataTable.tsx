@@ -161,7 +161,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage <= 1}
             onClick={() => onPageChange?.(currentPage - 1)}
             aria-label="Página anterior"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-surface-sunken)] disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:border-[var(--sld-border-subtle)] disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="arrow-left" size="sm" />
           </button>
@@ -175,7 +175,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage >= totalPages}
             onClick={() => onPageChange?.(currentPage + 1)}
             aria-label="Próxima página"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-surface-sunken)] disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:border-[var(--sld-border-subtle)] disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="chevron-right" size="sm" />
           </button>

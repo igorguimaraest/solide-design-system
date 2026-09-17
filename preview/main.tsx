@@ -4,7 +4,7 @@ import {Alert,Button,Badge,Input,Typography,FormField,SearchBar,SegmentedTabs,Da
 import './style.css';
 function App(){
  const [theme,setTheme]=useState<'light'|'dark'>('light');
- const [tab,setTab]=useState('all');const [selected,setSelected]=useState<string[]>([]);const [nav,setNav]=useState('overview');
+ const [tab,setTab]=useState('all');const [selected,setSelected]=useState<string[]>([]);const [reviewPage,setReviewPage]=useState(1);const [nav,setNav]=useState('overview');
  const [backup,setBackup]=useState(true);const [environment,setEnvironment]=useState('production');const [sync,setSync]=useState(true);
  const [showInfoAlert,setShowInfoAlert]=useState(true);
  const [testDisabled,setTestDisabled]=useState(false);const [testLoading,setTestLoading]=useState(false);const [testUnmounted,setTestUnmounted]=useState(false);
@@ -39,7 +39,7 @@ function App(){
  <Switch checked={sync} onCheckedChange={setSync} label="Sincronização fiscal" description="Atualização contínua" />
  </section>
  <SegmentedTabs idPrefix="review" options={[{id:'all',label:'Todos'},{id:'pending',label:'Pendentes'},{id:'disabled',label:'Bloqueados',disabled:true}]} value={tab} onChange={setTab}/>
- <div id={`review-panel-${tab}`} role="tabpanel" aria-labelledby={`review-tab-${tab}`}><DataTable columns={[{key:'name',header:'Nome',sortable:true},{key:'status',header:'Situação',render:()=> <Badge tone="success">Ativo</Badge>}]} data={[{id:'1',name:'Secretaria de Administração',status:'Ativo'},{id:'2',name:'Unidade de Gestão',status:'Ativo'}]} keyField="id" selectedIds={selected} onSelectionChange={setSelected}/></div>
+ <div id={`review-panel-${tab}`} role="tabpanel" aria-labelledby={`review-tab-${tab}`}><DataTable columns={[{key:'name',header:'Nome',sortable:true},{key:'status',header:'Situação',render:()=> <Badge tone="success">Ativo</Badge>}]} data={[{id:'1',name:'Secretaria de Administração',status:'Ativo'},{id:'2',name:'Unidade de Gestão',status:'Ativo'}]} keyField="id" selectedIds={selected} onSelectionChange={setSelected} currentPage={reviewPage} totalCount={20} onPageChange={setReviewPage}/></div>
  <ModalHeader title="Detalhes do registro" subtitle="Informações de cadastro" onClose={()=>{}}/>
  <EmptyState title="Nenhum resultado" description="Ajuste os filtros para encontrar um registro." actionLabel="Limpar filtros" onAction={()=>{}}/>
  <details><summary>Autenticação</summary><AuthLayout title="Entrar na sua conta"><Input aria-label="E-mail de acesso"/><Button>Entrar</Button></AuthLayout></details>

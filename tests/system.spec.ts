@@ -1036,3 +1036,37 @@ test.describe('VC-07: Input/FormField focus contract', () => {
     });
   }
 });
+
+test.describe('VC-13: DataTable pagination disabled contract', () => {
+  for (const width of [1440, 390]) for (const theme of ['light', 'dark']) {
+    test(`${theme} ${width}: pagination uses semantic disabled tokens`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto('/preview/index.html');
+      if (theme === 'dark') {
+        await page.getByRole('switch', { name: 'Mudar para modo escuro' }).click();
+      }
+
+      const disabledBackground = await tokenColorScoped(page, '--sld-disabled-bg');
+      const disabledForeground = await tokenColorScoped(page, '--sld-disabled-fg');
+      const disabledBorder = await tokenColorScoped(page, '--sld-border-subtle');
+      const previous = page.getByRole('button', { name: 'Página anterior' });
+      const next = page.getByRole('button', { name: 'Próxima página' });
+
+      expect(await previous.getAttribute('class')).not.toContain('disabled:opacity-40');
+      await expect(previous).toBeDisabled();
+      await expect(previous).toHaveCSS('background-color', disabledBackground);
+      await expect(previous).toHaveCSS('color', disabledForeground);
+      await expect(previous).toHaveCSS('border-color', disabledBorder);
+      await expect(previous).toHaveCSS('opacity', '1');
+
+      await expect(next).toBeEnabled();
+      await next.click();
+      await expect(next).toBeDisabled();
+      await expect(next).toHaveCSS('background-color', disabledBackground);
+      await expect(next).toHaveCSS('color', disabledForeground);
+      await expect(next).toHaveCSS('border-color', disabledBorder);
+      await expect(previous).toBeEnabled();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    });
+  }
+});

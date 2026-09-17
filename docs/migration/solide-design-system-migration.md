@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a implementação e validação da VC-07 e preparar a correção da VC-13.
+Consolidar a implementação e validação da VC-13 e preparar a correção da VC-14.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 13 tecnicamente remediados (VC-01 a VC-12 e VC-18) e 5 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 14 tecnicamente remediados (VC-01 a VC-13 e VC-18) e 4 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -38,12 +38,13 @@ Consolidar a implementação e validação da VC-07 e preparar a correção da V
 - VC-12 concluída: Sidebar anima exclusivamente largura com `--sld-durationBase` e `--sld-easingSnappy`, preservando reduced motion.
 - VC-05 concluída por validação: Ghost permanece transparente em repouso e ganha superfície apenas em hover/active; a inspeção em 1440/390 px, light/dark confirmou affordance suficiente, sem introduzir borda fora do padrão normativo.
 - VC-07 concluída: Input usa foco exclusivo por `:focus-visible`, mantendo o anel `--sld-action-focusRing`; erro, disabled e fluxo de teclado foram cobertos no preview e no Playwright.
+- VC-13 concluída: paginação da DataTable usa fundo, texto e borda semânticos de disabled; o hover só opera em controles habilitados e não sobrescreve o estado terminal.
 
 ## Principais achados
 
 - Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas); a affordance do Ghost foi validada e VC-05 está encerrada.
 - Encoding: 11 stories têm texto PT-BR corrompido.
-- Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input ainda usa foco por mouse além de `focus-visible`.
+- Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input usa foco exclusivo por `:focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
@@ -181,12 +182,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 5 achados ainda abertos: VC-13 a VC-17, conforme a auditoria.
+- Concluir os 4 achados ainda abertos: VC-14 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A VC-07 foi tecnicamente remediada. O próximo passo é corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.
+A VC-13 foi tecnicamente remediada. O próximo passo é corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -218,4 +219,15 @@ A VC-07 foi tecnicamente remediada. O próximo passo é corrigir a VC-13 (DataTa
 
 **Status:** VC-07 tecnicamente remediada.
 
-**Próximo passo exato:** corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.
+**Próximo passo exato:** corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
+
+## VC-13 — Concluída (DataTable/paginação)
+
+- **Escopo:** controles de paginação da `DataTable`, sem alteração de geometria, seleção ou tokens.
+- **Contrato:** o `disabled:opacity-40` literal foi removido. Os controles desabilitados consomem `--sld-disabled-bg`, `--sld-disabled-fg` e `--sld-border-subtle`, em conformidade com o Brand Guide; o hover está limitado a `:enabled`.
+- **Cobertura:** o preview disponibiliza duas páginas controláveis. Playwright verifica o estado inicial e terminal, os tokens computados, a ausência da opacidade literal e a ausência de overflow em 1440/390 px, claro/escuro.
+- **Validação:** comparação visual aprovada em desktop e mobile, nos temas claro e escuro; `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run test:ui` passaram (**113/113**).
+
+**Status:** VC-13 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
