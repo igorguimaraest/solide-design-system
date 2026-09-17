@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a implementação e validação da VC-14 e preparar a correção da VC-15.
+Consolidar a implementação e validação da VC-15 e preparar a correção da VC-16.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 15 tecnicamente remediados (VC-01 a VC-14 e VC-18) e 3 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 16 tecnicamente remediados (VC-01 a VC-15 e VC-18) e 2 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -40,6 +40,7 @@ Consolidar a implementação e validação da VC-14 e preparar a correção da V
 - VC-07 concluída: Input usa foco exclusivo por `:focus-visible`, mantendo o anel `--sld-action-focusRing`; erro, disabled e fluxo de teclado foram cobertos no preview e no Playwright.
 - VC-13 concluída: paginação da DataTable usa fundo, texto e borda semânticos de disabled; o hover só opera em controles habilitados e não sobrescreve o estado terminal.
 - VC-14 concluída: 12 stories com texto PT-BR corrompido foram corrigidos e a checagem de encoding passou a fazer parte do lint.
+- VC-15 concluída: preview integrado possui aceitação específica para Alert, controles de seleção, Sidebar compacta/responsiva e ausência de overflow em 1440/390 px, claro/escuro.
 
 ## Principais achados
 
@@ -183,12 +184,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 3 achados ainda abertos: VC-15 a VC-17, conforme a auditoria.
+- Concluir os 2 achados ainda abertos: VC-16 e VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A VC-14 foi tecnicamente remediada. O próximo passo é corrigir a VC-15 (preview integrado), mantendo a frente isolada até validação e commit.
+A VC-15 foi tecnicamente remediada. O próximo passo é corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -243,3 +244,13 @@ A VC-14 foi tecnicamente remediada. O próximo passo é corrigir a VC-15 (previe
 **Status:** VC-14 tecnicamente remediada.
 
 **Próximo passo exato:** corrigir a VC-15 (preview integrado), mantendo a frente isolada até validação e commit.
+
+## VC-15 — Concluída (Preview integrado)
+
+- **Escopo:** aceitação integrada do preview; não foram criados tokens, componentes ou geometrias novos.
+- **Cobertura:** um cenário dedicado valida, no mesmo preview, os quatro tons de Alert, Checkbox, Switch, navegação lateral expandida/compacta ou drawer mobile e ausência de overflow.
+- **Cenários:** 1440/390 px, claro/escuro; as capturas são geradas em `docs/consolidation/screenshots/` para comparação visual.
+
+**Status:** VC-15 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.

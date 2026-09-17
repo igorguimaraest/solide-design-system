@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-17
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-14.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-15.
 
 ## Método e cobertura
 
@@ -36,7 +36,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | Transição limitada à largura, com duração/curva semânticas e reduced motion. | `--sld-durationBase`, `--sld-easingSnappy`. | REMEDIATED | Medium | ruído/comportamento | Tecnicamente remediada. | Sidebar |
 | VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Paginação usa tokens semânticos de disabled; hover é limitado a controles habilitados. | `--sld-disabled-{bg,fg}`, `--sld-border-subtle`. | REMEDIATED | Medium | contraste/affordance | Tecnicamente remediada; cobertura em 1440/390 px, claro/escuro. | DataTable, preview, testes |
 | VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 12 stories corrigidos para UTF-8; checagem estática cobre os 21 stories. | `npm run test:encoding`, integrado ao lint. | REMEDIATED | High | conteúdo | Tecnicamente remediada. | stories, check-story-encoding |
-| VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview não cobre Alert, checkbox/radio/switch, Sidebar compacta nem estados completos. | aceitação. | DOCUMENTATION_GAP | Medium | cobertura | Expandir após decidir componentes faltantes. | preview, testes |
+| VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview compõe Alert, checkbox/radio/switch e Sidebar; a aceitação integrada cobre estados, navegação responsiva e ausência de overflow. | aceitação. | REMEDIATED | Medium | cobertura | Tecnicamente remediada em 1440/390 px, claro/escuro. | preview, testes |
 | VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
 | VC-17 | Valores legados | CSS do guia ainda tem valores avulsos/inline. | UI Kit também tem medidas em utilitários; não há inventário de exceções. | contrato de tokens. | BOTH_NEED_REVIEW | Low | consistência | Inventariar antes de limpeza mecânica. | guide, UI Kit, tokens |
 
@@ -59,7 +59,7 @@ As 12 stories com conteúdo corrompido — `Button`, `Badge`, `Input`, `Typograp
 
 ## Próximo passo obrigatório
 
-A VC-14 foi tecnicamente remediada. A próxima frente é a VC-15 (preview integrado), isolada até validação e commit.
+A VC-15 foi tecnicamente remediada. A próxima frente é a VC-16 (geometria mobile), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 

@@ -1070,3 +1070,45 @@ test.describe('VC-13: DataTable pagination disabled contract', () => {
     });
   }
 });
+
+test.describe('VC-15: integrated preview acceptance', () => {
+  for (const width of [1440, 390]) for (const theme of ['light', 'dark']) {
+    test(`${theme} ${width}: preview composes feedback, selection and navigation without overflow`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto('/preview/index.html');
+
+      if (theme === 'dark') {
+        await page.getByRole('switch', { name: 'Mudar para modo escuro' }).click();
+        await expect(page.getByRole('switch', { name: 'Mudar para modo claro' })).toHaveAttribute('aria-checked', 'true');
+      }
+
+      await expect(page.getByTestId('alert-success')).toHaveAttribute('role', 'status');
+      await expect(page.getByTestId('alert-warning')).toHaveAttribute('role', 'alert');
+      await expect(page.getByTestId('alert-danger')).toHaveAttribute('role', 'alert');
+      await expect(page.getByTestId('alert-info')).toHaveAttribute('role', 'status');
+
+      const backup = page.getByRole('checkbox', { name: 'Backup automático' });
+      const sync = page.getByRole('switch', { name: 'Sincronização fiscal' });
+      await expect(backup).toBeChecked();
+      await expect(sync).toBeChecked();
+      await backup.click();
+      await sync.click();
+      await expect(backup).not.toBeChecked();
+      await expect(sync).not.toBeChecked();
+
+      if (width === 1440) {
+        await page.getByRole('button', { name: 'Recolher barra lateral' }).click();
+        await expect(page.getByRole('button', { name: 'Expandir barra lateral' })).toBeVisible();
+      } else {
+        const trigger = page.getByRole('button', { name: 'Alternar navegação' });
+        await trigger.click();
+        await expect(page.getByRole('dialog', { name: 'Navegação principal' })).toBeVisible();
+        await page.keyboard.press('Escape');
+        await expect(trigger).toBeFocused();
+      }
+
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+      await page.screenshot({ path: `${output}/vc15-${theme}-${width}.png`, fullPage: true });
+    });
+  }
+});
