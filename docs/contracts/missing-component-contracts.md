@@ -1,13 +1,13 @@
 # Fase B — contratos de componentes ausentes
 
-Status: contratos de VC-02 aprovados e implementados; Alert/Banner continua pendente de VC-01.
+Status: contratos de VC-02 e VC-06 aprovados e implementados; Alert/Banner foi concluído na VC-06.
 
 ## Fonte e limites
 
 - Referência visual: `solide-brand-guide.html` — ThemeToggle (linhas 735–869 e 5220–5228), controles de seleção (2489–2751 e 6814–6921) e Alert/Banner (1498–1538 e 7329–7377).
 - A fonte canônica de tokens é `solide-tokens.css`.
 - VC-02 foi decidida e implementada em 2026-09-13: `checked`, `indeterminate` e `on` usam accent semântico de seleção por meio da família própria `--sld-control-selected-*`, sem reutilizar `action-primary`.
-- A ação de warning permanece aberta (VC-01). O contrato não prescreve preenchimento para a ação.
+- A ação warning foi concluída na VC-01 como `Button` sólido com tokens semânticos próprios; Alert/Banner compõe essa ação sem criar uma variante local.
 
 ## Contrato cromático proposto para VC-02
 
@@ -127,7 +127,8 @@ type AlertProps = {
 ```
 
 Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver `onDismiss`, focus-visible da ação/fechamento, tema claro/escuro e motion-reduce. O ícone é semântico ao tom; título e descrição são texto, não cor isolada.
-*Nota: a ação warning (VC-01) foi decidida, validada e implementada como ação warning sólida e semanticamente independente com tokens próprios. O desenvolvimento funcional do componente permanece aguardando a etapa VC-06.*
+
+Implementação concluída na VC-06: `Alert` está exportado pelo UI Kit, com stories de todos os tons e de descarte. Success e info anunciam como `status`; warning e danger usam `alert`. O componente consome exclusivamente `--sld-status-*-{bg,border,text}` e compõe ações com `Button` existente.
 
 ## Critérios de aceite gerais
 
@@ -136,4 +137,4 @@ Estados obrigatórios: quatro tons, ação opcional, dismissível quando houver 
 3. Criar stories para cada componente abordado e combinações light/dark.
 4. Comparar visualmente Guide, Storybook e preview em 1440 e 390 px antes de finalizações.
 5. Não criar token, raio, espaçamento, shadow ou duração novos sem atualizar a fonte normativa primeiro.
-6. Alert/Banner reutilizável permanece pendente de implementação na VC-06.
+6. Alert/Banner reutilizável foi validado no preview integrado em 1440/390 px, light/dark, com ação, fechamento e foco de teclado.

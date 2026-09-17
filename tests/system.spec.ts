@@ -92,6 +92,48 @@ test('guide: warning action respects semantic contract', async ({ page }) => {
   await expect(btn).not.toHaveCSS('background-color', statusWarning);
 });
 
+test.describe('VC-06: Alert/Banner', () => {
+  const alerts = [
+    ['success', 'alert-success', 'status'],
+    ['warning', 'alert-warning', 'alert'],
+    ['danger', 'alert-danger', 'alert'],
+    ['info', 'alert-info', 'status'],
+  ] as const;
+
+  for (const width of [1440, 390]) for (const theme of ['light', 'dark']) {
+    test(`${theme} ${width}: semantic tones, action and dismissal`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto('/preview/index.html');
+      if (theme === 'dark') await page.getByRole('switch', { name: 'Mudar para modo escuro' }).click();
+
+      for (const [tone, testId, role] of alerts) {
+        const alert = page.getByTestId(testId);
+        await expect(alert).toHaveAttribute('role', role);
+        await expect(alert).toHaveCSS('background-color', await tokenColorScoped(page, `--sld-status-${tone}-bg`));
+        await expect(alert).toHaveCSS('border-color', await tokenColorScoped(page, `--sld-status-${tone}-border`));
+        await expect(alert).toHaveCSS('color', await tokenColorScoped(page, `--sld-status-${tone}-text`));
+      }
+
+      const action = page.getByRole('button', { name: 'Renovar Certificado' });
+      await action.focus();
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Shift+Tab');
+      await expect(action).toBeFocused();
+      await expect(action).toHaveCSS('outline-style', 'solid');
+
+      const close = page.getByRole('button', { name: 'Fechar alerta' });
+      await close.focus();
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Shift+Tab');
+      await expect(close).toBeFocused();
+      await expect(close).toHaveCSS('outline-style', 'solid');
+      await close.click();
+      await expect(page.getByTestId('alert-info')).toHaveCount(0);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    });
+  }
+});
+
 test.describe('VC-08: Hover Guard', () => {
   for (const theme of ['light', 'dark']) {
     test(`mouse/fine pointer maintains hover and states (${theme})`, async ({ page }) => {

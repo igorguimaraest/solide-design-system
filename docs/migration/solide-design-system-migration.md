@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a validação da VC-05 e preparar a implementação da VC-06.
+Consolidar a implementação e validação da VC-06 e preparar a correção da VC-07.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 11 tecnicamente remediados (VC-01 a VC-05, VC-08 a VC-12 e VC-18) e 7 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 12 tecnicamente remediados (VC-01 a VC-06, VC-08 a VC-12 e VC-18) e 6 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -42,7 +42,7 @@ Consolidar a validação da VC-05 e preparar a implementação da VC-06.
 
 - Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas); a affordance do Ghost foi validada e VC-05 está encerrada.
 - Encoding: 11 stories têm texto PT-BR corrompido.
-- Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
+- Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
@@ -180,12 +180,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 7 achados ainda abertos: VC-06, VC-07 e VC-13 a VC-17, conforme a auditoria.
+- Concluir os 6 achados ainda abertos: VC-07 e VC-13 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A autorização integral foi concedida em 2026-09-15. O próximo passo é implementar a VC-06 (Alert/Banner), mantendo a frente isolada até validação e commit.
+A autorização integral foi concedida em 2026-09-15. O próximo passo é corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -194,3 +194,16 @@ A autorização integral foi concedida em 2026-09-15. O próximo passo é implem
 - **Acessibilidade e interação:** foco visível, estado disabled, reduced motion e interação touch/coarse permanecem protegidos pelo contrato já testado.
 - **Validação visual:** comparação manual do preview em 1440/light, 1440/dark, 390/light e 390/dark; o Ghost "Consultar" preserva hierarquia de ação secundária e legibilidade nos dois temas.
 - **Validações automatizadas:** `npm run test:ui` passou em **101/101** fora do sandbox (Chromium); `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run lint` passaram.
+
+## VC-06 — Concluída (Alert/Banner)
+
+- **Escopo:** componente reutilizável `Alert` nos quatro tons demonstrados pelo Brand Guide, com ação opcional e descarte controlado.
+- **Contrato e semântica:** `success` e `info` usam `role="status"`; `warning` e `danger` usam `role="alert"`. Título e descrição mantêm a mensagem compreensível sem depender apenas da cor ou do ícone.
+- **Tokens:** cada tom consome exclusivamente `--sld-status-*-{bg,border,text}`; não foram criados tokens nem valores visuais novos. As ações reutilizam `Button` warning/danger já aprovado.
+- **Cobertura:** stories para todos os tons e descarte; preview integrado; Playwright testa os quatro tons, tokens aplicados, ação, foco visível, descarte e ausência de overflow em 1440/390 px, light/dark.
+- **Validação visual:** comparação manual aprovada nas quatro composições. Os banners preservam hierarquia, legibilidade e ações tocáveis no desktop e no mobile.
+- **Validações automatizadas:** `npm run test:ui` passou em **105/105**; build, typecheck e test:tokens foram executados no gate de conclusão.
+
+**Status:** VC-06 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.

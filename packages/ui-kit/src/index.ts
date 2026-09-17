@@ -15,6 +15,7 @@ export * from './atoms/Switch';
 
 // Molecules
 export * from './molecules/FormField';
+export * from './molecules/Alert';
 export * from './molecules/SearchBar';
 export * from './molecules/ModalHeader';
 export * from './molecules/Modal';

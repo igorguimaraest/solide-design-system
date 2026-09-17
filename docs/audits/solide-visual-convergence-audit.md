@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-16
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-05.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-06.
 
 ## Método e cobertura
 
@@ -27,7 +27,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-03 | Checkbox/radio/switch | Estados checked, unchecked, indeterminate/on/off e disabled demonstrados. | Checkbox, Radio e Switch reutilizáveis implementados, exportados e cobertos. | APIs e estados documentados em `missing-component-contracts.md`. | REMEDIATED | High | affordance | Tecnicamente remediada. | UI Kit, stories |
 | VC-04 | Theme toggle | Contraste dark > 3:1 garantido; light preservado. | Implementação funcional e visual concluída. Contraste dark remediado (17,91:1) com `--sld-theme-toggle-thumb-bg/fg`. | Requisito: 3:1 mínimo. | REMEDIATED | High | contraste/affordance no dark | Tecnicamente remediada. | ThemeToggle, guide, tokens |
 | VC-05 | Ghost button | Transparente em repouso; fundo só em hover/active. | Mesma estratégia; foco, disabled, touch/coarse e reduced motion cobertos. | `--sld-action-ghost-*`. | REMEDIATED | Medium | affordance | Validado em contexto, light/dark e 1440/390 px; não introduzir borda fora do padrão normativo. | Button, guide |
-| VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
+| VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | `Alert` reutilizável, stories e preview implementados; ação e descarte cobertos. | `--sld-status-*-{bg,border,text}`. | REMEDIATED | High | hierarquia | Validado em 1440/390 px, light/dark, com semântica contextual e foco de teclado. | Alert, Button, Icon, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
 | VC-09 | Press de Button | VC-09A/B concluídas. | `<button>` nativo com física spring imperativa via Framer Motion. | `--sld-button-press-scale`, `--sld-spring-snappy-stiffness`, `--sld-spring-snappy-damping`, `@solide/tokens/motion` | REMEDIATED | High | feedback | Tecnicamente remediada. | Button, guide |
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-06 (Alert/Banner), isolada até validação e commit.
+A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-07 (Input/FormField), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 
@@ -284,3 +284,17 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 **Status:** VC-05 tecnicamente remediada por validação.
 
 **Próximo passo exato:** implementar a VC-06 (Alert/Banner), mantendo a frente isolada até validação e commit.
+
+## Consolidação VC-06 — 2026-09-16
+
+**Registro:** O UI Kit passou a fornecer `Alert` reutilizável para feedback contextual persistente. O componente reproduz os quatro tons do Brand Guide, compõe ações por `Button` existente e disponibiliza descarte controlado.
+
+- Success e info usam `role="status"`; warning e danger usam `role="alert"`, evitando urgência indevida para mensagens informativas.
+- Os quatro tons usam somente `--sld-status-*-{bg,border,text}`. Nenhum token ou valor visual novo foi introduzido.
+- O ícone de danger reproduz o `circle-x` do Brand Guide; o restante reutiliza ícones existentes.
+- Stories, preview e testes Playwright cobrem quatro tons, ação warning/danger, fechamento, foco visível, contraste de tokens e ausência de overflow em 1440/390 px, claro/escuro.
+- Inspeção visual manual aprovada nas quatro composições; a suíte completa passou em **105/105**.
+
+**Status:** VC-06 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.
