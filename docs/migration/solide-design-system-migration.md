@@ -1,6 +1,6 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-15
+Atualizado em: 2026-09-16
 Branch: `codex/visual-convergence-audit`
 Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a conclusão técnica da VC-12 e preparar a revisão da VC-05.
+Consolidar a validação da VC-05 e preparar a implementação da VC-06.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 10 tecnicamente remediados (VC-01, VC-02, VC-03, VC-04, VC-08, VC-09, VC-10, VC-11, VC-12 e VC-18) e 8 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 11 tecnicamente remediados (VC-01 a VC-05, VC-08 a VC-12 e VC-18) e 7 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -36,10 +36,11 @@ Consolidar a conclusão técnica da VC-12 e preparar a revisão da VC-05.
 - VC-10 concluída: SegmentedTabs limita motion a `background-color`, `color` e `box-shadow`, usando `--sld-durationFast` e `--sld-easingSnappy`, com reduced motion protegido.
 - VC-11 concluída: wrapper `Modal` baseado em `<dialog>` centraliza física, Escape, backdrop, foco e reduced motion; o drawer mobile do DashboardLayout passou a compô-lo.
 - VC-12 concluída: Sidebar anima exclusivamente largura com `--sld-durationBase` e `--sld-easingSnappy`, preservando reduced motion.
+- VC-05 concluída por validação: Ghost permanece transparente em repouso e ganha superfície apenas em hover/active; a inspeção em 1440/390 px, light/dark confirmou affordance suficiente, sem introduzir borda fora do padrão normativo.
 
 ## Principais achados
 
-- Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas).
+- Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas); a affordance do Ghost foi validada e VC-05 está encerrada.
 - Encoding: 11 stories têm texto PT-BR corrompido.
 - Guide × UI Kit: o achado original de ausência de Checkbox, Radio e Switch foi remediado em VC-02; Alert/Banner continua ausente e Input ainda usa foco por mouse além de `focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
@@ -179,9 +180,17 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 8 achados ainda abertos: VC-05, VC-06, VC-07 e VC-13 a VC-17, conforme a auditoria.
+- Concluir os 7 achados ainda abertos: VC-06, VC-07 e VC-13 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A autorização integral foi concedida em 2026-09-15. O próximo passo é revisar e encerrar a VC-05, mantendo a frente isolada até validação e commit.
+A autorização integral foi concedida em 2026-09-15. O próximo passo é implementar a VC-06 (Alert/Banner), mantendo a frente isolada até validação e commit.
+
+## VC-05 — Concluída (Affordance do Ghost Button)
+
+- **Escopo:** validação do padrão existente; nenhuma alteração em tokens, Brand Guide ou UI Kit foi necessária.
+- **Contrato confirmado:** fundo transparente em repouso, `--sld-action-ghost-hover` em hover de cursor fino e `--sld-action-ghost-active` em active/teclado; o texto usa `--sld-action-ghost-text`.
+- **Acessibilidade e interação:** foco visível, estado disabled, reduced motion e interação touch/coarse permanecem protegidos pelo contrato já testado.
+- **Validação visual:** comparação manual do preview em 1440/light, 1440/dark, 390/light e 390/dark; o Ghost "Consultar" preserva hierarquia de ação secundária e legibilidade nos dois temas.
+- **Validações automatizadas:** `npm run test:ui` passou em **101/101** fora do sandbox (Chromium); `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run lint` passaram.

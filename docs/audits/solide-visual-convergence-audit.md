@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
-Data: 2026-09-15
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a remediação da VC-12.
+Data: 2026-09-16
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-05.
 
 ## Método e cobertura
 
@@ -26,7 +26,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-02 | Checkbox/radio/switch selecionado | Controles migrados para accent semântico de seleção. | Checkbox, Radio e Switch implementados e exportados; DataTable compõe Checkbox; stories, preview e testes cobrem os estados. | Família própria `--sld-control-selected-*`, sem dependência de `action-primary`. | REMEDIATED | High | semântica/inconsistência | Tecnicamente remediada. | guide, tokens, DataTable, UI Kit |
 | VC-03 | Checkbox/radio/switch | Estados checked, unchecked, indeterminate/on/off e disabled demonstrados. | Checkbox, Radio e Switch reutilizáveis implementados, exportados e cobertos. | APIs e estados documentados em `missing-component-contracts.md`. | REMEDIATED | High | affordance | Tecnicamente remediada. | UI Kit, stories |
 | VC-04 | Theme toggle | Contraste dark > 3:1 garantido; light preservado. | Implementação funcional e visual concluída. Contraste dark remediado (17,91:1) com `--sld-theme-toggle-thumb-bg/fg`. | Requisito: 3:1 mínimo. | REMEDIATED | High | contraste/affordance no dark | Tecnicamente remediada. | ThemeToggle, guide, tokens |
-| VC-05 | Ghost button | Transparente em repouso; fundo só em hover. | Mesma estratégia. | `--sld-action-ghost-*`. | BOTH_NEED_REVIEW | Medium | affordance | Validar em contexto/dark; não adicionar borda sem atualizar padrão. | Button, guide |
+| VC-05 | Ghost button | Transparente em repouso; fundo só em hover/active. | Mesma estratégia; foco, disabled, touch/coarse e reduced motion cobertos. | `--sld-action-ghost-*`. | REMEDIATED | Medium | affordance | Validado em contexto, light/dark e 1440/390 px; não introduzir borda fora do padrão normativo. | Button, guide |
 | VC-06 | Alertas/banners | Quatro variantes e ação warning demonstradas. | Sem componente/story/preview. | status semantic tokens. | GUIDE_CORRECT / IMPLEMENTATION_WRONG | High | hierarquia | Especificar e cobrir só na fase de correção. | UI Kit, preview |
 | VC-07 | Input/FormField | Foco `:focus-visible` global. | Input usa `focus:` também por mouse. | `--sld-action-focusRing`. | IMPLEMENTATION_WRONG | Medium | foco | Unificar gatilho e testar erro/disabled/keyboarding. | Input, FormField |
 | VC-08 | Hover em touch | Guard `(hover:hover) and (pointer:fine)`. | Guard aplicado via Tailwind; estados de active, disabled e focus-visible preservados. | Extensão WEB. | REMEDIATED | High | comportamento | Tecnicamente remediada. | componentes/preview CSS |
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-05, isolada até validação e commit.
+A autorização integral foi concedida em 2026-09-15. A próxima frente é a VC-06 (Alert/Banner), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 
@@ -270,4 +270,17 @@ Arquivos consolidados em VC-02: `solide-tokens.css`, `solide-brand-guide.html`, 
 
 **Status:** VC-12 tecnicamente remediada; a frente de motion VC-09–VC-12 está concluída.
 
-**Próximo passo exato:** revisar e encerrar a VC-05 sob a autorização integral concedida em 2026-09-15.
+**Próximo passo exato:** implementar a VC-06 (Alert/Banner) sob a autorização integral concedida em 2026-09-15.
+
+## Consolidação VC-05 — 2026-09-16
+
+**Registro:** A revisão do Ghost Button não identificou divergência entre o Brand Guide, o contrato de tokens e o UI Kit. O padrão normativo é mantido: transparente em repouso, superfície neutra sem borda apenas em hover/active e texto semântico próprio.
+
+- A inspeção visual manual cobriu 1440/light, 1440/dark, 390/light e 390/dark no preview integrado. Em todos os cenários, a ação Ghost "Consultar" permanece legível, hierarquicamente secundária e distinguível do conteúdo adjacente.
+- A suíte oficial Playwright passou em **101/101** ao executar o Chromium fora do sandbox; ela cobre Guide e UI Kit, cursor fino, touch/coarse, hover, active, teclado, disabled, cancelamento e reduced motion.
+- `npm run build`, `npm run typecheck`, `npm run test:tokens` (101 pares de contraste e 345 referências) e `npm run lint` passaram.
+- Nenhum token, componente ou teste precisou de alteração. A inclusão de borda foi rejeitada porque não é autorizada pelo padrão visual vigente.
+
+**Status:** VC-05 tecnicamente remediada por validação.
+
+**Próximo passo exato:** implementar a VC-06 (Alert/Banner), mantendo a frente isolada até validação e commit.
