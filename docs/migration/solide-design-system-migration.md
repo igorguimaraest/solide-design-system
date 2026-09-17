@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a implementação e validação da VC-15 e preparar a correção da VC-16.
+Registrar e reproduzir a regressão VC-19 de motion/feedback antes de corrigir a VC-16.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 16 tecnicamente remediados (VC-01 a VC-15 e VC-18) e 2 ainda abertos.
+- Auditoria de convergência consolidada com 19 achados: 16 tecnicamente remediados (VC-01 a VC-15 e VC-18) e 3 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -48,6 +48,7 @@ Consolidar a implementação e validação da VC-15 e preparar a correção da V
 - Encoding: stories compilam em UTF-8 e a regressão é bloqueada pela checagem estática.
 - Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input usa foco exclusivo por `:focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
+- Regressão reportada: drawer lateral pode estar abrindo/fechando sem deslizamento; feedback cromático temporal em modais/alertas pode ter deixado de ocorrer. A causa e a obrigação normativa ainda precisam de reprodução no Guide × preview.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
 ## VC-02 — implementada
@@ -184,12 +185,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 2 achados ainda abertos: VC-16 e VC-17, conforme a auditoria.
+- Concluir os 3 achados ainda abertos: VC-19, VC-16 e VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A VC-15 foi tecnicamente remediada. O próximo passo é corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.
+A VC-19 foi registrada como regressão reportada. O próximo passo é reproduzir motion e feedback temporal no Brand Guide e no preview antes de corrigir a VC-16.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -254,3 +255,14 @@ A VC-15 foi tecnicamente remediada. O próximo passo é corrigir a VC-16 (geomet
 **Status:** VC-15 tecnicamente remediada.
 
 **Próximo passo exato:** corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.
+
+## VC-19 — Aberta (Regressão de motion e feedback temporal)
+
+- **Relato do usuário:** o drawer lateral deixou de deslizar e passou a apenas aparecer/fechar; as cores que comunicavam a aproximação do encerramento de modais/alertas não estão ocorrendo.
+- **Estado da evidência:** a implementação declara `spring.default` para drawer e `spring.gentle` para modal, mas o comportamento reportado ainda não foi reproduzido lado a lado. `prefers-reduced-motion` é uma hipótese a verificar, não uma conclusão.
+- **Escopo de reprodução:** Brand Guide e preview em 1440/390 px, claro/escuro, com abertura e fechamento observados; mapear o feedback temporal somente se estiver demonstrado ou formalizado no guia.
+- **Regra de correção:** não reintroduzir cores, temporizações ou animações por memória. Se o padrão não estiver no guia, registrar a lacuna de contrato antes de codificar.
+
+**Status:** aberta, severidade High, anterior à VC-16.
+
+**Próximo passo exato:** reproduzir e auditar a VC-19, mantendo a frente isolada até decisão arquitetural e commit.

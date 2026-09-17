@@ -14,9 +14,9 @@ Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a valid
 
 | Total | Blocker | High | Medium | Low |
 | ---: | ---: | ---: | ---: | ---: |
-| 18 | 0 | 10 | 6 | 2 |
+| 19 | 0 | 11 | 6 | 2 |
 
-Maior concentração: estados/motion (6), controles de seleção (3), documentação/cobertura (3) e encoding (1 regressão em 11 arquivos).
+Maior concentração: estados/motion (7), controles de seleção (3), documentação/cobertura (3) e encoding (1 regressão em 11 arquivos).
 
 ## Matriz
 
@@ -39,6 +39,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview compõe Alert, checkbox/radio/switch e Sidebar; a aceitação integrada cobre estados, navegação responsiva e ausência de overflow. | aceitação. | REMEDIATED | Medium | cobertura | Tecnicamente remediada em 1440/390 px, claro/escuro. | preview, testes |
 | VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
 | VC-17 | Valores legados | CSS do guia ainda tem valores avulsos/inline. | UI Kit também tem medidas em utilitários; não há inventário de exceções. | contrato de tokens. | BOTH_NEED_REVIEW | Low | consistência | Inventariar antes de limpeza mecânica. | guide, UI Kit, tokens |
+| VC-19 | Motion e feedback temporal | Drawer, modal e feedback contextual devem preservar os comportamentos demonstrados pelo guia. | Usuário reporta que o drawer lateral deixou de deslizar e que o feedback cromático de encerramento de modais/alertas não ocorre. | `spring.default`, `spring.gentle` e contrato de feedback a confirmar. | USER_REPORTED_REGRESSION | High | motion/feedback | Reproduzir em Guide × preview, verificar `prefers-reduced-motion`, ciclo de abertura/fechamento e o contrato temporal antes de corrigir. | Brand Guide, Modal, DashboardLayout, Alert/Toast, testes |
 
 ## Motion
 
@@ -59,7 +60,7 @@ As 12 stories com conteúdo corrompido — `Button`, `Badge`, `Input`, `Typograp
 
 ## Próximo passo obrigatório
 
-A VC-15 foi tecnicamente remediada. A próxima frente é a VC-16 (geometria mobile), isolada até validação e commit.
+A VC-19 foi registrada como regressão reportada. A próxima frente é reproduzi-la e definir o contrato de correção antes da VC-16.
 
 ## VC-18 — Drift de distribuição de tokens
 
