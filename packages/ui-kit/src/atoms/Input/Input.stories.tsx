@@ -34,7 +34,7 @@ export const Invalid = () => (
   <div className="max-w-sm">
     <Input isInvalid defaultValue="email-invalido@dominio" aria-describedby="error-hint" />
     <span id="error-hint" className="text-xs text-[var(--sld-text-danger)] mt-1.5 block">
-      Formato de e-mail corporativo inv?lido.
+      Formato de e-mail corporativo inválido.
     </span>
   </div>
 );
@@ -48,7 +48,7 @@ export const Disabled = () => (
 export const Sizes = () => (
   <div className="flex flex-col gap-3 max-w-sm">
     <Input inputSize="sm" placeholder="Input Pequeno (32px)" />
-    <Input inputSize="md" placeholder="Input M?dio (40px)" />
+    <Input inputSize="md" placeholder="Input Médio (40px)" />
     <Input inputSize="lg" placeholder="Input Grande (48px)" />
   </div>
 );

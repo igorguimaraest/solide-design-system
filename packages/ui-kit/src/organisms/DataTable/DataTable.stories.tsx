@@ -18,8 +18,8 @@ interface Transaction {
 const SAMPLE_DATA: Transaction[] = [
   { id: 'SLD-8921', client: 'Apex AI Infraestrutura', service: 'Cluster GPU Dedicado', status: 'active', amount: 'R$ 38.400,00' },
   { id: 'SLD-8922', client: 'Banco Linear Seguros', service: 'API Gateway Resiliente', status: 'active', amount: 'R$ 14.800,00' },
-  { id: 'SLD-8923', client: 'Fintech Quantum Pay', service: 'Pipeline de Liquida??o BACEN', status: 'warning', amount: 'R$ 62.150,00' },
-  { id: 'SLD-8924', client: 'Nexus Log?stica Inteligente', service: 'Roteador IoT Tempo Real', status: 'error', amount: 'R$ 9.200,00' },
+  { id: 'SLD-8923', client: 'Fintech Quantum Pay', service: 'Pipeline de Liquidação BACEN', status: 'warning', amount: 'R$ 62.150,00' },
+  { id: 'SLD-8924', client: 'Nexus Logística Inteligente', service: 'Roteador IoT Tempo Real', status: 'error', amount: 'R$ 9.200,00' },
 ];
 
 export const Default = () => {
@@ -27,9 +27,9 @@ export const Default = () => {
   const [page, setPage] = useState(1);
 
   const columns = [
-    { key: 'id', header: 'C?digo', sortable: true },
-    { key: 'client', header: 'Cliente / Organiza??o', sortable: true },
-    { key: 'service', header: 'Servi?o Ativo' },
+    { key: 'id', header: 'Código', sortable: true },
+    { key: 'client', header: 'Cliente / Organização', sortable: true },
+    { key: 'service', header: 'Serviço Ativo' },
     {
       key: 'status',
       header: 'Status Operacional',

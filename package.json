@@ -14,11 +14,12 @@
     "build": "npm run build:tokens && npm run build:ui && npm run build:preview",
     "typecheck": "npm run typecheck --workspace=@solide/ui-kit",
     "test:tokens": "npm run build:tokens && node packages/tokens/build/verify-tokens.js && git diff --exit-code -- packages/tokens/src/mobile-theme.ts packages/tokens/src/primitives.tokens.json packages/tokens/src/semantic.tokens.json docs/consolidation/contrast.json packages/tokens/src/motion.ts",
+    "test:encoding": "node scripts/check-story-encoding.js",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "preview:ui": "vite --host 127.0.0.1",
     "test:ui": "playwright test",
-    "lint": "node scripts/audit-system.js --check",
+    "lint": "node scripts/audit-system.js --check && npm run test:encoding",
     "build:preview": "vite build"
   },
   "devDependencies": {

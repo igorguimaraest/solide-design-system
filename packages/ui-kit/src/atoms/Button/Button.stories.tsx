@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import { ButtonProps } from './Button.types';
+import { Icon } from '../Icon';
 
 export default {
   title: 'Atoms/Button',
@@ -14,7 +15,7 @@ export default {
   },
 };
 
-export const Default = (args: ButtonProps) => <Button {...args}>Salvar Altera??es</Button>;
+export const Default = (args: ButtonProps) => <Button {...args}>Salvar Alterações</Button>;
 
 export const Secondary = () => <Button tone="secondary">Cancelar</Button>;
 
@@ -40,15 +41,15 @@ export const Disabled = () => <Button disabled>Desabilitado</Button>;
 
 export const WithIcons = () => (
   <div className="flex items-center gap-3">
-    <Button leftIcon={<span>?</span>}>Voltar</Button>
-    <Button rightIcon={<span>?</span>}>Avan?ar</Button>
+    <Button leftIcon={<Icon name="arrow-left" size="sm" />}>Voltar</Button>
+    <Button rightIcon={<Icon name="arrow-right" size="sm" />}>Avançar</Button>
   </div>
 );
 
 export const Sizes = () => (
   <div className="flex items-center gap-3">
     <Button size="sm">Pequeno (32px)</Button>
-    <Button size="md">M?dio (40px)</Button>
+    <Button size="md">Médio (40px)</Button>
     <Button size="lg">Grande (48px)</Button>
   </div>
 );

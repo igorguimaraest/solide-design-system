@@ -15,12 +15,12 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Consolidar a implementação e validação da VC-13 e preparar a correção da VC-14.
+Consolidar a implementação e validação da VC-14 e preparar a correção da VC-15.
 
 
 ## Concluído
 
-- Auditoria de convergência consolidada com 18 achados históricos: 14 tecnicamente remediados (VC-01 a VC-13 e VC-18) e 4 ainda abertos.
+- Auditoria de convergência consolidada com 18 achados históricos: 15 tecnicamente remediados (VC-01 a VC-14 e VC-18) e 3 ainda abertos.
 - Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
 - ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
 - Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
@@ -39,11 +39,12 @@ Consolidar a implementação e validação da VC-13 e preparar a correção da V
 - VC-05 concluída por validação: Ghost permanece transparente em repouso e ganha superfície apenas em hover/active; a inspeção em 1440/390 px, light/dark confirmou affordance suficiente, sem introduzir borda fora do padrão normativo.
 - VC-07 concluída: Input usa foco exclusivo por `:focus-visible`, mantendo o anel `--sld-action-focusRing`; erro, disabled e fluxo de teclado foram cobertos no preview e no Playwright.
 - VC-13 concluída: paginação da DataTable usa fundo, texto e borda semânticos de disabled; o hover só opera em controles habilitados e não sobrescreve o estado terminal.
+- VC-14 concluída: 12 stories com texto PT-BR corrompido foram corrigidos e a checagem de encoding passou a fazer parte do lint.
 
 ## Principais achados
 
 - Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas); a affordance do Ghost foi validada e VC-05 está encerrada.
-- Encoding: 11 stories têm texto PT-BR corrompido.
+- Encoding: stories compilam em UTF-8 e a regressão é bloqueada pela checagem estática.
 - Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input usa foco exclusivo por `:focus-visible`.
 - Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
 - Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
@@ -182,12 +183,12 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 4 achados ainda abertos: VC-14 a VC-17, conforme a auditoria.
+- Concluir os 3 achados ainda abertos: VC-15 a VC-17, conforme a auditoria.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A VC-13 foi tecnicamente remediada. O próximo passo é corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
+A VC-14 foi tecnicamente remediada. O próximo passo é corrigir a VC-15 (preview integrado), mantendo a frente isolada até validação e commit.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -219,7 +220,7 @@ A VC-13 foi tecnicamente remediada. O próximo passo é corrigir a VC-14 (encodi
 
 **Status:** VC-07 tecnicamente remediada.
 
-**Próximo passo exato:** corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
+**Próximo passo exato:** corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.
 
 ## VC-13 — Concluída (DataTable/paginação)
 
@@ -231,3 +232,14 @@ A VC-13 foi tecnicamente remediada. O próximo passo é corrigir a VC-14 (encodi
 **Status:** VC-13 tecnicamente remediada.
 
 **Próximo passo exato:** corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
+
+## VC-14 — Concluída (Encoding PT-BR)
+
+- **Escopo:** conteúdo dos stories; nenhuma alteração de tokens, geometria ou comportamento de componentes.
+- **Correção:** 12 stories com substituições ASCII foram restaurados para UTF-8. Os placeholders de senha reproduzem os pontos médios do Brand Guide e a demonstração de ícones do Button usa ícones já autorizados.
+- **Prevenção:** `scripts/check-story-encoding.js` analisa literais e texto JSX dos 21 stories, bloqueando caracteres de substituição e padrões de fallback de encoding. O comando `npm run test:encoding` foi integrado ao lint.
+- **Validação:** typecheck, build, test:tokens, lint, test:encoding e build:storybook passaram; a suíte UI completa passou (**113/113**).
+
+**Status:** VC-14 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-15 (preview integrado), mantendo a frente isolada até validação e commit.

@@ -1,7 +1,7 @@
 # Auditoria de convergência visual — Solide
 
 Data: 2026-09-17
-Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-13.
+Escopo: branch `codex/visual-convergence-audit`, estado consolidado até a validação da VC-14.
 
 ## Método e cobertura
 
@@ -35,7 +35,7 @@ Maior concentração: estados/motion (6), controles de seleção (3), documenta�
 | VC-11 | Drawer/modal motion | Guia/geometria pedem drawer e motion. | Wrapper `Modal` compõe `<dialog>`, `ModalHeader` e DashboardLayout com entrada/saída, foco e reduced motion. | `spring.default`, `spring.gentle`, `@solide/tokens/motion`. | REMEDIATED | High | feedback | Tecnicamente remediada. | DashboardLayout, Modal |
 | VC-12 | Sidebar motion | Geometria exige durationBase + easingSnappy. | Transição limitada à largura, com duração/curva semânticas e reduced motion. | `--sld-durationBase`, `--sld-easingSnappy`. | REMEDIATED | Medium | ruído/comportamento | Tecnicamente remediada. | Sidebar |
 | VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Paginação usa tokens semânticos de disabled; hover é limitado a controles habilitados. | `--sld-disabled-{bg,fg}`, `--sld-border-subtle`. | REMEDIATED | Medium | contraste/affordance | Tecnicamente remediada; cobertura em 1440/390 px, claro/escuro. | DataTable, preview, testes |
-| VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 11 stories usam `??`/`?` no lugar de acentos. | N/A. | IMPLEMENTATION_WRONG | High | conteúdo | Corrigir UTF-8 e criar checagem. | stories listados abaixo |
+| VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 12 stories corrigidos para UTF-8; checagem estática cobre os 21 stories. | `npm run test:encoding`, integrado ao lint. | REMEDIATED | High | conteúdo | Tecnicamente remediada. | stories, check-story-encoding |
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview não cobre Alert, checkbox/radio/switch, Sidebar compacta nem estados completos. | aceitação. | DOCUMENTATION_GAP | Medium | cobertura | Expandir após decidir componentes faltantes. | preview, testes |
 | VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
 | VC-17 | Valores legados | CSS do guia ainda tem valores avulsos/inline. | UI Kit também tem medidas em utilitários; não há inventário de exceções. | contrato de tokens. | BOTH_NEED_REVIEW | Low | consistência | Inventariar antes de limpeza mecânica. | guide, UI Kit, tokens |
@@ -46,7 +46,7 @@ Guide/contrato e UI Kit Button concluídos em VC-09A/B. SegmentedTabs, Modal/dra
 
 ## Encoding
 
-Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `SearchBar`, `ModalHeader`, `DataTable`, `EmptyState`, `Sidebar`, `AuthLayout` e `DashboardLayout`. Não houve `�`/`??` nos componentes de produção, preview ou Brand Guide.
+As 12 stories com conteúdo corrompido — `Button`, `Badge`, `Input`, `Typography`, `FormField`, `SearchBar`, `ModalHeader`, `DataTable`, `EmptyState`, `Sidebar`, `AuthLayout` e `DashboardLayout` — foram restauradas para UTF-8. `scripts/check-story-encoding.js` analisa os 21 stories e bloqueia caracteres de substituição e padrões de fallback antes de regressões chegarem ao Storybook.
 
 ## Ordem de correção após autorização
 
@@ -59,7 +59,7 @@ Ocorrências em 11 stories: `Button`, `Badge`, `Typography`, `FormField`, `Searc
 
 ## Próximo passo obrigatório
 
-A VC-13 foi tecnicamente remediada. A próxima frente é a VC-14 (encoding PT-BR), isolada até validação e commit.
+A VC-14 foi tecnicamente remediada. A próxima frente é a VC-15 (preview integrado), isolada até validação e commit.
 
 ## VC-18 — Drift de distribuição de tokens
 

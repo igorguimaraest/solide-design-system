@@ -15,12 +15,12 @@ export const Default = () => {
       title: 'Plataforma',
       items: [
         { id: 'dashboard', label: 'Dashboard Geral', icon: 'activity', isActive: activeId === 'dashboard', onClick: () => setActiveId('dashboard') },
-        { id: 'nodes', label: 'N?s de Infer?ncia', icon: 'check-circle', badge: '12', isActive: activeId === 'nodes', onClick: () => setActiveId('nodes') },
+        { id: 'nodes', label: 'Nós de Inferência', icon: 'check-circle', badge: '12', isActive: activeId === 'nodes', onClick: () => setActiveId('nodes') },
         { id: 'logs', label: 'Logs de Auditoria', icon: 'filter', isActive: activeId === 'logs', onClick: () => setActiveId('logs') },
       ]
     },
     {
-      title: 'Governan?a',
+      title: 'Governança',
       items: [
         { id: 'keys', label: 'Chaves de API', icon: 'copy', isActive: activeId === 'keys', onClick: () => setActiveId('keys') },
         { id: 'team', label: 'Time & Acessos', icon: 'user', isActive: activeId === 'team', onClick: () => setActiveId('team') },
@@ -37,7 +37,7 @@ export const Default = () => {
       />
       <div className="p-8 flex-1">
         <h2 className="text-xl font-bold font-display text-[var(--solide-text-primary)]">
-          Se??o Ativa: {activeId}
+          Seção Ativa: {activeId}
         </h2>
       </div>
     </div>

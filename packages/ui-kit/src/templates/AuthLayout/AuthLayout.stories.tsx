@@ -13,13 +13,13 @@ export const LoginScreen = () => (
   <AuthLayout
     title="Acessar Plataforma"
     subtitle="Entre com suas credenciais corporativas Solide."
-    footerText="N?o possui chave de acesso? Contate o administrador de infraestrutura."
+    footerText="Não possui chave de acesso? Contate o administrador de infraestrutura."
   >
     <FormField id="auth-email" label="E-mail Corporativo" isRequired>
       <Input placeholder="seu.nome@solide.dev.br" />
     </FormField>
     <FormField id="auth-password" label="Senha de Acesso" isRequired>
-      <Input type="password" placeholder="????????????" />
+      <Input type="password" placeholder="••••••••••••" />
     </FormField>
     <Button tone="primary" className="w-full mt-2">
       Entrar no Sistema
