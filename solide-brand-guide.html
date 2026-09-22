@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="icon" id="solide-favicon" type="image/svg+xml" href="solide-favicon.svg">
 <link rel="apple-touch-icon" id="solide-touch-icon" href="solide-touch-icon.png">
-<link rel="stylesheet" href="solide-tokens.css">
+<link rel="stylesheet" href="solide-tokens.css?v=4">
 <script src="solide-icons-data.js"></script>
 <style>
 /* ==========================================================================
@@ -1241,7 +1241,7 @@ body {
 .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
 .switch input { opacity: 0; width: 0; height: 0; }
 .switch-slider {
-  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; left: 0; left: 0;
   background-color: var(--border-primary);
   transition: .25s;
   border-radius: var(--r-pill);
@@ -1322,6 +1322,8 @@ kbd {
 
 /* TOAST */
 .toast-notice {
+  position: fixed;
+  overflow: hidden;
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -1694,7 +1696,7 @@ kbd {
   .doc-layout {
     height: auto;
     overflow: visible;
-    padding-bottom: 0;
+    padding-bottom: 0; left: 0; left: 0;
   }
   .doc-main {
     margin: 0;
@@ -1790,7 +1792,7 @@ kbd {
     position: fixed;
     top: 57px;
     left: 0;
-    bottom: 0;
+    bottom: 0; left: 0; left: 0;
     z-index: 150;
     transform: translateX(-100%);
     box-shadow: var(--shadow-lg);
@@ -2076,7 +2078,7 @@ kbd {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   width: 3px;
   height: 100% !important;
   background: var(--sld-surface-card);
@@ -2130,7 +2132,7 @@ kbd {
   position: absolute;
   left: 0;
   top: 0;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   width: 3px;
   height: 0;
   background: var(--sld-surface-card);
@@ -2146,7 +2148,7 @@ kbd {
 .app-nav-item.active::before {
   height: 100% !important;
   top: 0;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   opacity: 1;
 }
 
@@ -2269,7 +2271,7 @@ kbd {
 .app-operator-avatar::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   right: 0;
   width: 8px;
   height: 8px;
@@ -2354,7 +2356,7 @@ kbd {
 .app-sidebar-demo.compact .app-profile-dropdown {
   left: calc(100% + 8px);
   right: auto;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   width: 240px;
 }
 
@@ -2556,7 +2558,7 @@ kbd {
 .solide-switch-track {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0; left: 0; left: 0;
   background-color: var(--border-primary);
   transition: background-color var(--motion-base, 160ms) cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
   border-radius: var(--r-pill);
@@ -2890,21 +2892,21 @@ kbd {
 /* 5. DRAWER / SLIDE-OVER LATERAL */
 .drawer-backdrop {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--bg-overlay);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  top: 0; left: 0; right: 0; bottom: 0; left: 0; left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
+  pointer-events: none;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1), -webkit-backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   justify-content: flex-end;
 }
-
 .drawer-backdrop.open {
-  opacity: 1;
-  visibility: visible;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  pointer-events: auto;
 }
 
 .drawer-container {
@@ -2916,7 +2918,7 @@ kbd {
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   border-left: 1px solid var(--border-primary);
 }
 
@@ -2977,7 +2979,7 @@ kbd {
 /* 6. COMMAND PALETTE (Ctrl+K / ⌘K) */
 .cmd-backdrop {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0; left: 0; left: 0;
   background: var(--bg-overlay);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -3261,14 +3263,18 @@ kbd {
   transform: translateY(-12px) scale(0.92);
   opacity: 0;
 }
+.toast-card.show .toast-progress-bar, .toast-notice.show .toast-progress-bar {
+  animation: toastCountdown 4s linear forwards;
+}
+
 .toast-progress-bar {
   position: absolute;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   left: 0;
-  height: 2.5px;
+  height: 4px; z-index: 10;
   width: 100%;
   transform-origin: left;
-  animation: toastCountdown 4s linear forwards;
+  
 }
 @keyframes toastCountdown {
   from { transform: scaleX(1); }
@@ -3881,7 +3887,7 @@ kbd {
   margin-bottom: 0.5rem;
 }
 .screen-header .sd {
-  margin-bottom: 0;
+  margin-bottom: 0; left: 0; left: 0;
 }
 
 /* ==========================================================================
@@ -4232,7 +4238,7 @@ kbd {
 
 .avatar-badge-status {
   position: absolute;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   right: 0;
   border-radius: 50%;
   border: 2px solid var(--bg-elevated);
@@ -4305,7 +4311,7 @@ kbd {
 .chart-scrub-line {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 0; left: 0; left: 0;
   width: 1px;
   pointer-events: none;
   opacity: 0;
@@ -4361,20 +4367,18 @@ kbd {
 }
 .spring-bar-fill {
   flex: 1;
-  background: var(--text-primary);
+  background: var(--sld-chart-4);
   border-radius: 4px 4px 0 0;
   transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease, transform 0.15s ease;
   position: relative;
 }
 .spring-bar-fill-secondary {
   flex: 1;
-  background: var(--color-hover-light);
+  background: var(--sld-chart-3);
   border-radius: 4px 4px 0 0;
   transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-[data-theme="dark"] .spring-bar-fill-secondary {
-  background: var(--color-hover-dark);
-}
+
 .spring-bar-col:hover .spring-bar-fill {
   transform: scaleY(1.03);
   filter: brightness(1.1);
@@ -5697,6 +5701,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-2);border-radius:var(--r)"></div><code>--sld-chart-2</code><span data-token-value="--sld-chart-2"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-3);border-radius:var(--r)"></div><code>--sld-chart-3</code><span data-token-value="--sld-chart-3"></span></div>
 <div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-4);border-radius:var(--r)"></div><code>--sld-chart-4</code><span data-token-value="--sld-chart-4"></span></div>
+<div class="icon-card"><div style="height:48px;width:100%;background:var(--sld-chart-5);border-radius:var(--r)"></div><code>--sld-chart-5</code><span data-token-value="--sld-chart-5"></span></div>
 </div><h3>Estados semânticos</h3><div class="row" style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0"><span style="background:var(--sld-status-success-bg);color:var(--sld-status-success-text);border:1px solid var(--sld-status-success-border);border-radius:var(--r-pill);padding:4px 10px">success</span><span style="background:var(--sld-status-warning-bg);color:var(--sld-status-warning-text);border:1px solid var(--sld-status-warning-border);border-radius:var(--r-pill);padding:4px 10px">warning</span><span style="background:var(--sld-status-danger-bg);color:var(--sld-status-danger-text);border:1px solid var(--sld-status-danger-border);border-radius:var(--r-pill);padding:4px 10px">danger</span><span style="background:var(--sld-status-info-bg);color:var(--sld-status-info-text);border:1px solid var(--sld-status-info-border);border-radius:var(--r-pill);padding:4px 10px">info</span><span style="background:var(--sld-status-neutral-bg);color:var(--sld-status-neutral-text);border:1px solid var(--sld-status-neutral-border);border-radius:var(--r-pill);padding:4px 10px">neutral</span></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin:20px 0"><button class="btn btn-primary">Salvar alterações</button><button class="btn btn-secondary">Cancelar</button><button class="btn btn-destructive">Excluir registro</button><button class="btn btn-primary" disabled>Indisponível</button></div>
 <p>O teste automatizado mede pares de texto/fundo e bordas/foco contra as superfícies declaradas. Isso não certifica globalmente a WCAG. Gráficos precisam de rótulos e identificação adicional; cores categóricas não substituem legenda.</p>
 <p><a href="docs/consolidation/README.md">Decisões, compatibilidade e validação</a> · <a href="solide-tokens.css">CSS canônico</a></p>
@@ -8016,18 +8021,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <path id="chart-area-path" d="M 0 160 Q 100 130, 160 110 T 320 80 T 480 120 T 640 50 T 800 90 L 800 190 L 0 190 Z" fill="url(#solideChartAreaGrad)" clip-path="url(#chart-area-clip)" />
 
         <!-- Line stroke -->
-        <path id="chart-line-path" d="M 0 160 Q 100 130, 160 110 T 320 80 T 480 120 T 640 50 T 800 90" fill="none" stroke="var(--text-primary)" stroke-width="2.5" stroke-linecap="round"/>
+        <path id="chart-line-path" d="M 0 160 Q 100 130, 160 110 T 320 80 T 480 120 T 640 50 T 800 90" fill="none" stroke="var(--sld-chart-4)" stroke-width="2.5" stroke-linecap="round"/>
 
         <!-- Ponto condutor do desenho (Tracer Pen Head) -->
-        <circle id="chart-lead-dot" cx="0" cy="160" r="5" fill="var(--bg-elevated)" stroke="var(--text-primary)" stroke-width="2.5" style="opacity:0;pointer-events:none;transition:opacity 0.2s ease"/>
+        <circle id="chart-lead-dot" cx="0" cy="160" r="5" fill="var(--bg-elevated)" stroke="var(--sld-chart-4)" stroke-width="2.5" style="opacity:0;pointer-events:none;transition:opacity 0.2s ease"/>
 
         <!-- Interactive Points -->
         <g id="chart-points-group">
-          <circle class="chart-point" cx="160" cy="110" r="4.5" fill="var(--bg-elevated)" stroke="var(--text-primary)" stroke-width="2" onmouseenter="showChartTooltip(event, '04:00', '2.410')" onmouseleave="hideChartTooltip()"/>
-          <circle class="chart-point" cx="320" cy="80" r="4.5" fill="var(--bg-elevated)" stroke="var(--text-primary)" stroke-width="2" onmouseenter="showChartTooltip(event, '08:00', '3.190')" onmouseleave="hideChartTooltip()"/>
-          <circle class="chart-point" cx="480" cy="120" r="4.5" fill="var(--bg-elevated)" stroke="var(--text-primary)" stroke-width="2" onmouseenter="showChartTooltip(event, '12:00', '2.840')" onmouseleave="hideChartTooltip()"/>
+          <circle class="chart-point" cx="160" cy="110" r="4.5" fill="var(--bg-elevated)" stroke="var(--sld-chart-4)" stroke-width="2" onmouseenter="showChartTooltip(event, '04:00', '2.410')" onmouseleave="hideChartTooltip()"/>
+          <circle class="chart-point" cx="320" cy="80" r="4.5" fill="var(--bg-elevated)" stroke="var(--sld-chart-4)" stroke-width="2" onmouseenter="showChartTooltip(event, '08:00', '3.190')" onmouseleave="hideChartTooltip()"/>
+          <circle class="chart-point" cx="480" cy="120" r="4.5" fill="var(--bg-elevated)" stroke="var(--sld-chart-4)" stroke-width="2" onmouseenter="showChartTooltip(event, '12:00', '2.840')" onmouseleave="hideChartTooltip()"/>
           <circle class="chart-point" cx="640" cy="50" r="6" fill="var(--solide-accent)" stroke="var(--solide-neutral-0)" stroke-width="2.5" onmouseenter="showChartTooltip(event, '16:00 (Pico Operacional)', '4.820')" onmouseleave="hideChartTooltip()"/>
-          <circle class="chart-point" cx="800" cy="90" r="4.5" fill="var(--bg-elevated)" stroke="var(--text-primary)" stroke-width="2" onmouseenter="showChartTooltip(event, '20:00', '3.510')" onmouseleave="hideChartTooltip()"/>
+          <circle class="chart-point" cx="800" cy="90" r="4.5" fill="var(--bg-elevated)" stroke="var(--sld-chart-4)" stroke-width="2" onmouseenter="showChartTooltip(event, '20:00', '3.510')" onmouseleave="hideChartTooltip()"/>
         </g>
       </svg>
     </div>
@@ -8068,8 +8073,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
           <div style="font-size:12px;color:var(--text-secondary);margin-top:2px">Requisições processadas vs. cargas de borda</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;font-size:11px">
-          <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:var(--text-primary)"></span><span>200 OK</span></div>
-          <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:var(--bg-hover)"></span><span>Edge Cache</span></div>
+          <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-4)"></span><span>200 OK</span></div>
+          <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-3)"></span><span>Edge Cache</span></div>
         </div>
       </div>
 
@@ -8096,13 +8101,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
             <!-- Background circle -->
             <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--border-secondary)" stroke-width="3.5" />
             <!-- Segment 1: Publicado (72%) -->
-            <path id="donut-seg-1" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--text-primary)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="0" onmouseenter="highlightDonutSlice(0)" onmouseleave="resetDonutHighlight()" />
+            <path id="donut-seg-1" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--sld-chart-4)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="0" onmouseenter="highlightDonutSlice(0)" onmouseleave="resetDonutHighlight()" />
             <!-- Segment 2: Processando (18%) -->
-            <path id="donut-seg-2" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--solide-success)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-72" onmouseenter="highlightDonutSlice(1)" onmouseleave="resetDonutHighlight()" />
+            <path id="donut-seg-2" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--sld-chart-5)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-72" onmouseenter="highlightDonutSlice(1)" onmouseleave="resetDonutHighlight()" />
             <!-- Segment 3: Revisão (8%) -->
-            <path id="donut-seg-3" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--solide-warning)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-90" onmouseenter="highlightDonutSlice(2)" onmouseleave="resetDonutHighlight()" />
+            <path id="donut-seg-3" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--sld-chart-1)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-90" onmouseenter="highlightDonutSlice(2)" onmouseleave="resetDonutHighlight()" />
             <!-- Segment 4: Falha (2%) -->
-            <path id="donut-seg-4" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--solide-error)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-98" onmouseenter="highlightDonutSlice(3)" onmouseleave="resetDonutHighlight()" />
+            <path id="donut-seg-4" class="donut-interactive-ring" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--sld-chart-2)" stroke-width="3.5" stroke-dasharray="0 100" stroke-dashoffset="-98" onmouseenter="highlightDonutSlice(3)" onmouseleave="resetDonutHighlight()" />
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
             <span class="mono" id="donut-center-pct" style="font-size:18px;font-weight:700;color:var(--text-primary)">72%</span>
@@ -8114,7 +8119,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <div style="flex:1;min-width:180px;display:flex;flex-direction:column;gap:8px" id="donut-legend-box">
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:4px 6px;border-radius:4px;cursor:pointer;transition:background 0.15s" onmouseenter="highlightDonutSlice(0)" onmouseleave="resetDonutHighlight()">
             <div style="display:flex;align-items:center;gap:6px">
-              <span style="width:8px;height:8px;border-radius:2px;background:var(--text-primary)"></span>
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-4)"></span>
               <span style="color:var(--text-primary)">Publicado & Ativo</span>
             </div>
             <span class="mono" style="font-weight:600" id="donut-cnt-0">92 (72%)</span>
@@ -8122,7 +8127,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:4px 6px;border-radius:4px;cursor:pointer;transition:background 0.15s" onmouseenter="highlightDonutSlice(1)" onmouseleave="resetDonutHighlight()">
             <div style="display:flex;align-items:center;gap:6px">
-              <span style="width:8px;height:8px;border-radius:2px;background:var(--solide-success)"></span>
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-5)"></span>
               <span style="color:var(--text-primary)">Em Processamento</span>
             </div>
             <span class="mono" style="font-weight:600" id="donut-cnt-1">23 (18%)</span>
@@ -8130,7 +8135,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:4px 6px;border-radius:4px;cursor:pointer;transition:background 0.15s" onmouseenter="highlightDonutSlice(2)" onmouseleave="resetDonutHighlight()">
             <div style="display:flex;align-items:center;gap:6px">
-              <span style="width:8px;height:8px;border-radius:2px;background:var(--solide-warning)"></span>
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-1)"></span>
               <span style="color:var(--text-primary)">Em Auditoria Fiscal</span>
             </div>
             <span class="mono" style="font-weight:600" id="donut-cnt-2">10 (8%)</span>
@@ -8138,7 +8143,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 
           <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:4px 6px;border-radius:4px;cursor:pointer;transition:background 0.15s" onmouseenter="highlightDonutSlice(3)" onmouseleave="resetDonutHighlight()">
             <div style="display:flex;align-items:center;gap:6px">
-              <span style="width:8px;height:8px;border-radius:2px;background:var(--solide-error)"></span>
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--sld-chart-2)"></span>
               <span style="color:var(--text-primary)">Falhas de SEFAZ</span>
             </div>
             <span class="mono" style="font-weight:600" id="donut-cnt-3">3 (2%)</span>
@@ -8541,7 +8546,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
 
             <div class="header-avatar-btn" style="position:relative;cursor:pointer" onclick="showToast('Menu do operador (Igor Guimarães)')">
               <div class="header-avatar-initials" style="width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700">IG</div>
-              <span class="header-avatar-badge" style="position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:var(--solide-success);border:1.5px solid var(--app-shell-bg)"></span>
+              <span class="header-avatar-badge" style="position:absolute;bottom: 0; left: 0; left: 0;right:0;width:8px;height:8px;border-radius:50%;background:var(--solide-success);border:1.5px solid var(--app-shell-bg)"></span>
             </div>
           </div>
         </header>
@@ -8550,47 +8555,67 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <div style="display:flex;flex:1;min-height:480px;position:relative;overflow:hidden">
 
           <!-- SIDEBAR INTERATIVA CANÔNICA -->
-          <aside class="app-sidebar-demo" id="app-sidebar-demo" style="width:var(--sld-sidebar-w);background:var(--app-shell-bg);border-right:none;display:flex;flex-direction:column;gap:var(--sld-app-shell-sidebar-gap);padding:var(--sld-app-shell-sidebar-padding-block-start) var(--sld-app-shell-sidebar-padding-inline) var(--sld-app-shell-sidebar-padding-block-end);box-sizing:border-box;transition:width var(--sld-durationBase) var(--sld-easingSnappy)">
-
-            <a class="app-nav-item active" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Visão geral')" title="Visão geral" data-tooltip="Visão geral">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
-              <span class="app-nav-label">Visão geral</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Marca & arquivos')" title="Marca & arquivos" data-tooltip="Marca & arquivos">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.5-9.17 4.16a2 2 0 0 1-1.66 0L2 12.5"/><path d="m22 17.5-9.17 4.16a2 2 0 0 1-1.66 0L2 17.5"/></svg>
-              <span class="app-nav-label">Marca & arquivos</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Cores')" title="Cores" data-tooltip="Cores">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-              <span class="app-nav-label">Cores</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Tipografia')" title="Tipografia" data-tooltip="Tipografia">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-              <span class="app-nav-label">Tipografia</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Espaço & movimento')" title="Espaço & movimento" data-tooltip="Espaço & movimento">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              <span class="app-nav-label">Espaço & movimento</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Ícones')" title="Ícones" data-tooltip="Ícones">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M3 12h18"/></svg>
-              <span class="app-nav-label">Ícones</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Controles & botões')" title="Controles & botões" data-tooltip="Controles & botões">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6"/></svg>
-              <span class="app-nav-label">Controles & botões</span>
-            </a>
-
-            <a class="app-nav-item" href="javascript:void(0)" onclick="selectAppNavItem(this, 'Tabelas')" title="Tabelas" data-tooltip="Tabelas">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 9v12"/></svg>
-              <span class="app-nav-label">Tabelas</span>
-            </a>
+                    <aside class="doc-sidebar" id="app-sidebar-demo" style="position:relative; top:0; height:100%; border-right:1px solid var(--border-secondary)!important; transition:width var(--sld-durationBase) var(--sld-easingSnappy)">
+            <div class="doc-sidebar-group" data-nav-group>
+              <div class="doc-sidebar-title">Plataforma</div>
+              <a href="javascript:void(0)" class="doc-sidebar-link active" onclick="selectAppNavItem(this, 'Visão geral')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+                  <span class="nav-label">Visão geral</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Marca & arquivos')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.5-9.17 4.16a2 2 0 0 1-1.66 0L2 12.5"/><path d="m22 17.5-9.17 4.16a2 2 0 0 1-1.66 0L2 17.5"/></svg>
+                  <span class="nav-label">Marca & arquivos</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+            
+            <div class="doc-sidebar-group" data-nav-group>
+              <div class="doc-sidebar-title">Design Tokens</div>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Cores')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                  <span class="nav-label">Cores</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Tipografia')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+                  <span class="nav-label">Tipografia</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Espaço & movimento')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                  <span class="nav-label">Espaço & movimento</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+            
+            <div class="doc-sidebar-group" data-nav-group>
+              <div class="doc-sidebar-title">Componentes</div>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Controles & botões')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6"/></svg>
+                  <span class="nav-label">Controles & botões</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="javascript:void(0)" class="doc-sidebar-link" onclick="selectAppNavItem(this, 'Tabelas')">
+                <div class="nav-item-left">
+                  <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 9v12"/></svg>
+                  <span class="nav-label">Tabelas</span>
+                </div>
+                <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
           </aside>
 
           <!-- 3. ÁREA DE TRABALHO DA APLICAÇÃO (CARTÃO FLUTUANTE TONAL CANÔNICO) -->
@@ -9522,6 +9547,8 @@ function showToast(text) {
   const toast = document.getElementById('toast-notice');
   const toastText = document.getElementById('toast-text');
   toastText.textContent = text;
+  toast.classList.remove('show');
+  void toast.offsetWidth;
   toast.classList.add('show');
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => {
@@ -9625,7 +9652,7 @@ function openDetailModal(client, id, val, service, status) {
   }
   closeAllDropdowns();
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const sw=window.innerWidth-document.documentElement.clientWidth;document.body.style.paddingRight=sw+"px";document.body.style.overflow="hidden";
 }
 
 function openCancelModal(client, id) {
@@ -9635,7 +9662,7 @@ function openCancelModal(client, id) {
   if (id) document.getElementById('modal-cancel-id').textContent = id;
   closeAllDropdowns();
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const sw=window.innerWidth-document.documentElement.clientWidth;document.body.style.paddingRight=sw+"px";document.body.style.overflow="hidden";
 }
 
 function closeModal(id) {
@@ -9644,13 +9671,13 @@ function closeModal(id) {
     modal.classList.remove('open');
   }
   if (!document.querySelector('.modal-backdrop.open')) {
-    document.body.style.overflow = '';
+    document.body.style.paddingRight="";document.body.style.overflow="";
   }
 }
 
 function closeAllModals() {
   document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
-  document.body.style.overflow = '';
+  document.body.style.paddingRight="";document.body.style.overflow="";
 }
 
 function handleBackdropClick(event, id) {
@@ -9944,7 +9971,7 @@ function setAppSidebarMode(mode) {
 }
 
 function selectAppNavItem(el, name) {
-  document.querySelectorAll('#app-sidebar-demo .app-nav-item').forEach(item => item.classList.remove('active'));
+  document.querySelectorAll('#app-sidebar-demo .doc-sidebar-link').forEach(item => item.classList.remove('active'));
   el.classList.add('active');
   const title = document.getElementById('app-demo-active-title');
   if (title) title.textContent = name;
@@ -10024,13 +10051,13 @@ function openDrawer(title, code) {
   }
   closeAllDropdowns();
   drawer.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const sw=window.innerWidth-document.documentElement.clientWidth;document.body.style.paddingRight=sw+"px";document.body.style.overflow="hidden";
 }
 
 function closeDrawer() {
   const drawer = document.getElementById('drawer-detail');
   if (drawer) drawer.classList.remove('open');
-  checkBodyOverflow();
+  setTimeout(checkBodyOverflow, 250);
 }
 
 function handleDrawerBackdropClick(event) {
@@ -10102,7 +10129,7 @@ function openCommandPalette() {
   if (!palette) return;
   closeAllDropdowns();
   palette.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const sw=window.innerWidth-document.documentElement.clientWidth;document.body.style.paddingRight=sw+"px";document.body.style.overflow="hidden";
   const input = document.getElementById('cmd-input');
   if (input) {
     input.value = '';
@@ -10115,7 +10142,7 @@ function openCommandPalette() {
 function closeCommandPalette() {
   const palette = document.getElementById('command-palette');
   if (palette) palette.classList.remove('open');
-  checkBodyOverflow();
+  setTimeout(checkBodyOverflow, 250);
 }
 
 function handleCmdBackdropClick(event) {
@@ -10200,7 +10227,7 @@ function toggleTheme() {
 
 function checkBodyOverflow() {
   if (!document.querySelector('.modal-backdrop.open, .drawer-backdrop.open, .cmd-backdrop.open')) {
-    document.body.style.overflow = '';
+    document.body.style.paddingRight="";document.body.style.overflow="";
   }
 }
 
@@ -10707,7 +10734,7 @@ window.addEventListener('keydown', (e) => {
     const modal = document.getElementById('modal-shortcuts');
     if (modal) {
       modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      const sw=window.innerWidth-document.documentElement.clientWidth;document.body.style.paddingRight=sw+"px";document.body.style.overflow="hidden";
     }
   }
 });

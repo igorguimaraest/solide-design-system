@@ -48,13 +48,17 @@ export const Info = () => (
 export const Dismissible = () => {
   const [visible, setVisible] = useState(true);
 
-  return visible ? (
-    <Alert
-      dismissible
-      tone="info"
-      title="Sincronização concluída"
-      description="Os dados foram atualizados há poucos instantes."
-      onDismiss={() => setVisible(false)}
-    />
-  ) : <Button variant="ghost" onClick={() => setVisible(true)}>Mostrar alerta</Button>;
+  return (
+    <>
+      <Alert
+        open={visible}
+        dismissible
+        tone="info"
+        title="Sincronização concluída"
+        description="Os dados foram atualizados há poucos instantes."
+        onDismiss={() => setVisible(false)}
+      />
+      {!visible && <Button variant="ghost" onClick={() => setVisible(true)}>Mostrar alerta</Button>}
+    </>
+  );
 };

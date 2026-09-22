@@ -123,19 +123,23 @@
       },
       "--sld-chart-1": {
         "$type": "string",
-        "$value": "var(--sld-palette-cobalt-600)"
+        "$value": "var(--sld-palette-warning-500)"
       },
       "--sld-chart-2": {
         "$type": "string",
-        "$value": "var(--sld-palette-success-700)"
+        "$value": "var(--sld-palette-danger-500)"
       },
       "--sld-chart-3": {
         "$type": "string",
-        "$value": "var(--sld-palette-warning-700)"
+        "$value": "var(--sld-palette-teal-500)"
       },
       "--sld-chart-4": {
         "$type": "string",
-        "$value": "var(--sld-palette-teal-700)"
+        "$value": "var(--sld-palette-cobalt-500)"
+      },
+      "--sld-chart-5": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-500)"
       },
       "--sld-action-primary-bg": {
         "$type": "string",
@@ -941,19 +945,23 @@
       },
       "--sld-chart-1": {
         "$type": "string",
-        "$value": "var(--sld-palette-cobalt-400)"
+        "$value": "var(--sld-palette-warning-400)"
       },
       "--sld-chart-2": {
         "$type": "string",
-        "$value": "var(--sld-palette-success-400)"
+        "$value": "var(--sld-palette-danger-400)"
       },
       "--sld-chart-3": {
         "$type": "string",
-        "$value": "var(--sld-palette-warning-400)"
+        "$value": "var(--sld-palette-teal-400)"
       },
       "--sld-chart-4": {
         "$type": "string",
-        "$value": "var(--sld-palette-teal-400)"
+        "$value": "var(--sld-palette-cobalt-400)"
+      },
+      "--sld-chart-5": {
+        "$type": "string",
+        "$value": "var(--sld-palette-success-400)"
       },
       "--sld-action-primary-bg": {
         "$type": "string",

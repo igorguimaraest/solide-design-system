@@ -8,5 +8,6 @@ export type AlertProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> & {
   description?: React.ReactNode;
   action?: React.ReactNode;
   dismissible?: boolean;
+  open?: boolean;
   onDismiss?: () => void;
 };

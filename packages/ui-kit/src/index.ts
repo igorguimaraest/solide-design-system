@@ -31,3 +31,4 @@ export * from './organisms/EmptyState';
 // Templates
 export * from './templates/AuthLayout';
 export * from './templates/DashboardLayout';
+export * from './molecules/Toast';

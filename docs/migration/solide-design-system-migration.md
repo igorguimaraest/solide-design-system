@@ -1,6 +1,6 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-17
+Atualizado em: 2026-09-21
 Branch: `codex/visual-convergence-audit`
 Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
 Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
@@ -15,7 +15,7 @@ Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
 ## Objetivo da etapa
 
-Registrar e reproduzir a regressão VC-19 de motion/feedback antes de corrigir a VC-16.
+Concluir a VC-19, alinhar a documentação responsiva da VC-16 e inventariar a VC-17.
 
 
 ## Concluído
@@ -185,12 +185,14 @@ A etapa VC-09B está tecnicamente concluída, marcando a remediação integral d
 
 ## Pendências
 
-- Concluir os 3 achados ainda abertos: VC-19, VC-16 e VC-17, conforme a auditoria.
+- Concluir a remediação visual da VC-17 após definição normativa dos papéis de token ausentes.
 - Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-A VC-19 foi registrada como regressão reportada. O próximo passo é reproduzir motion e feedback temporal no Brand Guide e no preview antes de corrigir a VC-16.
+A VC-19 e a contradição documental da VC-16 foram corrigidas. O próximo passo
+é decidir os papéis de token apontados no inventário da VC-17 antes de
+qualquer migração mecânica de valores legados.
 
 ## VC-05 — Concluída (Affordance do Ghost Button)
 
@@ -256,13 +258,40 @@ A VC-19 foi registrada como regressão reportada. O próximo passo é reproduzir
 
 **Próximo passo exato:** corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.
 
-## VC-19 — Aberta (Regressão de motion e feedback temporal)
+## VC-19 — Remediação validada (Motion e feedback temporal)
 
 - **Relato do usuário:** o drawer lateral deixou de deslizar e passou a apenas aparecer/fechar; as cores que comunicavam a aproximação do encerramento de modais/alertas não estão ocorrendo.
 - **Estado da evidência:** a implementação declara `spring.default` para drawer e `spring.gentle` para modal, mas o comportamento reportado ainda não foi reproduzido lado a lado. `prefers-reduced-motion` é uma hipótese a verificar, não uma conclusão.
 - **Escopo de reprodução:** Brand Guide e preview em 1440/390 px, claro/escuro, com abertura e fechamento observados; mapear o feedback temporal somente se estiver demonstrado ou formalizado no guia.
 - **Regra de correção:** não reintroduzir cores, temporizações ou animações por memória. Se o padrão não estiver no guia, registrar a lacuna de contrato antes de codificar.
 
-**Status:** aberta, severidade High, anterior à VC-16.
+**Diagnóstico:** o drawer usa `spring.default` e desliza em motion normal; a
+preferência local `prefers-reduced-motion` explica a ausência de deslizamento
+na máquina observada. Não havia contrato de mudança cromática no encerramento.
+O Alert descartável, porém, era desmontado imediatamente pelo consumidor.
 
-**Próximo passo exato:** reproduzir e auditar a VC-19, mantendo a frente isolada até decisão arquitetural e commit.
+**Correção:** `Alert` agora aceita `open`, preserva seu tom semântico e executa
+somente fade de opacidade com `spring.snappy` antes de sair do DOM. Não usa
+escala, translação ou cor transitória. O foco segue para o próximo controle
+lógico após o fechamento. O Brand Guide formaliza o comportamento; preview,
+story e testes o exercitam também em redução de movimento. Modal, drawer e
+Toast não foram alterados.
+
+**Validação:** os cinco testes focais passaram em 1440/390, claro/escuro e
+redução de movimento; build, typecheck, test:tokens, lint e Storybook passaram.
+A suíte completa foi repetida após corrigir um clique de teste no input
+invisível da VC-15; resultado final registrado abaixo.
+
+## VC-16 — Contradição documental corrigida
+
+O escopo de `docs/geometry/app-shell-sidebar.md` agora autoriza apenas a
+adaptação responsiva efetivamente demonstrada pelo preview incorporado ao
+`screen-app-shell` do Brand Guide: drawer, padding e overflow. Não autoriza
+bottom navigation nem variantes inferidas. Nenhum valor ou layout foi criado.
+
+## VC-17 — Inventariada, remediação visual pendente
+
+`docs/audits/vc-17-legacy-values-inventory.md` registra as ocorrências e
+separa exemplos do guia, cores de marca de terceiros e 11 componentes com
+medidas arbitrárias. Não há token normativo para todas as categorias, portanto
+a regra de execução proíbe substituí-las por aproximação.

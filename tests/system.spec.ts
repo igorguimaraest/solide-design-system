@@ -128,10 +128,30 @@ test.describe('VC-06: Alert/Banner', () => {
       await expect(close).toBeFocused();
       await expect(close).toHaveCSS('outline-style', 'solid');
       await close.click();
+      const closingAlert = page.getByTestId('alert-info');
+      await expect(closingAlert).toHaveAttribute('data-state', 'closing');
+      await expect(closingAlert).toHaveCSS('background-color', await tokenColorScoped(page, '--sld-status-info-bg'));
+      expect(await closingAlert.evaluate((node) => node.getAnimations().length)).toBeGreaterThan(0);
       await expect(page.getByTestId('alert-info')).toHaveCount(0);
+      await expect(page.getByPlaceholder('Nome completo')).toBeFocused();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     });
   }
+
+  test('reduced motion preserves the opacity-only dismissal feedback', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/preview/index.html');
+
+    const close = page.getByRole('button', { name: 'Fechar alerta' });
+    await close.focus();
+    await close.click();
+
+    const closingAlert = page.getByTestId('alert-info');
+    await expect(closingAlert).toHaveAttribute('data-state', 'closing');
+    expect(await closingAlert.evaluate((node) => node.getAnimations().length)).toBeGreaterThan(0);
+    await expect(closingAlert).toHaveCount(0);
+    await expect(page.getByPlaceholder('Nome completo')).toBeFocused();
+  });
 });
 
 test.describe('VC-08: Hover Guard', () => {
@@ -1091,8 +1111,8 @@ test.describe('VC-15: integrated preview acceptance', () => {
       const sync = page.getByRole('switch', { name: 'Sincronização fiscal' });
       await expect(backup).toBeChecked();
       await expect(sync).toBeChecked();
-      await backup.click();
-      await sync.click();
+      await page.getByText('Backup automático', { exact: true }).click();
+      await page.getByText('Sincronização fiscal', { exact: true }).click();
       await expect(backup).not.toBeChecked();
       await expect(sync).not.toBeChecked();
 

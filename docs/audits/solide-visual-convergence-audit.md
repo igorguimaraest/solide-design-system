@@ -37,9 +37,9 @@ Maior concentração: estados/motion (7), controles de seleção (3), documenta�
 | VC-13 | DataTable/paginação | Seleção neutra, hover guardado e controles coerentes. | Paginação usa tokens semânticos de disabled; hover é limitado a controles habilitados. | `--sld-disabled-{bg,fg}`, `--sld-border-subtle`. | REMEDIATED | Medium | contraste/affordance | Tecnicamente remediada; cobertura em 1440/390 px, claro/escuro. | DataTable, preview, testes |
 | VC-14 | Encoding PT-BR | Trechos auditados legíveis. | 12 stories corrigidos para UTF-8; checagem estática cobre os 21 stories. | `npm run test:encoding`, integrado ao lint. | REMEDIATED | High | conteúdo | Tecnicamente remediada. | stories, check-story-encoding |
 | VC-15 | Preview integrado | Guide cobre alertas, seleção, navegação, cards e estados. | Preview compõe Alert, checkbox/radio/switch e Sidebar; a aceitação integrada cobre estados, navegação responsiva e ausência de overflow. | aceitação. | REMEDIATED | Medium | cobertura | Tecnicamente remediada em 1440/390 px, claro/escuro. | preview, testes |
-| VC-16 | Geometria mobile | Documento especifica drawer/16 px/overflow abaixo de 1024. | O próprio escopo diz não autorizar variante mobile. | geometria normativa. | DOCUMENTATION_GAP | Medium | comportamento | Corrigir redação normativa. | geometry, DESIGN_SYSTEM |
-| VC-17 | Valores legados | CSS do guia ainda tem valores avulsos/inline. | UI Kit também tem medidas em utilitários; não há inventário de exceções. | contrato de tokens. | BOTH_NEED_REVIEW | Low | consistência | Inventariar antes de limpeza mecânica. | guide, UI Kit, tokens |
-| VC-19 | Motion e feedback temporal | Drawer, modal e feedback contextual devem preservar os comportamentos demonstrados pelo guia. | Usuário reporta que o drawer lateral deixou de deslizar e que o feedback cromático de encerramento de modais/alertas não ocorre. | `spring.default`, `spring.gentle` e contrato de feedback a confirmar. | USER_REPORTED_REGRESSION | High | motion/feedback | Reproduzir em Guide × preview, verificar `prefers-reduced-motion`, ciclo de abertura/fechamento e o contrato temporal antes de corrigir. | Brand Guide, Modal, DashboardLayout, Alert/Toast, testes |
+| VC-16 | Geometria mobile | Preview incorporado ao guia demonstra drawer/16 px/overflow abaixo de 1024. | Escopo do documento foi alinhado ao padrão demonstrado, sem autorizar outras variantes. | geometria normativa. | REMEDIATED | Medium | comportamento | Contradição documental corrigida. | geometry, DESIGN_SYSTEM |
+| VC-17 | Valores legados | Guia ainda tem dimensões inline; cores literais incluem comentários e logo de terceiro. | UI Kit contém medidas arbitrárias em 11 componentes, sem cores hardcoded. | contrato de tokens. | INVENTORIED_PENDING_TOKENS | Low | consistência | Inventário em `docs/audits/vc-17-legacy-values-inventory.md`; definir papéis ausentes antes da migração. | guide, UI Kit, tokens |
+| VC-19 | Motion e feedback temporal | Drawer e modal preservam o motion normativo; Alert descartável sai por fade de opacidade, sem mudança cromática. | Drawer normal confirmado; reduced motion explica ausência de slide local. Alert controlado mantém presença até o fim da saída. | `spring.default`, `spring.gentle`, `spring.snappy`. | REMEDIATED | High | motion/feedback | Testes focais, inspeção visual e gates aprovados; Toast permanece contrato separado. | Brand Guide, Modal, DashboardLayout, Alert, testes |
 
 ## Motion
 
@@ -60,7 +60,9 @@ As 12 stories com conteúdo corrompido — `Button`, `Badge`, `Input`, `Typograp
 
 ## Próximo passo obrigatório
 
-A VC-19 foi registrada como regressão reportada. A próxima frente é reproduzi-la e definir o contrato de correção antes da VC-16.
+A VC-19 e a VC-16 foram corrigidas. A VC-17 foi inventariada, mas sua
+remediação depende de decisão normativa sobre os papéis de token ausentes;
+não substituir valores por aproximação.
 
 ## VC-18 — Drift de distribuição de tokens
 
