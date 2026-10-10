@@ -285,7 +285,7 @@ test.describe('VC-09A: Button Press Contract (Guide)', () => {
         await expect(btn).toHaveCSS('transform', /none|matrix\(1/);
         await expect(btn).not.toHaveCSS('background-color', activeBg);
 
-        const disabledBtn = page.locator('#screen-controles button:has-text("Desabilitado")');
+        const disabledBtn = page.locator('#screen-controles .reference-card button:has-text("Desabilitado")');
         const disabledBg = await disabledBtn.evaluate((node) => getComputedStyle(node).backgroundColor);
         await disabledBtn.hover({ force: true });
         await page.mouse.down();
@@ -446,7 +446,7 @@ test.describe('VC-09A: Button Press Contract (Guide)', () => {
         await page.evaluate((t) => (window as any).setTheme(t), theme);
         await page.evaluate(() => (window as any).showScreen('screen-controles'));
 
-        const btn = page.locator('#screen-controles button:has-text("Processando...")');
+        const btn = page.locator('#screen-controles .reference-card button:has-text("Processando...")');
         await expect(btn).toHaveAttribute('disabled', '');
         await expect(btn).toHaveAttribute('aria-busy', 'true');
 

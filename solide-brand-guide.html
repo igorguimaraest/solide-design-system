@@ -5166,6 +5166,227 @@ select:focus-visible {
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {outline:var(--focus-ring-width) solid var(--sld-action-focusRing)!important;outline-offset:var(--focus-ring-offset)!important;}
 .input-base,.header-search-input {border:1px solid var(--sld-border-strong);}
 @media(prefers-reduced-motion:reduce) {*,*::before,*::after {scroll-behavior:auto!important;transition-duration:0.01ms!important;animation-duration:0.01ms!important;}}
+/* ========================================================================== */
+/* EXPERIMENTO — APRESENTAÇÃO EDITORIAL DO DESIGN SYSTEM                      */
+/* ========================================================================== */
+@media (min-width: 1025px) {
+  .doc-layout {
+    height: calc(100vh - var(--sld-header-h));
+  }
+
+  .doc-sidebar {
+    position: relative !important;
+    top: auto !important;
+    width: var(--sld-sidebar-w) !important;
+    height: calc(100% - var(--sld-space-8)) !important;
+    margin: var(--sld-space-4) 0 var(--sld-space-4) var(--sld-space-4) !important;
+    padding: var(--sld-space-3) var(--sld-space-2) var(--sld-space-4) !important;
+    background: var(--sld-surface-card) !important;
+    border: 1px solid var(--sld-border-default) !important;
+    border-radius: var(--sld-radius-xl) !important;
+    box-shadow: var(--sld-shadow-md) !important;
+  }
+
+  .doc-main {
+    height: calc(100% - var(--sld-space-8)) !important;
+    margin: var(--sld-space-4) var(--sld-space-4) var(--sld-space-4) var(--sld-space-3) !important;
+    border-radius: var(--sld-radius-xl) !important;
+    box-shadow: var(--sld-shadow-sm) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .doc-sidebar {
+    top: calc(var(--sld-header-h) + var(--sld-space-2)) !important;
+    bottom: var(--sld-space-4) !important;
+    left: var(--sld-space-4) !important;
+    width: calc(100vw - var(--sld-space-8)) !important;
+    max-width: var(--sld-sidebar-w) !important;
+    height: auto !important;
+    margin: 0 !important;
+    background: var(--sld-surface-card) !important;
+    border: 1px solid var(--sld-border-default) !important;
+    border-radius: var(--sld-radius-xl) !important;
+    box-shadow: var(--sld-shadow-lg) !important;
+    transform: translateX(calc(-100% - var(--sld-space-8))) !important;
+  }
+
+  .doc-sidebar.open {
+    transform: translateX(0) !important;
+  }
+}
+
+.reference-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sld-space-6);
+  margin-bottom: var(--sld-space-8);
+}
+
+.reference-card {
+  overflow: hidden;
+  background: var(--sld-surface-card);
+  border: 1px solid var(--sld-border-default);
+  border-radius: var(--sld-radius-xl);
+  box-shadow: var(--sld-shadow-xs);
+}
+
+.reference-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sld-space-4);
+  padding: var(--sld-space-5) var(--sld-space-6);
+  border-bottom: 1px solid var(--sld-border-subtle);
+}
+
+.reference-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sld-space-1);
+}
+
+.reference-card-title {
+  margin: 0;
+  color: var(--sld-text-primary);
+  font-size: var(--sld-font-size-h3);
+  font-weight: var(--sld-weight-semibold);
+  line-height: var(--sld-line-height-h3);
+  letter-spacing: var(--sld-letter-spacing-h3);
+}
+
+.reference-card-description {
+  margin: 0;
+  color: var(--sld-text-secondary);
+  font-size: var(--sld-font-size-bodySm);
+  line-height: var(--sld-line-height-bodySm);
+}
+
+.reference-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sld-space-2);
+  flex-wrap: wrap;
+}
+
+.reference-stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sld-space-8);
+  padding: var(--sld-space-8);
+  background: var(--sld-surface-sunken);
+}
+
+.reference-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sld-space-3);
+}
+
+.reference-group + .reference-group {
+  padding-top: var(--sld-space-6);
+  border-top: 1px solid var(--sld-border-subtle);
+}
+
+.reference-label {
+  margin: 0;
+  color: var(--sld-text-secondary);
+  font-size: var(--sld-font-size-caption);
+  font-weight: var(--sld-weight-semibold);
+  line-height: var(--sld-line-height-caption);
+  letter-spacing: var(--sld-letter-spacing-caption);
+  text-transform: uppercase;
+}
+
+.reference-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sld-space-3);
+  flex-wrap: wrap;
+}
+
+.reference-fields {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sld-space-4);
+  flex-wrap: wrap;
+}
+
+.reference-field {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--sld-space-2);
+}
+
+.reference-footer {
+  display: flex;
+  gap: var(--sld-space-6);
+  flex-wrap: wrap;
+  padding: var(--sld-space-4) var(--sld-space-6);
+  border-top: 1px solid var(--sld-border-subtle);
+  background: var(--sld-surface-card);
+}
+
+.reference-fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sld-space-1);
+}
+
+.reference-fact-label {
+  color: var(--sld-text-muted);
+  font-size: var(--sld-font-size-caption);
+  line-height: var(--sld-line-height-caption);
+}
+
+.reference-fact-value {
+  color: var(--sld-text-primary);
+  font-family: var(--sld-font-mono);
+  font-size: var(--sld-font-size-caption);
+  font-weight: var(--sld-weight-medium);
+  line-height: var(--sld-line-height-caption);
+}
+
+.reference-playground {
+  margin-top: var(--sld-space-8);
+  border-top: 1px solid var(--sld-border-subtle);
+}
+
+.reference-playground > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sld-space-4);
+  padding: var(--sld-space-5) 0;
+  color: var(--sld-text-primary);
+  font-size: var(--sld-font-size-bodySm);
+  font-weight: var(--sld-weight-semibold);
+  cursor: pointer;
+}
+
+.reference-playground > summary::after {
+  content: '+';
+  color: var(--sld-text-secondary);
+  font-family: var(--sld-font-mono);
+}
+
+.reference-playground[open] > summary::after {
+  content: '−';
+}
+
+@media (max-width: 640px) {
+  .reference-card-header,
+  .reference-stage,
+  .reference-footer {
+    padding-left: var(--sld-space-4);
+    padding-right: var(--sld-space-4);
+  }
+
+  .reference-card-header {
+    flex-direction: column;
+  }
+}
 </style>
 </head>
 <body>
@@ -6691,8 +6912,128 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
   <div class="screen-header">
     <span class="chip">Controles & Formulários</span>
     <h2 class="stl">Botões, Entradas & Seleções</h2>
-    <p class="sd">Microestados táteis (scale 0.97), foco duplo acessível (WCAG 2.2 AA), validações imediatas e interruptores industriais.</p>
+    <p class="sd">Referência visual dos componentes canônicos. Compare variantes, escalas e estados antes de aplicar qualquer controle em uma tela de produto.</p>
   </div>
+  <div class="reference-stack">
+    <section class="reference-card" aria-labelledby="reference-button-title">
+      <header class="reference-card-header">
+        <div class="reference-card-heading">
+          <p class="reference-label">Ação</p>
+          <h3 class="reference-card-title" id="reference-button-title">Button</h3>
+          <p class="reference-card-description">Ações primárias, secundárias e destrutivas com a mesma anatomia em todas as escalas.</p>
+        </div>
+        <div class="reference-card-meta">
+          <span class="status-pill status-pill-success">Estável</span>
+          <span class="mono" style="font-size:var(--sld-font-size-caption);color:var(--sld-text-secondary)">.btn</span>
+        </div>
+      </header>
+      <div class="reference-stage">
+        <div class="reference-group">
+          <p class="reference-label">Variantes</p>
+          <div class="reference-row">
+            <button class="btn btn-primary" onclick="showToast('Ação Primária executada')">Primário</button>
+            <button class="btn btn-secondary" onclick="showToast('Ação Secundária executada')">Secundário</button>
+            <button class="btn btn-outline" onclick="showToast('Ação Outline executada')">Outline</button>
+            <button class="btn btn-ghost" onclick="showToast('Ação Ghost executada')">Ghost</button>
+            <button class="btn btn-destructive" onclick="showToast('Ação Destrutiva executada')">Destrutivo</button>
+          </div>
+        </div>
+        <div class="reference-group">
+          <p class="reference-label">Escala</p>
+          <div class="reference-row">
+            <button class="btn btn-secondary btn-sm">Small · 32px</button>
+            <button class="btn btn-primary">Medium · 40px</button>
+            <button class="btn btn-secondary btn-lg">Large · 48px</button>
+          </div>
+        </div>
+        <div class="reference-group">
+          <p class="reference-label">Estados</p>
+          <div class="reference-row">
+            <button class="btn btn-primary">Padrão</button>
+            <button class="btn btn-secondary" disabled>Desabilitado</button>
+            <button class="btn btn-primary" disabled aria-busy="true">Processando...</button>
+          </div>
+        </div>
+      </div>
+      <footer class="reference-footer">
+        <div class="reference-fact"><span class="reference-fact-label">Alturas</span><span class="reference-fact-value">32 / 40 / 48px</span></div>
+        <div class="reference-fact"><span class="reference-fact-label">Raio</span><span class="reference-fact-value">--sld-radius-md</span></div>
+        <div class="reference-fact"><span class="reference-fact-label">Press</span><span class="reference-fact-value">--sld-button-press-scale</span></div>
+      </footer>
+    </section>
+    <section class="reference-card" aria-labelledby="reference-input-title">
+      <header class="reference-card-header">
+        <div class="reference-card-heading">
+          <p class="reference-label">Entrada</p>
+          <h3 class="reference-card-title" id="reference-input-title">Input</h3>
+          <p class="reference-card-description">Campos de texto apresentados pela escala física e pelos estados que mudam sua leitura.</p>
+        </div>
+        <div class="reference-card-meta">
+          <span class="status-pill status-pill-success">Estável</span>
+          <span class="mono" style="font-size:var(--sld-font-size-caption);color:var(--sld-text-secondary)">.input-base</span>
+        </div>
+      </header>
+      <div class="reference-stage">
+        <div class="reference-group">
+          <p class="reference-label">Escala</p>
+          <div class="reference-fields">
+            <label class="reference-field"><span class="form-label">Small · 32px</span><input class="input-base" style="width:100%;height:var(--sld-input-h-sm)" value="Campo compacto"></label>
+            <label class="reference-field"><span class="form-label">Medium · 40px</span><input class="input-base" style="width:100%;height:var(--sld-input-h-md)" value="Campo padrão"></label>
+            <label class="reference-field"><span class="form-label">Large · 48px</span><input class="input-base" style="width:100%;height:var(--sld-input-h-lg)" value="Campo amplo"></label>
+          </div>
+        </div>
+        <div class="reference-group">
+          <p class="reference-label">Estados</p>
+          <div class="reference-fields">
+            <label class="reference-field"><span class="form-label">Padrão</span><input class="input-base" style="width:100%" placeholder="Digite um valor"></label>
+            <label class="reference-field"><span class="form-label">Erro</span><input class="input-base input-error" style="width:100%" value="Valor inválido"><span class="input-hint-error">Revise a informação.</span></label>
+            <label class="reference-field"><span class="form-label">Desabilitado</span><input class="input-base" style="width:100%" value="Sem edição" disabled></label>
+          </div>
+        </div>
+      </div>
+      <footer class="reference-footer">
+        <div class="reference-fact"><span class="reference-fact-label">Alturas</span><span class="reference-fact-value">32 / 40 / 48px</span></div>
+        <div class="reference-fact"><span class="reference-fact-label">Foco</span><span class="reference-fact-value">--sld-action-focusRing</span></div>
+        <div class="reference-fact"><span class="reference-fact-label">Borda</span><span class="reference-fact-value">--sld-border-default</span></div>
+      </footer>
+    </section>
+    <section class="reference-card" aria-labelledby="reference-selection-title">
+      <header class="reference-card-header">
+        <div class="reference-card-heading">
+          <p class="reference-label">Seleção</p>
+          <h3 class="reference-card-title" id="reference-selection-title">Switch, Checkbox & Radio</h3>
+          <p class="reference-card-description">Controles booleanos e de escolha isolados do contexto para leitura direta de forma, tamanho e estado.</p>
+        </div>
+        <div class="reference-card-meta"><span class="status-pill status-pill-success">Estável</span></div>
+      </header>
+      <div class="reference-stage">
+        <div class="reference-group">
+          <p class="reference-label">Switches</p>
+          <div class="reference-row">
+            <label class="solide-switch-label"><span class="solide-switch"><input type="checkbox" checked><span class="solide-switch-track"></span></span><span class="solide-switch-text"><span class="solide-switch-title">Padrão</span></span></label>
+            <label class="solide-switch-label"><span class="solide-switch solide-switch-sm"><input type="checkbox"><span class="solide-switch-track"></span></span><span class="solide-switch-text"><span class="solide-switch-title">Compacto</span></span></label>
+          </div>
+        </div>
+        <div class="reference-group">
+          <p class="reference-label">Checkboxes</p>
+          <div class="reference-row">
+            <label class="solide-checkbox-label"><input type="checkbox" class="solide-checkbox" checked><span class="solide-checkbox-text"><span class="solide-checkbox-title">Selecionado</span></span></label>
+            <label class="solide-checkbox-label"><input type="checkbox" class="solide-checkbox"><span class="solide-checkbox-text"><span class="solide-checkbox-title">Livre</span></span></label>
+            <label class="solide-checkbox-label"><input type="checkbox" class="solide-checkbox" disabled><span class="solide-checkbox-text"><span class="solide-checkbox-title">Desabilitado</span></span></label>
+          </div>
+        </div>
+        <div class="reference-group">
+          <p class="reference-label">Radios</p>
+          <div class="reference-row">
+            <label class="solide-radio-label"><input type="radio" class="solide-radio" name="reference-radio" checked><span class="solide-radio-text"><span class="solide-radio-title">Selecionado</span></span></label>
+            <label class="solide-radio-label"><input type="radio" class="solide-radio" name="reference-radio"><span class="solide-radio-text"><span class="solide-radio-title">Alternativa</span></span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <details class="reference-playground">
+    <summary>Playground interativo e exemplos de aplicação</summary>
 <div class="comp-sandbox">
     <div class="comp-header">
       <span class="comp-title">Botões — Variantes & Estados Interativos</span>
@@ -7046,6 +7387,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
       </div>
     </div>
   </div>
+  </details>
 
 </div> <!-- /screen-controles -->
 
