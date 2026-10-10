@@ -15,6 +15,8 @@ e verificação estrutural. Eles não são exportados pelo pacote e não definem
 uma paleta ou composição alternativa. Qualquer mudança visual começa no brand
 guide e no `solide-tokens.css`, nunca nesses JSONs.
 
+O CSS continua sendo a fonte canônica para todos os tokens. O arquivo `motion.ts` é gerado automaticamente a partir do CSS. Consumidores React devem usar `@solide/tokens/motion` para acessar as configurações de animação no Framer Motion ou similar.
+
 Depois de alterar o contrato, execute na raiz do repositório:
 
 ```text

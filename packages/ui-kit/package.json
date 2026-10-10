@@ -13,6 +13,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@solide/tokens": "*"
+    "@solide/tokens": "*",
+    "framer-motion": "^13.3.0"
   }
 }

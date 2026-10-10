@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DataTableProps, ColumnDef } from './DataTable.types';
 import { Icon } from '../../atoms/Icon';
+import { Checkbox } from '../../atoms/Checkbox';
 
 export function DataTable<T extends Record<string, any>>({
   columns,
@@ -22,8 +23,8 @@ export function DataTable<T extends Record<string, any>>({
   const allSelected = data.length > 0 && data.every(row => selectedIds.includes(String(row[keyField])));
   const someSelected = data.some(row => selectedIds.includes(String(row[keyField]))) && !allSelected;
 
-  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
       const allRowIds = data.map(r => String(r[keyField]));
       onSelectionChange?.([...new Set([...selectedIds, ...allRowIds])]);
     } else {
@@ -32,8 +33,8 @@ export function DataTable<T extends Record<string, any>>({
     }
   };
 
-  const handleSelectRow = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
+  const handleSelectRow = (id: string, checked: boolean) => {
+    if (checked) {
       onSelectionChange?.([...selectedIds, id]);
     } else {
       onSelectionChange?.(selectedIds.filter(i => i !== id));
@@ -58,13 +59,11 @@ export function DataTable<T extends Record<string, any>>({
             <tr className="bg-[var(--sld-surface-sunken)] border-b border-solide-subtle text-xs font-semibold text-solide-secondary">
               {onSelectionChange && (
                 <th className="w-10 px-4 py-3 text-center">
-                  <input
-                    type="checkbox"
+                  <Checkbox
                     checked={allSelected}
-                    ref={el => { if (el) el.indeterminate = someSelected; }}
-                    onChange={handleSelectAll}
+                    indeterminate={someSelected}
+                    onCheckedChange={handleSelectAll}
                     aria-label="Selecionar todos os registros visíveis"
-                    className="w-4 h-4 rounded border-[var(--solide-border-strong)] accent-[var(--sld-action-primary-bg)] sld-focus-ring focus:ring-[var(--sld-action-focusRing)] cursor-pointer"
                   />
                 </th>
               )}
@@ -72,7 +71,7 @@ export function DataTable<T extends Record<string, any>>({
               {columns.map(col => (
                 <th
                   key={col.key}
-                  className={`px-4 py-3 select-none ${col.isNumeric ? 'text-right' : 'text-left'} ${col.sortable ? 'cursor-pointer hover:text-solide-primary' : ''}`}
+                  className={`px-4 py-3 select-none ${col.isNumeric ? 'text-right' : 'text-left'} ${col.sortable ? 'cursor-pointer [@media(hover:hover)_and_(pointer:fine)]:hover:text-solide-primary' : ''}`}
                   aria-sort={col.sortable ? (sortKey === col.key ? (sortDir === "asc" ? "ascending" : "descending") : "none") : undefined}
                 >
                   <div className={`inline-flex items-center gap-1.5 ${col.isNumeric ? 'justify-end w-full' : ''}`}>
@@ -104,17 +103,15 @@ export function DataTable<T extends Record<string, any>>({
                   className={`h-[var(--sld-table-row-h)] transition-colors ${
                     isSelected
                       ? 'bg-[var(--sld-selection-bg)]'
-                      : 'hover:bg-[var(--sld-surface-sunken)]'
+                      : '[@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-surface-sunken)]'
                   }`}
                 >
                   {onSelectionChange && (
                     <td className="w-10 px-4 py-2.5 text-center">
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         checked={isSelected}
-                        onChange={e => handleSelectRow(rowId, e)}
+                        onCheckedChange={checked => handleSelectRow(rowId, checked)}
                         aria-label={`Selecionar registro ${rowId}`}
-                        className="w-4 h-4 rounded border-[var(--solide-border-strong)] accent-[var(--sld-action-primary-bg)] sld-focus-ring focus:ring-[var(--sld-action-focusRing)] cursor-pointer"
                       />
                     </td>
                   )}
@@ -164,7 +161,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage <= 1}
             onClick={() => onPageChange?.(currentPage - 1)}
             aria-label="Página anterior"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-surface-sunken)] disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:border-[var(--sld-border-subtle)] disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="arrow-left" size="sm" />
           </button>
@@ -178,7 +175,7 @@ export function DataTable<T extends Record<string, any>>({
             disabled={currentPage >= totalPages}
             onClick={() => onPageChange?.(currentPage + 1)}
             aria-label="Próxima página"
-            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface hover:bg-[var(--sld-surface-sunken)] disabled:opacity-40 disabled:cursor-not-allowed sld-focus-ring"
+            className="px-2.5 py-1.5 rounded border border-solide-subtle bg-solide-surface [@media(hover:hover)_and_(pointer:fine)]:enabled:hover:bg-[var(--sld-surface-sunken)] disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:border-[var(--sld-border-subtle)] disabled:cursor-not-allowed sld-focus-ring"
           >
             <Icon name="chevron-right" size="sm" />
           </button>

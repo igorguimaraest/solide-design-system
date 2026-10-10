@@ -8,7 +8,7 @@ export default {
 
 export const Default = () => (
   <div className="p-4 bg-[var(--sld-surface-canvas)] rounded-lg">
-    <SearchBar placeholder="Buscar transa??es, APIs ou documentos..." />
+    <SearchBar placeholder="Buscar transações, APIs ou documentos..." />
   </div>
 );
 
@@ -21,7 +21,7 @@ export const Controlled = () => {
         onChange={setTerm}
         placeholder="Digite para filtrar..."
       />
-      <span className="text-xs text-[var(--solide-text-secondary)]">
+      <span className="text-xs text-[var(--sld-text-secondary)]">
         Termo ativo: <strong>{term}</strong>
       </span>
     </div>

@@ -1,19 +1,20 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { DashboardLayoutProps } from './DashboardLayout.types';
 import { Sidebar } from '../../organisms/Sidebar';
 import { Header } from '../../organisms/Header';
+import { Modal } from '../../molecules/Modal';
 
 export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   sidebarSections, headerUser, onSearchClick, onThemeToggle,
   currentTheme = 'light', children,
 }) => {
   const [isCompact, setIsCompact] = useState(false);
-  const drawer = useRef<HTMLDialogElement>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const toggleMenu = () => {
-    if (window.matchMedia('(max-width: 1023px)').matches) drawer.current?.showModal();
+    if (window.matchMedia('(max-width: 1023px)').matches) setIsDrawerOpen(true);
     else setIsCompact(value => !value);
   };
-  const mobileSections = sidebarSections.map(section => ({...section, items: section.items.map(item => ({...item, onClick: () => { item.onClick?.(); drawer.current?.close(); }}))}));
+  const mobileSections = sidebarSections.map(section => ({...section, items: section.items.map(item => ({...item, onClick: () => { item.onClick?.(); setIsDrawerOpen(false); }}))}));
   return (
     <div data-theme={currentTheme} className="sld-ui min-h-screen w-full flex flex-col bg-[var(--sld-surface-shell)] text-solide-primary font-ui">
       <Header user={headerUser} currentTheme={currentTheme} onThemeToggle={onThemeToggle} onSearchClick={onSearchClick} onMenuToggle={toggleMenu} />
@@ -25,10 +26,10 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
           {children}
         </main>
       </div>
-      <dialog ref={drawer} aria-label="Navegação principal" className="m-0 h-dvh max-h-none w-[var(--sld-sidebar-w)] max-w-full p-0 border-0 bg-[var(--sld-surface-shell)] text-solide-primary backdrop:bg-[var(--sld-surface-overlay)]" onClick={event => { if(event.target === event.currentTarget) drawer.current?.close(); }}>
-        <button type="button" autoFocus className="sld-focus-ring p-3" onClick={() => drawer.current?.close()}>Fechar navegação</button>
+      <Modal open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} ariaLabel="Navegação principal" variant="drawer-left">
+        <button type="button" autoFocus className="sld-focus-ring p-3" onClick={() => setIsDrawerOpen(false)}>Fechar navegação</button>
         <Sidebar sections={mobileSections} />
-      </dialog>
+      </Modal>
     </div>
   );
 };

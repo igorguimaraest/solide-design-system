@@ -2,8 +2,12 @@
 
 ## Autoridade
 
-`solide-brand-guide.html` é a fonte visual normativa do Solide. Ele determina
-a aparência, a hierarquia, os padrões de composição e os comportamentos.
+`SOLIDE-RESUMO.md` é a leitura padrão: resume os tokens e as regras de uso em
+duas páginas. Quem constrói uma tela começa por ele.
+
+`solide-brand-guide.html` é a vitrine visual do Solide. Ele demonstra a
+aparência, a hierarquia, os padrões de composição e os comportamentos, e é
+consultado por seção quando for preciso ver um padrão montado.
 
 `solide-tokens.css` é o contrato de tokens carregado pelo guia e distribuído
 pelo pacote `@solide/tokens`. A compilação copia esse arquivo sem transformá-lo,
@@ -23,7 +27,8 @@ ele não ganha precedência sobre o guia.
    a identidade Solide.
 
 Não é permitido combinar uma alternativa de uma fonte antiga com o guia.
-Qualquer divergência encontrada deve ser corrigida no Solide antes da adoção.
+Divergência encontrada durante a adoção: siga o guia, avise em uma linha e
+registre em `STATUS.md › Lacunas` para corrigir no Solide.
 
 ## Uso
 
@@ -49,14 +54,16 @@ passar a declarar, por padrão de tela, a sua geometria de composição:
 - regra para conteúdo de tamanhos reais: textos longos, tabelas, estados
   vazios e ações concorrentes.
 
-Essa especificação não autoriza criar números novos por aproximação. Os
-valores devem ser extraídos de padrões já demonstrados no guia ou serem
-formalmente definidos nele como tokens e exemplos antes de chegarem a um app.
-Sem esse mapa, uma implementação pode usar os tokens corretos e ainda assim
-parecer desalinhada — exatamente o problema encontrado no Nemu.
+Enquanto um padrão de tela não tiver esse mapa, use os tokens de espaço mais
+próximos do padrão demonstrado mais parecido, avise em uma linha e registre a
+lacuna em `STATUS.md › Lacunas`. Sem esse mapa, uma implementação pode usar os
+tokens corretos e ainda assim parecer desalinhada — exatamente o problema
+encontrado no Nemu —, por isso a comparação visual em desktop e celular é
+obrigatória.
 
-
-Uma lacuna de responsividade permanece uma lacuna mesmo quando a geometria desktop estiver documentada; não se pode deduzir o comportamento mobile a partir dela.
+Uma lacuna de responsividade permanece uma lacuna mesmo quando a geometria
+desktop estiver documentada: o comportamento mobile precisa ser conferido na
+tela, não deduzido.
 ## Critério de conformidade
 
 Uma interface só pode ser apresentada como Solide quando:
@@ -68,10 +75,11 @@ Uma interface só pode ser apresentada como Solide quando:
 - usa os ícones existentes em `icons/` ou `solide-icons-data.js`;
 - implementa os estados exibidos no guia, inclusive responsivo, foco, vazio,
   carregamento, erro e tema escuro quando aplicáveis;
-- não contém valores visuais inventados fora do guia;
+- usa só tokens; onde faltou algo, usou o mais próximo e registrou a lacuna;
 - foi comparada visualmente com o guia em desktop e mobile;
 - passa por `npm run build`, `npm run typecheck` e `npm run test:tokens`.
 
-Se o guia não demonstrar uma necessidade do produto, ela é uma lacuna. A
-implementação deve parar nesse ponto até que o padrão seja acrescentado ao
-guia e ao contrato de tokens/componentes.
+Se o guia não demonstrar uma necessidade do produto, ela é uma lacuna: use o
+token ou padrão mais próximo, avise em uma linha e registre em
+`STATUS.md › Lacunas`. O trabalho segue; lacunas que se repetem viram token e
+padrão no Solide.

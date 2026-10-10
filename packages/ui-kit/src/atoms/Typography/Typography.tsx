@@ -31,12 +31,12 @@ export function Typography<C extends React.ElementType = 'p'>({
   };
 
   const toneClasses: Record<TypographyTone, string> = {
-    primary: 'text-[var(--solide-text-primary)]',
-    secondary: 'text-[var(--solide-text-secondary)]',
-    muted: 'text-[var(--solide-text-muted)]',
+    primary: 'text-[var(--sld-text-primary)]',
+    secondary: 'text-[var(--sld-text-secondary)]',
+    muted: 'text-[var(--sld-text-muted)]',
     brand: 'text-[var(--sld-text-brand)]',
-    danger: 'text-[var(--solide-feedback-error)]',
-    success: 'text-[var(--solide-feedback-success)]',
+    danger: 'text-[var(--sld-status-danger-text)]',
+    success: 'text-[var(--sld-status-success-text)]',
     inverse: 'text-[var(--sld-text-inverse)]',
   };
 

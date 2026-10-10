@@ -14,7 +14,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
     <div className={`flex flex-col font-ui ${className}`}>
       {showGrabber && (
         <div
-          className="w-9 h-1 rounded-full bg-[var(--border-secondary)] dark:bg-[var(--border-secondary)] mx-auto mb-3"
+          className="w-9 h-1 rounded-full bg-[var(--sld-border-subtle)] dark:bg-[var(--sld-border-subtle)] mx-auto mb-3"
           aria-hidden="true"
         />
       )}
@@ -35,7 +35,7 @@ export const ModalHeader: React.FC<ModalHeaderProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Fechar diálogo"
-          className="p-1.5 rounded-[var(--sld-radius-md)] text-[var(--solide-text-muted)] hover:text-[var(--solide-text-primary)] hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
+          className="p-1.5 rounded-[var(--sld-radius-md)] text-[var(--sld-text-muted)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--sld-text-primary)] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] sld-focus-ring transition-colors"
         >
           <Icon name="x" size="md" />
         </button>

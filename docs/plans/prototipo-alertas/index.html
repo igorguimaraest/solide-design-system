@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alertas — protótipo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../solide-tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: var(--sld-space-6) var(--sld-space-4);
+    background: var(--sld-surface-canvas);
+    color: var(--sld-text-primary);
+    font-family: var(--font-family);
+    font-size: var(--sld-font-size-bodySm);
+    line-height: var(--sld-line-height-bodySm);
+  }
+  .page { display: flex; flex-direction: column; gap: var(--sld-space-6); }
+  .page-head { display: flex; flex-direction: column; gap: var(--sld-space-1); }
+  .page-head h1 {
+    margin: 0;
+    font-size: var(--sld-font-size-h2);
+    font-weight: var(--sld-weight-semibold);
+    line-height: var(--sld-line-height-h2);
+  }
+  .page-head p { margin: 0; color: var(--sld-text-secondary); font-size: var(--sld-font-size-caption); line-height: var(--sld-line-height-caption); }
+
+  .item {
+    display: flex; flex-direction: column; gap: var(--sld-space-3);
+    padding: var(--sld-space-4);
+    background: var(--sld-surface-card);
+    border: 1px solid var(--sld-border-default);
+    border-radius: var(--sld-radius-lg);
+  }
+  .item-head { display: flex; flex-direction: column; gap: var(--sld-space-1); }
+  .item-name { margin: 0; font-size: var(--sld-font-size-body); font-weight: var(--sld-weight-semibold); line-height: var(--sld-line-height-body); }
+  .item-tokens { margin: 0; font-family: var(--font-family-mono); font-size: var(--sld-font-size-caption); line-height: var(--sld-line-height-caption); color: var(--sld-text-secondary); overflow-wrap: anywhere; }
+  .item-stage { display: flex; flex-direction: column; gap: var(--sld-space-3); }
+
+  .ic { flex: none; width: var(--sld-font-size-body); height: var(--sld-font-size-body); }
+
+  /* BANNER */
+  .banner {
+    display: flex; gap: var(--sld-space-3); align-items: flex-start;
+    padding: var(--sld-space-4);
+    border: 1px solid;
+    border-radius: var(--sld-radius-lg);
+  }
+  .banner-body { flex: 1; min-width: 0; }
+  .banner-title { margin: 0; font-size: var(--sld-font-size-bodySm); font-weight: var(--sld-weight-semibold); line-height: var(--sld-line-height-bodySm); }
+  .banner-desc { margin: var(--sld-space-1) 0 0; font-size: var(--sld-font-size-caption); line-height: var(--sld-line-height-caption); }
+  .banner.success { background: var(--sld-status-success-bg); border-color: var(--sld-status-success-border); color: var(--sld-status-success-text); }
+  .banner.success .ic { color: var(--sld-status-success-icon); }
+  .banner.warning { background: var(--sld-status-warning-bg); border-color: var(--sld-status-warning-border); color: var(--sld-status-warning-text); }
+  .banner.warning .ic { color: var(--sld-status-warning-icon); }
+  .banner.danger { background: var(--sld-status-danger-bg); border-color: var(--sld-status-danger-border); color: var(--sld-status-danger-text); }
+  .banner.danger .ic { color: var(--sld-status-danger-icon); }
+  .banner.info { background: var(--sld-status-info-bg); border-color: var(--sld-status-info-border); color: var(--sld-status-info-text); }
+  .banner.info .ic { color: var(--sld-status-info-icon); }
+
+  /* BOTÕES DE AÇÃO DO BANNER */
+  .btn {
+    display: inline-flex; align-items: center; gap: var(--sld-space-2);
+    margin-top: var(--sld-space-2);
+    padding: var(--sld-space-2) var(--sld-space-3);
+    border: 0;
+    border-radius: var(--sld-radius-md);
+    font: inherit;
+    font-size: var(--sld-font-size-caption);
+    font-weight: var(--sld-weight-semibold);
+    line-height: var(--sld-line-height-caption);
+    cursor: pointer;
+  }
+  .btn:focus-visible { outline: 2px solid var(--sld-action-focusRing); outline-offset: 2px; }
+  .btn-warning { background: var(--sld-action-warning-bg); color: var(--sld-action-warning-text); }
+  .btn-warning:hover { background: var(--sld-action-warning-hover); }
+  .btn-danger { background: var(--sld-action-danger-bg); color: var(--sld-action-danger-text); }
+  .btn-danger:hover { background: var(--sld-action-danger-hover); }
+
+  /* TOAST (estático, para comparação visual) */
+  .toast {
+    position: relative; overflow: hidden;
+    display: flex; gap: var(--sld-space-3); align-items: flex-start;
+    width: 100%; max-width: 360px;
+    padding: var(--sld-space-4);
+    background: var(--sld-surface-card);
+    border: 1px solid var(--sld-border-default);
+    border-radius: var(--sld-radius-lg);
+    box-shadow: var(--sld-shadow-lg);
+  }
+  .toast-icon {
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+    width: var(--sld-space-6); height: var(--sld-space-6);
+    border-radius: var(--sld-radius-full);
+    background: var(--sld-surface-sunken);
+  }
+  .toast-icon .ic { width: var(--sld-font-size-body); height: var(--sld-font-size-body); }
+  .toast.success .toast-icon { color: var(--sld-status-success-icon); }
+  .toast.warning .toast-icon { color: var(--sld-status-warning-icon); }
+  .toast.danger .toast-icon { color: var(--sld-status-danger-icon); }
+  .toast-body { flex: 1; min-width: 0; }
+  .toast-title { margin: 0; color: var(--sld-text-primary); font-size: var(--sld-font-size-bodySm); font-weight: var(--sld-weight-semibold); line-height: var(--sld-line-height-bodySm); }
+  .toast-desc { margin: var(--sld-space-1) 0 0; color: var(--sld-text-secondary); font-size: var(--sld-font-size-caption); line-height: var(--sld-line-height-caption); }
+  .toast-close {
+    flex: none; display: flex; align-items: center; justify-content: center;
+    padding: var(--sld-space-1);
+    background: transparent; border: 0; border-radius: var(--sld-radius-sm);
+    color: var(--sld-text-tertiary); cursor: pointer;
+  }
+  .toast-close .ic { width: var(--sld-font-size-caption); height: var(--sld-font-size-caption); }
+  .toast-bar { position: absolute; left: 0; bottom: 0; width: 100%; height: var(--sld-space-1); }
+  .toast.success .toast-bar { background: var(--sld-status-success-solid); }
+  .toast.warning .toast-bar { background: var(--sld-status-warning-solid); }
+  .toast.danger .toast-bar { background: var(--sld-status-danger-solid); }
+
+  .btn-toast {
+    display: inline-flex; align-items: center; gap: var(--sld-space-1);
+    margin-top: var(--sld-space-2);
+    padding: var(--sld-space-1) var(--sld-space-2);
+    background: var(--sld-action-secondary-bg); color: var(--sld-action-secondary-text);
+    border: 0; border-radius: var(--sld-radius-sm);
+    font: inherit; font-size: var(--sld-font-size-caption); font-weight: var(--sld-weight-semibold); cursor: pointer;
+  }
+  .btn-toast:hover { background: var(--sld-action-secondary-hover); }
+  .btn-toast .ic { width: var(--sld-font-size-caption); height: var(--sld-font-size-caption); }
+
+  .gaps {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: var(--sld-space-2);
+    font-size: var(--sld-font-size-caption); line-height: var(--sld-line-height-caption); color: var(--sld-text-secondary);
+  }
+  .gaps strong { color: var(--sld-text-primary); font-weight: var(--sld-weight-semibold); }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="page-head">
+    <h1>Alertas — protótipo, um item por bloco</h1>
+    <p>Cada bloco mostra um único item, com os tokens que ele usa. O que não tem token está listado no fim.</p>
+  </header>
+
+  <!-- ITEM 1: BANNER SUCESSO -->
+  <section class="item" id="item-banner-success">
+    <div class="item-head">
+      <h2 class="item-name">Banner — sucesso</h2>
+      <p class="item-tokens">--sld-status-success-{bg,border,text,icon}</p>
+    </div>
+    <div class="item-stage">
+      <div class="banner success" role="status">
+        <svg class="ic" aria-hidden="true" class="lucide lucide-circle-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /> </svg>
+        <div class="banner-body">
+          <p class="banner-title">Conciliação bancária concluída</p>
+          <p class="banner-desc">Todos os 142 lançamentos foram conciliados automaticamente via Open Finance sem divergências.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 2: BANNER ALERTA -->
+  <section class="item" id="item-banner-warning">
+    <div class="item-head">
+      <h2 class="item-name">Banner — alerta</h2>
+      <p class="item-tokens">--sld-status-warning-{bg,border,text,icon} · botão --sld-action-warning-{bg,text,hover}</p>
+    </div>
+    <div class="item-stage">
+      <div class="banner warning" role="status">
+        <svg class="ic" aria-hidden="true" class="lucide lucide-triangle-alert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /> </svg>
+        <div class="banner-body">
+          <p class="banner-title">Certificado Digital A1 próximo do vencimento</p>
+          <p class="banner-desc">Expira em 4 dias úteis. Renove a chave criptográfica para manter a emissão ininterrupta de NF-e e NFS-e.</p>
+          <button class="btn btn-warning" type="button">Renovar Certificado</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 3: BANNER ERRO -->
+  <section class="item" id="item-banner-danger">
+    <div class="item-head">
+      <h2 class="item-name">Banner — erro</h2>
+      <p class="item-tokens">--sld-status-danger-{bg,border,text,icon} · botão --sld-action-danger-{bg,text,hover}</p>
+    </div>
+    <div class="item-stage">
+      <div class="banner danger" role="alert">
+        <svg class="ic" aria-hidden="true" class="lucide lucide-circle-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /> </svg>
+        <div class="banner-body">
+          <p class="banner-title">Rejeição SEFAZ: Código 539 (Duplicidade de NF-e)</p>
+          <p class="banner-desc">A nota fiscal de saída nº 4.891 já consta como autorizada na base estadual. Corrija o número de série para retransmitir.</p>
+          <button class="btn btn-danger" type="button">Corrigir e retransmitir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 4: BANNER INFORMATIVO -->
+  <section class="item" id="item-banner-info">
+    <div class="item-head">
+      <h2 class="item-name">Banner — informativo</h2>
+      <p class="item-tokens">--sld-status-info-{bg,border,text,icon}</p>
+    </div>
+    <div class="item-stage">
+      <div class="banner info" role="status">
+        <svg class="ic" aria-hidden="true" class="lucide lucide-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /> </svg>
+        <div class="banner-body">
+          <p class="banner-title">Ambiente de Contingência SVC-AN Ativo</p>
+          <p class="banner-desc">Os servidores estaduais entraram em manutenção preventiva. O tráfego fiscal da sua empresa está roteado com redundância nacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 5: TOAST SUCESSO -->
+  <section class="item" id="item-toast-success">
+    <div class="item-head">
+      <h2 class="item-name">Toast — sucesso (com Desfazer)</h2>
+      <p class="item-tokens">--sld-surface-card · --sld-border-default · --sld-shadow-lg · --sld-status-success-{icon,solid}</p>
+    </div>
+    <div class="item-stage">
+      <div class="toast success" role="status">
+        <span class="toast-icon"><svg class="ic" aria-hidden="true" class="lucide lucide-circle-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16 9-5.5 5.5L8 12" /> </svg></span>
+        <div class="toast-body">
+          <p class="toast-title">Lote enviado para a SEFAZ</p>
+          <p class="toast-desc">142 notas foram transmitidas com sucesso.</p>
+          <button class="btn-toast" type="button"><svg class="ic" aria-hidden="true" class="lucide lucide-undo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M3 7v6h6" /> <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" /> </svg> Desfazer</button>
+        </div>
+        <button class="toast-close" type="button" aria-label="Fechar"><svg class="ic" aria-hidden="true" class="lucide lucide-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button>
+        <span class="toast-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 6: TOAST ALERTA -->
+  <section class="item" id="item-toast-warning">
+    <div class="item-head">
+      <h2 class="item-name">Toast — alerta (com ação)</h2>
+      <p class="item-tokens">--sld-surface-card · --sld-border-default · --sld-shadow-lg · --sld-status-warning-{icon,solid}</p>
+    </div>
+    <div class="item-stage">
+      <div class="toast warning" role="status">
+        <span class="toast-icon"><svg class="ic" aria-hidden="true" class="lucide lucide-triangle-alert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /> </svg></span>
+        <div class="toast-body">
+          <p class="toast-title">Estoque abaixo do mínimo</p>
+          <p class="toast-desc">3 itens precisam de reposição antes do fechamento.</p>
+          <button class="btn-toast" type="button">Ver itens</button>
+        </div>
+        <button class="toast-close" type="button" aria-label="Fechar"><svg class="ic" aria-hidden="true" class="lucide lucide-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button>
+        <span class="toast-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEM 7: TOAST ERRO CRÍTICO -->
+  <section class="item" id="item-toast-danger">
+    <div class="item-head">
+      <h2 class="item-name">Toast — erro crítico (com Log)</h2>
+      <p class="item-tokens">--sld-surface-card · --sld-border-default · --sld-shadow-lg · --sld-status-danger-{icon,solid}</p>
+    </div>
+    <div class="item-stage">
+      <div class="toast danger" role="alert">
+        <span class="toast-icon"><svg class="ic" aria-hidden="true" class="lucide lucide-circle-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m15 9-6 6" /> <path d="m9 9 6 6" /> </svg></span>
+        <div class="toast-body">
+          <p class="toast-title">Falha na transmissão do lote</p>
+          <p class="toast-desc">A retentativa automática não foi possível. Consulte o log.</p>
+          <button class="btn-toast" type="button"><svg class="ic" aria-hidden="true" class="lucide lucide-file-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /> <path d="M14 2v5a1 1 0 0 0 1 1h5" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /> </svg> Ver log</button>
+        </div>
+        <button class="toast-close" type="button" aria-label="Fechar"><svg class="ic" aria-hidden="true" class="lucide lucide-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M18 6 6 18" /> <path d="m6 6 12 12" /> </svg></button>
+        <span class="toast-bar" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LACUNAS -->
+  <section class="item" id="lacunas">
+    <div class="item-head">
+      <h2 class="item-name">Lacunas registradas (sem token no solide-tokens.css)</h2>
+      <p class="item-tokens">Não preenchidas com valor inventado. Dependem de decisão ou de inclusão no guia.</p>
+    </div>
+    <ul class="gaps">
+      <li><strong>Espessura de borda:</strong> 1px literal em banner, toast e bloco. Não há token de largura de borda.</li>
+      <li><strong>Largura máxima do toast:</strong> 360px literal. Não há token de largura de toast.</li>
+      <li><strong>Tamanho do ícone:</strong> o ícone acompanha o tamanho da fonte do texto, porque não há token de tamanho de ícone.</li>
+      <li><strong>Foco:</strong> anel e deslocamento de 2px literais. Existe token de cor de foco, mas não de espessura.</li>
+      <li><strong>Toast animado:</strong> a barra de tempo aparece estática e cheia. Entrada animada e contagem não são demonstradas aqui.</li>
+      <li><strong>Estados de erro e carregamento de alerta:</strong> não demonstrados no guia atual.</li>
+    </ul>
+  </section>
+
+</main>
+</body>
+</html>

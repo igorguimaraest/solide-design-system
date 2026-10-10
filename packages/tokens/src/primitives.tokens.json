@@ -1,43 +1,55 @@
 {
-  "--solide-neutral-800": {
+  "--sld-button-press-scale": {
     "$type": "string",
-    "$value": "var(--sld-color-neutral-800)"
+    "$value": "0.97"
   },
-  "--border-strong": {
+  "--sld-spring-snappy-stiffness": {
     "$type": "string",
-    "$value": "var(--sld-border-strong)"
+    "$value": "400"
   },
-  "--motion-base": {
+  "--sld-spring-snappy-damping": {
     "$type": "string",
-    "$value": "var(--sld-durationBase)"
+    "$value": "28"
   },
-  "--motion-fast": {
+  "--sld-spring-default-stiffness": {
     "$type": "string",
-    "$value": "var(--sld-durationFast)"
+    "$value": "170"
+  },
+  "--sld-spring-default-damping": {
+    "$type": "string",
+    "$value": "26"
+  },
+  "--sld-spring-gentle-stiffness": {
+    "$type": "string",
+    "$value": "120"
+  },
+  "--sld-spring-gentle-damping": {
+    "$type": "string",
+    "$value": "20"
   },
   "--sld-print-ink": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-950)"
+    "$value": "var(--sld-palette-neutral-950)"
   },
   "--sld-print-paper": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-0)"
+    "$value": "var(--sld-palette-neutral-0)"
   },
   "--sld-border-on-inverse": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-600)"
+    "$value": "var(--sld-palette-neutral-600)"
   },
   "--sld-text-muted-on-inverse": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-400)"
+    "$value": "var(--sld-palette-neutral-400)"
   },
   "--sld-text-on-inverse": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-50)"
+    "$value": "var(--sld-palette-neutral-50)"
   },
   "--sld-surface-inverse": {
     "$type": "string",
-    "$value": "var(--sld-palette-warm-950)"
+    "$value": "var(--sld-palette-neutral-950)"
   },
   "--sld-palette-danger-subtle-dark": {
     "$type": "color",
@@ -559,6 +571,54 @@
     "$type": "string",
     "$value": "56px"
   },
+  "--sld-theme-toggle-track-w": {
+    "$type": "string",
+    "$value": "50px"
+  },
+  "--sld-theme-toggle-track-h": {
+    "$type": "string",
+    "$value": "26px"
+  },
+  "--sld-theme-toggle-track-px": {
+    "$type": "string",
+    "$value": "6px"
+  },
+  "--sld-theme-toggle-thumb-size": {
+    "$type": "string",
+    "$value": "20px"
+  },
+  "--sld-theme-toggle-thumb-inset-block": {
+    "$type": "string",
+    "$value": "2px"
+  },
+  "--sld-theme-toggle-thumb-inset-inline": {
+    "$type": "string",
+    "$value": "3px"
+  },
+  "--sld-theme-toggle-thumb-translate": {
+    "$type": "string",
+    "$value": "24px"
+  },
+  "--sld-theme-toggle-glyph-size": {
+    "$type": "string",
+    "$value": "14px"
+  },
+  "--sld-theme-toggle-icon-size": {
+    "$type": "string",
+    "$value": "11px"
+  },
+  "--sld-theme-toggle-duration-track": {
+    "$type": "string",
+    "$value": "220ms"
+  },
+  "--sld-theme-toggle-duration-thumb": {
+    "$type": "string",
+    "$value": "240ms"
+  },
+  "--sld-theme-toggle-duration-glyph": {
+    "$type": "string",
+    "$value": "200ms"
+  },
   "--sld-app-shell-header-left-w": {
     "$type": "string",
     "$value": "244px"
@@ -767,69 +827,69 @@
     "$type": "string",
     "$value": "500"
   },
-  "--sld-palette-warm-0": {
+  "--sld-palette-neutral-0": {
     "$type": "color",
     "$value": "#FFFFFF"
   },
-  "--sld-palette-warm-50": {
+  "--sld-palette-neutral-50": {
     "$type": "color",
-    "$value": "#FAF9F6"
+    "$value": "#F8F9FA"
   },
-  "--sld-palette-warm-100": {
+  "--sld-palette-neutral-100": {
     "$type": "color",
-    "$value": "#F2F0EA"
+    "$value": "#EEF0F3"
   },
-  "--sld-palette-warm-150": {
+  "--sld-palette-neutral-150": {
     "$type": "color",
-    "$value": "#E9E6DE"
+    "$value": "#E4E6EA"
   },
-  "--sld-palette-warm-200": {
+  "--sld-palette-neutral-200": {
     "$type": "color",
-    "$value": "#DEDAD0"
+    "$value": "#D7DBDF"
   },
-  "--sld-palette-warm-300": {
+  "--sld-palette-neutral-300": {
     "$type": "color",
-    "$value": "#C4BFB4"
+    "$value": "#BCC0C5"
   },
-  "--sld-palette-warm-400": {
+  "--sld-palette-neutral-400": {
     "$type": "color",
-    "$value": "#A8A399"
+    "$value": "#A0A4A8"
   },
-  "--sld-palette-warm-500": {
+  "--sld-palette-neutral-500": {
     "$type": "color",
-    "$value": "#8C877D"
+    "$value": "#84888C"
   },
-  "--sld-palette-warm-550": {
+  "--sld-palette-neutral-550": {
     "$type": "color",
-    "$value": "#757067"
+    "$value": "#6E7175"
   },
-  "--sld-palette-warm-600": {
+  "--sld-palette-neutral-600": {
     "$type": "color",
-    "$value": "#6B675F"
+    "$value": "#636669"
   },
-  "--sld-palette-warm-700": {
+  "--sld-palette-neutral-700": {
     "$type": "color",
-    "$value": "#4D4A45"
+    "$value": "#494B4D"
   },
-  "--sld-palette-warm-750": {
+  "--sld-palette-neutral-750": {
     "$type": "color",
-    "$value": "#3A3733"
+    "$value": "#36383A"
   },
-  "--sld-palette-warm-800": {
+  "--sld-palette-neutral-800": {
     "$type": "color",
-    "$value": "#2E2C29"
+    "$value": "#2B2C2E"
   },
-  "--sld-palette-warm-850": {
+  "--sld-palette-neutral-850": {
     "$type": "color",
-    "$value": "#242220"
+    "$value": "#222224"
   },
-  "--sld-palette-warm-900": {
+  "--sld-palette-neutral-900": {
     "$type": "color",
-    "$value": "#1A1917"
+    "$value": "#18191A"
   },
-  "--sld-palette-warm-950": {
+  "--sld-palette-neutral-950": {
     "$type": "color",
-    "$value": "#121110"
+    "$value": "#111112"
   },
   "--sld-palette-cobalt-100": {
     "$type": "color",
@@ -1010,30 +1070,6 @@
   "--solide-neutral-900": {
     "$type": "color",
     "$value": "#1d1d1f"
-  },
-  "--color-canvas-light": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-50)"
-  },
-  "--color-shell-light": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-150)"
-  },
-  "--color-shell-dark": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-950)"
-  },
-  "--color-surface-dark": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-850)"
-  },
-  "--color-hover-light": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-200)"
-  },
-  "--color-hover-dark": {
-    "$type": "string",
-    "$value": "var(--sld-palette-warm-750)"
   },
   "--dot-color": {
     "$type": "color",

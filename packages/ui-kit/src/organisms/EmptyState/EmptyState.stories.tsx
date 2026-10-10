@@ -11,10 +11,10 @@ export const NoResults = () => (
     <EmptyState
       icon="search"
       title="Nenhum registro encontrado"
-      description="N?o encontramos nenhuma API ou chave correspondente aos filtros ativos. Tente ajustar os termos de pesquisa."
+      description="Não encontramos nenhuma API ou chave correspondente aos filtros ativos. Tente ajustar os termos de pesquisa."
       actionLabel="Limpar Filtros"
       onAction={() => alert('Filtros limpos')}
-      secondaryActionLabel="Ver Documenta??o"
+      secondaryActionLabel="Ver Documentação"
       onSecondaryAction={() => alert('Abrir docs')}
     />
   </div>
@@ -25,7 +25,7 @@ export const FirstProject = () => (
     <EmptyState
       icon="activity"
       title="Crie seu primeiro projeto Solide"
-      description="Comece provisionando uma infraestrutura de IA ou configure um gateway de integra??o resiliente."
+      description="Comece provisionando uma infraestrutura de IA ou configure um gateway de integração resiliente."
       actionLabel="+ Novo Projeto"
       onAction={() => alert('Novo projeto')}
     />

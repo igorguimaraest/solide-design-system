@@ -56,8 +56,8 @@ export function SegmentedTabs<T extends string = string>({
       className={`
         flex items-center
         ${size === 'sm' ? 'p-[2px] gap-[2px]' : 'p-[3px] gap-[3px]'}
-        bg-[var(--solide-bg-surface)] border border-[var(--solide-border-subtle)]
-        rounded-[var(--r-sm)]
+        bg-[var(--sld-surface-card)] border border-[var(--sld-border-subtle)]
+        rounded-[var(--sld-radius-sm)]
         overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
         ${fullWidth ? 'w-full' : 'inline-flex'}
         ${className}
@@ -84,16 +84,18 @@ export function SegmentedTabs<T extends string = string>({
               inline-flex items-center justify-center gap-1.5
               ${size === 'sm' ? 'px-2.5 py-1 text-xs' : 'px-3.5 py-1.5 text-xs'}
               font-sans whitespace-nowrap select-none
-              rounded-[var(--r-xs)]
-              transition-all duration-150 ease-out
+              rounded-[var(--sld-radius-xs)]
+              transition-[background-color,color,box-shadow]
+              duration-[var(--sld-durationFast)]
+              [transition-timing-function:var(--sld-easingSnappy)]
               motion-reduce:transition-none
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--solide-ring-focus)] focus-visible:ring-offset-1
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sld-action-focusRing)] focus-visible:ring-offset-1
               disabled:opacity-[var(--solide-opacity-disabled)] disabled:cursor-not-allowed
               ${fullWidth ? 'flex-1 min-w-max text-center' : ''}
               ${
                 isSelected
-                  ? 'bg-[var(--solide-bg-surface-elevated)] text-[var(--solide-text-primary)] font-semibold shadow-xs'
-                  : 'bg-transparent text-[var(--solide-text-secondary)] font-medium hover:text-[var(--solide-text-primary)]'
+                  ? 'bg-[var(--sld-surface-raised)] text-[var(--sld-text-primary)] font-semibold shadow-xs'
+                  : 'bg-transparent text-[var(--sld-text-secondary)] font-medium [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--sld-text-primary)]'
               }
             `.trim().replace(/\s+/g, ' ')}
           >
@@ -106,8 +108,8 @@ export function SegmentedTabs<T extends string = string>({
                   text-[10px] font-mono tabular-nums rounded-full
                   ${
                     isSelected
-                      ? 'bg-[var(--solide-bg-surface)] text-[var(--solide-text-primary)]'
-                      : 'bg-[var(--solide-bg-surface-elevated)] text-[var(--solide-text-secondary)]'
+                      ? 'bg-[var(--sld-surface-card)] text-[var(--sld-text-primary)]'
+                      : 'bg-[var(--sld-surface-raised)] text-[var(--sld-text-secondary)]'
                   }
                 `.trim().replace(/\s+/g, ' ')}
               >

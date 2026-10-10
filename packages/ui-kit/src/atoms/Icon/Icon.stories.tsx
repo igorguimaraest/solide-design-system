@@ -20,7 +20,7 @@ export default {
 export const Default = () => <Icon name="search" size="md" />;
 
 export const Sizes = () => (
-  <div className="flex items-center gap-4 text-[var(--solide-text-primary)]">
+  <div className="flex items-center gap-4 text-[var(--sld-text-primary)]">
     <Icon name="check-circle" size="sm" />
     <Icon name="check-circle" size="md" />
     <Icon name="check-circle" size="lg" />

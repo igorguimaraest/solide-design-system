@@ -15,12 +15,12 @@ export default {
   }
 };
 
-export const Default = (args: BadgeProps) => <Badge {...args}>Ativo / Produ??o</Badge>;
+export const Default = (args: BadgeProps) => <Badge {...args}>Ativo / Produção</Badge>;
 
 export const StatusPills = () => (
   <div className="flex flex-wrap gap-2">
     <Badge tone="success">Operacional</Badge>
-    <Badge tone="warning">Aten??o Q3</Badge>
+    <Badge tone="warning">Atenção Q3</Badge>
     <Badge tone="error">Falha no Cluster</Badge>
     <Badge tone="info">Sincronizando</Badge>
     <Badge tone="brand">Solide v3.3</Badge>

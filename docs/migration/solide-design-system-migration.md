@@ -1,55 +1,297 @@
 # Checkpoint — migração do Solide Design System
 
-Atualizado em: 2026-09-12  
-Branch: `consolidate/solide-semantic-system`
+Atualizado em: 2026-09-21
+Branch: `codex/visual-convergence-audit`
+Base da implementação VC-02: `92c0d50 docs: propose VC-02 control tokens`
+Commit técnico final da VC-02: `ebaacc0 fix: enforce VC-02 active precedence`
+Commit técnico final da VC-04: `331a1cd fix: restore VC-04 dark thumb contrast`
+Commit técnico final da VC-08: `08ffae1 fix: guard hover for fine pointers`
+Commit de formalização/contrato da VC-09A: `0147f18 feat: formalize VC-09 button press contract`
+Commit técnico final/corretivo da VC-09A: `6bd3059 fix: enforce VC-09A loading press guard`
+Commit técnico final da VC-09B: `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`
+Commit técnico final da VC-10: `73cd33a fix: use semantic motion for segmented tabs`
+Commit técnico final da VC-11: `b68789b55abbb69218ab3e7a2d5a888e0c5837d5`
+Commit técnico final da VC-12: `868c79c fix: constrain sidebar motion to width`
 
-## Objetivo
+## Objetivo da etapa
 
-Consolidar Brand Guide, tokens, pacote `@solide/tokens`, UI Kit, Storybook e temas light/dark como um único sistema, usando a direção cromática v3.2 de forma crítica e preservando os subsistemas maduros existentes.
+Concluir a VC-19, alinhar a documentação responsiva da VC-16 e inventariar a VC-17.
 
-## Decisões tomadas
 
-- `solide-tokens.css` é o contrato canônico. Build gera cópia do pacote, JSONs resolvidos e tema nativo a partir dele.
-- Neutros novos vivem em `--sld-palette-warm-*`, crescente do claro para o escuro. Tokens neutros legados mantêm sua convenção histórica.
-- Brand Accent e Primary Action são papéis separados.
-- Componentes dependem de tokens semânticos; primitives ficam restritas à camada de tokens.
-- Status têm tokens para `bg`, `border`, `text`, `icon`, `solid`, `on-solid` e `hover`.
-- Tipografia por papéis, spacing, radius, shadows, motion, iconografia e geometria desktop foram preservados.
-- A lacuna mobile do App Shell foi resolvida e documentada: drawer modal abaixo de 1024 px, Escape e restauração de foco, padding de 16 px e overflow horizontal de tabela.
-- Aliases legados permanecem temporariamente; a matriz e o critério de remoção estão em `docs/consolidation/README.md`.
-- A validação de contraste cobre pares declarados. Não há afirmação de conformidade WCAG global.
+## Concluído
 
-## Arquivos alterados
+- Auditoria de convergência consolidada com 19 achados: 16 tecnicamente remediados (VC-01 a VC-15 e VC-18) e 3 ainda abertos.
+- Drift de tokens investigado e endurecido: `test:tokens` não depende do `dist/` ignorado; o gerador determinístico continua a produzir os artefatos distribuídos.
+- ThemeToggle concluído no commit `5cf3a62`: tokens normativos, Brand Guide, UI Kit, stories, integração no Header e cobertura de semântica/troca de tema.
+- Documentação de contratos da Fase B criada para ThemeToggle, Checkbox, Radio, Switch e Alert/Banner.
+- VC-02 aprovada e implementada: cinco tokens semânticos próprios; Guide e DataTable migrados; Checkbox, Radio e Switch adicionados ao UI Kit com stories, preview e cobertura Playwright.
+- Direção visual de VC-02 aprovada após inspeção interativa dos controles e dos estados cromáticos light/dark.
+- Chromium do Playwright disponibilizado; `npm run test:ui` passou com 5/5 cenários no bundle real em 1440/light, 1440/dark, 390/light e 390/dark.
+- Precedência de interação corrigida em Checkbox, Radio e Switch; a suíte oficial agora cobre default, hover, active simultâneo a hover, focus-visible e disabled nos quatro cenários.
+- VC-01 (ação warning) implementada e validada visualmente nos cenários 1440/390 px, light e dark.
+- Tema dark do ThemeToggle (VC-04) remediado para contraste de 17,91:1 no thumb.
+- VC-08 aprovada e implementada: Button, Header, Sidebar, SearchBar, DataTable, SegmentedTabs e ModalHeader agora usam `(hover:hover) and (pointer:fine)`. Button precisou elevar somente a especificidade de active para impedir que o bloco media emitido depois pelo Tailwind prevalecesse. Cobertura fine/coarse, light/dark e resultado oficial de 14/14 confirmam o funcionamento.
+- VC-09A concluída: contrato formalizado para Button press validado visualmente.
+- VC-09B concluída: componente Button usa `<button>` nativo com física spring imperativa via Framer Motion com alta cobertura de testes e comportamento híbrido protegido.
+- VC-10 concluída: SegmentedTabs limita motion a `background-color`, `color` e `box-shadow`, usando `--sld-durationFast` e `--sld-easingSnappy`, com reduced motion protegido.
+- VC-11 concluída: wrapper `Modal` baseado em `<dialog>` centraliza física, Escape, backdrop, foco e reduced motion; o drawer mobile do DashboardLayout passou a compô-lo.
+- VC-12 concluída: Sidebar anima exclusivamente largura com `--sld-durationBase` e `--sld-easingSnappy`, preservando reduced motion.
+- VC-05 concluída por validação: Ghost permanece transparente em repouso e ganha superfície apenas em hover/active; a inspeção em 1440/390 px, light/dark confirmou affordance suficiente, sem introduzir borda fora do padrão normativo.
+- VC-07 concluída: Input usa foco exclusivo por `:focus-visible`, mantendo o anel `--sld-action-focusRing`; erro, disabled e fluxo de teclado foram cobertos no preview e no Playwright.
+- VC-13 concluída: paginação da DataTable usa fundo, texto e borda semânticos de disabled; o hover só opera em controles habilitados e não sobrescreve o estado terminal.
+- VC-14 concluída: 12 stories com texto PT-BR corrompido foram corrigidos e a checagem de encoding passou a fazer parte do lint.
+- VC-15 concluída: preview integrado possui aceitação específica para Alert, controles de seleção, Sidebar compacta/responsiva e ausência de overflow em 1440/390 px, claro/escuro.
 
-- Fonte normativa e contrato: `solide-brand-guide.html`, `solide-tokens.css`, `solide-tailwind.config.js`.
-- Tokens: `packages/tokens/build/{contract,build-tokens,verify-tokens,tailwind.preset,tailwind.colors}.js`, arquivos gerados em `packages/tokens/src/` e remoção das fontes JSON concorrentes antigas.
-- UI Kit: os 15 componentes em `packages/ui-kit/src` foram auditados; os 13 que necessitavam de mudança foram migrados. `Icon` já era compatível por usar `currentColor`, sem cor fixa, e `FormField` já consumia aliases semânticos suportados pelo contrato. Também foram ajustados os stories afetados, criado o story de `SegmentedTabs` e adicionados assets portáveis em `packages/ui-kit/src/assets/logos.ts`.
-- Validação/documentação: `.storybook/`, `preview/`, `tests/`, `scripts/audit-system.js`, configurações de Vite, Tailwind, PostCSS e Playwright, `docs/consolidation/` e este checkpoint.
-- Scripts/dependências: `package.json`, `package-lock.json`, `.gitignore`.
+## Principais achados
 
-## Etapa atual
+- Motion: Button, SegmentedTabs, Modal/drawer e Sidebar concluídos (VC-09 a VC-12 remediadas); a affordance do Ghost foi validada e VC-05 está encerrada.
+- Encoding: stories compilam em UTF-8 e a regressão é bloqueada pela checagem estática.
+- Guide × UI Kit: os achados originais de ausência de Checkbox, Radio, Switch e Alert/Banner foram remediados; Input usa foco exclusivo por `:focus-visible`.
+- Geometria mobile: há contradição documental sobre a autorização do comportamento mobile.
+- Regressão reportada: drawer lateral pode estar abrindo/fechando sem deslizamento; feedback cromático temporal em modais/alertas pode ter deixado de ocorrer. A causa e a obrigação normativa ainda precisam de reprodução no Guide × preview.
+- Tokens: a fonte canônica é `solide-tokens.css`; o problema anterior era um `dist/` local obsoleto, não geração não determinística.
 
-Implementação concluída. Branch publicada e PR [#1](https://github.com/igorguimaraest/solide-design-system/pull/1) aberto contra `main`. O workflow `.github/workflows/ci.yml` valida pull requests com instalação reproduzível, build, typecheck, tokens, auditoria, Storybook e testes de UI em Chromium.
+## VC-02 — implementada
+
+Checkbox `checked/indeterminate`, Radio `checked` e Switch `on` usam accent semântico de seleção por meio da família `--sld-control-selected-*`. O Brand Guide neutro foi migrado; o checkbox do DataTable não consome mais `--sld-action-primary-bg`. `selected-border` é independente de `selected-bg`, e no Switch `selected-fg` é usado somente no thumb/ícone. Os contrastes dos glifos variam de 4,78:1 a 10,06:1. A falha em que `group-hover` prevalecia sobre `group-active` foi corrigida elevando apenas a especificidade da variante active; disabled continua removendo as variantes interativas por ramificação e focus-visible permanece independente.
+
+## VC-01 — Registro de Implementação (Ação Warning)
+
+A ação do Alert/Banner warning foi implementada como uma ação **sólida e semanticamente independente**, restrita a `Button tone="warning"` associado com `variant="solid"`.
+- Foram introduzidos os tokens `--sld-action-warning-bg/text/hover/active`.
+- **Light:** default `warning-400`, hover/active `warning-500`.
+- **Dark:** default `warning-500`, hover/active `warning-400`.
+- **Foreground:** `warm-950` em ambos os temas.
+- **Contraste Mínimo:** 6,93:1 atingido consistentemente.
+- O estilo inline antigo foi removido, e `#8A4F05` deixou de ser usado como fundo da ação warning.
+- Os estados transicionais (`disabled` e focus) continuam transversais, sem classes fixadas localmente. `hover` e `active` compartilham cor provisoriamente até a execução arquitetural completa da VC-09.
+- A validação visual obteve aprovação em 1440/390 px, light/dark. O cenário específico da ação warning no Brand Guide passou na suíte Playwright, integrada aos cenários existentes.
+- **Commit técnico aprovado:** `503122f`.
+- **Nota técnica:** A VC-01 está tecnicamente concluída, mas o componente Alert/Banner reutilizável permanece alocado na etapa VC-06.
+
+## VC-04 — Remediada (ThemeToggle)
+
+Foi registrado que o ThemeToggle teve sua convergência visual dark remediada.
+- O modo light foi preservado utilizando `surface-card` e `text-primary`.
+- O modo dark passou a utilizar os novos tokens `--sld-theme-toggle-thumb-bg/fg` mapeados para `warm-50` e `warm-950`.
+- O contraste no dark foi estabilizado em 17,91:1 tanto no UI Kit quanto no contrato; Guide também supera o mínimo de 3:1.
+- Testes melhorados aguardando `getAnimations().finished` para evitar leituras de cores durante a transição CSS.
+- Commit técnico: `331a1cdf5515d1a9a8b5fa7ca435939b213a78cc`.
+- Testes aprovados: build, typecheck, test:tokens e test:ui. Foram verificados 10/10 testes UI em 1440/390 (light/dark), 101 pares semânticos e 334 referências.
+
+## VC-09A — Concluída (Contrato de Button Press)
+
+A etapa VC-09A definiu e validou o contrato de Button press. A frente VC-09 como um todo está agora integralmente remediada, incluindo a VC-09B (UI Kit).
+- **Commit de formalização/contrato:** `0147f186cb2e52ce8643aac486f39e11fec65eb1`.
+- **Commit técnico final/corretivo da VC-09A:** `6bd3059cd3332e3716da6df1245929954bc74ef7`.
+- **Decisões consolidadas:**
+  - target scale 0.97;
+  - spring.snappy com stiffness 400 e damping 28;
+  - opacidade integral 0.65 rejeitada para Button por degradar contraste;
+  - cores semânticas active preservadas;
+  - pointer primário recebe scale e active;
+  - right click é ignorado;
+  - Enter/Space recebem apenas active, sem scale;
+  - disabled/loading não recebem press;
+  - Loading usa disabled nativo e `aria-busy="true"`, não aceitando mouse, teclado ou touch press;
+  - pointer cancel/out restaura o estado;
+  - reduced motion remove scale/transições e preserva active instantâneo;
+  - transform não usa duration/easing CSS fixos no Guide;
+  - exportação determinística por `@solide/tokens/motion`.
+- **Evidências:**
+  - build, typecheck, lint, build:storybook passaram;
+  - test:tokens passou com 101 pares semânticos e 334 referências;
+  - test:ui passou com 45/45;
+  - inspeção aferida em 1440/390, light/dark, e comparação visual de Loading;
+  - Primary e Ghost cobertos;
+  - Interações via mouse, touch, teclado, troca de modalidade, right click, cancelamento, disabled e reduced motion foram garantidas.
+
+## VC-09B — Concluída (Implementação de Button no UI Kit)
+
+A etapa VC-09B está tecnicamente concluída, marcando a remediação integral da VC-09.
+- **Commit técnico VC-09B:** `a9f586f2b8653a5bf5caf39bd063a57b204b09fe`.
+- **Implementação:** `<button>` nativo com física spring imperativa via Framer Motion.
+- **Integração:** `buttonPress.scale` e `spring.snappy` consumidos diretamente do pacote `@solide/tokens/motion`.
+- **Física e Modalidades:**
+  - Mouse/touch recebem o `scale` e a cor de `active`.
+  - Teclado recebe apenas a cor de `active` sem `scale` (acessibilidade preservada).
+  - Right click e eventos de um ponteiro não primário são explicitamente ignorados.
+  - Cancelamento, saída real do ponteiro (preservando o estado ao atravessar descendentes), estado `disabled`, estado `isLoading`, modo `reduced-motion` e desmonte do componente (`unmount`) são devidamente protegidos para interrupção segura da animação.
+  - Handlers públicos (onPointerDown, onKeyDown, etc.) são desestruturados e chamados adequadamente, sem sofrer sobrescrita ou interferir na API original do componente.
+- **Evidências e Testes:**
+  - **95/95** testes de UI (`test:ui`) aprovados de forma determinística, englobando todas as modalidades de interação híbrida.
+  - Comandos de validação infraestrutural: `npm run build`, `npm run typecheck`, `npm run test:tokens`, `npm run build:storybook`, `npm run lint` e `git diff --check` todos executados e aprovados.
+  - Validação visual aferida com os novos comportamentos nos cenários 1440 px e 390 px, nos modos `light` e `dark`.
+
+## Arquivos relevantes já consolidados
+
+- `solide-tokens.css`
+- `packages/tokens/build/contract.js`
+- `packages/tokens/build/build-tokens.js`
+- `packages/tokens/build/verify-tokens.js`
+- `packages/ui-kit/src/molecules/ThemeToggle/`
+- `packages/ui-kit/src/organisms/Header/`
+- `packages/ui-kit/src/atoms/Checkbox/`
+- `packages/ui-kit/src/atoms/Radio/`
+- `packages/ui-kit/src/atoms/Switch/`
+- `packages/ui-kit/src/organisms/DataTable/DataTable.tsx`
+- `packages/ui-kit/src/index.ts`
+- `preview/main.tsx`
+- `tests/system.spec.ts`
+- `solide-brand-guide.html`
+- `docs/audits/solide-visual-convergence-audit.md`
+- `docs/contracts/missing-component-contracts.md`
+
+## VC-10 — Concluída (Motion semântico de SegmentedTabs)
+
+- **Commit técnico:** `73cd33a fix: use semantic motion for segmented tabs`.
+- `transition-all duration-150 ease-out` foi removido.
+- A transição foi limitada a `background-color`, `color` e `box-shadow`.
+- Duração e curva consomem `--sld-durationFast` e `--sld-easingSnappy`.
+- `prefers-reduced-motion` remove a transição.
+- Validações: build, typecheck, test:tokens, lint e build:storybook aprovados; `test:ui` passou em **97/97**.
+
+## VC-11 — Concluída (Modal e drawer com física semântica)
+
+- **Commit técnico:** `b68789b55abbb69218ab3e7a2d5a888e0c5837d5`.
+- Novo wrapper `Modal` controlado sobre `<dialog>` nativo, componível com `ModalHeader`.
+- Drawer usa `spring.default`; modal central usa `spring.gentle`, ambos gerados por `@solide/tokens/motion`.
+- Escape e clique no backdrop solicitam fechamento; o fechamento animado preserva a restauração nativa de foco.
+- Reduced motion abre e fecha diretamente, sem transforms inline residuais.
+- DashboardLayout usa o wrapper no drawer mobile e fecha ao selecionar um destino.
+- Validações: build, typecheck, test:tokens, lint e build:storybook aprovados; `test:ui` passou em **99/99**.
+
+## VC-12 — Concluída (Motion restrito da Sidebar)
+
+- **Commit técnico:** `868c79c fix: constrain sidebar motion to width`.
+- `transition-all` foi removido; somente `width` é animada.
+- A duração usa `--sld-durationBase` e a curva usa `--sld-easingSnappy`.
+- `prefers-reduced-motion` remove a transição.
+- Validações: build, typecheck e lint aprovados; `test:ui` passou em **101/101**.
 
 ## Testes executados
 
-- `npm run build`
-- `npm run typecheck`
-- `npm run test:tokens` — 86 pares reais de contraste e 232 referências de componentes validados.
-- `npm run build:storybook`
-- `npm run test:ui` — light/dark em 1440 px e 390 px; estados de Button, foco, tabs, tabela, busca, troca de tema e drawer móvel.
-- Inspeção visual das capturas geradas localmente em `docs/consolidation/screenshots/` (ignoradas no Git).
-- `npm run lint` — 2.191 arquivos rastreados, 15 componentes do UI Kit, 2 arquivos TSX de configuração/preview e 2.066 ícones auditados.
-- `git diff --check`
-
-O workflow de CI repete essas validações em `ubuntu-latest`, com Node.js 22 e Chromium instalado pelo Playwright. Nesta etapa, `npm ci`, build, typecheck, tokens, lint e Storybook passaram localmente. A reinstalação local do Chromium foi bloqueada pelo proxy do ambiente; o teste de UI já havia passado com o navegador disponível na validação anterior e será repetido no runner pela instalação oficial do Playwright.
+- `npm run build` — passou.
+- `npm run typecheck` — passou.
+- `npm run test:tokens` — passou após o endurecimento; a falha histórica por `Package CSS drift` foi reproduzida e atribuída ao `dist/` ignorado obsoleto.
+- `npm run test:ui` — passou em 1440/390, light/dark.
+- `npm run build:storybook` — passou.
+- `npm run lint` — passou.
+- VC-02: `npm run typecheck`, `npm run build:storybook`, `npm run lint` e `node packages/tokens/build/verify-tokens.js` passaram; o verificador cobre 92 pares de contraste e 329 referências de componentes.
+- VC-02: `npm run build` e `npm run test:tokens` passaram após a implementação final.
+- VC-02: após instalar/disponibilizar o Chromium e executar fora do sandbox que bloqueava `spawn`, `npm run test:ui` passou: 5/5 cenários em 1440/390 e light/dark.
+- VC-02 final: `npm run test:ui`, `npm run test:tokens`, `npm run typecheck` e `npm run build` passaram após a correção. A suíte oficial confirma que `--sld-control-selected-active-bg` vence hover+active e que disabled permanece dominante em Checkbox, Radio e Switch, nos quatro cenários.
+- VC-09A: `npm run build`, `npm run typecheck`, `npm run test:tokens` (101 pares), `npm run test:ui` (45/45 aprovados), `npm run build:storybook` e `npm run lint` passaram com sucesso consolidando as interações híbridas de ponteiro e teclado em multi-modalidade.
 
 ## Pendências
 
-- Aguardar e revisar os checks do PR #1 antes do merge em `main`.
-- Compatibilidade: remover aliases legados somente após inventariar e migrar consumidores externos.
-- Reduzir posteriormente o peso dos SVGs oficiais embutidos no bundle do Storybook; o build informa chunks acima de 500 kB, sem falha funcional.
+- Concluir a remediação visual da VC-17 após definição normativa dos papéis de token ausentes.
+- Fazer comparação visual manual em 1440/light, 1440/dark, 390/light e 390/dark antes de alterações perceptivas.
 
 ## Próximo passo exato
 
-Revisar os checks do PR #1 e, se todos estiverem aprovados, fazer merge em main.
+A VC-19 e a contradição documental da VC-16 foram corrigidas. O próximo passo
+é decidir os papéis de token apontados no inventário da VC-17 antes de
+qualquer migração mecânica de valores legados.
+
+## VC-05 — Concluída (Affordance do Ghost Button)
+
+- **Escopo:** validação do padrão existente; nenhuma alteração em tokens, Brand Guide ou UI Kit foi necessária.
+- **Contrato confirmado:** fundo transparente em repouso, `--sld-action-ghost-hover` em hover de cursor fino e `--sld-action-ghost-active` em active/teclado; o texto usa `--sld-action-ghost-text`.
+- **Acessibilidade e interação:** foco visível, estado disabled, reduced motion e interação touch/coarse permanecem protegidos pelo contrato já testado.
+- **Validação visual:** comparação manual do preview em 1440/light, 1440/dark, 390/light e 390/dark; o Ghost "Consultar" preserva hierarquia de ação secundária e legibilidade nos dois temas.
+- **Validações automatizadas:** `npm run test:ui` passou em **101/101** fora do sandbox (Chromium); `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run lint` passaram.
+
+## VC-06 — Concluída (Alert/Banner)
+
+- **Escopo:** componente reutilizável `Alert` nos quatro tons demonstrados pelo Brand Guide, com ação opcional e descarte controlado.
+- **Contrato e semântica:** `success` e `info` usam `role="status"`; `warning` e `danger` usam `role="alert"`. Título e descrição mantêm a mensagem compreensível sem depender apenas da cor ou do ícone.
+- **Tokens:** cada tom consome exclusivamente `--sld-status-*-{bg,border,text}`; não foram criados tokens nem valores visuais novos. As ações reutilizam `Button` warning/danger já aprovado.
+- **Cobertura:** stories para todos os tons e descarte; preview integrado; Playwright testa os quatro tons, tokens aplicados, ação, foco visível, descarte e ausência de overflow em 1440/390 px, light/dark.
+- **Validação visual:** comparação manual aprovada nas quatro composições. Os banners preservam hierarquia, legibilidade e ações tocáveis no desktop e no mobile.
+- **Validações automatizadas:** `npm run test:ui` passou em **105/105**; build, typecheck e test:tokens foram executados no gate de conclusão.
+
+**Status:** VC-06 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-07 (Input/FormField), mantendo a frente isolada até validação e commit.
+
+## VC-07 — Concluída (Input/FormField)
+
+- **Escopo:** foco de teclado no `Input`, sem alteração de tokens, geometria ou componentes fora de `Input/FormField`.
+- **Contrato:** as variantes Tailwind `focus:` foram substituídas por `focus-visible`; o anel usa exclusivamente `--sld-action-focusRing`, `--focus-ring-width` e `--focus-ring-offset`. O estado inválido mantém sua borda `--sld-status-danger-border` sob foco.
+- **Cobertura:** preview com alvos estáveis; Playwright verifica foco visível, fluxo por Tab, semântica de erro (`aria-invalid`/`aria-describedby`) e estado disabled em 1440/390 px, claro/escuro.
+- **Validação:** comparação visual manual aprovada em desktop e mobile, nos temas claro e escuro; `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run test:ui` passaram (**109/109**).
+
+**Status:** VC-07 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-13 (DataTable/paginação), mantendo a frente isolada até validação e commit.
+
+## VC-13 — Concluída (DataTable/paginação)
+
+- **Escopo:** controles de paginação da `DataTable`, sem alteração de geometria, seleção ou tokens.
+- **Contrato:** o `disabled:opacity-40` literal foi removido. Os controles desabilitados consomem `--sld-disabled-bg`, `--sld-disabled-fg` e `--sld-border-subtle`, em conformidade com o Brand Guide; o hover está limitado a `:enabled`.
+- **Cobertura:** o preview disponibiliza duas páginas controláveis. Playwright verifica o estado inicial e terminal, os tokens computados, a ausência da opacidade literal e a ausência de overflow em 1440/390 px, claro/escuro.
+- **Validação:** comparação visual aprovada em desktop e mobile, nos temas claro e escuro; `npm run build`, `npm run typecheck`, `npm run test:tokens` e `npm run test:ui` passaram (**113/113**).
+
+**Status:** VC-13 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-14 (encoding PT-BR), mantendo a frente isolada até validação e commit.
+
+## VC-14 — Concluída (Encoding PT-BR)
+
+- **Escopo:** conteúdo dos stories; nenhuma alteração de tokens, geometria ou comportamento de componentes.
+- **Correção:** 12 stories com substituições ASCII foram restaurados para UTF-8. Os placeholders de senha reproduzem os pontos médios do Brand Guide e a demonstração de ícones do Button usa ícones já autorizados.
+- **Prevenção:** `scripts/check-story-encoding.js` analisa literais e texto JSX dos 21 stories, bloqueando caracteres de substituição e padrões de fallback de encoding. O comando `npm run test:encoding` foi integrado ao lint.
+- **Validação:** typecheck, build, test:tokens, lint, test:encoding e build:storybook passaram; a suíte UI completa passou (**113/113**).
+
+**Status:** VC-14 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-15 (preview integrado), mantendo a frente isolada até validação e commit.
+
+## VC-15 — Concluída (Preview integrado)
+
+- **Escopo:** aceitação integrada do preview; não foram criados tokens, componentes ou geometrias novos.
+- **Cobertura:** um cenário dedicado valida, no mesmo preview, os quatro tons de Alert, Checkbox, Switch, navegação lateral expandida/compacta ou drawer mobile e ausência de overflow.
+- **Cenários:** 1440/390 px, claro/escuro; as capturas são geradas em `docs/consolidation/screenshots/` para comparação visual.
+
+**Status:** VC-15 tecnicamente remediada.
+
+**Próximo passo exato:** corrigir a VC-16 (geometria mobile), mantendo a frente isolada até validação e commit.
+
+## VC-19 — Remediação validada (Motion e feedback temporal)
+
+- **Relato do usuário:** o drawer lateral deixou de deslizar e passou a apenas aparecer/fechar; as cores que comunicavam a aproximação do encerramento de modais/alertas não estão ocorrendo.
+- **Estado da evidência:** a implementação declara `spring.default` para drawer e `spring.gentle` para modal, mas o comportamento reportado ainda não foi reproduzido lado a lado. `prefers-reduced-motion` é uma hipótese a verificar, não uma conclusão.
+- **Escopo de reprodução:** Brand Guide e preview em 1440/390 px, claro/escuro, com abertura e fechamento observados; mapear o feedback temporal somente se estiver demonstrado ou formalizado no guia.
+- **Regra de correção:** não reintroduzir cores, temporizações ou animações por memória. Se o padrão não estiver no guia, registrar a lacuna de contrato antes de codificar.
+
+**Diagnóstico:** o drawer usa `spring.default` e desliza em motion normal; a
+preferência local `prefers-reduced-motion` explica a ausência de deslizamento
+na máquina observada. Não havia contrato de mudança cromática no encerramento.
+O Alert descartável, porém, era desmontado imediatamente pelo consumidor.
+
+**Correção:** `Alert` agora aceita `open`, preserva seu tom semântico e executa
+somente fade de opacidade com `spring.snappy` antes de sair do DOM. Não usa
+escala, translação ou cor transitória. O foco segue para o próximo controle
+lógico após o fechamento. O Brand Guide formaliza o comportamento; preview,
+story e testes o exercitam também em redução de movimento. Modal, drawer e
+Toast não foram alterados.
+
+**Validação:** os cinco testes focais passaram em 1440/390, claro/escuro e
+redução de movimento; build, typecheck, test:tokens, lint e Storybook passaram.
+A suíte completa foi repetida após corrigir um clique de teste no input
+invisível da VC-15; resultado final registrado abaixo.
+
+## VC-16 — Contradição documental corrigida
+
+O escopo de `docs/geometry/app-shell-sidebar.md` agora autoriza apenas a
+adaptação responsiva efetivamente demonstrada pelo preview incorporado ao
+`screen-app-shell` do Brand Guide: drawer, padding e overflow. Não autoriza
+bottom navigation nem variantes inferidas. Nenhum valor ou layout foi criado.
+
+## VC-17 — Inventariada, remediação visual pendente
+
+`docs/audits/vc-17-legacy-values-inventory.md` registra as ocorrências e
+separa exemplos do guia, cores de marca de terceiros e 11 componentes com
+medidas arbitrárias. Não há token normativo para todas as categorias, portanto
+a regra de execução proíbe substituí-las por aproximação.

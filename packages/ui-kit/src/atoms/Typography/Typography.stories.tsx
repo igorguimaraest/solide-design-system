@@ -23,7 +23,7 @@ export default {
 };
 
 export const Display = () => (
-  <Typography variant="display">Tecnologia s?lida, engenharia inteligente.</Typography>
+  <Typography variant="display">Tecnologia sólida, engenharia inteligente.</Typography>
 );
 
 export const Headings = () => (
@@ -37,13 +37,13 @@ export const Headings = () => (
 export const BodyAndCaption = () => (
   <div className="flex flex-col gap-2 max-w-prose">
     <Typography variant="body">
-      A Solide constr?i ecossistemas de software escal?veis e intelig?ncia artificial para infraestrutura cr?tica.
+      A Solide constrói ecossistemas de software escaláveis e inteligência artificial para infraestrutura crítica.
     </Typography>
     <Typography variant="body-sm" tone="secondary">
-      Texto de apoio com contraste matem?tico garantido de 5.2:1 (padr?o WCAG AA).
+      Texto de apoio com contraste matemático garantido de 5.2:1 (padrão WCAG AA).
     </Typography>
     <Typography variant="caption" tone="muted">
-      ?ltima sincroniza??o: hoje ?s 14:32 BRT
+      Última sincronização: hoje às 14:32 BRT
     </Typography>
   </div>
 );

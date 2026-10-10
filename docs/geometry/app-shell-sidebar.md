@@ -4,8 +4,10 @@ Referência normativa para `screen-app-shell` e `comp-sidebar` em `solide-brand-
 
 ## Escopo
 
-Aplica-se ao padrão desktop já demonstrado no guia.
-Não autoriza inferir uma variante mobile, drawer ou bottom navigation.
+Aplica-se ao padrão desktop e à adaptação responsiva demonstrada no preview
+incorporado ao `screen-app-shell` do guia. Essa adaptação autoriza somente o
+drawer, o padding e o overflow descritos abaixo; não autoriza inferir uma
+bottom navigation nem outras variantes mobile.
 
 ## Regiões
 
