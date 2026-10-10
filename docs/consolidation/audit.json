@@ -26,26 +26,38 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 990,
-      "sha256": "c4a280d43aed320178d9d2e3b02581f45402b18430c0cced597b8b5baed17e1b",
+      "bytes": 1364,
+      "sha256": "aa1ba465ef3d72b27a1bc6b7f5aa3ccad1ccdf764057dede3f14e29bfecb4eb0",
       "colorLiterals": 0
     },
     {
       "path": "DESIGN_SYSTEM.md",
-      "bytes": 3923,
-      "sha256": "f69ebaf1bae864e74104cf1744f97fbc4ce668af57fdb6d6511a3c8c583d1b8e",
+      "bytes": 4305,
+      "sha256": "533c33603d17e84208b4119a514bc0e19f839312da803d3236f78be8934988dd",
       "colorLiterals": 0
     },
     {
       "path": "README.md",
-      "bytes": 1110,
-      "sha256": "3756409a044d6bf3604dde6c69cd1cac710c580ef938c4847a81f1bd4e74dbe2",
+      "bytes": 1254,
+      "sha256": "f14d32ff9c425b9282ba9667bcfbe69a2e8768fd5e12e7015bd6220228ad61ce",
       "colorLiterals": 0
     },
     {
+      "path": "SOLIDE-RESUMO.md",
+      "bytes": 4747,
+      "sha256": "caf4b5e045cbab4b180fc38f5eeda7ebb5195b77e958b3b34d818516f151129b",
+      "colorLiterals": 25
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 5388,
+      "sha256": "4e72a267d6f32bd28647e8ef3ceb38d6a30a1693be7a1095954401e38cbc2e7e",
+      "colorLiterals": 5
+    },
+    {
       "path": "USING_SOLIDE.md",
-      "bytes": 4549,
-      "sha256": "19b2a8fc99fdc11336a57069dcdbdd8e46218b2a07a5b2c00e1dc7173b9800ff",
+      "bytes": 4988,
+      "sha256": "6dba3766354091c1d605fab95800fc96dbabb9c7a8f5406f891066999f829891",
       "colorLiterals": 0
     },
     {
@@ -74,8 +86,8 @@
     },
     {
       "path": "docs/consolidation/audit.json",
-      "bytes": 420833,
-      "sha256": "f0e6d89c8655b62c40c5bc8d3fd53d95bd0840f3db8a08a1e7a0cc88cd6a38db",
+      "bytes": 423302,
+      "sha256": "bc92b68c62a07e83f6bd472041e6aec63029ad40bb41461a4bf0bde23fbd4cb1",
       "colorLiterals": 9
     },
     {
@@ -113,6 +125,126 @@
       "bytes": 23845,
       "sha256": "a54dd74feaf4cc4c78cb953431a615547de4588fb1eca0ce15344659cd88a19f",
       "colorLiterals": 1
+    },
+    {
+      "path": "docs/plans/apresentacao-por-item.md",
+      "bytes": 4538,
+      "sha256": "2aef48d29df8edf483dc727333531ec3975d55614e74d09df70ddaa953980de0",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/inventario-abas.md",
+      "bytes": 3949,
+      "sha256": "cca2e11c1d2e4783af10b630ce6a4eead84dd585d786e21f9abdf5e372d38567",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/pacotes-agentes.md",
+      "bytes": 1961,
+      "sha256": "a6e2f69276ed5450986a13cc0b03b4bb897f1120e139c6a5a9e2f881999d15df",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-alertas/capturas/alertas-desktop.png",
+      "bytes": 206028,
+      "sha256": "356bd618ee4663c0ec153540e06eab9366653255d5bc2049c33b0f1e67874191",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-alertas/capturas/alertas-mobile.png",
+      "bytes": 199487,
+      "sha256": "861dee06f6a26159df5b3645c8d0201317e328d2a054ecb2ccf60722ad485df2",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-alertas/index.html",
+      "bytes": 18160,
+      "sha256": "57943eb9ce85a562c71399ad3a035406a666335848fe594319f7b721b4716a94",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/A-claro-desktop.png",
+      "bytes": 143972,
+      "sha256": "ceef4af66cd4c40fd5af73a00c295ff5a6a000ff749c665d73fc46c86654c3c4",
+      "colorLiterals": 1
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/A-claro-mobile.png",
+      "bytes": 47130,
+      "sha256": "7cc9a3f636f8a87d5f2f7b0999b14394402226d2d0895660908bf93e052d6d40",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/A-escuro-desktop.png",
+      "bytes": 137891,
+      "sha256": "bf2ad50ab5c128ce4abac3530a547eb8e7843bde71b4dc76beead17ead45416f",
+      "colorLiterals": 1
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/Atual-claro-desktop.png",
+      "bytes": 155479,
+      "sha256": "c32a0620ec7abdb1a47dd47b1f9ea18a63419acf74b246c87473e09437c80717",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/Atual-claro-mobile.png",
+      "bytes": 49075,
+      "sha256": "5147a41395a2e170f536ebc4057a7fc723d5fe7ca0595da83ccd6db58668d5b0",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/Atual-escuro-desktop.png",
+      "bytes": 144797,
+      "sha256": "2f2ddb5fbe4ee16a174ed83ea6eaf509668d2979e1b0858c9e1c541267ed6c94",
+      "colorLiterals": 2
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/B-claro-desktop.png",
+      "bytes": 154759,
+      "sha256": "1b2a9042e31bc1761a1b1fa374adf51cb178afe50d3643b1fa493799ffe4089a",
+      "colorLiterals": 2
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/B-claro-mobile.png",
+      "bytes": 47997,
+      "sha256": "88bd539b6c029ef3e265ea0e91bec12af0cd24a1262fa35bd6bb23807e3d880d",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/B-escuro-desktop.png",
+      "bytes": 142554,
+      "sha256": "c25aacf136771ef1ce08a1c10adab4032bc3a2c91e869aa218809bbedf13fa29",
+      "colorLiterals": 2
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/C-claro-desktop.png",
+      "bytes": 154265,
+      "sha256": "70e23a8bd3e0ddb7e9d3fb9db328044075b97585d63f453e959a0b7ba1074a9d",
+      "colorLiterals": 1
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/C-claro-mobile.png",
+      "bytes": 48509,
+      "sha256": "390e2817238e613d39afd7a2daac32f892d3faee85ec1d32e8f842d8b671be74",
+      "colorLiterals": 0
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/capturas/C-escuro-desktop.png",
+      "bytes": 143760,
+      "sha256": "1927ec3eead6ecf9a59e8437003c1fec75ec2d1ff1b22150bb16a8c90353b6ff",
+      "colorLiterals": 1
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/comparar.html",
+      "bytes": 2465,
+      "sha256": "f9e8db9fd0f389d8d783557ca0bc0099a27aa79672be3d994d0d96388484a3f9",
+      "colorLiterals": 8
+    },
+    {
+      "path": "docs/plans/prototipo-neutros/index.html",
+      "bytes": 8316,
+      "sha256": "eb00b071fbe73054277437296cec49777fa3708cca9431b6dc6c39c8916862dd",
+      "colorLiterals": 56
     },
     {
       "path": "docs/retrospectives/2026-09-10-nemu-solide.md",
@@ -12578,8 +12710,8 @@
     },
     {
       "path": "packages/tokens/build/tailwind.preset.js",
-      "bytes": 4197,
-      "sha256": "29f1f42c2796d3df134f178a5cf1a0b86990782e00b60ad0a26cdc9df8dc8026",
+      "bytes": 4047,
+      "sha256": "76867e1d27d8576bb8452cb10e125ace616087cc0933c105061480948a81e6d2",
       "colorLiterals": 0
     },
     {
@@ -13028,8 +13160,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/Toast/Toast.tsx",
-      "bytes": 4839,
-      "sha256": "69b28b46299d32378f892b248f9ad35765780ace8890a0bc9c31b0ec32bcf857",
+      "bytes": 4815,
+      "sha256": "bd3a5079179e223c3c0da3c78c186bb2301a26da463f150541c1811f9be39430",
       "colorLiterals": 0
     },
     {

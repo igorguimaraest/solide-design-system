@@ -116,7 +116,7 @@ export const Toast: React.FC<ToastProps> = ({
           <button
             type="button"
             onClick={handleAction}
-            className="mt-2 rounded-[var(--sld-radius-sm)] px-[9px] py-[3px] text-[11px] font-semibold cursor-pointer transition-all duration-150 sld-focus-ring inline-flex items-center gap-1 opacity-85 hover:opacity-100 bg-transparent border border-current hover:bg-current hover:text-[var(--sld-surface-card,var(--sld-surface-card))] active:opacity-70 text-inherit"
+            className="mt-2 rounded-[var(--sld-radius-sm)] px-[9px] py-[3px] text-[11px] font-semibold cursor-pointer transition-all duration-150 sld-focus-ring inline-flex items-center gap-1 opacity-85 hover:opacity-100 bg-transparent border border-current hover:bg-current hover:text-[var(--sld-surface-card)] active:opacity-70 text-inherit"
           >
             {action.label}
           </button>

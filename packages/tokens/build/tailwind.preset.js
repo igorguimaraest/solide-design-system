@@ -16,7 +16,7 @@ module.exports = {
           'surface-elevated': 'var(--sld-surface-raised)',
           subtle: 'var(--sld-border-subtle)',
           strong: 'var(--sld-border-strong)',
-          focus: 'var(--sld-action-focusRing, var(--sld-action-focusRing))',
+          focus: 'var(--sld-action-focusRing)',
           success: 'var(--sld-status-success-text)',
           error: 'var(--sld-status-danger-text)',
           warning: 'var(--sld-status-warning-text)',
@@ -68,7 +68,7 @@ module.exports = {
         'solide-info': 'var(--sld-status-info-text)'
       },
       ringColor: {
-        'solide-focus': 'var(--sld-action-focusRing, var(--sld-action-focusRing))',
+        'solide-focus': 'var(--sld-action-focusRing)',
         'solide-error': 'var(--sld-status-danger-text)',
         'solide-success': 'var(--sld-status-success-text)'
       },
