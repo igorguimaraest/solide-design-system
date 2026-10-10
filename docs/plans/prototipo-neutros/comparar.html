@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- PROTÓTIPO DESCARTÁVEL — capturas lado a lado das bases de neutro (passo 2 do STATUS.md) -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparar bases de neutro</title>
+<style>
+  body { margin: 0; padding: 16px; background: #777; color: #fff; font-family: system-ui, sans-serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p { margin: 0 0 16px; font-size: 14px; }
+  nav { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  nav button { background: #222; color: #fff; border: 1px solid #555; border-radius: 999px; padding: 6px 14px; cursor: pointer; font: inherit; }
+  nav button[aria-pressed="true"] { background: #fff; color: #111; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); gap: 16px; }
+  figure { margin: 0; }
+  figcaption { font-weight: 600; margin-bottom: 6px; }
+  img { width: 100%; display: block; border-radius: 8px; }
+  .mobile .grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+</style>
+</head>
+<body>
+<h1>Bases de neutro — lado a lado</h1>
+<p>Mesma tela (App shell), mesma luminosidade; muda só o "tom" dos cinzas. Para ver ao vivo: <a href="./?variant=A" style="color:#fff">abrir o protótipo</a>.</p>
+<nav>
+  <button data-v="claro-desktop" aria-pressed="true">Claro · computador</button>
+  <button data-v="escuro-desktop">Escuro · computador</button>
+  <button data-v="claro-mobile">Claro · celular</button>
+</nav>
+<div class="grid" id="grid"></div>
+<script>
+const TODOS = { A: 'A — Neutro puro', B: 'B — Quente sutil', C: 'C — Frio sutil', Atual: 'Atual (referência)' };
+// ?opcoes=A,C mostra só essas variantes
+const filtro = (new URLSearchParams(location.search).get('opcoes') || '').split(',').filter(k => k in TODOS);
+const NOMES = filtro.length ? Object.fromEntries(filtro.map(k => [k, TODOS[k]])) : TODOS;
+function show(v) {
+  document.body.classList.toggle('mobile', v.endsWith('mobile'));
+  document.querySelectorAll('nav button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+  document.getElementById('grid').innerHTML = Object.entries(NOMES)
+    .map(([k, n]) => `<figure><figcaption>${n}</figcaption><img src="capturas/${k}-${v}.png" alt="${n}, ${v}"></figure>`).join('');
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => show(b.dataset.v));
+show('claro-desktop');
+</script>
+</body>
+</html>
