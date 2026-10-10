@@ -1,13 +1,16 @@
 # Como usar o Solide em um aplicativo
 
 Este é o manual operacional para pessoas e agentes aplicarem o Solide sem
-interpretar livremente o brand guide.
+interpretar livremente o brand guide. Comece por
+[`SOLIDE-RESUMO.md`](SOLIDE-RESUMO.md); consulte o guia por seção só quando
+precisar ver um padrão montado.
 
 ## O que cada artefato faz
 
 | Artefato | Função |
 | --- | --- |
-| `solide-brand-guide.html` | Fonte visual normativa e catálogo de padrões |
+| `SOLIDE-RESUMO.md` | Leitura padrão: tokens principais e 10 regras |
+| `solide-brand-guide.html` | Vitrine visual e catálogo de padrões (consulta por seção) |
 | `solide-tokens.css` | Tokens oficiais usados pelo próprio guia |
 | `@solide/tokens` | Distribuição do mesmo CSS para aplicações |
 | `packages/ui-kit` | Componentes React derivados dos padrões do guia |
@@ -85,18 +88,22 @@ grade, reflow e comportamento de textos ou dados longos.>
 - Uma demonstração não autoriza misturar padrões de telas diferentes em uma
   nova composição.
 
-## Quando parar
+## Quando faltar algo
 
-Pare e registre uma lacuna se faltar no guia:
+Se faltar no guia:
 
 - uma composição equivalente à tela;
 - um estado de interação ou responsividade;
 - um token necessário;
 - um ícone com significado adequado;
 - orientação para a tecnologia do aplicativo;
-- uma decisão entre duas demonstrações aparentemente incompatíveis.
+- uma decisão entre duas demonstrações aparentemente incompatíveis;
 
-Primeiro atualize o guia, depois os tokens ou componentes e, por último, o app.
+use o token, ícone ou padrão mais próximo, avise em uma linha qual escolheu e
+registre em `STATUS.md › Lacunas` do Solide (data, projeto, o que faltou, o
+que foi usado no lugar). O trabalho no app segue. Lacunas que se repetem
+viram token, componente e exemplo no Solide, nessa ordem: guia, tokens ou
+componentes, app.
 
 ## Verificação
 

@@ -1,24 +1,24 @@
 # Solide Design System
 
-O [`solide-brand-guide.html`](solide-brand-guide.html) é a fonte visual
-normativa do Solide. Ele deve ser a primeira leitura antes de criar ou alterar
-uma interface.
+Comece por [`SOLIDE-RESUMO.md`](SOLIDE-RESUMO.md): cores, tipografia, espaços e
+as 10 regras em duas páginas. O
+[`solide-brand-guide.html`](solide-brand-guide.html) é a vitrine com todos os
+padrões montados — abra no navegador para ver; consulte por seção quando
+precisar de um exemplo.
 
 ## Comece aqui
 
-1. Leia [`USING_SOLIDE.md`](USING_SOLIDE.md) para o fluxo de projeto novo ou
-   existente.
-2. Leia [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) para a ordem de autoridade.
-3. Leia o brief em `apps/<app>/design-brief.md` antes de implementar o app.
+1. [`SOLIDE-RESUMO.md`](SOLIDE-RESUMO.md) — leitura padrão.
+2. [`USING_SOLIDE.md`](USING_SOLIDE.md) — fluxo de projeto novo ou existente.
+3. [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) — o que é fonte de quê.
+4. Brief do app em `apps/<app>/design-brief.md`, se houver.
 
-## Contrato público
+## Sistema × vitrine
 
-| Necessidade | Artefato autorizado |
-| --- | --- |
-| Referência visual, composição e estados | `solide-brand-guide.html` |
-| Tokens CSS | `solide-tokens.css` ou `@solide/tokens` |
-| Componentes React | `packages/ui-kit` |
-| Ícones | `icons/` ou `solide-icons-data.js` |
+| Parte | Arquivos | Quem usa |
+| --- | --- | --- |
+| Sistema | `SOLIDE-RESUMO.md`, `solide-tokens.css` / `@solide/tokens`, `packages/ui-kit`, `icons/` | IA e apps, sempre |
+| Vitrine | `solide-brand-guide.html`, `docs/plans/`, `docs/audits/`, protótipos | Igor olha; IA consulta sob demanda |
 
 `@solide/tokens` publica uma cópia exata de `solide-tokens.css`. A validação
 automática falha se isso deixar de ser verdade.
