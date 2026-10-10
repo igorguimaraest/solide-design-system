@@ -18,6 +18,8 @@ Atualizado em 2026-10-10.
 - Visual: texto dos alertas parece negrito e espaçado demais (visto na captura, causa não confirmada); muitos estilos de botão lado a lado.
 
 ## Andamento
+- 2026-10-10: passos 1 e 2a **juntados ao `main`** pelo PR #2 (merge `6f29fe8`), depois de revisão de código (nível baixo) e da verificação do GitHub (CI ok). O PR levou junto os 40 commits de `codex/visual-convergence-audit` que estavam fora do `main` (base do trabalho).
+  - Achado da revisão, anterior a este trabalho e não corrigido: no preset Tailwind, `bg-solide-success/error/warning/info` apontam para a cor de **texto** do status (`--sld-status-*-text`). Hoje nenhum componente usa essas classes; corrigir para `-bg` antes de usá-las.
 - Passo 1 (arrumação) — feito em 2026-10-10 (aprovado pelo Igor):
   - Scripts soltos: **28** arquivos (a lista dizia 27 por erro de soma) movidos para `c:\tmp\solide-scripts-soltos\` (fora do repo; nenhum era rastreado nem referenciado).
   - Nomes: commit `b3385ee` no branch `solide/arrumacao-nomes` (empilhado sobre `solide/neutro-frio-sutil`). 103 apelidos legados removidos; `--sld-palette-warm-*` → `--sld-palette-neutral-*`. `solide-tokens.css`: 919 → 630 linhas, 484 → 381 nomes. O guia cresceu 588 → 597 KB (nomes oficiais são mais longos).
