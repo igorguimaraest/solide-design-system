@@ -9,15 +9,15 @@ export const lightTheme = {
   },
   "surfaces": {
     "primary": "#FFFFFF",
-    "secondary": "#E9E6DE",
+    "secondary": "#E4E6EA",
     "elevated": "#FFFFFF"
   },
   "text": {
-    "primary": "#242220",
-    "secondary": "#6B675F",
-    "tertiary": "#6B675F"
+    "primary": "#222224",
+    "secondary": "#636669",
+    "tertiary": "#636669"
   },
-  "border": "#DEDAD0",
+  "border": "#D7DBDF",
   "action": {
     "primary": "#1D63D6",
     "foreground": "#FFFFFF",
@@ -34,19 +34,19 @@ export const darkTheme = {
     "caution": "#E8A542"
   },
   "surfaces": {
-    "primary": "#242220",
-    "secondary": "#121110",
-    "elevated": "#2E2C29"
+    "primary": "#222224",
+    "secondary": "#111112",
+    "elevated": "#2B2C2E"
   },
   "text": {
-    "primary": "#FAF9F6",
-    "secondary": "#C4BFB4",
-    "tertiary": "#A8A399"
+    "primary": "#F8F9FA",
+    "secondary": "#BCC0C5",
+    "tertiary": "#A0A4A8"
   },
-  "border": "#3A3733",
+  "border": "#36383A",
   "action": {
     "primary": "#5C9EFF",
-    "foreground": "#121110",
+    "foreground": "#111112",
     "hover": "#93BFFF",
     "active": "#2D7CF6"
   }

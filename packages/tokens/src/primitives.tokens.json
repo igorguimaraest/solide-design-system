@@ -849,63 +849,63 @@
   },
   "--sld-palette-warm-50": {
     "$type": "color",
-    "$value": "#FAF9F6"
+    "$value": "#F8F9FA"
   },
   "--sld-palette-warm-100": {
     "$type": "color",
-    "$value": "#F2F0EA"
+    "$value": "#EEF0F3"
   },
   "--sld-palette-warm-150": {
     "$type": "color",
-    "$value": "#E9E6DE"
+    "$value": "#E4E6EA"
   },
   "--sld-palette-warm-200": {
     "$type": "color",
-    "$value": "#DEDAD0"
+    "$value": "#D7DBDF"
   },
   "--sld-palette-warm-300": {
     "$type": "color",
-    "$value": "#C4BFB4"
+    "$value": "#BCC0C5"
   },
   "--sld-palette-warm-400": {
     "$type": "color",
-    "$value": "#A8A399"
+    "$value": "#A0A4A8"
   },
   "--sld-palette-warm-500": {
     "$type": "color",
-    "$value": "#8C877D"
+    "$value": "#84888C"
   },
   "--sld-palette-warm-550": {
     "$type": "color",
-    "$value": "#757067"
+    "$value": "#6E7175"
   },
   "--sld-palette-warm-600": {
     "$type": "color",
-    "$value": "#6B675F"
+    "$value": "#636669"
   },
   "--sld-palette-warm-700": {
     "$type": "color",
-    "$value": "#4D4A45"
+    "$value": "#494B4D"
   },
   "--sld-palette-warm-750": {
     "$type": "color",
-    "$value": "#3A3733"
+    "$value": "#36383A"
   },
   "--sld-palette-warm-800": {
     "$type": "color",
-    "$value": "#2E2C29"
+    "$value": "#2B2C2E"
   },
   "--sld-palette-warm-850": {
     "$type": "color",
-    "$value": "#242220"
+    "$value": "#222224"
   },
   "--sld-palette-warm-900": {
     "$type": "color",
-    "$value": "#1A1917"
+    "$value": "#18191A"
   },
   "--sld-palette-warm-950": {
     "$type": "color",
-    "$value": "#121110"
+    "$value": "#111112"
   },
   "--sld-palette-cobalt-100": {
     "$type": "color",

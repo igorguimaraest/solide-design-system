@@ -17,7 +17,7 @@ for(const width of [1440,390])for(const theme of ['light','dark'])test(`${theme}
  if(theme==='dark'){const toggle=page.getByRole('switch',{name:'Mudar para modo escuro'});await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.click();await expect(page.getByRole('switch',{name:'Mudar para modo claro'})).toHaveAttribute('aria-checked','true');}
  const themeToggle=page.getByRole('switch',{name:theme==='dark'?'Mudar para modo claro':'Mudar para modo escuro'});await expectThemeToggleContrast(themeToggle.locator('[data-part="track"]'),themeToggle.locator('[data-part="thumb"]'),theme,page);await themeToggle.screenshot({path:`${output}/vc04-kit-${theme}-${width}.png`});
  const primary=page.getByTestId('primary');await expect(primary).toHaveCSS('background-color',theme==='dark'?'rgb(92, 158, 255)':'rgb(29, 99, 214)');
- await expect(primary).toHaveCSS('color',theme==='dark'?'rgb(18, 17, 16)':'rgb(255, 255, 255)');
+ await expect(primary).toHaveCSS('color',theme==='dark'?'rgb(17, 17, 18)':'rgb(255, 255, 255)');
  await primary.hover();await expect(primary).toHaveCSS('background-color',theme==='dark'?'rgb(147, 191, 255)':'rgb(21, 79, 175)');
  await page.mouse.down();await expect(primary).toHaveCSS('background-color',theme==='dark'?'rgb(45, 124, 246)':'rgb(18, 63, 135)');await page.mouse.up();
  await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await expect(primary).toBeFocused();await expect(primary).toHaveCSS('outline-style','solid');
@@ -66,7 +66,7 @@ test('guide: warning action respects semantic contract', async ({ page }) => {
 
   await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'light'));
   await expect(btn).toHaveCSS('background-color', 'rgb(232, 165, 66)');
-  await expect(btn).toHaveCSS('color', 'rgb(18, 17, 16)');
+  await expect(btn).toHaveCSS('color', 'rgb(17, 17, 18)');
   await btn.hover();
   await expect(btn).toHaveCSS('background-color', 'rgb(217, 140, 29)');
   await page.mouse.down();
@@ -76,7 +76,7 @@ test('guide: warning action respects semantic contract', async ({ page }) => {
 
   await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
   await expect(btn).toHaveCSS('background-color', 'rgb(217, 140, 29)');
-  await expect(btn).toHaveCSS('color', 'rgb(18, 17, 16)');
+  await expect(btn).toHaveCSS('color', 'rgb(17, 17, 18)');
   await btn.hover();
   await expect(btn).toHaveCSS('background-color', 'rgb(232, 165, 66)');
   await page.mouse.down();

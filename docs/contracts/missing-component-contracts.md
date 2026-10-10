@@ -17,7 +17,7 @@ Status: **aprovado e implementado em VC-02; validação visual concluída no Chr
 | --- | --- | --- | --- |
 | `--sld-control-selected-bg` | `--sld-palette-cobalt-600` (`#1D63D6`) | `--sld-palette-cobalt-400` (`#5C9EFF`) | Preenchimento de Checkbox `checked/indeterminate`, Radio `checked` e track de Switch `on`. |
 | `--sld-control-selected-border` | `--sld-palette-cobalt-600` (`#1D63D6`) | `--sld-palette-cobalt-400` (`#5C9EFF`) | Contorno do controle selecionado; separado de `bg` para permitir evolução sem quebrar consumidores. |
-| `--sld-control-selected-fg` | `--sld-palette-warm-0` (`#FFFFFF`) | `--sld-palette-warm-950` (`#121110`) | Check, barra de indeterminate, ponto do Radio e thumb do Switch quando aplicável. |
+| `--sld-control-selected-fg` | `--sld-palette-warm-0` (`#FFFFFF`) | `--sld-palette-warm-950` (`#111112`) | Check, barra de indeterminate, ponto do Radio e thumb do Switch quando aplicável. |
 | `--sld-control-selected-hover-bg` | `--sld-palette-cobalt-700` (`#154FAF`) | `--sld-palette-cobalt-300` (`#93BFFF`) | Hover do controle já selecionado, somente com cursor fino. |
 | `--sld-control-selected-active-bg` | `--sld-palette-cobalt-800` (`#123F87`) | `--sld-palette-cobalt-500` (`#2D7CF6`) | Feedback de pressionamento do controle já selecionado. |
 
