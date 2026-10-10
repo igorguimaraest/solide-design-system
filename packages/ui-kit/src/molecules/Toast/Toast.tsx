@@ -11,10 +11,10 @@ const toneIcons: Record<ToastTone, string> = {
 };
 
 const toneColors: Record<ToastTone, string> = {
-  success: 'var(--solide-success, var(--sld-status-success-text))',
-  warning: 'var(--solide-warning, var(--sld-status-warning-text))',
-  error: 'var(--solide-error, var(--sld-status-danger-text))',
-  info: 'var(--solide-info, var(--sld-status-info-text))',
+  success: 'var(--sld-status-success-icon, var(--sld-status-success-text))',
+  warning: 'var(--sld-status-warning-icon, var(--sld-status-warning-text))',
+  error: 'var(--sld-status-danger-icon, var(--sld-status-danger-text))',
+  info: 'var(--sld-status-info-icon, var(--sld-status-info-text))',
 };
 
 export const Toast: React.FC<ToastProps> = ({
@@ -53,24 +53,24 @@ export const Toast: React.FC<ToastProps> = ({
   };
 
   const toneBackgrounds: Record<string, string> = {
-    success: 'var(--solide-success-surface)',
-    warning: 'var(--solide-warning-surface)',
-    error: 'var(--solide-error-surface)',
-    info: 'var(--solide-info-surface)',
+    success: 'var(--sld-status-success-bg)',
+    warning: 'var(--sld-status-warning-bg)',
+    error: 'var(--sld-status-danger-bg)',
+    info: 'var(--sld-status-info-bg)',
   };
 
   const toneBorders: Record<string, string> = {
-    success: 'var(--solide-success-border)',
-    warning: 'var(--solide-warning-border)',
-    error: 'var(--solide-error-border)',
-    info: 'var(--solide-info-border)',
+    success: 'var(--sld-status-success-border)',
+    warning: 'var(--sld-status-warning-border)',
+    error: 'var(--sld-status-danger-border)',
+    info: 'var(--sld-status-info-border)',
   };
 
   const toneTexts: Record<string, string> = {
-    success: 'var(--solide-success-text)',
-    warning: 'var(--solide-warning-text)',
-    error: 'var(--solide-error-text)',
-    info: 'var(--solide-info-text)',
+    success: 'var(--sld-status-success-text)',
+    warning: 'var(--sld-status-warning-text)',
+    error: 'var(--sld-status-danger-text)',
+    info: 'var(--sld-status-info-text)',
   };
 
 
@@ -116,7 +116,7 @@ export const Toast: React.FC<ToastProps> = ({
           <button
             type="button"
             onClick={handleAction}
-            className="mt-2 rounded-[var(--sld-radius-sm)] px-[9px] py-[3px] text-[11px] font-semibold cursor-pointer transition-all duration-150 sld-focus-ring inline-flex items-center gap-1 opacity-85 hover:opacity-100 bg-transparent border border-current hover:bg-current hover:text-[var(--bg-primary,var(--surface-primary))] active:opacity-70 text-inherit"
+            className="mt-2 rounded-[var(--sld-radius-sm)] px-[9px] py-[3px] text-[11px] font-semibold cursor-pointer transition-all duration-150 sld-focus-ring inline-flex items-center gap-1 opacity-85 hover:opacity-100 bg-transparent border border-current hover:bg-current hover:text-[var(--sld-surface-card,var(--sld-surface-card))] active:opacity-70 text-inherit"
           >
             {action.label}
           </button>

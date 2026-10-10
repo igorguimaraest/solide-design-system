@@ -3,7 +3,7 @@
 ## Decisões
 
 - `solide-tokens.css` é a fonte técnica canônica. O Brand Guide consome esse arquivo; o pacote `@solide/tokens`, os JSONs derivados e o tema nativo são gerados a partir dele.
-- A escala nova usa o namespace `--sld-palette-warm-*`, com números crescentes do claro para o escuro. Os neutros legados preservam os valores históricos para impedir inversão silenciosa de luminosidade.
+- A escala de neutros usa o namespace `--sld-palette-neutral-*` (era `--sld-palette-warm-*` até 2026-10-10, quando passou a cinza frio sutil), com números crescentes do claro para o escuro. Os neutros legados preservam os valores históricos para impedir inversão silenciosa de luminosidade.
 - `--sld-brand-accent` representa a identidade cobalto. Ações usam `--sld-action-*`; componentes não usam diretamente a cor de marca.
 - Status possuem papéis separados para fundo sutil, borda, texto, ícone, fundo sólido, conteúdo sobre sólido e hover.
 - Tipografia por papéis, spacing, radius, shadow, motion, iconografia e geometria desktop foram preservados.
@@ -11,14 +11,14 @@
 
 ## Compatibilidade
 
-Aliases `--solide-*`, `--bg-*`, `--text-*` e `--border-*` continuam disponíveis. São compatibilidade temporária para o Brand Guide e consumidores existentes. Código novo deve usar `--sld-*` semântico.
+Em 2026-10-10 os 103 apelidos legados que apenas repetiam um token `--sld-*` (`--solide-*`, `--bg-*`, `--surface-*`, `--text-*` de cor, `--border-*`, `--color-*`, `--app-*`, `--nav-*`, `--r-*`, `--shadow-*`, `--motion-*`) foram removidos. Guia, UI Kit e preset Tailwind passaram a usar diretamente o nome `--sld-*`; não havia consumidores externos. Cada valor tem agora um nome só.
 
-| Uso legado | Substituição recomendada | Remoção |
-| --- | --- | --- |
-| `--color-accent` / `--solide-accent` em botões | `--sld-action-primary-*` | após os consumidores externos migrarem |
-| `--solide-feedback-*` como texto/fundo indistinto | `--sld-status-<tone>-<role>` | após os consumidores externos migrarem |
-| `--bg-*`, `--text-*`, `--border-*` | papéis `--sld-surface-*`, `--sld-text-*`, `--sld-border-*` | após o CSS histórico do guia ser reduzido |
-| primitivos `--solide-neutral-*` | tokens semânticos; `--sld-palette-warm-*` apenas na camada de tokens | sem prazo até inventário dos consumidores externos |
+Ainda restam, por terem valores próprios (unificá-los mudaria cores na tela):
+
+| Legado | Situação |
+| --- | --- |
+| primitivos `--solide-neutral-*` e `--sld-color-neutral-*` | escalas paralelas à `--sld-palette-neutral-*`; unificar exige decisão visual |
+| tipografia `--text-*`, `--lh-*`, `--tracking-*`, `--weight-*`, `--font-*` | nome único do valor; não são apelidos |
 
 ## Validação
 

@@ -27,7 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   return (
     <div className="relative inline-flex w-full items-center">
       {leftIcon && (
-        <span className="absolute left-3 flex items-center justify-center text-[var(--solide-text-muted)] pointer-events-none" aria-hidden="true">
+        <span className="absolute left-3 flex items-center justify-center text-[var(--sld-text-muted)] pointer-events-none" aria-hidden="true">
           {leftIcon}
         </span>
       )}
@@ -37,11 +37,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
         disabled={disabled}
         aria-invalid={isInvalid}
         aria-describedby={ariaDescribedBy}
-        className={`w-full bg-[var(--solide-bg-surface)] text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-lg border transition-colors outline-none disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:cursor-not-allowed ${sizeClasses} ${borderClasses} ${focusClasses} ${leftIcon ? 'pl-9' : ''} ${rightIcon ? 'pr-9' : ''} ${className}`}
+        className={`w-full bg-[var(--sld-surface-card)] text-[var(--sld-text-primary)] placeholder-[var(--sld-text-muted)] rounded-lg border transition-colors outline-none disabled:bg-[var(--sld-disabled-bg)] disabled:text-[var(--sld-disabled-fg)] disabled:cursor-not-allowed ${sizeClasses} ${borderClasses} ${focusClasses} ${leftIcon ? 'pl-9' : ''} ${rightIcon ? 'pr-9' : ''} ${className}`}
         {...props}
       />
       {rightIcon && (
-        <span className="absolute right-3 flex items-center justify-center text-[var(--solide-text-muted)] pointer-events-none" aria-hidden="true">
+        <span className="absolute right-3 flex items-center justify-center text-[var(--sld-text-muted)] pointer-events-none" aria-hidden="true">
           {rightIcon}
         </span>
       )}

@@ -45,7 +45,7 @@ A navegação exclusivamente por teclado deve ser 100% funcional em todos os flu
 - Todo controle interativo (botões, links, inputs, selects, tabs) deve renderizar um anel de foco exterior de **2px** com deslocamento (*offset*) de **2px**:
   ```css
   :focus-visible {
-    outline: 2px solid var(--solide-ring-focus);
+    outline: 2px solid var(--sld-action-focusRing);
     outline-offset: 2px;
   }
   ```

@@ -39,7 +39,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <div className={`relative inline-flex items-center w-full max-w-md font-ui ${className}`}>
-      <span className="absolute left-3 flex items-center justify-center text-[var(--solide-text-muted)] pointer-events-none" aria-hidden="true">
+      <span className="absolute left-3 flex items-center justify-center text-[var(--sld-text-muted)] pointer-events-none" aria-hidden="true">
         <Icon name="search" size="sm" />
       </span>
 
@@ -50,7 +50,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         placeholder={placeholder}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        className="w-full h-9 pl-9 pr-16 bg-[var(--sld-surface-base)] text-sm text-[var(--solide-text-primary)] placeholder-[var(--solide-text-muted)] rounded-[var(--sld-radius-md)] border border-[var(--solide-border-strong)] outline-none focus:border-[var(--sld-action-focusRing)] focus:ring-2 focus:ring-[var(--sld-action-focusRing)] transition-colors disabled:bg-[var(--sld-surface-sunken)]"
+        className="w-full h-9 pl-9 pr-16 bg-[var(--sld-surface-base)] text-sm text-[var(--sld-text-primary)] placeholder-[var(--sld-text-muted)] rounded-[var(--sld-radius-md)] border border-[var(--sld-border-strong)] outline-none focus:border-[var(--sld-action-focusRing)] focus:ring-2 focus:ring-[var(--sld-action-focusRing)] transition-colors disabled:bg-[var(--sld-surface-sunken)]"
         aria-label={placeholder}
       />
 
@@ -60,14 +60,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             type="button"
             onClick={handleClear}
             disabled={disabled}
-            className="sld-focus-ring disabled:cursor-not-allowed p-1 rounded text-[var(--solide-text-muted)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--solide-text-primary)] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] transition-colors"
+            className="sld-focus-ring disabled:cursor-not-allowed p-1 rounded text-[var(--sld-text-muted)] [@media(hover:hover)_and_(pointer:fine)]:hover:text-[var(--sld-text-primary)] [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[var(--sld-action-ghost-hover)] transition-colors"
             aria-label="Limpar busca"
           >
             <Icon name="x" size="sm" />
           </button>
         )}
         {shortcutKey && (
-          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono font-medium text-[var(--solide-text-muted)] bg-[var(--sld-surface-sunken)] border border-[var(--sld-border-default)] rounded shadow-xs select-none pointer-events-none">
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono font-medium text-[var(--sld-text-muted)] bg-[var(--sld-surface-sunken)] border border-[var(--sld-border-default)] rounded shadow-xs select-none pointer-events-none">
             {shortcutKey}
           </kbd>
         )}

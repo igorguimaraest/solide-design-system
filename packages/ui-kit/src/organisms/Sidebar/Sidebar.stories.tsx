@@ -36,7 +36,7 @@ export const Default = () => {
         onToggleCompact={() => setIsCompact(c => !c)}
       />
       <div className="p-8 flex-1">
-        <h2 className="text-xl font-bold font-display text-[var(--solide-text-primary)]">
+        <h2 className="text-xl font-bold font-display text-[var(--sld-text-primary)]">
           Seção Ativa: {activeId}
         </h2>
       </div>

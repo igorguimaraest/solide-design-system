@@ -21,7 +21,7 @@ export const Controlled = () => {
         onChange={setTerm}
         placeholder="Digite para filtrar..."
       />
-      <span className="text-xs text-[var(--solide-text-secondary)]">
+      <span className="text-xs text-[var(--sld-text-secondary)]">
         Termo ativo: <strong>{term}</strong>
       </span>
     </div>

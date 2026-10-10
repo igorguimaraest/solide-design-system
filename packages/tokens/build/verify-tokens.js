@@ -36,7 +36,7 @@ for(const mode of ['light','dark']){
  check(mode,'theme-toggle-thumb-fg','theme-toggle-thumb-bg',3);
  if(mode==='dark') check(mode,'theme-toggle-thumb-bg','surface-shell',3);
 }
-const steps=Object.entries(c.fixed).filter(([k])=>k.startsWith('--sld-palette-warm-')).sort((a,b)=>Number(a[0].split('-').pop())-Number(b[0].split('-').pop()));
+const steps=Object.entries(c.fixed).filter(([k])=>k.startsWith('--sld-palette-neutral-')).sort((a,b)=>Number(a[0].split('-').pop())-Number(b[0].split('-').pop()));
 for(let i=1;i<steps.length;i++)assert(lum(c.resolve(steps[i-1][0],'light'))>lum(c.resolve(steps[i][0],'light')),'Warm scale luminance reversed');
 fs.writeFileSync(path.join(root,'docs/consolidation/contrast.json'),JSON.stringify(rows,null,2)+'\n');
 const motionTs = fs.readFileSync(path.join(root, 'packages/tokens/src/motion.ts'), 'utf8');

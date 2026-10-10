@@ -49,27 +49,39 @@
       "colorLiterals": 0
     },
     {
+      "path": "docs/audits/chart-colors-audit-2026-09-22.md",
+      "bytes": 2700,
+      "sha256": "4f7241da9481932abc18c7ff0f8f210f398dbae84611572fa44a66c19a1a685a",
+      "colorLiterals": 0
+    },
+    {
       "path": "docs/audits/solide-visual-convergence-audit.md",
-      "bytes": 28657,
-      "sha256": "4b90ccad31b3d6915d34f8a455d6b2b4c9c5ff87fbe4a06f166ac78395338c39",
+      "bytes": 28817,
+      "sha256": "6c6fdb38a73db93556464f5dd69a783384953ba760f7645bdd3982399c9affe6",
       "colorLiterals": 1
     },
     {
+      "path": "docs/audits/vc-17-legacy-values-inventory.md",
+      "bytes": 1891,
+      "sha256": "0baa478042fca1251c7ab41fc90c54a684cf864e17140e30c6e0f9f72eafbf36",
+      "colorLiterals": 9
+    },
+    {
       "path": "docs/consolidation/README.md",
-      "bytes": 2312,
-      "sha256": "4903e908cd85acbaf4328c731df64c42ea13cf0ac245e5081b500e13ffa4858c",
+      "bytes": 2327,
+      "sha256": "058ccfbb900706086d34e3a59b2e36c58ca5c204bf5fa69322fab8bad787f0fc",
       "colorLiterals": 0
     },
     {
       "path": "docs/consolidation/audit.json",
       "bytes": 420833,
-      "sha256": "34f229783862e92b9a65f95f96f32619d9fb3f2e7f79407b974345a01a02f663",
+      "sha256": "f0e6d89c8655b62c40c5bc8d3fd53d95bd0840f3db8a08a1e7a0cc88cd6a38db",
       "colorLiterals": 9
     },
     {
       "path": "docs/consolidation/contrast.json",
-      "bytes": 16472,
-      "sha256": "8bcbee1d0f51d6a8b2882fb7fb039280669fad0509130a24c128c5a9f5dfdafc",
+      "bytes": 16481,
+      "sha256": "15d48f82ae67204575742bff512f7d2cbce5f02c09c15e4c80b96456e0a25a98",
       "colorLiterals": 202
     },
     {
@@ -86,20 +98,20 @@
     },
     {
       "path": "docs/contracts/missing-component-contracts.md",
-      "bytes": 7827,
-      "sha256": "252c6b1f855632875e53f384b4a7b0ef0c8700145076307b076e0c6ed3e95328",
+      "bytes": 7839,
+      "sha256": "87ec30027fae7aa57d52a1c90cfa263affa8a6c90d580f248ba923fb7cb7dff5",
       "colorLiterals": 10
     },
     {
       "path": "docs/geometry/app-shell-sidebar.md",
-      "bytes": 2529,
-      "sha256": "bb49b273060782aed74db24bb93dce0a898a6619093026ae7eae86ded65db7e7",
+      "bytes": 2682,
+      "sha256": "a1cdc333ce61b60fc89a7f16fe71e4f365dd26671daa45890e147ec23c2e1591",
       "colorLiterals": 0
     },
     {
       "path": "docs/migration/solide-design-system-migration.md",
-      "bytes": 22224,
-      "sha256": "291528b6bf7d3557282d78c1aa638051f655b4097d01689c68cdd3654d7277c0",
+      "bytes": 23845,
+      "sha256": "a54dd74feaf4cc4c78cb953431a615547de4588fb1eca0ce15344659cd88a19f",
       "colorLiterals": 1
     },
     {
@@ -12536,8 +12548,8 @@
     },
     {
       "path": "packages/docs/ux-guidelines.md",
-      "bytes": 6112,
-      "sha256": "48626a6031313d5b55c0f343d80e4e2853e8cc1b7cf68e59c6b198faaaba5c83",
+      "bytes": 6115,
+      "sha256": "7eb9e8929dc3ca7bb99f038c1e623c38eabc5326a2d8dfb245136be0c4d78750",
       "colorLiterals": 8
     },
     {
@@ -12566,14 +12578,14 @@
     },
     {
       "path": "packages/tokens/build/tailwind.preset.js",
-      "bytes": 4200,
-      "sha256": "107d4d485f9fdb6c6fa95a664ed77224a5ba317e8828510d74eb6c909392c06f",
+      "bytes": 4197,
+      "sha256": "29f1f42c2796d3df134f178a5cf1a0b86990782e00b60ad0a26cdc9df8dc8026",
       "colorLiterals": 0
     },
     {
       "path": "packages/tokens/build/verify-tokens.js",
-      "bytes": 4921,
-      "sha256": "c09760573b4ccf04b482aa0991aed33943608d9f06f61630d6e2414b6ef70222",
+      "bytes": 4924,
+      "sha256": "81d984da0fa1ddff743580653853ddae473c5aa49292615fa53ee5b6ac8423bb",
       "colorLiterals": 0
     },
     {
@@ -12591,7 +12603,7 @@
     {
       "path": "packages/tokens/src/mobile-theme.ts",
       "bytes": 1335,
-      "sha256": "cdd7add556916b367f8977331ab6b24769f9988a66f25758008586c52ec56d1c",
+      "sha256": "7912f1f84f9b4c5f4d650e58a01236266b5aeca71edb9daff12912dfb88a971f",
       "colorLiterals": 32
     },
     {
@@ -12602,14 +12614,14 @@
     },
     {
       "path": "packages/tokens/src/primitives.tokens.json",
-      "bytes": 23357,
-      "sha256": "e8983c48686eae7a5c4dbd5b7cebed5e1c0dd20547b3c2f64cefa99db4bdb005",
+      "bytes": 22459,
+      "sha256": "de1664c21692889ecec9b5f4ca927739f3707faba381ba6f373cf69baef9e5e7",
       "colorLiterals": 124
     },
     {
       "path": "packages/tokens/src/semantic.tokens.json",
-      "bytes": 47329,
-      "sha256": "9e8f7d68e9f2ee748136df25563b167bc6289e65cc1fe875046a527b82cc0e9f",
+      "bytes": 26947,
+      "sha256": "aadf0b5eb5e1e92e93b6aaa485fa648fd6df26c7eb20a191e6b19263ac59c359",
       "colorLiterals": 2
     },
     {
@@ -12722,8 +12734,8 @@
     },
     {
       "path": "packages/ui-kit/src/atoms/Icon/Icon.stories.tsx",
-      "bytes": 1499,
-      "sha256": "92a9b9b9dc1037badf7fe6ec1207ef4718ce3fff59441870c6fb8d5b61ad1575",
+      "bytes": 1496,
+      "sha256": "af54512fa2f0e7175477ed21a5dac7034ca42a0cd3bb2d12599fe889398c367e",
       "colorLiterals": 0
     },
     {
@@ -12752,8 +12764,8 @@
     },
     {
       "path": "packages/ui-kit/src/atoms/Input/Input.tsx",
-      "bytes": 2013,
-      "sha256": "77977c2ece9dabad6a31583c5964cf3f1a5e97270a1e61c4fddb051a837f90e9",
+      "bytes": 2000,
+      "sha256": "a263afc86453cff14b098eb64b534214784c746f44e0e46b0c804cb8d7c25158",
       "colorLiterals": 0
     },
     {
@@ -12824,8 +12836,8 @@
     },
     {
       "path": "packages/ui-kit/src/atoms/Typography/Typography.tsx",
-      "bytes": 2865,
-      "sha256": "aac040b945923a5efc550c42ed2df61cfa61f2367bc1b23016ea41b4f8f184d1",
+      "bytes": 2857,
+      "sha256": "8df0f03c1ed2f8d6ee9a475492406bf6ca77deb43ce4d75a165a76f179683549",
       "colorLiterals": 0
     },
     {
@@ -12842,8 +12854,8 @@
     },
     {
       "path": "packages/ui-kit/src/index.ts",
-      "bytes": 940,
-      "sha256": "0e3a09da7e552f2372232e72b95326664efb46e4e10576baf550c07f031df34e",
+      "bytes": 976,
+      "sha256": "442a9455105f0bc1d3e73ccfe40e9a26e14d3b92eccec9f9d2ca29f6527223b8",
       "colorLiterals": 0
     },
     {
@@ -12854,8 +12866,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/Alert/Alert.tsx",
-      "bytes": 4268,
-      "sha256": "fe6b93bb08bf6adc8daca9ec6c486babf38120f6e2607f63c7ed87e20ed53b45",
+      "bytes": 4394,
+      "sha256": "4501ac7031f43aae33d0c49ec53c34844251a1480745a02bdf7dbbca79cb6aad",
       "colorLiterals": 0
     },
     {
@@ -12878,8 +12890,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/FormField/FormField.tsx",
-      "bytes": 1902,
-      "sha256": "b8794ee06351eb7700a15a5702c8beea32c5845e1f385d52998125f6ba61f253",
+      "bytes": 1898,
+      "sha256": "d3ebb3ca586d4f3b65339c8cb2ef11cdbcca46902dc3a0ea8c4336deae2f60db",
       "colorLiterals": 0
     },
     {
@@ -12902,8 +12914,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/Modal/Modal.tsx",
-      "bytes": 2142,
-      "sha256": "ae48a3cbc4a07bb585e181849f4fb2074a09482f3e038f842e68a693248ef5cd",
+      "bytes": 3232,
+      "sha256": "4ada384fef0b84fa21c5a9e1987ba5c398539de073d91cda12f584b2f7835d5d",
       "colorLiterals": 0
     },
     {
@@ -12926,8 +12938,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/ModalHeader/ModalHeader.tsx",
-      "bytes": 1597,
-      "sha256": "f678c6cfdd58682b61f390cc94e01ca62db8a8240a3a2943d0b489b6e8b262f2",
+      "bytes": 1593,
+      "sha256": "234f2fed180d276315d9d1d413104392ec185afb5a0f0b352aa265b401726c3e",
       "colorLiterals": 0
     },
     {
@@ -12944,14 +12956,14 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/SearchBar/SearchBar.stories.tsx",
-      "bytes": 776,
-      "sha256": "a706ee405a19520dd1c04638e9f7055f45823c9dee77fccabb655e8334225d4f",
+      "bytes": 773,
+      "sha256": "834fad1cecd526d80299763d77ed9c44e891119349ee21b6d959a5b9d37bad1b",
       "colorLiterals": 0
     },
     {
       "path": "packages/ui-kit/src/molecules/SearchBar/SearchBar.tsx",
-      "bytes": 3093,
-      "sha256": "b42a2ebd8b6acd85244a6bd7f66e8b453d7400618b04047a99e3ae268ab1e585",
+      "bytes": 3072,
+      "sha256": "a6ea6db3e9207235a0602b9a30115311ab6cb09fbb1a015da4b435fe5cddf668",
       "colorLiterals": 0
     },
     {
@@ -12974,8 +12986,8 @@
     },
     {
       "path": "packages/ui-kit/src/molecules/SegmentedTabs/SegmentedTabs.tsx",
-      "bytes": 5217,
-      "sha256": "c70f52eb562cad3d4b15a78c6c4fca0c67d6593c5aba625d8a1aca290684c5b7",
+      "bytes": 5202,
+      "sha256": "29cd7904de50737de01462d243fa61b64407e15aa3b4ef8bbcf5f2b6b1db2649",
       "colorLiterals": 0
     },
     {
@@ -13015,6 +13027,30 @@
       "colorLiterals": 0
     },
     {
+      "path": "packages/ui-kit/src/molecules/Toast/Toast.tsx",
+      "bytes": 4839,
+      "sha256": "69b28b46299d32378f892b248f9ad35765780ace8890a0bc9c31b0ec32bcf857",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/Toast/Toast.types.ts",
+      "bytes": 1023,
+      "sha256": "055aba64a1d979a4320b2c94b067dbc91ba089fecc365fceddf6cc21d6158cfb",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/Toast/ToastContext.tsx",
+      "bytes": 1635,
+      "sha256": "9cf6ebde0736dbbec8e72cccc403c3ae6ba82b587b498f3b8a65857d279ba8b6",
+      "colorLiterals": 0
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/Toast/index.ts",
+      "bytes": 88,
+      "sha256": "eff1e5e83e81379e369392485303ae58630049b46cdcc74f269c4fc33b99b5a1",
+      "colorLiterals": 0
+    },
+    {
       "path": "packages/ui-kit/src/organisms/DataTable/DataTable.stories.tsx",
       "bytes": 2129,
       "sha256": "18455fa0d182383c9d16e15370f6cefa27f0d84c97f86be304030e5500b71bfc",
@@ -13046,8 +13082,8 @@
     },
     {
       "path": "packages/ui-kit/src/organisms/EmptyState/EmptyState.tsx",
-      "bytes": 1528,
-      "sha256": "7ec4eca27b367a957cb0660bb594d27878d051f5bf6f942bdb3bc2368d14e695",
+      "bytes": 1525,
+      "sha256": "16cc7cacbb22827a5c51ef2adf15608003fe97cc9a472d26c9f693e3ae0e6c11",
       "colorLiterals": 0
     },
     {
@@ -13088,8 +13124,8 @@
     },
     {
       "path": "packages/ui-kit/src/organisms/Sidebar/Sidebar.stories.tsx",
-      "bytes": 1648,
-      "sha256": "70f3e07f302ef5d4ce011a2736dc8cf7b7d07423b0b36ee16bd88c5e032b2b32",
+      "bytes": 1645,
+      "sha256": "1f4803ad07b1975b8e70a3d0e0890a0b8cc27153f242637550e996d6ce68776c",
       "colorLiterals": 0
     },
     {
@@ -13184,8 +13220,8 @@
     },
     {
       "path": "preview/main.tsx",
-      "bytes": 6735,
-      "sha256": "de0543c978c705c1e2f4cfe608b84fc8a0df297eb526339c7a13e5d4e428e80a",
+      "bytes": 7758,
+      "sha256": "ee5ec2f66161530c87cf017f163ed51e67e9ba38ca849f8bd7a4b5e85fb682f8",
       "colorLiterals": 0
     },
     {
@@ -13208,8 +13244,8 @@
     },
     {
       "path": "solide-brand-guide.html",
-      "bytes": 585624,
-      "sha256": "11cc1f11b57e1de1f5c323857ec2c85d46ff0c56d84f6893340353070fc6a9bb",
+      "bytes": 611522,
+      "sha256": "a284eed23584621f552d10afeeb1aead6c9f7e316a02e96df59a1b6f9abac67c",
       "colorLiterals": 94
     },
     {
@@ -13280,8 +13316,8 @@
     },
     {
       "path": "solide-tokens.css",
-      "bytes": 45010,
-      "sha256": "686bdf9ef64489346ca35de296562d37441f90de4588685228d7be965e7b0700",
+      "bytes": 31120,
+      "sha256": "0fe82c6faa1f983386ff1b6acd2026cf7f7f06c9655b28cea42b480f3916d0c3",
       "colorLiterals": 127
     },
     {
@@ -13316,8 +13352,8 @@
     },
     {
       "path": "tests/system.spec.ts",
-      "bytes": 64414,
-      "sha256": "e14a3c4bd481f7af89684f9e0eae05c1a34e8fbc6d7968b4c134dc1cc7fd0cd5",
+      "bytes": 63671,
+      "sha256": "00ad71b33e3dd2ba8060b3946eb670863e01413f7f27869c2c8558a6964a636f",
       "colorLiterals": 23
     },
     {
@@ -13460,9 +13496,9 @@
         "--sld-action-focusRing",
         "--focus-ring-width",
         "--focus-ring-offset",
-        "--solide-text-muted",
-        "--solide-bg-surface",
-        "--solide-text-primary",
+        "--sld-text-muted",
+        "--sld-surface-card",
+        "--sld-text-primary",
         "--sld-disabled-bg",
         "--sld-disabled-fg"
       ],
@@ -13560,12 +13596,12 @@
         "--lh-dados",
         "--tracking-dados",
         "--weight-dados",
-        "--solide-text-primary",
-        "--solide-text-secondary",
-        "--solide-text-muted",
+        "--sld-text-primary",
+        "--sld-text-secondary",
+        "--sld-text-muted",
         "--sld-text-brand",
-        "--solide-feedback-error",
-        "--solide-feedback-success",
+        "--sld-status-danger-text",
+        "--sld-status-success-text",
         "--sld-text-inverse"
       ],
       "hardcodedColors": 0,
@@ -13606,9 +13642,9 @@
     {
       "path": "packages/ui-kit/src/molecules/FormField/FormField.tsx",
       "tokens": [
-        "--solide-text-primary",
-        "--solide-feedback-error",
-        "--solide-text-muted"
+        "--sld-text-primary",
+        "--sld-status-danger-text",
+        "--sld-text-muted"
       ],
       "hardcodedColors": 0,
       "arbitraryDimensions": [
@@ -13618,9 +13654,9 @@
     {
       "path": "packages/ui-kit/src/molecules/Modal/Modal.tsx",
       "tokens": [
+        "--sld-surface-overlay",
         "--sld-sidebar-w",
-        "--sld-surface-shell",
-        "--sld-surface-overlay"
+        "--sld-surface-shell"
       ],
       "hardcodedColors": 0,
       "arbitraryDimensions": []
@@ -13628,11 +13664,11 @@
     {
       "path": "packages/ui-kit/src/molecules/ModalHeader/ModalHeader.tsx",
       "tokens": [
-        "--border-secondary",
+        "--sld-border-subtle",
         "--sld-border-default",
         "--sld-radius-md",
-        "--solide-text-muted",
-        "--solide-text-primary",
+        "--sld-text-muted",
+        "--sld-text-primary",
         "--sld-action-ghost-hover"
       ],
       "hardcodedColors": 0,
@@ -13641,11 +13677,11 @@
     {
       "path": "packages/ui-kit/src/molecules/SearchBar/SearchBar.tsx",
       "tokens": [
-        "--solide-text-muted",
+        "--sld-text-muted",
         "--sld-surface-base",
-        "--solide-text-primary",
+        "--sld-text-primary",
         "--sld-radius-md",
-        "--solide-border-strong",
+        "--sld-border-strong",
         "--sld-action-focusRing",
         "--sld-surface-sunken",
         "--sld-action-ghost-hover",
@@ -13659,17 +13695,17 @@
     {
       "path": "packages/ui-kit/src/molecules/SegmentedTabs/SegmentedTabs.tsx",
       "tokens": [
-        "--solide-bg-surface",
-        "--solide-border-subtle",
-        "--r-sm",
-        "--r-xs",
+        "--sld-surface-card",
+        "--sld-border-subtle",
+        "--sld-radius-sm",
+        "--sld-radius-xs",
         "--sld-durationFast",
         "--sld-easingSnappy",
-        "--solide-ring-focus",
+        "--sld-action-focusRing",
         "--solide-opacity-disabled",
-        "--solide-bg-surface-elevated",
-        "--solide-text-primary",
-        "--solide-text-secondary"
+        "--sld-surface-raised",
+        "--sld-text-primary",
+        "--sld-text-secondary"
       ],
       "hardcodedColors": 0,
       "arbitraryDimensions": [
@@ -13708,6 +13744,52 @@
       "arbitraryDimensions": []
     },
     {
+      "path": "packages/ui-kit/src/molecules/Toast/Toast.tsx",
+      "tokens": [
+        "--sld-status-success-icon",
+        "--sld-status-success-text",
+        "--sld-status-warning-icon",
+        "--sld-status-warning-text",
+        "--sld-status-danger-icon",
+        "--sld-status-danger-text",
+        "--sld-status-info-icon",
+        "--sld-status-info-text",
+        "--sld-status-success-bg",
+        "--sld-status-warning-bg",
+        "--sld-status-danger-bg",
+        "--sld-status-info-bg",
+        "--sld-status-success-border",
+        "--sld-status-warning-border",
+        "--sld-status-danger-border",
+        "--sld-status-info-border",
+        "--sld-radius-md",
+        "--sld-shadow-lg",
+        "--sld-surface-raised",
+        "--sld-border-subtle",
+        "--sld-text-primary",
+        "--sld-radius-sm",
+        "--sld-surface-card"
+      ],
+      "hardcodedColors": 0,
+      "arbitraryDimensions": [
+        "[360px]",
+        "[13px]",
+        "[12px]",
+        "[9px]",
+        "[3px]",
+        "[11px]",
+        "[4px]"
+      ]
+    },
+    {
+      "path": "packages/ui-kit/src/molecules/Toast/ToastContext.tsx",
+      "tokens": [],
+      "hardcodedColors": 0,
+      "arbitraryDimensions": [
+        "[360px]"
+      ]
+    },
+    {
       "path": "packages/ui-kit/src/organisms/DataTable/DataTable.tsx",
       "tokens": [
         "--sld-radius-lg",
@@ -13730,7 +13812,7 @@
       "tokens": [
         "--sld-surface-sunken",
         "--sld-border-default",
-        "--solide-text-muted"
+        "--sld-text-muted"
       ],
       "hardcodedColors": 0,
       "arbitraryDimensions": []
