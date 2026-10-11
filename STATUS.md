@@ -43,9 +43,23 @@ Atualizado em 2026-10-10.
 Tokens que faltaram em projetos reais. Cada linha: data, projeto, o que faltou e qual token substituiu. Corrigir no SOLIDE quando possível.
 - (nenhuma registrada ainda)
 
+## Para retomar (leia isto primeiro)
+- Estado: tudo salvo e no `main` do GitHub (último commit `c27e859` + este). Nada pendente no git; sem branches abertos.
+- Regras de trabalho do Igor (ele não programa): decidir e avisar em uma linha; mostrar a tela testada no navegador em vez de pedir opinião técnica; "pronto" só com prova (testes rodados). Uma feature por vez, um branch e um PR por feature.
+- Leitura mínima para trabalhar no SOLIDE: `SOLIDE-RESUMO.md` e `AGENTS.md`. O `solide-brand-guide.html` (~600 KB) só por seção.
+- Como ver o guia: `npm run serve` e abrir `http://localhost:8080/solide-brand-guide.html`.
+- Antes de dar algo por concluído: `npm run build`, `npm run typecheck`, `npm run lint`, `npm run test:tokens` e `npx playwright test` (118 testes; ~2 min).
+- Cuidado ao renomear tokens: `docs/consolidation/audit.json` e `packages/tokens/src/*` são gerados pelo build — rode o build e commite o resultado.
+- O repositório é **público**: nenhum segredo, nenhum dado de cliente.
+
 ## Próximos passos (nesta ordem)
 1. ~~Arrumação (não muda o visual)~~ → **feito** em 2026-10-10.
 2. Identidade com a skill `prototype`, sempre na mesma tela real do SOLIDE:
    - ~~3 bases de neutro~~ → feito: frio sutil.
-   - Agora: 3 fontes de título (Inter fica no texto corrido) e 3 tons de azul.
-3. Logo em vetor de verdade (à parte).
+   - **Próximo: 3 fontes de título** (Inter fica no texto corrido). Mesmo método dos neutros: protótipo em `docs/plans/prototipo-fontes/` que carrega o guia real num iframe e troca só `--sld-font-display`/`--font-family` dos títulos, com barra ← → e capturas claro/escuro/celular. Sugestão de candidatas: uma sans geométrica, uma sans humanista e uma serifada de display — escolher e justificar; o Igor costuma delegar a escolha com justificativa.
+   - Depois: 3 tons de azul para `--sld-palette-cobalt-*` (hoje base `#2D7CF6`, considerado genérico). Respeitar contraste: botão primário ≥ 4,5:1 com texto branco.
+   - Por último: elemento-assinatura (a identidade ainda não tem um).
+3. Logo em vetor de verdade: `solide-logo-*.svg` e `solide-favicon*.svg` são PNG embrulhado em SVG (~260 KB). Refazer a partir do logo.
+4. Decisões visuais adiadas (cada uma muda cores/tamanhos na tela, por isso pedem aprovação): unificar `--solide-neutral-*` e `--sld-color-neutral-*` (~50 usos) com a escala `--sld-palette-neutral-*`; remover a escala tipográfica não usada `--sld-font-size-*`; trocar o `--sld-surface-overlay` claro (`rgba(18,17,16,0.45)`, preto quente antigo) por um preto neutro.
+5. Defeitos conhecidos, ainda não tratados: texto dos alertas parece negrito e espaçado demais (causa não confirmada); cabeçalho do guia corta o avatar e rola de lado em 390 px; classes `bg-solide-success/error/warning/info` do preset Tailwind apontam para cor de texto (nenhum componente usa hoje).
+6. Decidir o destino do experimento "apresentação editorial" do guia (já commitado): manter ou descartar — ver `docs/plans/apresentacao-por-item.md`.
