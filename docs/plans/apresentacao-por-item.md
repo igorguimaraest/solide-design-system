@@ -1,6 +1,8 @@
 # Plano — apresentação do guia com um item por bloco
 
-Status: **rascunho para decisão**. Nenhum arquivo do guia foi alterado por este plano.
+Registro histórico. Implementação atual: `docs/plans/documentacao-componentes.md` e `docs/components/README.md`. As regras atuais de AGENTS.md prevalecem sobre este rascunho.
+
+Status original: **rascunho para decisão**. Nenhum arquivo do guia foi alterado por este plano.
 
 ## 1. Diagnóstico verificado
 

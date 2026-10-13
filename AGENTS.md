@@ -31,3 +31,12 @@ repetir, ela vira token no SOLIDE.
 - Confira a tela no navegador em desktop e celular, claro e escuro.
 - No repositório do SOLIDE, rode `npm run build`, `npm run typecheck` e
   `npm run test:tokens`.
+
+## Mapa de pastas
+
+- `solide-brand-guide.html`: entrada da vitrine e laboratórios.
+- `docs/components/`: páginas individuais e estilos de documentação.
+- `packages/ui-kit/src/`: implementação React, tipos e stories.
+- `solide-tokens.css` e `packages/tokens/`: contrato e formatos de tokens.
+- `docs/plans/`: propostas e especificações; `docs/audits/`: evidências.
+- `tests/`: verificações no navegador; `scripts/`: auditorias e manutenção.

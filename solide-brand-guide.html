@@ -5388,6 +5388,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
   }
 }
 </style>
+<link rel="stylesheet" href="docs/components/catalog.css">
 </head>
 <body>
 
@@ -5490,6 +5491,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
   <!-- SIDEBAR LATERAL DA DOCUMENTAÇÃO (PADRÃO GMAIL WEB) -->
   <aside class="doc-sidebar" id="doc-sidebar">
     <div class="doc-sidebar-group" data-nav-group>
+      <div class="doc-sidebar-title">Começar</div>
       <a href="#screen-visao-geral" class="doc-sidebar-link active" data-tooltip="Visão geral" onclick="showScreen('screen-visao-geral', this, event)">
         <div class="nav-item-left">
           <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
@@ -5506,6 +5508,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
       </a>
 
+      <div class="doc-sidebar-title">Fundamentos</div>
       <a href="#screen-cores" class="doc-sidebar-link" data-tooltip="Cores (Tokens)" onclick="showScreen('screen-cores', this, event)">
         <div class="nav-item-left">
           <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
@@ -5538,6 +5541,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
       </a>
 
+      <div class="doc-sidebar-title">Componentes</div>
       <a href="#screen-controles" class="doc-sidebar-link" data-tooltip="Controles" onclick="showScreen('screen-controles', this, event)">
         <div class="nav-item-left">
           <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
@@ -5594,6 +5598,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
         <svg class="nav-active-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
       </a>
 
+      <div class="doc-sidebar-title">Padrões e diretrizes</div>
       <a href="#screen-app-shell" class="doc-sidebar-link" data-tooltip="App shell" onclick="showScreen('screen-app-shell', this, event)">
         <div class="nav-item-left">
           <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M3 9h6"/></svg>
@@ -5625,6 +5630,27 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {o
     <div class="doc-container">
 
 <div class="doc-screen active" id="screen-visao-geral">
+<section class="sec" aria-label="Explore a documentação SOLIDE">
+  <div style="margin-bottom:var(--sld-space-8)">
+    <p class="mono" style="color:var(--sld-text-secondary);letter-spacing:.1em;text-transform:uppercase">SOLIDE / DOCUMENTAÇÃO</p>
+    <h2 style="font-size:var(--text-title1);color:var(--sld-text-primary);margin:var(--sld-space-3) 0">Tudo para criar com consistência.</h2>
+    <p style="color:var(--sld-text-secondary);max-width:65ch">Navegue pelos fundamentos, consulte componentes com seus estados e descubra padrões completos para montar interfaces.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:var(--sld-space-4)">
+    <a href="#screen-cores" onclick="showScreen('screen-cores',null,event)" style="display:block;padding:var(--sld-space-6);border:1px solid var(--sld-border-default);border-radius:var(--sld-radius-lg);background:var(--sld-surface-card);text-decoration:none;color:var(--sld-text-primary)">
+      <span class="mono" style="color:var(--sld-text-secondary)">01 / FUNDAMENTOS</span><h3 style="margin:var(--sld-space-3) 0">Cores e tokens ↗</h3><p style="color:var(--sld-text-secondary)">Paleta, temas, tipografia, espaçamento e regras de aplicação.</p>
+      <div style="display:flex;gap:var(--sld-space-2);margin-top:var(--sld-space-5)"><span style="width:36px;height:36px;border-radius:var(--sld-radius-sm);background:var(--sld-action-primary-bg)"></span><span style="width:36px;height:36px;border-radius:var(--sld-radius-sm);background:var(--sld-surface-shell)"></span><span style="width:36px;height:36px;border-radius:var(--sld-radius-sm);background:var(--sld-text-primary)"></span></div>
+    </a>
+    <a href="#screen-controles" onclick="showScreen('screen-controles',null,event)" style="display:block;padding:var(--sld-space-6);border:1px solid var(--sld-border-default);border-radius:var(--sld-radius-lg);background:var(--sld-surface-card);text-decoration:none;color:var(--sld-text-primary)">
+      <span class="mono" style="color:var(--sld-text-secondary)">02 / COMPONENTES</span><h3 style="margin:var(--sld-space-3) 0">Biblioteca de UI ↗</h3><p style="color:var(--sld-text-secondary)">Controles, tabelas, alertas, estados e exemplos de uso.</p>
+      <div style="display:flex;align-items:center;gap:var(--sld-space-2);margin-top:var(--sld-space-5)"><span class="btn btn-primary">Ação</span><span class="btn btn-secondary">Alternativa</span></div>
+    </a>
+    <a href="#screen-padroes-interface" onclick="showScreen('screen-padroes-interface',null,event)" style="display:block;padding:var(--sld-space-6);border:1px solid var(--sld-border-default);border-radius:var(--sld-radius-lg);background:var(--sld-surface-card);text-decoration:none;color:var(--sld-text-primary)">
+      <span class="mono" style="color:var(--sld-text-secondary)">03 / PADRÕES</span><h3 style="margin:var(--sld-space-3) 0">Interfaces completas ↗</h3><p style="color:var(--sld-text-secondary)">Composição, navegação e soluções para fluxos reais.</p>
+      <div style="margin-top:var(--sld-space-5);padding:var(--sld-space-3);background:var(--sld-surface-sunken);border-radius:var(--sld-radius-md)"><div style="height:8px;width:65%;background:var(--sld-border-strong);border-radius:var(--sld-radius-sm)"></div><div style="height:8px;width:90%;margin-top:var(--sld-space-3);background:var(--sld-border-default);border-radius:var(--sld-radius-sm)"></div></div>
+    </a>
+  </div>
+</section>
 <section class="sec" id="hero">
   <div class="hero-card">
     <div class="crosshair-tl"></div><div class="crosshair-tr"></div><div class="crosshair-bl"></div><div class="crosshair-br"></div>
@@ -11137,9 +11163,9 @@ function showScreen(screenId, clickedEl, event) {
   });
 
   // 4. Update hash in URL smoothly
-  if (history.pushState) {
+  if (history.pushState && location.hash !== '#' + screenId.replace('screen-', '')) {
     history.pushState(null, null, '#' + screenId.replace('screen-', ''));
-  } else {
+  } else if (!history.pushState) {
     location.hash = '#' + screenId.replace('screen-', '');
   }
 
@@ -12762,5 +12788,6 @@ function toggleAppSidebarDemo() {
     });
   })();
 </script>
+<script src="docs/components/catalog.js"></script>
 </body>
 </html>
