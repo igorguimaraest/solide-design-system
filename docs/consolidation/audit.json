@@ -50,8 +50,8 @@
     },
     {
       "path": "STATUS.md",
-      "bytes": 8570,
-      "sha256": "f47918cf182dd19a9cd01b3a04a9dc0d1ed596641cf9d0b0eedc16d72b03cb89",
+      "bytes": 10775,
+      "sha256": "dcd0f401d158fd31b67d9aef6f944de7c3c837094e1ba5808f524f03c4cfd791",
       "colorLiterals": 7
     },
     {
@@ -158,8 +158,8 @@
     },
     {
       "path": "docs/consolidation/audit.json",
-      "bytes": 430530,
-      "sha256": "8de8ef0cebe60dcaa8e40fd40c6c6ddce7b0378ebb8b5b69e1e4e2cf5d018e8e",
+      "bytes": 430727,
+      "sha256": "3adf9ce79d63e5a0ccc0eca2afa3adb5e60b1c9b978ff68315e513ac2b0ad052",
       "colorLiterals": 9
     },
     {

@@ -1,6 +1,30 @@
 # STATUS — SOLIDE Design System
 
-Atualizado em 2026-10-10.
+Atualizado em 2026-10-13.
+
+## Etapa atual: documentação e apresentação
+
+- Direção aprovada: estrutura documental, laboratório por componente e catálogo visual.
+- Última entrega: 29 páginas individuais com uso, estados, acessibilidade, tokens e exemplos HTML; grupos da sidebar visíveis, ícones no modo compacto, busca e cabeçalho móvel ajustados.
+- Branch: `codex/documentacao-componentes`.
+- PR: https://github.com/igorguimaraest/solide-design-system/pull/3 — aberto, aguardando conferência visual; sem merge ou publicação.
+- Prévia nesta sessão: http://127.0.0.1:8080/solide-brand-guide.html#componentes. Clique em Botões ou Campo de texto.
+- Verificação local: build, typecheck, test:tokens, lint e build:storybook passaram. Suíte completa 123/123; após acabamento final de navegação, 6/6 testes direcionados passaram.
+- Apresentação: 29 páginas percorridas em 1440/390px, claro/escuro; sem overflow, tokens ausentes ou erros JavaScript nos quatro cenários. Capturas inspecionadas em `docs/audits/componentes/`.
+- Revisão manual das mudanças concluída; nenhum defeito grave identificado aberto. Evidências e limitações em `docs/audits/componentes/validacao.md`.
+- CI do PR: em execução no momento deste registro; o resultado deve ser consultado antes do merge.
+- Limites: celular simulado em Chromium, sem teste em aparelho físico; exemplos HTML não substituem os contratos React do UI Kit; variantes completas e componentes compostos continuam nos laboratórios existentes.
+- Execução local restabelecida por comandos aprovados fora do isolamento padrão. O modo padrão travou; causa não comprovada e nenhuma configuração global alterada.
+- Artefato anterior preservado fora deste PR: `docs/plans/prototipo-apresentacao/`, não rastreado.
+- Decisão pendente: Igor conferir visualmente a prévia. Próximo passo: após aprovação visual e CI passando, juntar o PR; publicação somente conforme autorização aplicável.
+
+## Lacunas desta etapa
+
+Nenhum token novo necessário. Avisos existentes de bundle acima de 500 kB permanecem, sem impedir build.
+
+## Histórico até 2026-10-10
+
+Os registros abaixo são históricos; o estado atual e o próximo passo são os da seção acima.
 
 ## Decisão
 - O SOLIDE é o design system ÚNICO do Igor (o antigo "estilo Apple" de `~/.claude/design-system` foi arquivado).
