@@ -1,9 +1,10 @@
 # STATUS — SOLIDE Design System
 
-Atualizado em 2026-10-10.
+Atualizado em 2026-10-13.
 
 ## Decisão
 - O SOLIDE é o design system ÚNICO do Igor (o antigo "estilo Apple" de `~/.claude/design-system` foi arquivado).
+- 2026-10-13: refazer o logo em vetor está adiado por decisão do Igor; não faz parte dos próximos passos neste momento.
 - A identidade ainda não agrada 100%: os neutros quentes (`#FAF9F6`, `#E9E6DE` puxando para bege) não convenceram.
 - 2026-10-10: neutros trocados para **frio sutil (C)** — escolha delegada pelo Igor. Motivo: cinza com o matiz da cor de ação (azul) dá harmonia sem chamar atenção; é a combinação recomendada pelo Radix Colors (azul ↔ slate). Neutro puro (A) foi o finalista.
 
@@ -59,7 +60,7 @@ Tokens que faltaram em projetos reais. Cada linha: data, projeto, o que faltou e
    - **Próximo: 3 fontes de título** (Inter fica no texto corrido). Mesmo método dos neutros: protótipo em `docs/plans/prototipo-fontes/` que carrega o guia real num iframe e troca só `--sld-font-display`/`--font-family` dos títulos, com barra ← → e capturas claro/escuro/celular. Sugestão de candidatas: uma sans geométrica, uma sans humanista e uma serifada de display — escolher e justificar; o Igor costuma delegar a escolha com justificativa.
    - Depois: 3 tons de azul para `--sld-palette-cobalt-*` (hoje base `#2D7CF6`, considerado genérico). Respeitar contraste: botão primário ≥ 4,5:1 com texto branco.
    - Por último: elemento-assinatura (a identidade ainda não tem um).
-3. Logo em vetor de verdade: `solide-logo-*.svg` e `solide-favicon*.svg` são PNG embrulhado em SVG (~260 KB). Refazer a partir do logo.
+3. **Logo adiado por decisão do Igor (2026-10-13).** `solide-logo-*.svg` e `solide-favicon*.svg` continuam sendo PNG embrulhado em SVG (~260 KB); não refazer neste momento.
 4. Decisões visuais adiadas (cada uma muda cores/tamanhos na tela, por isso pedem aprovação): unificar `--solide-neutral-*` e `--sld-color-neutral-*` (~50 usos) com a escala `--sld-palette-neutral-*`; remover a escala tipográfica não usada `--sld-font-size-*`; trocar o `--sld-surface-overlay` claro (`rgba(18,17,16,0.45)`, preto quente antigo) por um preto neutro.
 5. Defeitos conhecidos, ainda não tratados: texto dos alertas parece negrito e espaçado demais (causa não confirmada); cabeçalho do guia corta o avatar e rola de lado em 390 px; classes `bg-solide-success/error/warning/info` do preset Tailwind apontam para cor de texto (nenhum componente usa hoje).
 6. Decidir o destino do experimento "apresentação editorial" do guia (já commitado): manter ou descartar — ver `docs/plans/apresentacao-por-item.md`.
